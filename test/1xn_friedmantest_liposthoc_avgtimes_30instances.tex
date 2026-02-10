@@ -1,0 +1,71 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{graphicx}
+\usepackage{lscape}
+\title{Output tables for 1xN statistical comparisons.}
+\author{}
+\date{\today}
+\begin{document}
+\begin{landscape}
+\pagestyle{empty}
+\maketitle
+\thispagestyle{empty}
+
+\section{Average rankings of Friedman test}
+
+
+Average ranks obtained by each method in the Friedman test.
+
+\begin{table}[!htp]
+\centering
+\begin{tabular}{|c|c|}\hline
+Algorithm&Ranking\\\hline
+BCA&14.5333\\BN&9.7\\CLARA&17.8\\CP&13\\CA&7.85\\FF&16.0667\\KM&15.5667\\NBC&8.3\\NBD&11.35\\PAM&12.8\\P&9.4833\\RBE&3.9333\\RSC&3.5667\\SC&3.8167\\S&3.5667\\SW&4.55\\3CC&3.6333\\UPGMC&11.4833\\\hline\end{tabular}
+\caption{Average Rankings of the algorithms (Friedman)}
+\end{table}
+
+Friedman statistic (distributed according to chi-square with 17 degrees of freedom): 422.595906. \newline P-value computed by Friedman Test: 0.\newline
+
+
+\newpage
+
+\section{Post hoc comparison (Friedman)}
+
+
+P-values obtained in by applying post hoc methods over the results of Friedman procedure.
+
+\begin{table}[!htp]
+\centering\footnotesize
+\begin{tabular}{ccccc}
+$i$&algorithm&$z=(R_0 - R_i)/SE$&$p$&Li\\
+\hline17&CLARA&10.325945&0&0\\16&FF&9.068453&0&0\\15&KM&8.705715&0&0\\14&BCA&7.956056&0&0\\13&CP&6.843659&0&0\\12&PAM&6.698564&0&0\\11&UPGMC&5.743354&0&0\\10&NBD&5.646623&0&0\\9&BN&4.449588&0.000009&0\\8&P&4.292401&0.000018&0\\7&NBC&3.433921&0.000595&0\\6&CA&3.107457&0.001887&0\\5&SW&0.713385&0.475608&0\\4&RBE&0.266008&0.790233&0\\3&SC&0.181369&0.856078&0\\2&3CC&0.048365&0.961425&0\\1&S&0&1&0.05\\\hline
+\end{tabular}
+\caption{Post Hoc comparison Table for $\alpha=0.05$ (FRIEDMAN)}
+\end{table}Li's procedure rejects those hypotheses that have an unadjusted p-value $\le0$.
+
+
+\newpage
+
+\section{Adjusted P-Values (Friedman)}
+
+
+Adjusted P-values obtained through the application of the post hoc methods (Friedman).
+
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{ccc}
+i&algorithm&unadjusted $p$\\
+\hline1&CLARA&0\\2&FF&0\\3&KM&0\\4&BCA&0\\5&CP&0\\6&PAM&0\\7&UPGMC&0\\8&NBD&0\\9&BN&0.000009\\10&P&0.000018\\11&NBC&0.000595\\12&CA&0.001887\\13&SW&0.475608\\14&RBE&0.790233\\15&SC&0.856078\\16&3CC&0.961425\\17&S&1\\\hline
+\end{tabular}
+\caption{Adjusted $p$-values (FRIEDMAN) (I)}
+\end{table}
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{cccc}
+i&algorithm&unadjusted $p$&$p_{Li}$\\
+\hline1&CLARA&0&\\2&FF&0&\\3&KM&0&\\4&BCA&0&0.999854\\5&CP&0&0.999992\\6&PAM&0&0.999996\\7&UPGMC&0&1\\8&NBD&0&1\\9&BN&0.000009&1\\10&P&0.000018&1\\11&NBC&0.000595&1\\12&CA&0.001887&1\\13&SW&0.475608&1\\14&RBE&0.790233&1\\15&SC&0.856078&1\\16&3CC&0.961425&1\\17&S&1&1\\\hline
+\end{tabular}
+\caption{Adjusted $p$-values (FRIEDMAN) (II)}
+\end{table}
+
+\newpage
+\end{landscape}\end{document}

@@ -1,0 +1,30 @@
+Heuristic: Farthest_First
+Solution:
+Number of clusters: 4
+
+Cluster ID: 51
+Cluster demand: 231.0
+Number of elements: 14
+Element IDs:
+[17, 4, 44, 37, 42, 19, 47, 41, 18, 15, 12, 13, 45, 40]
+
+Cluster ID: 52
+Cluster demand: 187.0
+Number of elements: 12
+Element IDs:
+[23, 48, 6, 7, 24, 27, 14, 8, 26, 43, 46, 25]
+
+Cluster ID: 53
+Cluster demand: 204.0
+Number of elements: 13
+Element IDs:
+[9, 49, 30, 50, 38, 10, 34, 16, 5, 11, 21, 39, 33]
+
+Cluster ID: 54
+Cluster demand: 155.0
+Number of elements: 11
+Element IDs:
+[3, 22, 20, 2, 28, 1, 29, 35, 31, 32, 36]
+
+Unassigned customers: 0
+Depots without assigned customers: 0

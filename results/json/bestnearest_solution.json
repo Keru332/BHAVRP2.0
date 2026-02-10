@@ -1,0 +1,31 @@
+{
+  "heuristic": "BestNearest",
+  "solution": {
+    "clusters": [
+      {
+        "id_cluster": 12,
+        "request_cluster": 78.0,
+        "items_of_cluster": [
+          6,
+          1,
+          5,
+          2,
+          10
+        ]
+      },
+      {
+        "id_cluster": 11,
+        "request_cluster": 78.0,
+        "items_of_cluster": [
+          4,
+          9,
+          7,
+          8,
+          3
+        ]
+      }
+    ],
+    "unassigned_items": []
+  },
+  "unassigned_depots": []
+}

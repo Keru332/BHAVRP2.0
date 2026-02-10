@@ -1,0 +1,69 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{graphicx}
+\usepackage{lscape}
+\title{Output tables for 1xN statistical comparisons.}
+\author{}
+\date{\today}
+\begin{document}
+\begin{landscape}
+\pagestyle{empty}
+\maketitle
+\thispagestyle{empty}
+
+\section{Average rankings of Friedman test}
+
+
+Average ranks obtained by each method in the Friedman test.
+
+\begin{table}[!htp]
+\centering
+\begin{tabular}{|c|c|}\hline
+Algorithm&Ranking\\\hline
+best cyclic assignment&13.6\\farthest first&16.8\\parallel&7.875\\bestnearest&17.95\\clara&12.875\\coefficient propagation&8.275\\cyclicassignment&15.9\\kmeans&6.625\\nearestbycustomer&5.575\\nearestbydepot&8.275\\pam&6.65\\randombyelement&6.65\\randomsequentialcyclic&6.025\\sequentialcyclic&6.625\\simplified&7.375\\sweep&6.95\\threecriteriaclustering&6.675\\upgmc&10.3\\\hline\end{tabular}
+\caption{Average Rankings of the algorithms (Friedman)}
+\end{table}
+
+Friedman statistic (distributed according to chi-square with 17 degrees of freedom): 196.064035. \newline P-value computed by Friedman Test: 0.\newline
+
+
+\newpage
+
+\section{Post hoc comparison (Friedman)}
+
+
+P-values obtained in by applying post hoc methods over the results of Friedman procedure.
+
+\begin{table}[!htp]
+\centering\footnotesize
+\begin{tabular}{cccc}
+$i$&algorithm&$z=(R_0 - R_i)/SE$&$p$\\
+\hline17&bestnearest&7.330317&0\\16&farthest first&6.649116&0\\15&cyclicassignment&6.116002&0\\14&best cyclic assignment&4.7536&0.000002\\13&clara&4.324147&0.000015\\12&upgmc&2.798848&0.005129\\11&nearestbydepot&1.599342&0.109745\\10&coefficient propagation&1.599342&0.109745\\9&parallel&1.362402&0.173071\\8&simplified&1.066228&0.286321\\7&sweep&0.81448&0.41537\\6&threecriteriaclustering&0.651584&0.51467\\5&pam&0.636775&0.524271\\4&randombyelement&0.636775&0.524271\\3&kmeans&0.621966&0.533964\\2&sequentialcyclic&0.621966&0.533964\\1&randomsequentialcyclic&0.266557&0.78981\\\hline
+\end{tabular}
+\caption{Post Hoc comparison Table for $\alpha=0.05$ (FRIEDMAN)}
+\end{table}
+\newpage
+
+\section{Adjusted P-Values (Friedman)}
+
+
+Adjusted P-values obtained through the application of the post hoc methods (Friedman).
+
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{ccc}
+i&algorithm&unadjusted $p$\\
+\hline1&bestnearest&0\\2&farthest first&0\\3&cyclicassignment&0\\4&best cyclic assignment&0.000002\\5&clara&0.000015\\6&upgmc&0.005129\\7&nearestbydepot&0.109745\\8&coefficient propagation&0.109745\\9&parallel&0.173071\\10&simplified&0.286321\\11&sweep&0.41537\\12&threecriteriaclustering&0.51467\\13&pam&0.524271\\14&randombyelement&0.524271\\15&kmeans&0.533964\\16&sequentialcyclic&0.533964\\17&randomsequentialcyclic&0.78981\\\hline
+\end{tabular}
+\caption{Adjusted $p$-values (FRIEDMAN) (I)}
+\end{table}
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{ccc}
+i&algorithm&unadjusted $p$\\
+\hline1&bestnearest&0\\2&farthest first&0\\3&cyclicassignment&0\\4&best cyclic assignment&0.000002\\5&clara&0.000015\\6&upgmc&0.005129\\7&nearestbydepot&0.109745\\8&coefficient propagation&0.109745\\9&parallel&0.173071\\10&simplified&0.286321\\11&sweep&0.41537\\12&threecriteriaclustering&0.51467\\13&pam&0.524271\\14&randombyelement&0.524271\\15&kmeans&0.533964\\16&sequentialcyclic&0.533964\\17&randomsequentialcyclic&0.78981\\\hline
+\end{tabular}
+\caption{Adjusted $p$-values (FRIEDMAN) (II)}
+\end{table}
+
+\newpage
+\end{landscape}\end{document}

@@ -1,0 +1,6 @@
+Heuristic: Farthest_First
+Instance: 1
+Executions: 1
+
+Run | SSE | SSB | DunnIndex | SilhouetteCoefficient | CalinskiHarabaszIndex | XieBeniIndex | DaviesBouldinIndex | RayTuriIndex | BallHallIndex | Time (ms)
+1 | 2103.51 | 1254.33 | 0.17 | 0.34 | 171.43 | 2.63 | 0.8 | 10.52 | 12.1 | 747.0

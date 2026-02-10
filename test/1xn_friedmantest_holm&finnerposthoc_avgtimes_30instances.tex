@@ -1,0 +1,73 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{graphicx}
+\usepackage{lscape}
+\title{Output tables for 1xN statistical comparisons.}
+\author{}
+\date{\today}
+\begin{document}
+\begin{landscape}
+\pagestyle{empty}
+\maketitle
+\thispagestyle{empty}
+
+\section{Average rankings of Friedman test}
+
+
+Average ranks obtained by each method in the Friedman test.
+
+\begin{table}[!htp]
+\centering
+\begin{tabular}{|c|c|}\hline
+Algorithm&Ranking\\\hline
+BCA&14.5333\\BN&9.7\\CLARA&17.8\\CP&13\\CA&7.85\\FF&16.0667\\KM&15.5667\\NBC&8.3\\NBD&11.35\\PAM&12.8\\P&9.4833\\RBE&3.9333\\RSC&3.5667\\SC&3.8167\\S&3.5667\\SW&4.55\\3CC&3.6333\\UPGMC&11.4833\\\hline\end{tabular}
+\caption{Average Rankings of the algorithms (Friedman)}
+\end{table}
+
+Friedman statistic (distributed according to chi-square with 17 degrees of freedom): 422.595906. \newline P-value computed by Friedman Test: 0.\newline
+
+
+\newpage
+
+\section{Post hoc comparison (Friedman)}
+
+
+P-values obtained in by applying post hoc methods over the results of Friedman procedure.
+
+\begin{table}[!htp]
+\centering\footnotesize
+\begin{tabular}{cccccc}
+$i$&algorithm&$z=(R_0 - R_i)/SE$&$p$&Holm &Finner\\
+\hline17&CLARA&10.325945&0&0.002941&0.003013\\16&FF&9.068453&0&0.003125&0.006016\\15&KM&8.705715&0&0.003333&0.009011\\14&BCA&7.956056&0&0.003571&0.011996\\13&CP&6.843659&0&0.003846&0.014973\\12&PAM&6.698564&0&0.004167&0.017941\\11&UPGMC&5.743354&0&0.004545&0.020899\\10&NBD&5.646623&0&0.005&0.023849\\9&BN&4.449588&0.000009&0.005556&0.02679\\8&P&4.292401&0.000018&0.00625&0.029722\\7&NBC&3.433921&0.000595&0.007143&0.032645\\6&CA&3.107457&0.001887&0.008333&0.035559\\5&SW&0.713385&0.475608&0.01&0.038465\\4&RBE&0.266008&0.790233&0.0125&0.041362\\3&SC&0.181369&0.856078&0.016667&0.04425\\2&3CC&0.048365&0.961425&0.025&0.047129\\1&S&0&1&0.05&0.05\\\hline
+\end{tabular}
+\caption{Post Hoc comparison Table for $\alpha=0.05$ (FRIEDMAN)}
+\end{table}Holm's procedure rejects those hypotheses that have an unadjusted p-value $\le0.01$.
+
+Finner's procedure rejects those hypotheses that have an unadjusted p-value $\le0.038465$.
+
+
+\newpage
+
+\section{Adjusted P-Values (Friedman)}
+
+
+Adjusted P-values obtained through the application of the post hoc methods (Friedman).
+
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{cccc}
+i&algorithm&unadjusted $p$&$p_{Holm}$\\
+\hline1&CLARA&0&0\\2&FF&0&0\\3&KM&0&0\\4&BCA&0&0\\5&CP&0&0\\6&PAM&0&0\\7&UPGMC&0&0\\8&NBD&0&0\\9&BN&0.000009&0.000077\\10&P&0.000018&0.000141\\11&NBC&0.000595&0.004164\\12&CA&0.001887&0.011322\\13&SW&0.475608&2.378038\\14&RBE&0.790233&3.160932\\15&SC&0.856078&3.160932\\16&3CC&0.961425&3.160932\\17&S&1&3.160932\\\hline
+\end{tabular}
+\caption{Adjusted $p$-values (FRIEDMAN) (I)}
+\end{table}
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{cccc}
+i&algorithm&unadjusted $p$&$p_{Finner}$\\
+\hline1&CLARA&0&0\\2&FF&0&0\\3&KM&0&0\\4&BCA&0&0\\5&CP&0&0\\6&PAM&0&0\\7&UPGMC&0&0\\8&NBD&0&0\\9&BN&0.000009&0.000016\\10&P&0.000018&0.00003\\11&NBC&0.000595&0.000919\\12&CA&0.001887&0.002672\\13&SW&0.475608&0.570071\\14&RBE&0.790233&0.849895\\15&SC&0.856078&0.888858\\16&3CC&0.961425&0.968526\\17&S&1&1\\\hline
+\end{tabular}
+\caption{Adjusted $p$-values (FRIEDMAN) (II)}
+\end{table}
+
+\newpage
+\end{landscape}\end{document}

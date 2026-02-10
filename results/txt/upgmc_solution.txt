@@ -1,0 +1,31 @@
+Heuristic: UPGMC
+
+Solution:
+Number of clusters: 4
+
+Cluster ID: 52
+Cluster demand: 244.0
+Number of elements: 17
+Element IDs:
+[46, 47, 12, 32, 1, 27, 22, 48, 6, 23, 7, 24, 43, 31, 28, 26, 8]
+
+Cluster ID: 51
+Cluster demand: 216.0
+Number of elements: 13
+Element IDs:
+[4, 41, 19, 42, 44, 15, 37, 17, 25, 14, 18, 13, 40]
+
+Cluster ID: 53
+Cluster demand: 206.0
+Number of elements: 13
+Element IDs:
+[49, 9, 10, 34, 30, 50, 16, 38, 11, 5, 45, 33, 39]
+
+Cluster ID: 54
+Cluster demand: 111.0
+Number of elements: 7
+Element IDs:
+[29, 21, 2, 36, 35, 20, 3]
+
+Unassigned customers: 0
+Depots without assigned customers: 0
