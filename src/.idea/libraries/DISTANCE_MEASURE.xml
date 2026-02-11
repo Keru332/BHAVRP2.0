@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="DISTANCE_MEASURE">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../lib/DISTANCE_MEASURE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/gson-2.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/httpclient-4.5.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/httpcore-4.4.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/junit-4.13.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/MATRIX_CLASS.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/org.apache.commons.logging_1.1.1.v201101211721-4.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/OSRMLib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/poi-3.6-20091214.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

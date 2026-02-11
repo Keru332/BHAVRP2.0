@@ -45,7 +45,7 @@ public class UPGMC extends AbstractHierarchical {
 		} catch (ClusterException | CostMatrixException | ProblemException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new AssignmentException("Error inesperado durante la ejecución de la adaptación del algoritmo UPGMC.", e);
+			throw new AssignmentException("Error inesperado durante la ejecuciï¿½n de la adaptaciï¿½n del algoritmo UPGMC.", e);
 		}
 	}
 			
@@ -54,24 +54,24 @@ public class UPGMC extends AbstractHierarchical {
 		try {
 			list_id_elements = Problem.get_problem().get_list_id_elements();
 			if (list_id_elements == null || list_id_elements.isEmpty())
-				throw new AssignmentException("No se encontraron elementos iniciales para los clústeres.");
+				throw new AssignmentException("No se encontraron elementos iniciales para los clï¿½steres.");
 
 			list_clusters = initialize_clusters(list_id_elements);
 			if (list_clusters == null || list_clusters.isEmpty())
-				throw new ClusterException("No se pudieron inicializar los clústeres a partir de los elementos proporcionados.");
+				throw new ClusterException("No se pudieron inicializar los clï¿½steres a partir de los elementos proporcionados.");
 
 			list_customers_to_assign = new ArrayList<Customer>(Problem.get_problem().get_customers());
 			if (list_customers_to_assign.isEmpty())
-				throw new AssignmentException("La lista de clientes está vacía.");
+				throw new AssignmentException("La lista de clientes estï¿½ vacï¿½a.");
 
 			list_depots = new ArrayList<Depot>(Problem.get_problem().get_depots());
 			if (list_depots.isEmpty())
-				throw new AssignmentException("La lista de depósitos está vacía.");
+				throw new AssignmentException("La lista de depï¿½sitos estï¿½ vacï¿½a.");
 			
 		} catch (ClusterException | ProblemException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new AssignmentException("Error inesperado durante la fase de inicialización.", e);
+			throw new AssignmentException("Error inesperado durante la fase de inicializaciï¿½n.", e);
 		}
 	}
 	
@@ -312,7 +312,7 @@ public class UPGMC extends AbstractHierarchical {
 		} catch (CostMatrixException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new AssignmentException("Error inesperado durante la fase de asignación.", e);
+			throw new AssignmentException("Error inesperado durante la fase de asignaciï¿½n.", e);
 		}
 	}
 	
@@ -330,33 +330,33 @@ public class UPGMC extends AbstractHierarchical {
 
 			return solution;
 		} catch (Exception e) {
-			throw new AssignmentException("Error inesperado durante la fase de finalización.", e);
+			throw new AssignmentException("Error inesperado durante la fase de finalizaciï¿½n.", e);
 		}
 	}
 	
 	/**
-	 * Obtiene el identificador del depósito con la mayor capacidad restante disponible,
-	 * considerando la demanda ya cubierta en su clúster correspondiente.
+	 * Obtiene el identificador del depï¿½sito con la mayor capacidad restante disponible,
+	 * considerando la demanda ya cubierta en su clï¿½ster correspondiente.
 	 *
-	 * @param depots Lista de depósitos disponibles.
-	 * @param clusters Lista de clústeres con demanda acumulada.
-	 * @return ID del depósito con mayor capacidad restante.
-	 * @throws AssignmentException si las listas están vacías, nulas o inconsistentes.
+	 * @param depots Lista de depï¿½sitos disponibles.
+	 * @param clusters Lista de clï¿½steres con demanda acumulada.
+	 * @return ID del depï¿½sito con mayor capacidad restante.
+	 * @throws AssignmentException si las listas estï¿½n vacï¿½as, nulas o inconsistentes.
 	 */
 	private int get_id_cluster_with_mu(ArrayList<Depot> depots, ArrayList<Cluster> clusters) 
 			throws AssignmentException {
 		if (depots == null || depots.isEmpty()) 
-			throw new AssignmentException("La lista de depósitos está vacía o no ha sido inicializada.");
+			throw new AssignmentException("La lista de depï¿½sitos estï¿½ vacï¿½a o no ha sido inicializada.");
 
 		if (clusters == null || clusters.isEmpty()) 
-			throw new AssignmentException("La lista de clústeres está vacía o no ha sido inicializada.");
+			throw new AssignmentException("La lista de clï¿½steres estï¿½ vacï¿½a o no ha sido inicializada.");
 
 		try {
 			int id_depot_mu = depots.get(0).get_id_depot();
 			int pos_cluster = find_cluster(id_depot_mu, clusters);
 
 			if (pos_cluster == -1)
-				throw new AssignmentException("No se encontró el clúster correspondiente al depósito " + id_depot_mu);
+				throw new AssignmentException("No se encontrï¿½ el clï¿½ster correspondiente al depï¿½sito " + id_depot_mu);
 
 			double request_cluster = clusters.get(pos_cluster).get_request_cluster();
 			double max_capacity_depot = Problem.get_problem().get_total_capacity_by_depot(depots.get(0)); 
@@ -380,20 +380,20 @@ public class UPGMC extends AbstractHierarchical {
 			}
 			return id_depot_mu;
 		} catch (Exception e) {
-			throw new AssignmentException("Error al determinar el depósito con mayor capacidad restante.", e);
+			throw new AssignmentException("Error al determinar el depï¿½sito con mayor capacidad restante.", e);
 		}
 	}
 	
 	/**
-	 * Completa la construcción de la solución, identificando elementos que permanecen sin asignación válida.
+	 * Completa la construcciï¿½n de la soluciï¿½n, identificando elementos que permanecen sin asignaciï¿½n vï¿½lida.
 	 *
-	 * @param clusters Lista de clústeres generados durante la asignación.
-	 * @param solution Solución parcial que se actualizará con clientes no asignados.
+	 * @param clusters Lista de clï¿½steres generados durante la asignaciï¿½n.
+	 * @param solution Soluciï¿½n parcial que se actualizarï¿½ con clientes no asignados.
 	 * @throws ProblemException si ocurre un error al consultar la estructura del problema.
 	 */
 	private void finish(ArrayList<Cluster> clusters, Solution solution) throws AssignmentException {
 		if (clusters == null || solution == null) 
-			throw new AssignmentException("Las estructuras de clúster o solución no están correctamente inicializadas.");
+			throw new AssignmentException("Las estructuras de clï¿½ster o soluciï¿½n no estï¿½n correctamente inicializadas.");
 		
 		try {
 			ArrayList<Cluster> clusters_to_remove = new ArrayList<Cluster>();
@@ -411,7 +411,7 @@ public class UPGMC extends AbstractHierarchical {
 
 				boolean is_invalid = false;
 
-				// Búsqueda manual para evitar excepción si el cliente no está
+				// Bï¿½squeda manual para evitar excepciï¿½n si el cliente no estï¿½
 				for (Customer c : customers) 
 				{
 					if (c.get_id_customer() == id_cluster) 
@@ -431,260 +431,7 @@ public class UPGMC extends AbstractHierarchical {
 			clusters.removeAll(clusters_to_remove);
 			
 		} catch (Exception e) {
-			throw new AssignmentException("Error durante el proceso de finalización de la solución.", e);
+			throw new AssignmentException("Error durante el proceso de finalizaciï¿½n de la soluciï¿½n.", e);
 		}
 	}
 }
-
-//metodo assign anterior
-/*
-@Override
-public void assign() throws ProblemException, ClusterException, CostMatrixException, AssignmentException {
-	try {
-		if (list_customers_to_assign == null || list_customers_to_assign.isEmpty())
-			throw new AssignmentException("No hay clientes disponibles para asignar.");
-		
-		if (list_clusters == null || list_clusters.isEmpty())
-			throw new AssignmentException("No hay clústeres disponibles para la asignación.");
-		
-		if (list_depots == null || list_depots.isEmpty())
-			throw new AssignmentException("No hay depósitos disponibles.");
-
-		int total_depots = list_depots.size();
-
-		int current_depots =  -1;
-		int current_customers = -1;
-
-		int pos_col = -1;
-		int pos_row = -1;
-
-		int id_customer_one = -1;
-		int pos_customer_one = -1;
-		int id_customer_two = -1;
-		int pos_customer_two = -1;
-
-		int pos_cluster_one = -1;
-		double request_cluster_one = 0.0;
-		int pos_cluster_two = -1;
-		double request_cluster_two = 0.0;
-
-		int id_depot = -1;
-		int pos_depot = -1;		
-		int pos_depot_matrix = -1;
-		double capacity_depot = 0.0;
-
-		int pos_cluster = -1;
-		double request_cluster = 0.0;
-		double total_request = 0.0;
-
-		int id_depot_with_mu = -1;
-		double capacity_depot_with_mu = 0.0;
-
-		RowCol rc_best_all = new RowCol();
-		Location new_location = new Location();
-
-		boolean change = true;
-
-		while(!(list_customers_to_assign.isEmpty()) && (total_depots > 0))
-		{
-			current_depots = list_depots.size();
-			current_customers = list_customers_to_assign.size();
-
-			System.out.println("Current Depots: " + current_depots);
-			System.out.println("Current Customers: " + current_customers);
-
-			if(change)
-			{
-				try {
-					cost_matrix = initialize_cost_matrix(list_customers_to_assign, list_depots, distance_type);
-				} catch (IllegalArgumentException | SecurityException e) {
-					e.printStackTrace();
-				}
-			}
-
-			rc_best_all = cost_matrix.indexLowerValue(0, 0, (current_customers + current_depots - 1), (current_customers - 1));
-
-			System.out.println("rcBestAll " + cost_matrix.getItem(rc_best_all.getRow(), rc_best_all.getCol()));
-			System.out.println("bestAllRow" + rc_best_all.getRow());
-			System.out.println("bestAllCol" + rc_best_all.getCol());
-
-			pos_col = rc_best_all.getCol();
-			pos_row = rc_best_all.getRow();
-
-			if((pos_col < current_customers) && (pos_row < current_customers)) 
-			{ 
-				pos_customer_one = pos_col;
-				id_customer_one = list_customers_to_assign.get(pos_customer_one).get_id_customer();
-
-				System.out.println("--------------------------------------");
-				System.out.println("ID Customer One: " + id_customer_one);
-
-				pos_customer_two = pos_row;
-				id_customer_two = list_customers_to_assign.get(pos_customer_two).get_id_customer();				
-
-				System.out.println("idCustomerTwo" + id_customer_two);
-
-				pos_cluster_one = find_cluster(id_customer_one, list_clusters);	
-				pos_cluster_two = find_cluster(id_customer_two, list_clusters);
-
-				System.out.println("--------------------------------------");
-				System.out.println("Position Cluster One: " + pos_cluster_one);
-				System.out.println("Position Cluster Two: " + pos_cluster_two);
-
-				if((pos_cluster_one != -1) && (pos_cluster_two != -1)) 
-				{
-					request_cluster_one = list_clusters.get(pos_cluster_one).get_request_Cluster();
-					request_cluster_two = list_clusters.get(pos_cluster_two).get_request_Cluster();
-					total_request = request_cluster_one + request_cluster_two;
-
-					System.out.println("--------------------------------------");
-					System.out.println("Request Cluster One: " + request_cluster_one);
-					System.out.println("Request Cluster Two: " + request_cluster_two);
-					System.out.println("Total Request: " + total_request);
-
-					id_depot_with_mu = get_id_cluster_with_mu(list_depots, list_clusters);
-					pos_depot = Problem.getProblem().find_pos_depot(list_depots, id_depot_with_mu);
-					capacity_depot_with_mu = Problem.getProblem().get_total_capacity_by_depot(list_depots.get(pos_depot));
-					pos_cluster = find_cluster(id_depot_with_mu, list_clusters);
-					request_cluster = list_clusters.get(pos_cluster).get_request_Cluster();
-
-					System.out.println("--------------------------------------");
-					System.out.println("ID Depot With MU: " + id_depot_with_mu);
-					System.out.println("Position Depot: " + pos_depot);
-					System.out.println("Capacity Depot With MU: " + capacity_depot_with_mu);
-					System.out.println("Position Cluster: " + pos_cluster);
-					System.out.println("Request Cluster: " + request_cluster);
-
-					if(capacity_depot_with_mu >= (request_cluster + total_request)) 
-					{
-						list_clusters.get(pos_cluster_one).set_request_cluster(total_request);
-
-						for (int i = 0; i < list_clusters.get(pos_cluster_two).get_items_of_cluster().size(); i++)
-							list_clusters.get(pos_cluster_one).get_items_of_cluster().add(list_clusters.get(pos_cluster_two).get_items_of_cluster().get(i));			
-
-						new_location = recalculate_centroid(list_clusters.get(pos_cluster_one));
-
-						System.out.println("--------------------------------------");
-						System.out.println("New Location:");
-						System.out.println("Axis X: " + new_location.get_axis_x());
-						System.out.println("Axis Y: " + new_location.get_axis_y());
-
-						pos_customer_one = Problem.getProblem().find_pos_customer(list_customers_to_assign, id_customer_one);
-						list_customers_to_assign.get(pos_customer_one).set_location_customer(new_location);
-
-						System.out.println("--------------------------------------");
-						System.out.println("New Location:");
-						System.out.println("Axis X: " + new_location.get_axis_x());
-						System.out.println("Axis Y:" + new_location.get_axis_y());
-						System.out.println("Position Customer One: " + pos_customer_one);
-
-						list_clusters.remove(pos_cluster_two);
-						pos_customer_two = Problem.getProblem().find_pos_customer(list_customers_to_assign, id_customer_two);
-						list_customers_to_assign.remove(pos_customer_two);
-
-						System.out.println("--------------------------------------");
-						System.out.println("List Clusters: " + list_clusters.size());
-						System.out.println("Position Customer Two: " + pos_customer_two);
-						System.out.println("List Customers To Assign: " + list_customers_to_assign.size());
-
-						change = true;
-					}
-					else
-					{
-						cost_matrix.setItem(rc_best_all.getRow(), rc_best_all.getCol(), Double.POSITIVE_INFINITY);
-						change = false;
-					}
-				}	
-			}
-			else
-			{				
-				if(((pos_col < current_customers) && (pos_row >= current_customers)) || ((pos_row < current_customers) && (pos_col >= current_customers)))
-				{
-					if(pos_col < current_customers)
-					{
-						pos_customer_one = rc_best_all.getCol();
-						pos_depot_matrix = rc_best_all.getRow();
-					}
-					else
-					{
-						pos_customer_one = rc_best_all.getRow();
-						pos_depot_matrix = rc_best_all.getCol();
-					}
-					System.out.println("--------------------------------------");
-					System.out.println("Position Customer One: " + pos_customer_one);
-					System.out.println("Position Depot Matrix: " + pos_depot_matrix);
-
-					id_customer_one = list_customers_to_assign.get(pos_customer_one).get_id_customer();			
-					pos_cluster_one = find_cluster(id_customer_one, list_clusters);
-
-					System.out.println("--------------------------------------");
-					System.out.println("ID Customer One: " + id_customer_one);
-					System.out.println("Position Cluster One: " + pos_cluster_one);
-
-					pos_depot = (pos_depot_matrix - current_customers); 
-					id_depot = list_depots.get(pos_depot).get_id_depot();
-					capacity_depot = Problem.getProblem().get_total_capacity_by_depot(list_depots.get(pos_depot));
-					pos_cluster = find_cluster(id_depot, list_clusters);
-
-					System.out.println("--------------------------------------");
-					System.out.println("Position Depot: " + pos_depot);
-					System.out.println("ID Depot: " + id_depot);
-					System.out.println("Capacity Depot: " + capacity_depot);
-					System.out.println("Position Cluster: " + pos_cluster);
-
-					if((pos_cluster_one != -1) && (pos_cluster != -1))
-					{
-						request_cluster_one = list_clusters.get(pos_cluster_one).get_request_Cluster();
-						request_cluster = list_clusters.get(pos_cluster).get_request_Cluster();
-
-						System.out.println("--------------------------------------");
-						System.out.println("Request Cluster One: " + request_cluster_one);
-						System.out.println("Request Cluster: " + request_cluster);
-
-						if(capacity_depot >= (request_cluster + request_cluster_one)) 
-						{
-							request_cluster += request_cluster_one;
-							list_clusters.get(pos_cluster).set_request_cluster(request_cluster);
-
-							for (int i = 0; i < list_clusters.get(pos_cluster_one).get_items_of_cluster().size(); i++)
-								list_clusters.get(pos_cluster).get_items_of_cluster().add(list_clusters.get(pos_cluster_one).get_items_of_cluster().get(i));
-
-							list_customers_to_assign.remove(Problem.getProblem().find_pos_customer(list_customers_to_assign, id_customer_one));
-
-							list_clusters.remove(pos_cluster_one);
-							change = true;
-						}
-						else
-						{
-							cost_matrix.setItem(rc_best_all.getRow(), rc_best_all.getCol(), Double.POSITIVE_INFINITY);
-							change = false;		
-						}
-
-						//PENDIENTE ENTRADA CON LISTCUSTOMER VACIA EN EL ISFULLDEPOT TRADICIONAL
-						if(is_full_depot(list_clusters, request_cluster, capacity_depot, list_customers_to_assign.size()))
-						{
-							pos_cluster = find_cluster(id_depot, list_clusters);
-
-							System.out.println("--------------------------------------");
-							System.out.println("Position Cluster: " + pos_cluster);
-
-							if(!(list_clusters.get(pos_cluster).get_items_of_cluster().isEmpty()))
-								solution.get_clusters().add(list_clusters.remove(pos_cluster));
-							else
-								list_clusters.remove(pos_cluster);
-
-							list_depots.remove(pos_depot);
-							total_depots--;
-							change = true;
-						}
-					}
-				}
-			}
-		}
-	} catch (ClusterException | ProblemException | CostMatrixException e) {
-		throw e;
-	} catch (Exception e) {
-		throw new AssignmentException("Error inesperado durante la ejecución de la fase de asignación.", e);
-	}
-}
-*/

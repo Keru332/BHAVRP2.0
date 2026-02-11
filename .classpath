@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/21.0.9-linux-x86_64"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/eriza/Downloads/Tesis/Implementacion/BHAVRP_Java/BHAVRPv2.0/BHAVRP2.0/BHAVRP2.0/lib/DISTANCE_MEASURE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/eriza/Downloads/Tesis/Implementacion/BHAVRP_Java/BHAVRPv2.0/BHAVRP2.0/BHAVRP2.0/lib/MATRIX_CLASS.jar"/>
-	<classpathentry kind="lib" path="C:/Users/eriza/Downloads/Tesis/Implementacion/BHAVRP_Java/BHAVRPv2.0/BHAVRP2.0/BHAVRP2.0/lib/poi-3.6-20091214.jar"/>
-	<classpathentry kind="lib" path="C:/Users/eriza/Downloads/Tesis/Implementacion/BHAVRP/BHAVRP_Java/BHAVRPv2.0/BHAVRP2.0/lib/junit-4.13.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/eriza/Downloads/Tesis/Implementacion/BHAVRP/BHAVRP_Java/BHAVRPv2.0/BHAVRP2.0/lib/org.apache.commons.logging_1.1.1.v201101211721-4.8.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/eriza/Downloads/Tesis/Implementacion/BHAVRP/BHAVRP_Java/BHAVRPv2.0/BHAVRP2.0/lib/httpcore-4.4.13.jar"/>
-	<classpathentry kind="lib" path="C:/Users/eriza/Downloads/Tesis/Implementacion/BHAVRP/BHAVRP_Java/BHAVRPv2.0/BHAVRP2.0/lib/httpclient-4.5.13.jar"/>
-	<classpathentry kind="lib" path="C:/Users/eriza/Downloads/Tesis/Implementacion/BHAVRP/BHAVRP_Java/BHAVRPv2.0/BHAVRP2.0/lib/gson-2.10.1.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_281"/>
+	<classpathentry kind="lib" path="/home/keru/Documents/Trabajo Practicas Tesis/BHAVRP2.0/lib/DISTANCE_MEASURE.jar"/>
+	<classpathentry kind="lib" path="/home/keru/Documents/Trabajo Practicas Tesis/BHAVRP2.0/lib/MATRIX_CLASS.jar"/>
+	<classpathentry kind="lib" path="/home/keru/Documents/Trabajo Practicas Tesis/BHAVRP2.0/lib/poi-3.6-20091214.jar"/>
+	<classpathentry kind="lib" path="/home/keru/Documents/Trabajo Practicas Tesis/BHAVRP2.0/lib/junit-4.13.2.jar"/>
+	<classpathentry kind="lib" path="/home/keru/Documents/Trabajo Practicas Tesis/BHAVRP2.0/lib/org.apache.commons.logging_1.1.1.v201101211721-4.8.0.jar"/>
+	<classpathentry kind="lib" path="/home/keru/Documents/Trabajo Practicas Tesis/BHAVRP2.0/lib/httpcore-4.4.13.jar"/>
+	<classpathentry kind="lib" path="/home/keru/Documents/Trabajo Practicas Tesis/BHAVRP2.0/lib/httpclient-4.5.13.jar"/>
+	<classpathentry kind="lib" path="/home/keru/Documents/Trabajo Practicas Tesis/BHAVRP2.0/lib/gson-2.10.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
