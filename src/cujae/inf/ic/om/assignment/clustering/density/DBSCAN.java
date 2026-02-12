@@ -10,8 +10,8 @@ import cujae.inf.ic.om.problem.input.Location;
 import cujae.inf.ic.om.problem.input.Problem;
 import cujae.inf.ic.om.problem.output.Cluster;
 import cujae.inf.ic.om.problem.output.Solution;
-import java.util.ArrayList;
-import java.util.Iterator;
+
+import java.util.*;
 
 
 public class DBSCAN extends AbstractDensity {
@@ -23,8 +23,13 @@ public class DBSCAN extends AbstractDensity {
 
     private double epsilon = 1f;
     private int minimumNumberOfClusterMembers = 2;
-    private ArrayList<Customer> inputValues = null;
-    private ArrayList<Customer> NoVisitedPoints = new ArrayList<Customer>();
+    private ArrayList<Customer> list_customers;
+
+    // Estado del algoritmo
+    private Set<Customer> visitedCustomers;
+    private Set<Customer> assignedCustomers;
+    private Queue<Customer> expansionQueue;
+
 
     public DBSCAN(int minNumElements, double maxDistance) {
         super();
@@ -40,7 +45,7 @@ public class DBSCAN extends AbstractDensity {
 
     private ArrayList<Customer> getNeighbours(final Customer inputValue) throws ClusterException {
         ArrayList<Customer> neighbours = new ArrayList<Customer>();
-        for (Customer candidate : inputValues) {
+        for (Customer candidate : list_customers) {
             if (distance(inputValue.get_location_customer(), candidate.get_location_customer()) <= epsilon) {
                 neighbours.add(candidate);
             }
@@ -49,40 +54,13 @@ public class DBSCAN extends AbstractDensity {
     }
     private ArrayList<Customer> getNeighboursDepots(final Depot inputValue) throws ClusterException {
         ArrayList<Customer> neighbours = new ArrayList<Customer>();
-        for (Customer candidate : inputValues) {
+        for (Customer candidate : list_customers) {
             if (distance(inputValue.get_location_depot(), candidate.get_location_customer()) <= epsilon) {
                 neighbours.add(candidate);
             }
         }
         return neighbours;
     }
-
-
-
-    /**
-     * Merges the elements of the right collection to the left one and returns
-     * the combination.
-     *
-     * @param neighbours1 left collection
-     * @param neighbours2 right collection
-     * @return Modified left collection
-     */
-    private ArrayList<Customer> mergeRightToLeftCollection(final ArrayList<Customer> neighbours1,
-                                                    final ArrayList<Customer> neighbours2) {
-        for (Customer tempPt : neighbours2) {
-            if (!neighbours1.contains(tempPt)) {
-                neighbours1.add(tempPt);
-            }
-        }
-        return neighbours1;
-    }
-
-    /**
-     * Applies the clustering and returns a collection of clusters (i.e., a list
-     * of lists of the respective cluster members).
-     *
-     * @return Collection of clusters identified as part of the clustering process
-     */
 
     @Override
     public Solution to_clustering() throws ClusterException, ProblemException, AssignmentException {
@@ -107,13 +85,33 @@ public class DBSCAN extends AbstractDensity {
             if (list_clusters == null || list_clusters.isEmpty())
                 throw new ClusterException("No se pudieron inicializar los cl�steres a partir de los elementos proporcionados.");
 
-            inputValues = new ArrayList<Customer>(Problem.get_problem().get_customers());
-            if (inputValues.isEmpty())
+            list_customers = new ArrayList<Customer>(Problem.get_problem().get_customers());
+            if (list_customers.isEmpty())
                 throw new AssignmentException("La lista de clientes est� vac�a.");
 
             list_depots = new ArrayList<Depot>(Problem.get_problem().get_depots());
             if (list_depots.isEmpty())
                 throw new AssignmentException("La lista de dep�sitos est� vac�a.");
+
+            if (list_customers == null) {
+                throw new ProblemException("DBSCAN: List of input values is null.");
+            }
+
+            if (list_customers.isEmpty()) {
+                throw new ProblemException("DBSCAN: List of input values is empty.");
+            }
+
+            if (list_customers.size() < 2) {
+                throw new ProblemException("DBSCAN: Less than two input values cannot be clustered. Number of input values: " + list_customers.size());
+            }
+
+            if (epsilon < 0) {
+                throw new ProblemException("DBSCAN: Maximum distance of input values cannot be negative. Current value: " + epsilon);
+            }
+
+            if (minimumNumberOfClusterMembers < 2) {
+                throw new ProblemException("DBSCAN: Clusters with less than 2 members don't make sense. Current value: " + minimumNumberOfClusterMembers);
+            }
 
         } catch (ClusterException | ProblemException e) {
             throw e;
@@ -124,64 +122,101 @@ public class DBSCAN extends AbstractDensity {
 
 
     public void assign() throws ProblemException, ClusterException {
-        if (inputValues == null) {
-            throw new ProblemException("DBSCAN: List of input values is null.");
-        }
+        visitedCustomers = new HashSet<>();
+        assignedCustomers = new HashSet<>();
+        expansionQueue = new LinkedList<>();
 
-        if (inputValues.isEmpty()) {
-            throw new ProblemException("DBSCAN: List of input values is empty.");
-        }
+        for (int i = 0; i < list_depots.size(); i++) {
+            Depot depot = list_depots.get(i);
+            Cluster cluster = list_clusters.get(i);
+            ArrayList<Customer> directNeighbors = getNeighboursDepots(depot);
 
-        if (inputValues.size() < 2) {
-            throw new ProblemException("DBSCAN: Less than two input values cannot be clustered. Number of input values: " + inputValues.size());
-        }
-
-        if (epsilon < 0) {
-            throw new ProblemException("DBSCAN: Maximum distance of input values cannot be negative. Current value: " + epsilon);
-        }
-
-        if (minimumNumberOfClusterMembers < 2) {
-            throw new ProblemException("DBSCAN: Clusters with less than 2 members don't make sense. Current value: " + minimumNumberOfClusterMembers);
-        }
-        ArrayList<Customer> NoisePoint = new ArrayList<>();
-        ArrayList<Depot> DepotsList = new ArrayList<>(list_depots);
-
-        ArrayList<Cluster> resultList = new ArrayList<>();
-        NoVisitedPoints = new ArrayList<>(inputValues);
-
-
-        while(!NoVisitedPoints.isEmpty()){
-            for(Depot depots : DepotsList){
-                ArrayList<Customer> vecino = getNeighboursDepots(depots);
-                if(vecino.size() < minimumNumberOfClusterMembers){
-                    throw new ProblemException("El deposito no tiene clientes cercanos, considere aumentar el valor del radio o disminuir el numero de puntos");
-                }else{
-                    Cluster base = new Cluster(depots.get_id_depot(),0.0, new ArrayList<>());
-                    base.get_items_of_cluster().add(depots.get_id_depot());
-
-                    for (Customer customer : vecino) {
-                        if (NoVisitedPoints.contains(customer)) {
-                            NoVisitedPoints.remove(customer);
-
-                            ArrayList<Customer> vecinoCustomer = getNeighbours(customer);
-
-                            if (vecinoCustomer.size() >= minimumNumberOfClusterMembers) {
-                                vecino.addAll(vecinoCustomer);
-                            }
-                            double totalRequest = base.get_request_cluster() + customer.get_request_customer();
-                            base.get_items_of_cluster().add(customer.get_id_customer());
-                            base.set_request_cluster(totalRequest);
-                        }
-                    }
-                }
-
+            if (directNeighbors.size() >= minimumNumberOfClusterMembers) {
+                expandCluster(depot, directNeighbors, cluster);
+            }else{
+                throw new ClusterException("No se pudieron asignar clientes al deposito, considere aumentar radio o reducir minimo de puntos.");
             }
         }
-
-        ArrayList<Customer> neighbours;
-
+        assignUnassignedCustomers();
     }
+
+    private void expandCluster(Depot depot, ArrayList<Customer> seeds, Cluster cluster)
+            throws ClusterException {
+
+        expansionQueue.clear();
+        expansionQueue.addAll(seeds);
+
+        while (!expansionQueue.isEmpty()) {
+            Customer current = expansionQueue.poll();
+
+            // Si ya fue visitado, saltar
+            if (visitedCustomers.contains(current)) {
+                continue;
+            }
+            visitedCustomers.add(current);
+
+            // Asignar cliente al cluster
+            assignCustomerToCluster(current, cluster);
+
+            // Obtener vecinos del cliente actual
+            ArrayList<Customer> neighbors = getNeighbours(current);
+
+            // Si es punto núcleo, añadir vecinos a la cola de expansión
+            if (neighbors.size() >= minimumNumberOfClusterMembers) {
+                for (Customer neighbor : neighbors) {
+                    if (!visitedCustomers.contains(neighbor) &&
+                            !expansionQueue.contains(neighbor)) {
+                        expansionQueue.add(neighbor);
+                    }
+                }
+            }
+        }
+    }
+
+    private void assignCustomerToCluster(Customer customer, Cluster cluster) throws ClusterException {
+        if (!assignedCustomers.contains(customer)) {
+            cluster.get_items_of_cluster().add(customer.get_id_customer());
+            double totalRequest = cluster.get_request_cluster() + customer.get_request_customer();
+            cluster.set_request_cluster(totalRequest);
+
+            assignedCustomers.add(customer);
+        }
+    }
+
+    private void assignUnassignedCustomers() throws ClusterException {
+        for (Customer customer : list_customers) {
+            if (!assignedCustomers.contains(customer)) {
+                Depot nearestDepot = findNearestDepot(customer);
+
+                for (Cluster cluster : list_clusters) {
+                    if (cluster.get_id_cluster() == nearestDepot.get_id_depot()) {
+                        assignCustomerToCluster(customer, cluster);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    private Depot findNearestDepot(Customer customer) {
+        Depot nearest = null;
+        double minDistance = Double.MAX_VALUE;
+
+        for (Depot depot : list_depots) {
+            double dist = distance(depot.get_location_depot(), customer.get_location_customer());
+            if (dist < minDistance) {
+                minDistance = dist;
+                nearest = depot;
+            }
+        }
+        return nearest;
+    }
+
+
+
     public Solution finish(){
+        solution.get_clusters().clear();
+        solution.get_clusters().addAll(list_clusters);
         return solution;
     }
 
