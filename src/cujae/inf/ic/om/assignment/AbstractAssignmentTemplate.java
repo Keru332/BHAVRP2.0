@@ -10,39 +10,39 @@ import cujae.inf.ic.om.problem.output.Solution;
 public abstract class AbstractAssignmentTemplate implements IAssignment{	
 	
 	/**
-	 * Inicializa las estructuras necesarias antes del proceso de asignación de clientes.
+	 * Inicializa las estructuras necesarias antes del proceso de asignaciï¿½n de clientes.
 	 *
-	 * Este método puede incluir la preparación de listas de clientes, depósitos, clústeres y
-	 * la creación de matrices de costos requeridas por el algoritmo.
+	 * Este mï¿½todo puede incluir la preparaciï¿½n de listas de clientes, depï¿½sitos, clï¿½steres y
+	 * la creaciï¿½n de matrices de costos requeridas por el algoritmo.
 	 *
-	 * @throws AssignmentException si ocurre un error general durante la inicialización.
-	 * @throws ClusterException si ocurre un error al crear o manipular clústeres.
+	 * @throws AssignmentException si ocurre un error general durante la inicializaciï¿½n.
+	 * @throws ClusterException si ocurre un error al crear o manipular clï¿½steres.
 	 * @throws CostMatrixException si ocurre un error al construir o acceder a la matriz de costos.
 	 * @throws ProblemException 
 	 */
     public void initialize() throws AssignmentException, ClusterException, CostMatrixException, ProblemException {}
 
     /**
-     * Ejecuta el proceso principal de asignación de clientes a depósitos.
+     * Ejecuta el proceso principal de asignaciï¿½n de clientes a depï¿½sitos.
      *
-     * Este método debe implementar la lógica específica del algoritmo de asignación o agrupamiento,
-     * considerando restricciones como la capacidad de los depósitos y las demandas de los clientes.
+     * Este mï¿½todo debe implementar la lï¿½gica especï¿½fica del algoritmo de asignaciï¿½n o agrupamiento,
+     * considerando restricciones como la capacidad de los depï¿½sitos y las demandas de los clientes.
      *
-     * @throws AssignmentException si ocurre un error general durante la asignación.
+     * @throws AssignmentException si ocurre un error general durante la asignaciï¿½n.
      * @throws ProblemException si se encuentran inconsistencias en los datos del problema.
-     * @throws ClusterException si ocurre un error al manipular los clústeres.
+     * @throws ClusterException si ocurre un error al manipular los clï¿½steres.
      * @throws CostMatrixException si ocurre un error al acceder o actualizar la matriz de costos.
      */
     public void assign() throws AssignmentException, ProblemException, ClusterException, CostMatrixException {}
 
     /**
-     * Finaliza el proceso de asignación y construye la solución resultante.
+     * Finaliza el proceso de asignaciï¿½n y construye la soluciï¿½n resultante.
      *
-     * Este método debe ensamblar y devolver un objeto {@link Solution} válido,
-     * incluyendo los clústeres formados y los elementos no asignados si los hubiera.
+     * Este mï¿½todo debe ensamblar y devolver un objeto {@link Solution} vï¿½lido,
+     * incluyendo los clï¿½steres formados y los elementos no asignados si los hubiera.
      *
-     * @return La solución generada después del proceso de asignación.
-     * @throws AssignmentException si ocurre un error al finalizar o ensamblar la solución.
+     * @return La soluciï¿½n generada despuï¿½s del proceso de asignaciï¿½n.
+     * @throws AssignmentException si ocurre un error al finalizar o ensamblar la soluciï¿½n.
      * @throws ProblemException si se encuentran inconsistencias en los datos del problema.
      */
     public Solution finish() throws AssignmentException, ProblemException {

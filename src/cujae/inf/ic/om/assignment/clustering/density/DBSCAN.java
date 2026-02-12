@@ -17,7 +17,6 @@ import java.util.*;
 public class DBSCAN extends AbstractDensity {
     public static DistanceType distance_type = DistanceType.Euclidean;
     private static Solution solution = new Solution();
-    private ArrayList<Integer> list_id_elements;
     private ArrayList<Cluster> list_clusters;
     private ArrayList<Depot> list_depots;
 
@@ -77,7 +76,7 @@ public class DBSCAN extends AbstractDensity {
 
     public void initialize() throws AssignmentException, ProblemException, ClusterException {
         try {
-            list_id_elements = Problem.get_problem().get_list_id_depots();
+            ArrayList<Integer> list_id_elements = Problem.get_problem().get_list_id_depots();
             if (list_id_elements == null || list_id_elements.isEmpty())
                 throw new AssignmentException("No se encontraron elementos iniciales para los cl�steres.");
 
@@ -137,7 +136,6 @@ public class DBSCAN extends AbstractDensity {
                 throw new ClusterException("No se pudieron asignar clientes al deposito, considere aumentar radio o reducir minimo de puntos.");
             }
         }
-        assignUnassignedCustomers();
     }
 
     private void expandCluster(Depot depot, ArrayList<Customer> seeds, Cluster cluster)
@@ -149,24 +147,25 @@ public class DBSCAN extends AbstractDensity {
         while (!expansionQueue.isEmpty()) {
             Customer current = expansionQueue.poll();
 
-            // Si ya fue visitado, saltar
-            if (visitedCustomers.contains(current)) {
+            double maxDepotCapacity = Problem.get_problem().get_total_capacity_by_depot(depot);
+            double RequestNecesario = cluster.get_request_cluster() + current.get_request_customer();
+
+            if(RequestNecesario > maxDepotCapacity){
                 continue;
             }
-            visitedCustomers.add(current);
+            // entra si no ha sido visitado
+            if (!visitedCustomers.contains(current)) {
+                visitedCustomers.add(current);
+                assignCustomerToCluster(current, cluster);
 
-            // Asignar cliente al cluster
-            assignCustomerToCluster(current, cluster);
+                ArrayList<Customer> neighbors = getNeighbours(current);
 
-            // Obtener vecinos del cliente actual
-            ArrayList<Customer> neighbors = getNeighbours(current);
-
-            // Si es punto núcleo, añadir vecinos a la cola de expansión
-            if (neighbors.size() >= minimumNumberOfClusterMembers) {
-                for (Customer neighbor : neighbors) {
-                    if (!visitedCustomers.contains(neighbor) &&
-                            !expansionQueue.contains(neighbor)) {
-                        expansionQueue.add(neighbor);
+                if (neighbors.size() >= minimumNumberOfClusterMembers) {
+                    for (Customer neighbor : neighbors) {
+                        if (!visitedCustomers.contains(neighbor) &&
+                                !expansionQueue.contains(neighbor)) {
+                            expansionQueue.add(neighbor);
+                        }
                     }
                 }
             }
@@ -183,40 +182,55 @@ public class DBSCAN extends AbstractDensity {
         }
     }
 
-    private void assignUnassignedCustomers() throws ClusterException {
-        for (Customer customer : list_customers) {
-            if (!assignedCustomers.contains(customer)) {
-                Depot nearestDepot = findNearestDepot(customer);
+    private Queue<Integer> findNearestDepotIndice(Customer customer) {
+        // PriorityQueue que ordena por distancia
+        Queue<Integer> indexDepotNearest = new PriorityQueue<>(
+                (i1, i2) -> {
+                    Depot d1 = list_depots.get(i1);
+                    Depot d2 = list_depots.get(i2);
+                    double dist1 = distance(d1.get_location_depot(), customer.get_location_customer());
+                    double dist2 = distance(d2.get_location_depot(), customer.get_location_customer());
+                    return Double.compare(dist1, dist2);
+                }
+        );
+        for (int i = 0; i < list_depots.size(); i++) {
+            indexDepotNearest.add(i);
+        }
 
-                for (Cluster cluster : list_clusters) {
-                    if (cluster.get_id_cluster() == nearestDepot.get_id_depot()) {
+        return indexDepotNearest;
+    }
+
+    public Solution finish() throws AssignmentException {
+        ArrayList<Integer> unnasigned_items = new ArrayList<>();
+        try {
+            for (Customer customer : list_customers) {
+                if (!assignedCustomers.contains(customer)) {
+                    boolean asigned = false;
+                    Queue<Integer> nearestDepot = findNearestDepotIndice(customer);
+                    while (!nearestDepot.isEmpty() && !asigned) {
+                        int indice = nearestDepot.poll();
+                        Cluster cluster = list_clusters.get(indice);
+
+                        double maxDepotCapacity = Problem.get_problem()
+                                .get_total_capacity_by_depot(list_depots.get(indice));
+                        double RequestNecesario = cluster.get_request_cluster() + customer.get_request_customer();
+
+                        if (RequestNecesario > maxDepotCapacity) {
+                            continue;
+                        }
                         assignCustomerToCluster(customer, cluster);
-                        break;
+                        asigned = true;
                     }
+                    if (!asigned)
+                        unnasigned_items.add(customer.get_id_customer());
                 }
             }
+        }catch (ClusterException e){
+            throw new AssignmentException("Error al agregar en lista de no asignados.", e);
         }
-    }
-
-    private Depot findNearestDepot(Customer customer) {
-        Depot nearest = null;
-        double minDistance = Double.MAX_VALUE;
-
-        for (Depot depot : list_depots) {
-            double dist = distance(depot.get_location_depot(), customer.get_location_customer());
-            if (dist < minDistance) {
-                minDistance = dist;
-                nearest = depot;
-            }
-        }
-        return nearest;
-    }
-
-
-
-    public Solution finish(){
         solution.get_clusters().clear();
         solution.get_clusters().addAll(list_clusters);
+        solution.get_unassigned_items().addAll(unnasigned_items);
         return solution;
     }
 
