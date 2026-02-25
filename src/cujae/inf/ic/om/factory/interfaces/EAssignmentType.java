@@ -1,6 +1,6 @@
 package cujae.inf.ic.om.factory.interfaces;
 
-/* Enumerado que indica los tipos de métodos de asignación*/
+/* Enumerado que indica los tipos de mï¿½todos de asignaciï¿½n*/
 public enum EAssignmentType {
 
 	BestCyclicAssignment	
@@ -163,5 +163,20 @@ public enum EAssignmentType {
 		{
 			return cujae.inf.ic.om.assignment.clustering.hierarchical.UPGMC.class.getName(); 
 		}
-	};
+	},
+	CURE
+	{
+		@Override
+		public String toString()
+		{
+			return cujae.inf.ic.om.assignment.clustering.hierarchical.CURE.class.getName();
+		}
+	},
+	DBSCAN {
+		@Override
+		public String toString()
+		{
+			return cujae.inf.ic.om.assignment.clustering.density.DBSCAN.class.getName();
+		}
+	}
 }

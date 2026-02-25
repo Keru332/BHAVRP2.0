@@ -19,6 +19,7 @@ public class DBSCAN extends AbstractDensity {
     private static Solution solution = new Solution();
     private ArrayList<Cluster> list_clusters;
     private ArrayList<Depot> list_depots;
+    private int maxClientsPerDepot;
 
     private double epsilon = 1f;
     private int minimumNumberOfClusterMembers = 2;
@@ -30,10 +31,8 @@ public class DBSCAN extends AbstractDensity {
     private Queue<Customer> expansionQueue;
 
 
-    public DBSCAN(int minNumElements, double maxDistance) {
+    public DBSCAN() {
         super();
-        setMinimalNumberOfMembersForCluster(minNumElements);
-        setMaximalDistanceOfClusterMembers(maxDistance);
     }
     public void setMinimalNumberOfMembersForCluster(final int minimalNumberOfMembers) {
         this.minimumNumberOfClusterMembers = minimalNumberOfMembers;
@@ -80,13 +79,18 @@ public class DBSCAN extends AbstractDensity {
             if (list_id_elements == null || list_id_elements.isEmpty())
                 throw new AssignmentException("No se encontraron elementos iniciales para los cl�steres.");
 
-            list_clusters = initialize_clusters(list_id_elements);
+            list_clusters = new ArrayList<>();
+            for(Integer id : list_id_elements){
+                Cluster cluster = new Cluster(id, 0.0, new ArrayList<>());
+                list_clusters.add(cluster);
+            }
             if (list_clusters == null || list_clusters.isEmpty())
                 throw new ClusterException("No se pudieron inicializar los cl�steres a partir de los elementos proporcionados.");
 
             list_customers = new ArrayList<Customer>(Problem.get_problem().get_customers());
             if (list_customers.isEmpty())
                 throw new AssignmentException("La lista de clientes est� vac�a.");
+
 
             list_depots = new ArrayList<Depot>(Problem.get_problem().get_depots());
             if (list_depots.isEmpty())
@@ -103,6 +107,12 @@ public class DBSCAN extends AbstractDensity {
             if (list_customers.size() < 2) {
                 throw new ProblemException("DBSCAN: Less than two input values cannot be clustered. Number of input values: " + list_customers.size());
             }
+
+            setMinimalNumberOfMembersForCluster((int) Math.max(3, Math.log(list_customers.size()*1.5)));
+            System.out.println("MintPoints: "+minimumNumberOfClusterMembers);
+            setMaximalDistanceOfClusterMembers(CalcularEpsilon());
+            System.out.println("Epsilon: "+epsilon);
+            maxClientsPerDepot = (int) Math.ceil( (double) list_customers.size() / list_depots.size());
 
             if (epsilon < 0) {
                 throw new ProblemException("DBSCAN: Maximum distance of input values cannot be negative. Current value: " + epsilon);
@@ -138,15 +148,18 @@ public class DBSCAN extends AbstractDensity {
         }
     }
 
-    private void expandCluster(Depot depot, ArrayList<Customer> seeds, Cluster cluster)
+    private void expandCluster(Depot depot, ArrayList<Customer> customerslist, Cluster cluster)
             throws ClusterException {
 
         expansionQueue.clear();
-        expansionQueue.addAll(seeds);
+        expansionQueue.addAll(customerslist);
 
         while (!expansionQueue.isEmpty()) {
             Customer current = expansionQueue.poll();
 
+            if (cluster.get_items_of_cluster().size() >= maxClientsPerDepot) {
+                break;
+            }
             double maxDepotCapacity = Problem.get_problem().get_total_capacity_by_depot(depot);
             double RequestNecesario = cluster.get_request_cluster() + current.get_request_customer();
 
@@ -238,5 +251,40 @@ public class DBSCAN extends AbstractDensity {
         double dx = loc1.get_axis_x() - loc2.get_axis_x();
         double dy = loc1.get_axis_y() - loc2.get_axis_y();
         return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    public double CalcularEpsilon() {
+        int n = list_customers.size();
+        if (n < 2) {
+            System.out.println("devolvio 1");
+            return 1.0;
+        }
+
+        // Asegurar que k no sea mayor que el máximo posible (n-1)
+        int k = Math.min(this.minimumNumberOfClusterMembers, n - 1);
+        if (k < 1) {
+            System.out.println("devolvio 1");
+            return 1.0;
+        }
+
+        double[] kDistances = new double[n];
+
+        for (int i = 0; i < n; i++) {
+            Customer ci = list_customers.get(i);
+            double[] dists = new double[n - 1];
+            int idx = 0;
+            for (int j = 0; j < n; j++) {
+                if (i == j) continue;
+                dists[idx++] = distance(ci.get_location_customer(), list_customers.get(j).get_location_customer());
+            }
+            Arrays.sort(dists);
+            kDistances[i] = dists[k - 1];
+        }
+
+        Arrays.sort(kDistances);
+        int percentileIndex = (int) Math.ceil(0.8 * n) - 1;
+        percentileIndex = Math.max(0, percentileIndex);
+        System.out.println("devolvio k:" + kDistances[percentileIndex]);
+        return kDistances[percentileIndex];
     }
 }

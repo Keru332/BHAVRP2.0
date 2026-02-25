@@ -54,14 +54,14 @@ public class Mainp {
 
 		// --- Ruta general a la instancia ---
 		// Acepta extensiones: .dat, .txt, .csv, .json, .xml
-		// Si no se especifica extensión (ej: "p1"), se asume que es un archivo tipo .dat
-		String instance_path = "instances//large_instance"; // error inducido
-		//String instance_path = "instances//p1";
+		// Si no se especifica extensiï¿½n (ej: "p1"), se asume que es un archivo tipo .dat
+		//String instance_path = "instances//large_instance"; // error inducido
+		String instance_path = "instances//p9";
 		
-		// --- Número de ejecuciones para cada heurística ---
+		// --- Nï¿½mero de ejecuciones para cada heurï¿½stica ---
 		int number_of_executions = 1;
 
-		// --- Lista de métricas a utilizar en la evaluación ---
+		// --- Lista de mï¿½tricas a utilizar en la evaluaciï¿½n ---
 		List<EMetricType> selected_metrics = Arrays.asList(
 				EMetricType.SSE,
 				EMetricType.BallHallIndex,
@@ -74,10 +74,10 @@ public class Mainp {
 				EMetricType.RayTuriIndex
 				);
 
-		// Configuración de la exportación
+		// Configuraciï¿½n de la exportaciï¿½n
 		String export_format = "txt"; // Opciones: csv, json, xls, txt, xml
-		boolean export_solution = true; 		// true = exportar solución, false = exportar métricas
-		boolean export_metrics_summary = false; // true = exportar resumen .csv para análisis en KEEL
+		boolean export_solution = true; 		// true = exportar soluciï¿½n, false = exportar mï¿½tricas
+		boolean export_metrics_summary = false; // true = exportar resumen .csv para anï¿½lisis en KEEL
 		boolean export_visualization = false;   // true = exportar formato visualizable con VRPlotLIB
 		
 		boolean compare_large_vs_regular = false;
@@ -97,16 +97,16 @@ public class Mainp {
 				controller.load_problem(instance_path);
 				System.out.println("CARGA EXITOSA DE LA INSTANCIA\n");
 
-				// --- Configuración de exportación ---
+				// --- Configuraciï¿½n de exportaciï¿½n ---
 				try {
 					controller.configure_export_options(export_format, export_solution, export_metrics_summary, export_visualization, instance_path);
 				} catch (Exception e) {
-					System.err.println("Error al configurar exportación: " + e.getMessage());
+					System.err.println("Error al configurar exportaciï¿½n: " + e.getMessage());
 					return;
 				}
 
-				// --- Selección individual de la heurística a ejecutar ---
-				int j = 7;
+				// --- Selecciï¿½n individual de la heurï¿½stica a ejecutar ---
+				int j = 9;
 				EAssignmentType heuristic;
 
 				switch (j) {
@@ -118,10 +118,12 @@ public class Mainp {
 				case 5: heuristic = EAssignmentType.UPGMC; break;
 				case 6: heuristic = EAssignmentType.RandomByElement; break;
 				case 7: heuristic = EAssignmentType.CLARA; break;
-				default: throw new IllegalArgumentException("Índice de heurística no válido: " + j);
+                case 8: heuristic = EAssignmentType.CURE; break;
+                case 9: heuristic = EAssignmentType.DBSCAN; break;
+				default: throw new IllegalArgumentException("ï¿½ndice de heurï¿½stica no vï¿½lido: " + j);
 				}
 
-				// --- Ejecución y evaluación ---
+				// --- Ejecuciï¿½n y evaluaciï¿½n ---
 				List<List<MetricRecord>> executions = new ArrayList<>();
 				double[] times = new double[number_of_executions];
 				Solution last_solution = null;
@@ -136,19 +138,19 @@ public class Mainp {
 
 						executions.add(controller.evaluate_solution(selected_metrics));
 					} catch (Exception e) {
-						System.err.println("Error en ejecución " + (i + 1) + ": " + e.getMessage());
+						System.err.println("Error en ejecuciï¿½n " + (i + 1) + ": " + e.getMessage());
 						times[i] = -1;
 					}
 				}
 
-				// --- Exportación de resultados ---
+				// --- Exportaciï¿½n de resultados ---
 				try {
 					controller.export_results(last_solution, executions, times, heuristic.name());
 				} catch (Exception e) {
 					System.err.println("Error al exportar resultados: " + e.getMessage());
 				}
 				
-				// --- Visualización opcional de matriz de costos ---
+				// --- Visualizaciï¿½n opcional de matriz de costos ---
 				boolean show_cost_matrix = false;
 				if (show_cost_matrix) 
 				{
@@ -160,7 +162,7 @@ public class Mainp {
 						);
 						System.out.println();
 						System.out.println("-------------------------------------------------------------------------------");
-						System.out.println("MATRIZ DE COSTOS CLIENTE-DEPÓSITO:");
+						System.out.println("MATRIZ DE COSTOS CLIENTE-DEPï¿½SITO:");
 						print_matrix(cost_matrix);
 					} catch (Exception e) {
 						System.err.println("Error al generar matriz de costos: " + e.getMessage());
@@ -169,9 +171,9 @@ public class Mainp {
 
 				// --- Resumen final ---
 				System.out.println("-------------------------------------------------------------------------------");
-				System.out.println("RESUMEN DE LA EJECUCIÓN");
+				System.out.println("RESUMEN DE LA EJECUCIï¿½N");
 				System.out.println("-------------------------------------------------------------------------------");
-				System.out.println("Heurística: " + heuristic.name());
+				System.out.println("Heurï¿½stica: " + heuristic.name());
 				System.out.println("Instancia: " + new File(instance_path).getName());
 				System.out.println("Ejecuciones: " + number_of_executions);
 
@@ -187,12 +189,12 @@ public class Mainp {
 					System.out.printf("Tiempo promedio: %.2f ms%n", total / number_of_executions);
 				}
 
-				System.out.println("Métricas evaluadas: " + selected_metrics.size());
-				System.out.println("Finalización exitosa del flujo principal.");
+				System.out.println("Mï¿½tricas evaluadas: " + selected_metrics.size());
+				System.out.println("Finalizaciï¿½n exitosa del flujo principal.");
 				System.out.println("-------------------------------------------------------------------------------");
 
 			} catch (Exception e) {
-				System.err.println("Error crítico: " + e.getMessage());
+				System.err.println("Error crï¿½tico: " + e.getMessage());
 				e.printStackTrace();
 			}
 		}
@@ -367,9 +369,9 @@ public class Mainp {
 
 		System.out.println();
 		System.out.println("---------------------------------------------------------------------------------------------");
-		System.out.println("Reporte de ejecución del experimento: ");
-		System.out.println("Exportación finalizada: se generaron los archivos por métrica y tiempo.");
-		System.out.println("Tiempo de ejecución:: " + AbstractTools.truncate_double(total_minutes, 2) + " minutos.");
+		System.out.println("Reporte de ejecuciï¿½n del experimento: ");
+		System.out.println("Exportaciï¿½n finalizada: se generaron los archivos por mï¿½trica y tiempo.");
+		System.out.println("Tiempo de ejecuciï¿½n:: " + AbstractTools.truncate_double(total_minutes, 2) + " minutos.");
 		System.out.println();
 
 		if (!failedInstances.isEmpty()) 
@@ -382,11 +384,11 @@ public class Mainp {
 
 		if (!failedHeuristics.isEmpty()) 
 		{
-			System.out.println("\nReporte de heurísticas fallidas:");
+			System.out.println("\nReporte de heurï¿½sticas fallidas:");
 			for (String[] pair : failedHeuristics)
-				System.out.println(pair[0] + " falló en la instancia " + pair[1]);
+				System.out.println(pair[0] + " fallï¿½ en la instancia " + pair[1]);
 		} else 
-			System.out.println("No hubo heurísticas fallidas.");
+			System.out.println("No hubo heurï¿½sticas fallidas.");
 
 		System.out.println("---------------------------------------------------------------------------------------------");
 	}
@@ -433,7 +435,7 @@ public class Mainp {
 	        System.out.printf("%-25s %-10.2f %-10.2f\n", heuristic.name(), t1, t2);
 	    }
 
-	    // Wilcoxon o análisis simple de incremento
+	    // Wilcoxon o anï¿½lisis simple de incremento
 	    System.out.println("\n================ RESUMEN ESTAD\u00cdSTICO =================");
 	    int count = 0;
 	    double sum_increase_pct = 0.0;
@@ -454,8 +456,8 @@ public class Mainp {
 	}
 
 	/**
-	 * Imprime por consola una matriz numérica de distancias o costos.
-	 * Las primeras filas son clientes (C1, C2, ...), las siguientes son depósitos (D1, D2, ...).
+	 * Imprime por consola una matriz numï¿½rica de distancias o costos.
+	 * Las primeras filas son clientes (C1, C2, ...), las siguientes son depï¿½sitos (D1, D2, ...).
 	 *
 	 * @param matrix Matriz a imprimir.
 	 */

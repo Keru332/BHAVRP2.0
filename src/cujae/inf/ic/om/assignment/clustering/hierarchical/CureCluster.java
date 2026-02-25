@@ -117,7 +117,6 @@ public class CureCluster {
     }
 
     public void merge(CureCluster other) throws ClusterException {
-        // Combinar clientes
         this.customers.addAll(other.customers);
         this.request += other.request;
 
