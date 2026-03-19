@@ -21,7 +21,7 @@ public class DBSCAN extends AbstractDensity {
     private ArrayList<Depot> list_depots;
     private int maxClientsPerDepot;
 
-    private double epsilon = 1f;
+    public double epsilon = 1f;
     private int minimumNumberOfClusterMembers = 2;
     private ArrayList<Customer> list_customers;
 
@@ -41,15 +41,6 @@ public class DBSCAN extends AbstractDensity {
         this.epsilon = maximalDistance;
     }
 
-    private ArrayList<Customer> getNeighbours(final Customer inputValue) throws ClusterException {
-        ArrayList<Customer> neighbours = new ArrayList<Customer>();
-        for (Customer candidate : list_customers) {
-            if (distance(inputValue.get_location_customer(), candidate.get_location_customer()) <= epsilon) {
-                neighbours.add(candidate);
-            }
-        }
-        return neighbours;
-    }
     private ArrayList<Customer> getNeighboursDepots(final Depot inputValue) throws ClusterException {
         ArrayList<Customer> neighbours = new ArrayList<Customer>();
         for (Customer candidate : list_customers) {
@@ -169,9 +160,9 @@ public class DBSCAN extends AbstractDensity {
             // entra si no ha sido visitado
             if (!visitedCustomers.contains(current)) {
                 visitedCustomers.add(current);
-                assignCustomerToCluster(current, cluster);
+                assignCustomerToCluster(current, cluster, assignedCustomers);
 
-                ArrayList<Customer> neighbors = getNeighbours(current);
+                ArrayList<Customer> neighbors = getNeighbours(current, list_customers, epsilon);
 
                 if (neighbors.size() >= minimumNumberOfClusterMembers) {
                     for (Customer neighbor : neighbors) {
@@ -182,16 +173,6 @@ public class DBSCAN extends AbstractDensity {
                     }
                 }
             }
-        }
-    }
-
-    private void assignCustomerToCluster(Customer customer, Cluster cluster) throws ClusterException {
-        if (!assignedCustomers.contains(customer)) {
-            cluster.get_items_of_cluster().add(customer.get_id_customer());
-            double totalRequest = cluster.get_request_cluster() + customer.get_request_customer();
-            cluster.set_request_cluster(totalRequest);
-
-            assignedCustomers.add(customer);
         }
     }
 
@@ -231,7 +212,7 @@ public class DBSCAN extends AbstractDensity {
                         if (RequestNecesario > maxDepotCapacity) {
                             continue;
                         }
-                        assignCustomerToCluster(customer, cluster);
+                        assignCustomerToCluster(customer, cluster, assignedCustomers);
                         asigned = true;
                     }
                     if (!asigned)
@@ -245,12 +226,6 @@ public class DBSCAN extends AbstractDensity {
         solution.get_clusters().addAll(list_clusters);
         solution.get_unassigned_items().addAll(unnasigned_items);
         return solution;
-    }
-
-    public static double distance(Location loc1, Location loc2) {
-        double dx = loc1.get_axis_x() - loc2.get_axis_x();
-        double dy = loc1.get_axis_y() - loc2.get_axis_y();
-        return Math.sqrt(dx * dx + dy * dy);
     }
 
     public double CalcularEpsilon() {
@@ -286,5 +261,17 @@ public class DBSCAN extends AbstractDensity {
         percentileIndex = Math.max(0, percentileIndex);
         System.out.println("devolvio k:" + kDistances[percentileIndex]);
         return kDistances[percentileIndex];
+    }
+
+    public ArrayList<Customer> getList_customers() {
+        return list_customers;
+    }
+
+    public void setList_customers(ArrayList<Customer> list_customers) {
+        this.list_customers = list_customers;
+    }
+
+    public int getMinimumNumberOfClusterMembers() {
+        return minimumNumberOfClusterMembers;
     }
 }
