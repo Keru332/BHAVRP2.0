@@ -1,0 +1,30 @@
+{
+  "heuristic": "CLARA",
+  "solution": {
+    "clusters": [
+      {
+        "id_cluster": 11,
+        "request_cluster": 62.0,
+        "items_of_cluster": [
+          9,
+          10,
+          5,
+          3,
+          4
+        ]
+      },
+      {
+        "id_cluster": 12,
+        "request_cluster": 75.0,
+        "items_of_cluster": [
+          1,
+          8,
+          2,
+          6
+        ]
+      }
+    ],
+    "unassigned_items": []
+  },
+  "unassigned_depots": []
+}

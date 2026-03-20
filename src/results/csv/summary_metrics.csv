@@ -1,0 +1,11 @@
+Metric,CyclicAssignment,CoefficientPropagation,Parallel,BestNearest,SequentialCyclic,Farthest_First,CLARA,UPGMC
+SSE,4707.21,2635.53,2350.72,2350.72,8246.11,2103.51,2337.8,2274.41
+SSB,702.65,1315.03,1270.57,1270.57,429.61,1254.33,1279.08,1270.76
+DunnIndex,0.1,0.16,0.14,0.14,0.07,0.17,0.14,0.2
+SilhouetteCoefficient,0.02,0.27,0.3,0.3,0.06,0.34,0.3,0.3
+CalinskiHarabaszIndex,42.68,124.44,146.95,146.95,20.5,171.43,148.1,148.08
+XieBeniIndex,126.47,4.81,2.72,2.72,48.68,2.63,2.67,2.78
+DaviesBouldinIndex,4.11,0.89,0.83,0.83,2.95,0.8,0.83,0.8
+RayTuriIndex,505.89,19.24,10.89,10.89,146.05,10.52,10.7,11.15
+BallHallIndex,17.49,12.58,12.28,12.28,22.08,12.1,12.08,12.0
+Time (ms),973.0,20.0,26.0,9.0,8.0,53.0,1718.0,11.0

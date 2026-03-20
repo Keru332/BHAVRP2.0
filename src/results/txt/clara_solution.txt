@@ -1,0 +1,31 @@
+Heuristic: CLARA
+
+Solution:
+Number of clusters: 4
+
+Cluster ID: 51
+Cluster demand: 312.0
+Number of elements: 17
+Element IDs:
+[18, 47, 12, 4, 17, 46, 6, 14, 27, 25, 13, 41, 19, 48, 24, 23, 7]
+
+Cluster ID: 52
+Cluster demand: 109.0
+Number of elements: 8
+Element IDs:
+[45, 15, 5, 44, 37, 33, 42, 40]
+
+Cluster ID: 53
+Cluster demand: 82.0
+Number of elements: 5
+Element IDs:
+[39, 49, 10, 30, 34]
+
+Cluster ID: 54
+Cluster demand: 274.0
+Number of elements: 20
+Element IDs:
+[2, 8, 16, 29, 11, 22, 32, 20, 1, 50, 38, 21, 3, 9, 28, 35, 31, 36, 26, 43]
+
+Unassigned customers: 0
+Depots without assigned customers: 0

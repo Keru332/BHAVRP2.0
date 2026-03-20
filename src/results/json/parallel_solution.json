@@ -1,0 +1,31 @@
+{
+  "heuristic": "Parallel",
+  "solution": {
+    "clusters": [
+      {
+        "id_cluster": 11,
+        "request_cluster": 77.0,
+        "items_of_cluster": [
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "id_cluster": 12,
+        "request_cluster": 79.0,
+        "items_of_cluster": [
+          1,
+          2,
+          3,
+          5,
+          10
+        ]
+      }
+    ],
+    "unassigned_items": []
+  },
+  "unassigned_depots": []
+}

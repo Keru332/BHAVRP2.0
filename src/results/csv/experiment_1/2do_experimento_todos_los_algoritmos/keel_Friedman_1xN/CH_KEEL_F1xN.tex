@@ -1,0 +1,87 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{graphicx}
+\usepackage{lscape}
+\title{Output tables for 1xN statistical comparisons.}
+\author{}
+\date{\today}
+\begin{document}
+\begin{landscape}
+\pagestyle{empty}
+\maketitle
+\thispagestyle{empty}
+
+\section{Average rankings of Friedman test}
+
+
+Average ranks obtained by each method in the Friedman test.
+
+\begin{table}[!htp]
+\centering
+\begin{tabular}{|c|c|}\hline
+Algorithm&Ranking\\\hline
+BestCyclicAssignment&12.56\\BestNearest&6.46\\CLARA&10.76\\CoefficientPropagation&11.52\\CyclicAssignment&14.28\\Farthest-First&4.3\\KMEANS&4.78\\NearestByCustomer&6.16\\NearestByDepot&10.2\\PAM&16.92\\Parallel&6.16\\RandomByElement&18\\RandomSequentialCyclic&15.04\\SequentialCyclic&14.92\\Simplified&4.96\\Sweep&5.06\\ThreeCriteriaClustering&3.64\\UPGMC&5.28\\\hline\end{tabular}
+\caption{Average Rankings of the algorithms (Friedman)}
+\end{table}
+
+Friedman statistic (distributed according to chi-square with 17 degrees of freedom): 350.077895. \newline P-value computed by Friedman Test: 0.\newline
+
+Iman and Davenport statistic (distributed according to F-distribution with 17 and 408 degrees of freedom): 112.141396. \newline P-value computed by Iman and Daveport Test: 0.\newline
+
+
+\newpage
+
+\section{Post hoc comparison (Friedman)}
+
+
+P-values obtained in by applying post hoc methods over the results of Friedman procedure.
+
+\begin{table}[!htp]
+\centering\footnotesize
+\begin{tabular}{ccccccccc}
+$i$&algorithm&$z=(R_0 - R_i)/SE$&$p$&Holm Hochberg Hommel &Holland&Rom&Finner&Li\\
+\hline17&RandomByElement&9.510142&0&0.002941&0.003013&0.003094&0.003013&0.017787\\16&PAM&8.794895&0&0.003125&0.003201&0.003288&0.006016&0.017787\\15&RandomSequentialCyclic&7.549834&0&0.003333&0.003414&0.003507&0.009011&0.017787\\14&SequentialCyclic&7.470362&0&0.003571&0.003657&0.003757&0.011996&0.017787\\13&CyclicAssignment&7.046512&0&0.003846&0.003938&0.004046&0.014973&0.017787\\12&BestCyclicAssignment&5.907414&0&0.004167&0.004265&0.004383&0.017941&0.017787\\11&CoefficientPropagation&5.218657&0&0.004545&0.004652&0.004782&0.020899&0.017787\\10&CLARA&4.715335&0.000002&0.005&0.005116&0.00526&0.023849&0.017787\\9&NearestByDepot&4.344466&0.000014&0.005556&0.005683&0.005844&0.02679&0.017787\\8&BestNearest&1.867591&0.061819&0.00625&0.006391&0.006574&0.029722&0.017787\\7&NearestByCustomer&1.668911&0.095135&0.007143&0.007301&0.007513&0.032645&0.017787\\6&Parallel&1.668911&0.095135&0.008333&0.008512&0.008764&0.035559&0.017787\\5&UPGMC&1.086117&0.277427&0.01&0.010206&0.010515&0.038465&0.017787\\4&Sweep&0.940418&0.347003&0.0125&0.012741&0.013109&0.041362&0.017787\\3&Simplified&0.874191&0.382014&0.016667&0.016952&0.016667&0.04425&0.017787\\2&KMEANS&0.754983&0.450259&0.025&0.025321&0.025&0.047129&0.017787\\1&Farthest-First&0.437096&0.662042&0.05&0.05&0.05&0.05&0.05\\\hline
+\end{tabular}
+\caption{Post Hoc comparison Table for $\alpha=0.05$ (FRIEDMAN)}
+\end{table}Bonferroni-Dunn's procedure rejects those hypotheses that have an unadjusted p-value $\le0.002941$.
+
+Holm's procedure rejects those hypotheses that have an unadjusted p-value $\le0.00625$.
+
+Hochberg's procedure rejects those hypotheses that have an unadjusted p-value $\le0.005556$.
+
+Hommel's procedure rejects those hypotheses that have an unadjusted p-value $\le0.00625$.
+
+Holland's procedure rejects those hypotheses that have an unadjusted p-value $\le0.006391$.
+
+Rom's procedure rejects those hypotheses that have an unadjusted p-value $\le0.005844$.
+
+Finner's procedure rejects those hypotheses that have an unadjusted p-value $\le0.029722$.
+
+Li's procedure rejects those hypotheses that have an unadjusted p-value $\le0.017787$.
+
+
+\newpage
+
+\section{Adjusted P-Values (Friedman)}
+
+
+Adjusted P-values obtained through the application of the post hoc methods (Friedman).
+
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{ccccccc}
+i&algorithm&unadjusted $p$&$p_{Bonf}$&$p_{Holm}$&$p_{Hochberg}$&$p_{Hommel}$\\
+\hline1&RandomByElement&0&0&0&0&0\\2&PAM&0&0&0&0&0\\3&RandomSequentialCyclic&0&0&0&0&0\\4&SequentialCyclic&0&0&0&0&0\\5&CyclicAssignment&0&0&0&0&0\\6&BestCyclicAssignment&0&0&0&0&0\\7&CoefficientPropagation&0&0.000003&0.000002&0.000002&0.000002\\8&CLARA&0.000002&0.000041&0.000024&0.000024&0.000024\\9&NearestByDepot&0.000014&0.000237&0.000126&0.000126&0.000126\\10&BestNearest&0.061819&1.050926&0.494553&0.494553&0.370915\\11&NearestByCustomer&0.095135&1.617296&0.665945&0.57081&0.540311\\12&Parallel&0.095135&1.617296&0.665945&0.57081&0.540311\\13&UPGMC&0.277427&4.716266&1.387137&0.662042&0.662042\\14&Sweep&0.347003&5.899055&1.388013&0.662042&0.662042\\15&Simplified&0.382014&6.494239&1.388013&0.662042&0.662042\\16&KMEANS&0.450259&7.654402&1.388013&0.662042&0.662042\\17&Farthest-First&0.662042&11.254713&1.388013&0.662042&0.662042\\\hline
+\end{tabular}
+\caption{Adjusted $p$-values (FRIEDMAN) (I)}
+\end{table}
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{ccccccc}
+i&algorithm&unadjusted $p$&$p_{Holland}$&$p_{Rom}$&$p_{Finner}$&$p_{Li}$\\
+\hline1&RandomByElement&0&0&0&0&0\\2&PAM&0&0&0&0&0\\3&RandomSequentialCyclic&0&0&0&0&0\\4&SequentialCyclic&0&0&0&0&0\\5&CyclicAssignment&0&0&0&0&0\\6&BestCyclicAssignment&0&0&0&0&0\\7&CoefficientPropagation&0&0.000002&0.000002&0&0.000001\\8&CLARA&0.000002&0.000024&0.000023&0.000005&0.000007\\9&NearestByDepot&0.000014&0.000126&0.000119&0.000026&0.000041\\10&BestNearest&0.061819&0.399805&0.47017&0.102804&0.154634\\11&NearestByCustomer&0.095135&0.503309&0.54275&0.143155&0.219664\\12&Parallel&0.095135&0.503309&0.54275&0.143155&0.219664\\13&UPGMC&0.277427&0.803027&0.662042&0.346177&0.450819\\14&Sweep&0.347003&0.818179&0.662042&0.403996&0.506603\\15&Simplified&0.382014&0.818179&0.662042&0.420426&0.530596\\16&KMEANS&0.450259&0.818179&0.662042&0.470436&0.571237\\17&Farthest-First&0.662042&0.818179&0.662042&0.662042&0.662042\\\hline
+\end{tabular}
+\caption{Adjusted $p$-values (FRIEDMAN) (II)}
+\end{table}
+
+\newpage
+\end{landscape}\end{document}

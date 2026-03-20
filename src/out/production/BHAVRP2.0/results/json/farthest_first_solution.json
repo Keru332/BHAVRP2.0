@@ -1,0 +1,31 @@
+{
+  "heuristic": "Farthest_First",
+  "solution": {
+    "clusters": [
+      {
+        "id_cluster": 11,
+        "request_cluster": 80.0,
+        "items_of_cluster": [
+          8,
+          1,
+          6,
+          7,
+          3
+        ]
+      },
+      {
+        "id_cluster": 12,
+        "request_cluster": 76.0,
+        "items_of_cluster": [
+          5,
+          9,
+          10,
+          2,
+          4
+        ]
+      }
+    ],
+    "unassigned_items": []
+  },
+  "unassigned_depots": []
+}

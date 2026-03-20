@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metrics>
+	<heuristic>Farthest_First</heuristic>
+	<instance>1</instance>
+	<executions count="1">
+		<execution run="1">
+			<metric name="SSE">2103.51</metric>
+			<metric name="SSB">1254.33</metric>
+			<metric name="DunnIndex">0.17</metric>
+			<metric name="SilhouetteCoefficient">0.34</metric>
+			<metric name="CalinskiHarabaszIndex">171.43</metric>
+			<metric name="XieBeniIndex">2.63</metric>
+			<metric name="DaviesBouldinIndex">0.8</metric>
+			<metric name="RayTuriIndex">10.52</metric>
+			<metric name="BallHallIndex">12.1</metric>
+			<time>916.0</time>
+		</execution>
+	</executions>
+</metrics>

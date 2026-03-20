@@ -1,0 +1,61 @@
+{
+  "heuristic": "Farthest_First",
+  "instance": "1",
+  "customers": 50,
+  "depots": 4,
+  "total_demand": 777.0,
+  "runs": 1,
+  "results": [
+    {
+      "run": 1,
+      "SSE": 2103.51,
+      "SSB": 1254.33,
+      "DunnIndex": 0.17,
+      "SilhouetteCoefficient": 0.34,
+      "CalinskiHarabaszIndex": 171.43,
+      "XieBeniIndex": 2.63,
+      "DaviesBouldinIndex": 0.8,
+      "RayTuriIndex": 10.52,
+      "BallHallIndex": 12.1,
+      "Time": 811.0
+    }
+  ],
+  "statistics": {
+    "Min": {
+      "SSE": 2103.51,
+      "SSB": 1254.32,
+      "DunnIndex": 0.17,
+      "SilhouetteCoefficient": 0.34,
+      "CalinskiHarabaszIndex": 171.43,
+      "XieBeniIndex": 2.62,
+      "DaviesBouldinIndex": 0.8,
+      "RayTuriIndex": 10.51,
+      "BallHallIndex": 12.09,
+      "Time": 811.0
+    },
+    "Max": {
+      "SSE": 2103.51,
+      "SSB": 1254.32,
+      "DunnIndex": 0.17,
+      "SilhouetteCoefficient": 0.34,
+      "CalinskiHarabaszIndex": 171.43,
+      "XieBeniIndex": 2.62,
+      "DaviesBouldinIndex": 0.8,
+      "RayTuriIndex": 10.51,
+      "BallHallIndex": 12.09,
+      "Time": 811.0
+    },
+    "Avg": {
+      "SSE": 2103.51,
+      "SSB": 1254.32,
+      "DunnIndex": 0.17,
+      "SilhouetteCoefficient": 0.34,
+      "CalinskiHarabaszIndex": 171.43,
+      "XieBeniIndex": 2.62,
+      "DaviesBouldinIndex": 0.8,
+      "RayTuriIndex": 10.51,
+      "BallHallIndex": 12.09,
+      "Time": 811.0
+    }
+  }
+}
