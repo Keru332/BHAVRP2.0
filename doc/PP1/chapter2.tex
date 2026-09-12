@@ -1,0 +1,183 @@
+%==============================================================
+%                    CAPITULO 2
+%==============================================================
+\chapter{Incorporaci\'on de algoritmos a la Biblioteca de Heur\'isticas de Asignaci\'on del Problema de Planificaci\'on de Rutas con M\'ultiples Dep\'ositos}
+
+En este cap\'itulo se presenta la incorporaci\'on de nuevos algoritmos a BHAVRP. Se muestra una tabla comparativa entre los algoritmos de agrupamiento ya implementados en la biblioteca y los que se proponen. Adem\'as, se presenta una descripci\'on detallada de los algoritmos de agrupamiento propuestos, modificaciones en la arquitectura de la biblioteca para la incorporaci\'on de estos y la adaptaci\'on para el MDVRP mediante diagramas de actividades.
+
+\section{Algoritmo DBSCAN}
+
+El algoritmo \textit{Density-Based Spatial clustering of Applications with Noise}, pertenece a la familia de algoritmos de agrupamiento basado en densidad, empleado frecuentemente cuando los datos contienen ruido. Este tipo de algoritmos se basan en el concepto de densidad de la vecindad de un punto, donde se calcula un n\'umero de puntos que est\'en dentro de un radio llamado \'Epsilon [52].
+
+Para el funcionamiento del algoritmo se le pasan los siguientes par\'ametros [53]:
+
+\begin{itemize}
+  \item \'Epsilon ($\varepsilon$): el radio de la vecindad alrededor de un punto de datos.
+  \item Puntos m\'inimos (\textit{minPts}): el n\'umero m\'inimo de puntos de datos que deben estar dentro del radio $\varepsilon$ de un punto dado.
+\end{itemize}
+
+Adem\'as, DBSCAN clasifica los puntos de los datos de la forma siguiente [52]:
+
+\begin{enumerate}
+  \item Punto n\'ucleo: un punto $P$ es un punto n\'ucleo si al menos \textit{minPts} est\'an a una distancia $\varepsilon$ de \'el o, esos puntos son directamente alcanzables desde $P$. No es posible tener puntos directamente alcanzables desde un punto que no sea un n\'ucleo.
+  \item Frontera: un punto $Q$ es frontera si est\'a dentro del radio $\varepsilon$ de un punto n\'ucleo $P$, pero no tiene suficientes puntos vecinos dentro de su propio radio $\varepsilon$ para ser considerado n\'ucleo. Estos puntos pertenecen al cl\'uster asociado a $P$, pero no pueden expandir el grupo hacia nuevos puntos.
+  \item Ruido: un punto que no sea alcanzable desde cualquier otro punto.
+\end{enumerate}
+
+Si $P$ es un punto n\'ucleo, entonces forma un grupo junto a otros puntos (n\'ucleo o no) que sean alcanzables desde \'el. Cada grupo contiene al menos un punto n\'ucleo. Los puntos no n\'ucleo alcanzables pueden pertenecer al grupo, pero act\'uan como frontera puesto que no es posible alcanzar m\'as puntos desde estos. Por lo tanto, el tiempo de respuesta se ve comprometido cuando se aplica en el contexto de grandes vol\'umenes de datos [52].
+
+En la Figura~\ref{fig:dbscan_puntos} se puede apreciar de forma gr\'afica c\'omo funciona el algoritmo.
+
+\figura{fig08_dbscan.png}{0.6\textwidth}{Ejemplo de la agrupaci\'on de puntos por densidad de DBSCAN.}{fig:dbscan_puntos}
+
+Para encontrar un cl\'uster, DBSCAN parte de un punto arbitrario cualquiera y recupera todos los puntos alcanzables por su densidad con respecto a su radio $\varepsilon$ y los puntos m\'nimos. Si ese punto es un n\'ucleo, este procedimiento genera un cl\'uster. Si es un punto frontera, DBSCAN se sit\'ua en el siguiente punto de la base de datos. Dado que se utilizan valores globales para $\varepsilon$ y \textit{minPts}, DBSCAN puede fusionar dos cl\'usteres en un solo cl\'uster si dos cl\'usteres de diferente densidad est\'an cerca entre s\'i. Entonces, dos conjuntos de puntos con al menos la densidad del cl\'uster m\'as delgado solo se separar\'an si la distancia entre los dos conjuntos es mayor que el radio $\varepsilon$ [54].
+
+Si dos cl\'usteres $C_{1}$ y $C_{2}$ est\'an muy cerca, podr\'ia ocurrir que alg\'un punto $P$ pertenezca a ambos. Entonces, $P$ debe ser un punto l\'imite en ambos cl\'usteres; de lo contrario, $C_{1}$ ser\'ia igual a $C_{2}$, dado que se utilizan par\'ametros globales. En este caso, el punto $P$ se asignar\'a al cl\'uster descubierto primero. Excepto en estas raras situaciones, el resultado de DBSCAN no es independiente del orden en que se visitan los puntos de la base de datos [54].
+
+Con el objetivo de resumir el flujo descrito anteriormente, la Figura~\ref{fig:dbscan_flujo} presenta el diagrama de flujo del algoritmo DBSCAN en su versi\'on m\'as b\'asica. Este diagrama resume las etapas fundamentales del proceso: selecci\'on de puntos no visitados, verificaci\'on de densidad mediante los par\'ametros $\varepsilon$ y \textit{minPts}, expansi\'on de cl\'usteres y clasificaci\'on de puntos como ruido cuando no cumplen el criterio de densidad.
+
+\figura{fig09_flujo_dbscan.png}{0.55\textwidth}{Diagrama de flujo del algoritmo DBSCAN.}{fig:dbscan_flujo}
+
+DBSCAN fue concebido como un algoritmo de agrupamiento basado en densidad espacial, por lo que necesita adaptaciones para resolver MDVRP debido a la presencia de restricciones adicionales como la capacidad de los dep\'ositos y la necesidad de asignaci\'on directa hacia dep\'ositos. Por esta raz\'on, se desarrolla una adaptaci\'on del algoritmo que incorpora restricciones propias del MDVRP sin perder las funciones originales del enfoque basado en densidad.
+
+La Figura~\ref{fig:dbscan_mdvrp} muestra el diagrama de actividades correspondiente a la versi\'on adaptada del algoritmo DBSCAN para el MDVRP.
+
+\figura{fig10_flujo_dbscan_mdvrp.png}{0.6\textwidth}{Diagrama de flujo del algoritmo DBSCAN a MDVRP.}{fig:dbscan_mdvrp}
+
+En esta variante, los cl\'usteres no se crean libremente desde cualquier punto n\'ucleo, sino que se inicializan expl\'icitamente a partir de los dep\'ositos existentes. A partir de cada dep\'osito, el algoritmo expande el cl\'uster considerando los clientes dentro del radio $\varepsilon$, siempre que se cumpla simult\'aneamente el criterio de densidad (\textit{minPts}) y la restricci\'on de capacidad del dep\'osito.
+
+Adem\'as, se incorpora una fase final de reasignaci\'on, donde los clientes que no pudieron ser incluidos durante la expansi\'on inicial son evaluados nuevamente y asignados al dep\'osito m\'as cercano con capacidad disponible.
+
+\section{Algoritmo CURE}
+
+En [12] se presenta el algoritmo de agrupamiento jer\'arquico \textit{Clustering Using Representatives} que usa puntos representativos y un muestreo para gestionar conjuntos de datos m\'as grandes con menores costes computacionales. CURE se puede dividir en dos fases: inicializaci\'on y finalizaci\'on. La inicializaci\'on comienza tomando una muestra aleatoria sin reemplazo de la poblaci\'on original y aplicando el agrupamiento jer\'arquico. Tanto el n\'umero de puntos representativos como el factor de contracci\'on se pueden optimizar como parte del ajuste de par\'ametros. En la etapa de finalizaci\'on, para cada cl\'uster resultante, selecciona un peque\~no conjunto de puntos representativos bien dispersos dentro del cl\'uster y, tras la contracci\'on hacia el centroide del cl\'uster, se asigna el cl\'uster a todos los puntos restantes calculando las distancias hacia todos esos representantes del cl\'uster. Gracias a esto, el algoritmo puede incluso reconocer geometr\'ias de formas arbitrarias, a la vez que es bueno frente a valores at\'ipicos [55].
+
+En la Figura~\ref{fig:cure_flujo_pasos} se muestra la secuencia de pasos que sigue el algoritmo [12]:
+
+\figura{fig11_cure_pasos.png}{0.8\textwidth}{Flujo de CURE.}{fig:cure_flujo_pasos}
+
+Para comprender el funcionamiento del algoritmo CURE, se mostrar\'a su proceso paso a paso, comenzando con el muestreo del conjunto de datos [56]:
+
+\begin{itemize}
+  \item Muestreo del conjunto de datos: CURE comienza seleccionando una muestra aleatoria representativa del conjunto de datos. El proceso de muestreo reduce el n\'umero de puntos de datos, lo que acelera la velocidad de c\'alculo y mantiene la integridad del cl\'uster. El muestreo aleatorio simple permite una implementaci\'on r\'apida, pero no logra capturar casos extremos cruciales. Las estrategias de muestreo implementadas por CURE permiten la agrupaci\'on posterior para representar con precisi\'on la complejidad y diversidad de todo el conjunto de datos.
+  \item Partici\'on de cl\'usteres: tras muestrear el conjunto de datos, CURE aplica un m\'etodo jer\'arquico que divide los datos en subconjuntos manejables. El algoritmo mide las similitudes de los puntos de datos mediante m\'etricas de distancia, algunas de estas son la distancia euclidiana o la distancia de Manhattan. Las m\'etricas de c\'alculo de distancia son esenciales para determinar la proximidad de los puntos y establecer una base s\'olida para una fusi\'on de cl\'usteres eficaz. Al inicio del proceso, cada punto de datos funciona como su propio cl\'uster para representar la granularidad fina de los datos. El algoritmo realiza fusiones de cl\'usteres sucesivas utilizando est\'andares de proximidad para agrupar puntos similares. El algoritmo contin\'ua con las operaciones de fusi\'on de cl\'usteres hasta alcanzar un n\'umero definido de cl\'usteres o hasta que se activa una condici\'on de terminaci\'on alternativa. El proceso de selecci\'on de grupos en CURE crea cl\'usteres que se alinean con las categor\'ias naturales presentes en los datos. Mediante la partici\'on jer\'arquica, CURE supera las limitaciones de los algoritmos de agrupamiento tradicionales, que requieren que los cl\'usteres tengan formas convexas.
+  \item Selecci\'on de puntos representativos: CURE selecciona m\'ultiples puntos representativos para representar cada cl\'uster, en lugar de depender de un \'unico centroide. Estos puntos seleccionados del cl\'uster capturan su rango espacial y estructura. CURE logra un mejor reconocimiento de los l\'imites del cl\'uster y una mejor comprensi\'on de la estructura interna al utilizar m\'ultiples puntos para representar cada cl\'uster. Despu\'es de seleccionar los puntos representativos, el algoritmo los mueve hacia la media del cl\'uster con una reducci\'on espec\'ifica. Esta reducci\'on hace que el algoritmo sea menos reactivo a los valores at\'ipicos, ya que mueve los puntos distantes hacia los puntos centrales del cl\'uster. El \'exito del algoritmo depende en gran medida de la cantidad de puntos representativos utilizados durante la ejecuci\'on. Usar pocos puntos representativos puede no capturar la complejidad del cl\'uster, mientras que usar demasiados puede aumentar los costos computacionales.
+  \item Fusi\'on de cl\'usteres: tras identificar los puntos representativos, el algoritmo fusiona los cl\'usteres mediante un enfoque iterativo sistem\'atico. El procedimiento se basa en la medici\'on de la distancia entre los puntos representativos de diferentes cl\'usteres. Se utilizan m\'etricas predefinidas, como la distancia euclidiana, para medir las distancias, eliminando as\'i conflictos a la hora de encontrar los cl\'usteres m\'as cercanos. El algoritmo identifica qu\'e pares de cl\'usteres tienen la menor distancia respecto a la separaci\'on de los puntos representativos durante cada paso de la evaluaci\'on. El algoritmo toma decisiones precisas sobre la fusi\'on de cl\'usteres, preservando las relaciones espaciales y los patrones naturales de alineaci\'on de datos dentro de los cl\'usteres. El proceso itera hasta que se alcanzan algunos cl\'usteres predeterminados o se alcanza otro criterio de terminaci\'on. El criterio de terminaci\'on depende de factores como la distancia m\'inima entre cl\'usteres o la similitud m\'axima permitida dentro de ellos. Esto garantiza que los cl\'usteres generados correspondan a las agrupaciones naturales de los datos y sean lo suficientemente flexibles como para capturar formas irregulares y complejas.
+  \item Manejo de valores at\'ipicos: cuando existen valores at\'ipicos, los resultados se distorsionan porque causan formas incorrectas de los cl\'usteres y malinterpretan la estructura de los datos. El algoritmo CURE resuelve estas limitaciones utilizando m\'ultiples puntos representativos, que identifican con precisi\'on la forma y distribuci\'on reales de los cl\'usteres.
+\end{itemize}
+
+La complejidad computacional en el peor caso de este algoritmo de agrupamiento se puede demostrar como $O(n^{2}\log(n))$. [12] demuestra que cuando la dimensionalidad de los puntos de datos es peque\~na, la complejidad temporal se reduce a\'un m\'as a $O(n^{2})$. Dado que se requiere un espacio lineal, se deduce que la complejidad espacial de este algoritmo es $O(n)$.
+
+Para sintetizar todo el funcionamiento descrito anteriormente, la Figura~\ref{fig:cure_flujo} presenta el diagrama de actividades del algoritmo CURE en su versi\'on base. Este diagrama resume el proceso jer\'arquico de fusi\'on de cl\'usteres, comenzando con cada punto como un cl\'uster independiente y continuando con la uni\'on iterativa de los cl\'usteres m\'as cercanos hasta alcanzar el n\'umero deseado $k$. Destac\'andose la selecci\'on de m\'ultiples puntos representativos por cl\'uster y su posterior contracci\'on hacia el centroide, elemento diferenciador de CURE frente a otros algoritmos jer\'arquicos tradicionales.
+
+\figura{fig12_flujo_cure.png}{0.55\textwidth}{Diagrama de flujo del algoritmo CURE.}{fig:cure_flujo}
+
+La aplicaci\'on directa de CURE al MDVRP no contempla restricciones fundamentales como la capacidad de los dep\'ositos ni la necesidad de que los cl\'usteres est\'en asociados expl\'icitamente a estos. Por ello, se desarroll\'o una adaptaci\'on del algoritmo que preserva la l\'ogica de representantes m\'ultiples y fusi\'on basada en proximidad, pero incorpora las restricciones pertinentes. La Figura~\ref{fig:cure_mdvrp} muestra el diagrama de actividades correspondiente a la versi\'on adaptada de CURE para el MDVRP.
+
+\figura{fig13_flujo_cure_mdvrp.png}{0.6\textwidth}{Diagrama de flujo del algoritmo CURE adaptado al MDVRP.}{fig:cure_mdvrp}
+
+En esta variante, los cl\'usteres iniciales se dividen en dos conjuntos diferenciados: cl\'usteres de clientes individuales y cl\'usteres asociados a dep\'ositos.
+
+El proceso iterativo ya no busca reducir el n\'umero total de cl\'usteres hasta alcanzar un valor $k$, sino que se orienta a fusionar progresivamente clientes con cl\'usteres de dep\'ositos, siempre que:
+
+\begin{itemize}
+  \item La distancia m\'inima entre puntos representativos sea la menor disponible.
+  \item La capacidad del dep\'osito permita absorber la demanda del cliente o subcl\'uster.
+\end{itemize}
+
+Tras cada fusi\'on, se actualizan los puntos representativos del cl\'uster resultante, manteniendo la parte m\'as importante y que caracteriza al algoritmo CURE original.
+
+\section{Comparaci\'on de los algoritmos de agrupamiento}
+
+BHAVRP implementa diferentes tipos de algoritmos adaptados para resolver espec\'ificamente la fase de asignaci\'on del MDVRP desde diferentes enfoques. Estos seg\'un la arquitectura de la biblioteca se dividen en heur\'isticos, de agrupamiento y una categor\'ia otros para los que no se corresponde con alguna de las anteriores. Esta investigaci\'on se centra en los algoritmos de agrupamiento. A continuaci\'on, se describen los presentes en la biblioteca [15]:
+
+\begin{itemize}
+  \item \textit{K-Means}: asigna seleccionando los clientes con la menor distancia a un dep\'osito.
+  \item \textit{Partitional Around Medoids} (PAM): realiza diferentes asignaciones de los clientes a los dep\'ositos con el objetivo de encontrar la asignaci\'on que minimice el costo.
+  \item \textit{Clustering Large Application} (CLARA): es una extensi\'on de PAM para grandes conjuntos de datos, seleccionando muestras representativas.
+  \item \textit{Farthest-First}: asigna seleccionando como centroides los elementos con la mayor distancia entre ellos.
+  \item \textit{Unweighted Pair Group Method with Centroid} (UPGMC): agrupa los cl\'usteres m\'as cercanos hasta que la cantidad de cl\'usteres sea equivalente al n\'umero de dep\'ositos.
+\end{itemize}
+
+En la versi\'on actual de BHAVRP, los algoritmos de agrupamiento implementados presentan limitaciones importantes que justifican la incorporaci\'on de nuevos algoritmos. En la Tabla~\ref{tab:comparacion_algoritmos} se muestra una comparaci\'on entre todos los algoritmos de agrupamiento de la biblioteca y los algoritmos que se proponen para esta.
+
+\begin{table}[H]
+\centering
+\caption{Comparaci\'on de algoritmos de BHAVRP con los propuestos.}
+\label{tab:comparacion_algoritmos}
+\small
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\textbf{Caracter\'istica} & \textbf{KMEANS} & \textbf{PAM} & \textbf{CLARA} & \textbf{\shortstack{Farthest\\First}} & \textbf{UPGMC} & \textbf{DBSCAN} & \textbf{CURE} \\
+\midrule
+\shortstack[l]{Requiere especificar\\n\'umero de cl\'usteres} & X & X & X & X & X &  & X \\
+\shortstack[l]{Detecta formas arbitrarias\\en la forma de los cl\'usteres} &  &  &  &  &  & X & X \\
+\shortstack[l]{Escalable a miles\\de puntos} & X &  & X & X &  & X & X \\
+\shortstack[l]{Buena identificaci\'on\\de valores at\'ipicos} &  & X & X &  &  & X & X \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Como se puede apreciar, los algoritmos implementados cuentan con ciertas limitaciones, principalmente ante la forma de los cl\'usteres. Los algoritmos DBSCAN y CURE cubren estas caracter\'isticas ausentes en los m\'etodos actuales. Adem\'as, a diferencia de UPGMC estos pueden detectar formas arbitrarias en vez de formas circulares e identificar bien los valores at\'ipicos lo cual mejorar\'ia la calidad de asignaci\'on con respecto a este. Implementar una adaptaci\'on de estos algoritmos para la fase de asignaci\'on de clientes a dep\'ositos en MDVRP lograr\'a identificar formas m\'as complejas de cl\'usteres que se adaptan mejor a la realidad geogr\'afica.
+
+\section{Incorporaci\'on de los algoritmos propuestos a BHAVRP}
+
+La incorporaci\'on de los nuevos algoritmos de agrupamiento a la biblioteca BHAVRP requiri\'o la definici\'on de las siguientes clases: AbstractDensity, DBSCAN, CURE y CureCluster. Estas clases se integran a la arquitectura existente respetando el patr\'on de dise\~no que organiza los algoritmos de agrupamiento dentro de la biblioteca, basado en el patr\'on \textit{Template Method}. En la Tabla~\ref{tab:clases} se puede apreciar las clases con una peque\~na descripci\'on de estas:
+
+\begin{table}[H]
+\centering
+\caption{Clases implementadas para la incorporaci\'on de los nuevos algoritmos de agrupamiento.}
+\label{tab:clases}
+\small
+\begin{tabular}{@{}lp{10cm}@{}}
+\toprule
+\textbf{Clase} & \textbf{Descripci\'on} \\
+\midrule
+\textbf{AbstractDensity} & Clase abstracta que concentra operaciones comunes para algoritmos basados en densidad, como el c\'alculo de distancias, la b\'usqueda de vecinos dentro de un radio $\varepsilon$ y la asignaci\'on de clientes a cl\'usteres. \\
+\textbf{DBSCAN} & Implementaci\'on del algoritmo DBSCAN adaptado al MDVRP. Realiza la expansi\'on de cl\'usteres desde los dep\'ositos considerando densidad de clientes, l\'imites de capacidad y posterior reasignaci\'on de clientes no asignados. \\
+\textbf{CURE} & Implementaci\'on del algoritmo jer\'arquico CURE adaptado al MDVRP. Ejecuta la asignaci\'on de clientes a dep\'ositos mediante la fusi\'on progresiva de cl\'usteres basada en la distancia entre puntos representativos. \\
+\textbf{CureCluster} & Estructura utilizada por CURE para representar un cl\'uster durante el proceso de agrupamiento. Mantiene los clientes del cl\'uster, su demanda acumulada, el centroide y los puntos representativos utilizados para calcular distancias entre cl\'usteres. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Para esta actualizaci\'on de la biblioteca fue necesario modificar el paquete \textit{Clustering} de la capa general, ya que todas estas clases fueron implementadas en este. Como se puede apreciar en la Figura~\ref{fig:arquitectura_actualizada}, en azul se muestra el paquete modificado:
+
+\figura{fig14_arquitectura_actualizada.png}{0.85\textwidth}{Diagrama de arquitectura actualizado.}{fig:arquitectura_actualizada}
+
+En BHAVRP, todos los algoritmos de asignaci\'on de clientes a dep\'ositos siguen una estructura com\'un que consta de tres fases: inicializaci\'on, asignaci\'on iterativa y finalizaci\'on. Independientemente de la heur\'istica espec\'ifica, el flujo general es siempre el mismo: se preparan las estructuras de datos, se asignan los clientes a los dep\'ositos respetando las restricciones del problema, y se construye la soluci\'on final. Sin embargo, los detalles de c\'omo se realiza la inicializaci\'on, c\'omo se asignan los clientes en cada iteraci\'on y c\'omo se determina la convergencia var\'ian de un algoritmo a otro.
+
+En este contexto, el patr\'on \textit{Template Method} se utiliza para definir el esqueleto del algoritmo en un m\'etodo plantilla que establece la secuencia invariante de ejecuci\'on. En el dise\~no de BHAVRP, la clase abstracta AssignmentTemplate (que hereda de la clase base Heuristic) encapsula el flujo del algoritmo en su m\'etodo plantilla \textit{toClustering} (declarado en la interfaz IAssignment). Este m\'etodo define la secuencia de pasos invariantes:
+
+\begin{enumerate}
+  \item Inicializaci\'on (\textbf{initialize}): crea las estructuras necesarias (cl\'usteres, listas de clientes, centroides, etc.) y prepara el estado inicial del algoritmo.
+  \item Asignaci\'on (\textbf{assign}): ejecuta el ciclo iterativo donde los clientes se asignan a los cl\'usteres utilizando la matriz de costos, se actualizan los representantes de los cl\'usteres y se verifica si se requiere una nueva iteraci\'on.
+  \item Finalizaci\'on (\textbf{finish}): ensambla la soluci\'on final, clasificando los clientes no asignados y los cl\'usteres resultantes.
+\end{enumerate}
+
+DBSCAN y CURE respetan este patr\'on al implementar las operaciones abstractas definidas en la plantilla sin modificar la estructura general del flujo. En ambos casos, el m\'etodo \textit{to\_clustering} mantiene la secuencia establecida por la clase base, mientras que cada algoritmo redefine los m\'etodos \textit{initialize}, \textit{assign} y \textit{finish} para incorporar su l\'ogica particular de agrupamiento. De esta manera, DBSCAN implementa la expansi\'on de cl\'usteres basada en densidad y CURE el proceso jer\'arquico de fusi\'on mediante puntos representativos, pero ambos siguen el mismo esquema de ejecuci\'on definido por la biblioteca.
+
+La incorporaci\'on de estas clases respeta varios principios fundamentales de dise\~no de software:
+
+\begin{itemize}
+  \item Principio Abierto/Cerrado: la arquitectura base de BHAVRP no requiere modificaciones para incorporar nuevos algoritmos de agrupamiento. La extensi\'on del sistema se logra mediante la creaci\'on de nuevas clases que implementan los m\'etodos definidos en la jerarqu\'ia existente.
+  \item Principio de responsabilidad \'unica: cada clase mantiene una responsabilidad bien definida dentro del dise\~no. La estructura general del algoritmo se encuentra encapsulada en la clase base, mientras que las clases concretas se encargan exclusivamente de implementar la l\'ogica particular de cada t\'ecnica de agrupamiento.
+  \item Principio de favorecer composici\'on sobre la herencia: en la clase CureCluster en lugar de extender directamente la clase Cluster mediante herencia, CureCluster encapsula una instancia de esta clase y a\~nade informaci\'on adicional necesaria para el funcionamiento del algoritmo CURE, como los puntos representativos, el centroide y la colecci\'on de clientes asociados al cl\'uster.
+  \item Alta cohesi\'on: las operaciones relacionadas con el c\'alculo de distancias, vecindades y otras funcionalidades compartidas se agrupan en clases espec\'ificas como AbstractDensity. Esto permite que cada componente del sistema concentre funcionalidades relacionadas entre s\'i.
+  \item Bajo acoplamiento: las implementaciones concretas dependen \'unicamente de las interfaces y estructuras generales proporcionadas por BHAVRP, lo que facilita la sustituci\'on o incorporaci\'on de nuevas heur\'isticas sin afectar el resto del sistema.
+\end{itemize}
+
+En la Figura~\ref{fig:clases} se puede apreciar la jerarqu\'ia de clases donde se aplica el patr\'on Template Method y la implementaci\'on de las nuevas clases respetando este. La clase AssignmentTemplate act\'ua como clase base con el m\'etodo plantilla, y las distintas heur\'isticas de asignaci\'on sobrescriben los m\'etodos abstractos seg\'un su l\'ogica espec\'ifica.
+
+\figura{fig15_diagrama_clases.png}{0.9\textwidth}{Diagrama de clases actualizado.}{fig:clases}
+
+\section{Conclusiones parciales}
+
+A partir del an\'alisis sobre los algoritmos DBSCAN y CURE, la comparaci\'on con los algoritmos de agrupamiento de BHAVRP, adem\'as del dise\~no de la adaptaci\'on de estos algoritmos a MDVRP se concluye que:
+
+\begin{itemize}
+  \item Los algoritmos DBSCAN y CURE suponen una buena inclusi\'on a BHAVRP gracias a su capacidad de generar cl\'usteres con formas m\'as complejas y la detecci\'on de valores at\'ipicos. DBSCAN siendo un buen primer acercamiento a los algoritmos basados en densidad dentro de la biblioteca y CURE una alternativa bastante robusta gracias al uso de puntos representativos.
+  \item DBSCAN, originalmente dise\~nado para detecci\'on de densidad, puede reinterpretarse como un mecanismo de expansi\'on controlada desde dep\'ositos, convirti\'endolos en n\'ucleos de agrupamiento.
+  \item CURE, como algoritmo jer\'arquico, ofrece mayor flexibilidad al permitir fusiones progresivas basadas en distancia m\'inima entre puntos representativos.
+  \item Ambas adaptaciones mantienen la esencia estructural de los algoritmos cl\'asicos, pero introducen mecanismos adicionales de validaci\'on que garantizan factibilidad log\'istica.
+\end{itemize}

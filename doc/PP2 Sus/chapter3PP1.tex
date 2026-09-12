@@ -1,0 +1,514 @@
+%==============================================================
+%                    CAPITULO 3
+%==============================================================
+\chapter{An\'alisis experimental}
+
+En este cap\'itulo se presentan las pruebas funcionales y unitarias para las funcionalidades principales de los algoritmos implementados, adem\'as de un estudio comparativo entre los resultados obtenidos por los algoritmos de agrupamiento de la biblioteca y los nuevos propuestos usando las m\'etricas de evaluaci\'on que contiene BHAVRP. Tambi\'en una prueba estad\'istica no param\'etrica entre los dos algoritmos jer\'arquicos.
+
+Todos los experimentos se llevan a cabo en un entorno controlado, utilizando un ordenador con las siguientes especificaciones: procesador AMD A6-7310 APU with AMD Radeon R4 Graphics de 2.4GHz, 4 GB de memoria RAM y sistema operativo Linux Mint de 64 bits, usando el IDE Intellij IDEA con Java en su versi\'on 23.
+
+\section{Pruebas funcionales}
+
+Con el prop\'osito de garantizar la correcta integraci\'on y funcionamiento de los nuevos algoritmos implementados en BHAVRP, se desarrolla un conjunto de pruebas unitarias usando el componente Junit para validar las funciones esenciales de los algoritmos: m\'etodo \textit{distance} de la clase DBSCAN y constructor, as\'i como m\'etodo \textit{merge} de la clase CureCluster y el m\'etodo \textit{calculateClusterDistance} de la clase CURE. Estas pruebas funcionales se realizan previamente al an\'alisis de calidad y rendimiento de los algoritmos de asignaci\'on sobre instancias.
+
+\subsection{Prueba del m\'etodo \textit{distance} en DBSCAN}
+
+El m\'etodo \textit{distance} de la clase DBSCAN es fundamental para el algoritmo de agrupamiento basado en densidad, ya que calcula la distancia euclidiana entre dos puntos geogr\'aficos representados por objetos de la clase \textit{Location}. Para asegurar su correcto funcionamiento se dise\~nan pruebas unitarias que verifican:
+
+\begin{itemize}
+  \item C\'alculo correcto de distancias: se comparan distancias conocidas, como la distancia entre (0,0) y (3,4) que debe ser 5.0 por la m\'etrica euclidiana.
+  \item Distancia a s\'i mismo: se verifica que la distancia de un punto a s\'i mismo sea cero, lo cual es una propiedad b\'asica de cualquier m\'etrica.
+  \item Manejo de coordenadas negativas: se prueba con puntos que incluyen coordenadas negativas para asegurar que el c\'alculo no se ve afectado por el signo.
+  \item Simetr\'ia: se comprueba que la distancia entre A y B sea igual a la distancia entre B y A, propiedad necesaria para cualquier funci\'on de distancia.
+\end{itemize}
+
+Adicionalmente, se verifica que el m\'etodo sea consistente para diferentes instancias y que el tipo de distancia por defecto sea la euclidiana. En la Figura~\ref{fig:prueba_distance} se puede apreciar el resultado proporcionado por el IDE a esta prueba.
+
+\figura{fig16_prueba_distance.png}{0.85\textwidth}{Resultados de las pruebas del m\'etodo distance.}{fig:prueba_distance}
+
+\subsection{Pruebas del constructor y m\'etodo merge de la clase CureCluster}
+
+La clase CureCluster representa un cl\'uster en el algoritmo CURE. Su correcta construcci\'on y la operaci\'on de fusi\'on (\textit{merge}) son cr\'iticas para el proceso jer\'arquico. Las pruebas unitarias se centran en:
+
+Creaci\'on de cl\'usteres:
+
+\begin{itemize}
+  \item Con un solo cliente: se verifica que el cl\'uster se cree correctamente, que contenga al cliente, que el centroide se calcule adecuadamente y que la demanda total sea la esperada.
+  \item Con m\'ultiples clientes: se comprueba que el centroide sea el promedio de las coordenadas de los clientes y que la demanda sea la suma de las demandas individuales.
+  \item Se verifica que los puntos representativos se generen correctamente tras la creaci\'on.
+\end{itemize}
+
+Operaci\'on de fusi\'on (merge):
+
+\begin{itemize}
+  \item Se fusionan dos cl\'usteres y se comprueba que el n\'umero de clientes resultante sea la suma de ambos, que la demanda total sea la suma y que el centroide se actualice correctamente.
+  \item Se verifica que la lista de identificadores de clientes en el cl\'uster base se actualice adecuadamente.
+  \item Se prueba que la fusi\'on no altere la integridad de los datos y que los puntos representativos del nuevo cl\'uster se calculen apropiadamente.
+\end{itemize}
+
+Casos bordes:
+
+\begin{itemize}
+  \item Manejo de listas vac\'ias de clientes en la creaci\'on.
+  \item Fusi\'on de un cl\'uster consigo mismo (aunque no sea una operaci\'on v\'alida en la pr\'actica, se verifica que no lance excepciones inesperadas).
+\end{itemize}
+
+Estas pruebas aseguran que la estructura de datos subyacente al algoritmo CURE sean confiables y que las operaciones de agrupamiento se realicen de forma correcta. En la Figura~\ref{fig:prueba_merge} se puede apreciar el resultado proporcionado por el IDE a esta prueba.
+
+\figura{fig17_prueba_merge.png}{0.85\textwidth}{Resultados de las pruebas de constructor y del m\'etodo merge.}{fig:prueba_merge}
+
+\subsection{Pruebas del m\'etodo \textit{calculateClusterDistance} de la clase CURE}
+
+El m\'etodo \textit{calculateClusterDistance} es uno de los m\'etodos m\'as importantes del algoritmo CURE, ya que determina la distancia entre dos cl\'usters utilizando los puntos representativos contra\'idos. Las pruebas unitarias dise\~nadas verifican:
+
+\begin{itemize}
+  \item C\'alculo de distancia entre cl\'usteres separados: se crean cl\'usteres con puntos en disposiciones horizontales y verticales, y se calcula la distancia esperada manualmente a partir de los puntos contra\'idos. Luego se compara con el resultado del m\'etodo, asegurando que coincida dentro de una tolerancia.
+  \item Se prueba con cl\'usteres que tienen m\'ultiples puntos, comprobando que la distancia m\'inima entre los puntos contra\'idos sea la retornada.
+  \item Simetr\'ia: se verifica que la distancia entre el cl\'uster A y el cl\'uster B sea igual a la distancia entre B y A.
+  \item Manejo de cl\'usteres con un solo punto: en este caso, el centroide coincide con el punto, por lo que el punto contra\'ido es el mismo.
+  \item Coordenadas negativas: se prueban cl\'usteres con puntos en coordenadas negativas para garantizar que el c\'alculo sea correcto en todo el plano.
+  \item Uso de puntos representativos contra\'idos: se comprueba que los puntos utilizados en el c\'alculo sean efectivamente los puntos contra\'idos y no los originales.
+  \item Valores positivos y finitos: se asegura que la distancia calculada sea siempre positiva y finita para cl\'usteres separados.
+\end{itemize}
+
+Estas pruebas garantizan que la m\'etrica de distancia entre cl\'usteres en el algoritmo CURE sea la adecuada para el proceso de agrupamiento jer\'arquico. En la Figura~\ref{fig:prueba_calcdist} se puede apreciar el resultado proporcionado por el IDE a esta prueba.
+
+\figura{fig18_prueba_calcdist.png}{0.85\textwidth}{Resultados de las pruebas del m\'etodo calculateClusterDistance.}{fig:prueba_calcdist}
+
+\section{Pruebas unitarias}
+
+Adem\'as de las pruebas funcionales de los m\'etodos esenciales, se realizaron pruebas de caja negra para verificar el comportamiento global de los algoritmos DBSCAN y CURE en escenarios extremos, asegurando que las adaptaciones al MDVRP respetan las restricciones de capacidad y asignaci\'on.
+
+En la Tabla~\ref{tab:pruebas_dbscan}, DBSCAN demuestra que su fase de expansi\'on controlada desde los dep\'ositos, junto con la reasignaci\'on final, logra respetar los l\'imites de capacidad incluso cuando la densidad de clientes supera la capacidad disponible. La Tabla~\ref{tab:pruebas_cure} muestra que CURE, mediante su mecanismo de fusi\'on jer\'arquica controlada, asigna los clientes de manera que no se exceda la capacidad de ning\'un dep\'osito, dejando como no asignados \'unicamente aquellos que no pueden ser absorbidos por ning\'un dep\'osito sin violar la restricci\'on. Estos resultados confirman que ambas adaptaciones cumplen con las reglas de negocio del MDVRP.
+
+\begin{table}[H]
+\centering
+\caption{Pruebas unitarias de caja negra del algoritmo DBSCAN.}
+\label{tab:pruebas_dbscan}
+\footnotesize
+\begin{tabular}{@{}cp{2.6cm}p{2.2cm}p{3cm}p{3cm}p{3cm}@{}}
+\toprule
+\textbf{No} & \textbf{Descripci\'on} & \textbf{Caso prueba} & \textbf{Juego de Datos} & \textbf{Resultados esperados} & \textbf{Resultados Reales} \\
+\midrule
+1 & Verificar asignaci\'on b\'asica de clientes a dep\'ositos cuando todos se encuentran dentro del radio $\varepsilon$. & Asignaci\'on b\'asica DBSCAN & 2 dep\'ositos y 6 clientes ubicados cerca de cada dep\'osito. Demandas peque\~nas dentro de la capacidad. & Cluster 7 = [1,2,3], Cluster 8 = [4,5,6], no asignados = 0 & Cluster 7 = [1,2,3], Cluster 8 = [4,5,6], no asignados = 0 \\
+2 & Validar que el algoritmo respeta la capacidad m\'axima del dep\'osito. & Capacidad limitada DBSCAN & 1 dep\'osito con capacidad limitada y varios clientes cuya suma de demandas supera la capacidad. & Cluster 6 = [1,2], no asignados = [3,4,5] & Cluster 6 = [1,2], no asignados = [3,4,5] \\
+3 & Validar la reasignaci\'on final de clientes no asignados. & Reasignaci\'on DBSCAN & Clientes alejados del dep\'osito inicial pero cercanos a otro dep\'osito con capacidad disponible. & Cluster 6 = [1,2,3], Cluster 7 = [4,5], no asignados = 0 & Cluster 6 = [1,2,3], Cluster 7 = [4,5], no asignados = 0 \\
+4 & Validar excepci\'on cuando un deposito no puede alcanzar ning\'un cliente & Dep\'osito Vac\'io & Pocos clientes muy alejados de los dep\'ositos. & ClusterExcepci\'on & ClusterExcepci\'on \\
+5 & Validar excepci\'on cuando los datos son err\'oneos. & Error en los Datos & Instancia sin dep\'ositos. & ProblemException & ProblemException \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Pruebas unitarias de caja negra del algoritmo CURE.}
+\label{tab:pruebas_cure}
+\footnotesize
+\begin{tabular}{@{}cp{2.6cm}p{2.2cm}p{3cm}p{3cm}p{3cm}@{}}
+\toprule
+\textbf{No} & \textbf{Descripci\'on} & \textbf{Caso prueba} & \textbf{Juego de Datos} & \textbf{Resultados esperados} & \textbf{Resultados Reales} \\
+\midrule
+1 & Verificar la asignaci\'on b\'asica de clientes a dep\'ositos mediante fusi\'on de cl\'usteres. & Asignaci\'on b\'asica CURE & 2 dep\'ositos y varios clientes distribuidos en dos regiones cercanas a cada dep\'osito. & Cluster 7 = [1,2,3], Cluster 8 = [4,5,6], No asignados: 0 & Cluster 7 = [1,2,3], Cluster 8 = [4,6,5], No asignados: 0 \\
+2 & Validar que la fusi\'on de cl\'usteres respeta la capacidad del dep\'osito. & Capacidad CURE & Clientes cercanos a un dep\'osito cuya demanda acumulada excede la capacidad disponible. & Cluster 6: [1,2], No asignados: [3,4,5] & Cluster 6: [1,2], No asignados: [3,4,5] \\
+3 & Verificar el comportamiento cuando no es posible fusionar m\'as cl\'usteres. & No asignables CURE & Clientes restantes cuya asignaci\'on provocar\'ia exceder la capacidad de todos los dep\'ositos. & Cluster 5 = [1], Cluster 6 = [3], No asignados: [2,4] & Cluster 5 = [1], Cluster 6 = [3], No asignados: [2,4] \\
+4 & Validar excepci\'on cuando los datos son err\'oneos. & Error en los Datos & Instancia sin dep\'ositos. & ProblemException & ProblemException \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Comparaci\'on entre los algoritmos de agrupamiento}
+
+Con el objetivo de analizar el comportamiento y la calidad de las asignaciones generadas por los algoritmos implementados en BHAVRP, se dise\~na un experimento enfocado en instancias utilizadas en trabajos anteriores [14], [15]. Este experimento busca comparar el rendimiento de cada algoritmo de asignaci\'on en condiciones controladas, evaluando los resultados mediante el conjunto de m\'etricas internas incluidas dentro de la biblioteca. El estudio experimental se lleva a cabo empleando las 33 instancias originalmente introducidas por [57] en su trabajo sobre el MDVRP. Estas instancias tienen amplio reconocimiento en el \'ambito cient\'ifico de la optimizaci\'on de rutas. La Tabla~\ref{tab:instancias} detalla, para cada instancia del problema, el n\'umero total de clientes, la cantidad de dep\'ositos, la flota de veh\'iculos asignada a cada dep\'osito y su capacidad. Cabe destacar que aquellas instancias que figuran con el mismo identificador en la columna `ID' presentan id\'enticas caracter\'isticas en cuanto a n\'umero de clientes, dep\'ositos, veh\'iculos por dep\'osito y capacidad de los veh\'iculos.
+
+Para el experimento se usaron solo los algoritmos de agrupamiento de BHAVRP ya mencionados en la secci\'on 2.3. Al ser todos estos algoritmos deterministas, cada algoritmo se ejecuta una sola vez por instancia, utilizando como tipo de distancia aproximada la distancia euclidiana. Para analizar la calidad de las asignaciones generadas por cada algoritmo, se utilizan todas las m\'etricas de validaci\'on interna incorporadas en BHAVRP. Estas m\'etricas permiten evaluar cuantitativamente aspectos clave como la cohesi\'on y la separaci\'on entre cl\'usteres. En la Tabla~\ref{tab:metricas}, se presentan las m\'etricas a utilizar con sus siglas, el criterio que eval\'uan y una descripci\'on.
+
+\begin{table}[H]
+\centering
+\caption{Descripci\'on de las instancias.}
+\label{tab:instancias}
+\small
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{ID} & \textbf{\shortstack{Total de\\clientes}} & \textbf{\shortstack{Total de\\dep\'ositos}} & \textbf{\shortstack{Total de veh\'iculos\\por dep\'osito}} & \textbf{\shortstack{Capacidad\\de los veh\'iculos}} \\
+\midrule
+p01 & 50 & 4 & 4 & 80 \\
+p02 & 50 & 4 & 2 & 160 \\
+p03 & 75 & 5 & 3 & 140 \\
+p04 & 100 & 2 & 8 & 100 \\
+p05 & 100 & 2 & 5 & 200 \\
+p06 & 100 & 3 & 6 & 100 \\
+p07 & 100 & 4 & 4 & 100 \\
+p08 & 249 & 2 & 14 & 500 \\
+p09 & 249 & 3 & 12 & 500 \\
+p10 & 249 & 4 & 8 & 500 \\
+p11 & 249 & 5 & 6 & 500 \\
+p12, p13, p14 & 80 & 2 & 5 & 60 \\
+p15, p16, p17 & 160 & 4 & 5 & 60 \\
+p18, p19, p20 & 240 & 6 & 5 & 60 \\
+p21, p22, p23 & 360 & 9 & 5 & 60 \\
+pr1 & 48 & 4 & 1 & 200 \\
+pr2 & 96 & 4 & 2 & 195 \\
+pr3 & 144 & 4 & 3 & 190 \\
+pr4 & 192 & 4 & 4 & 185 \\
+pr5 & 240 & 4 & 5 & 180 \\
+pr6 & 288 & 4 & 6 & 175 \\
+pr7 & 72 & 1 & 6 & 200 \\
+pr8 & 144 & 2 & 6 & 190 \\
+pr9 & 216 & 6 & 3 & 180 \\
+pr10 & 288 & 6 & 4 & 170 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Resumen de las m\'etricas incorporadas en BHAVRP.}
+\label{tab:metricas}
+\small
+\begin{tabular}{@{}lp{1.3cm}p{2cm}p{8.5cm}@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Siglas} & \textbf{?`Qu\'e eval\'ua?} & \textbf{Descripci\'on} \\
+\midrule
+\textbf{Suma de Errores al Cuadrado} & SSE & Cohesi\'on & Suma de las distancias cuadr\'aticas entre cada punto y el centroide de su grupo. \textbf{Minimizar}. \\
+\textbf{\'Indice de Ball-Hall} & BH & Cohesi\'on & Mide la dispersi\'on promedio dentro de los cl\'usteres. \textbf{Minimizar}. \\
+\textbf{Suma de Cuadrados entre Cl\'usteres} & SSB & Separaci\'on & Eval\'ua la separaci\'on entre los grupos considerando la distancia entre sus centroides y el centro global de los datos. \textbf{Maximizar}. \\
+\textbf{\'Indice de Calinski-Harabasz} & CH & Cohesi\'on y Separaci\'on & Relaci\'on entre la dispersi\'on entre cl\'usteres (SSB) y la dispersi\'on dentro de los cl\'usteres (SSE). \textbf{Maximizar}. \\
+\textbf{\'Indice de Dunn} & DI & Cohesi\'on y Separaci\'on & Relaci\'on entre la distancia m\'inima inter-cl\'uster y el di\'ametro m\'aximo intra-cl\'uster (el tama\~no del grupo m\'as grande). \textbf{Maximizar}. \\
+\textbf{\'Indice de Davies-Bouldin} & DB & Cohesi\'on y Separaci\'on & Analiza la relaci\'on entre la dispersi\'on interna de los cl\'usteres y la distancia entre sus centroides. \textbf{Minimizar}. \\
+\textbf{Coeficiente de Silueta} & CS & Cohesi\'on y Separaci\'on & Combina cohesi\'on y separaci\'on para cada punto. \textbf{Maximizar}. \\
+\textbf{\'Indice de Xie-Beni} & XB & Cohesi\'on y Separaci\'on & Penaliza los agrupamientos donde los puntos est\'an alejados de sus centroides y los que est\'an muy pr\'oximos entre s\'i. \textbf{Minimizar}. \\
+\textbf{\'Indice de Ray-Turi} & RT & Cohesi\'on y Separaci\'on & Eval\'ua la relaci\'on entre la dispersi\'on dentro de los cl\'usteres y la distancia m\'inima entre los centroides de los cl\'usteres. \textbf{Minimizar}. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{An\'alisis estad\'istico}
+
+A partir de los experimentos realizados, se decide utilizar la prueba estad\'istica no param\'etrica de Friedman N $\times$ N [58], la cual posibilita enfrentar por pares todos los algoritmos examinados.
+
+En la Tabla~\ref{tab:friedman} se presenta para cada algoritmo su valor promedio por cada m\'etrica en todas las instancias. Las celdas destacadas en verde reflejan las mejores posiciones, mientras que las celdas en rojo indican los desempe\~nos m\'as bajos. Al observar los rankings promedio se distingue una separaci\'on en el rendimiento de los algoritmos analizados. Este examen se ve complementado por los an\'alisis post-hoc.
+
+\begin{table}[H]
+\centering
+\caption{Resultados de la prueba de Friedman NxN.}
+\label{tab:friedman}
+\footnotesize
+\begin{tabular}{@{}lcccccccccc@{}}
+\toprule
+\textbf{Algoritmo} & \textbf{SSE} & \textbf{BH} & \textbf{SSB} & \textbf{CH} & \textbf{DI} & \textbf{CS} & \textbf{DB} & \textbf{XB} & \textbf{RT} & \textbf{Tiempo} \\
+\midrule
+\textbf{CURE} & \cellcolor{green!25}2.0303 & \cellcolor{green!25}2.2424 & \cellcolor{green!25}3.0909 & \cellcolor{green!25}2.1515 & 2.7879 & \cellcolor{green!25}2.2424 & \cellcolor{green!25}2.5152 & \cellcolor{green!25}2.5303 & \cellcolor{green!25}2.5303 & 2.0455 \\
+\textbf{DBSCAN} & 4.4697 & 4.3939 & 3.9242 & 4.6818 & \cellcolor{red!20}5.4242 & 4.6212 & 4.2879 & 4.0455 & 4.0455 & \cellcolor{green!25}1.0455 \\
+\textbf{Farthest-First} & 3.3333 & 3.3636 & 3.3939 & 3.1818 & 3.5758 & 3.1364 & 3.2424 & 3.1212 & 3.1212 & 4.1970 \\
+\textbf{KMEANS} & 3.0606 & 3.1818 & 3.4242 & 2.9091 & 3.5606 & 2.8788 & 3.0909 & 2.9545 & 2.9545 & 3.8182 \\
+\textbf{UPGMC} & 3.7121 & 3.3030 & 4.1364 & 3.9242 & \cellcolor{green!25}1.3030 & 3.8636 & 3.7727 & 4.0455 & 4.0455 & 3.9848 \\
+\textbf{PAM} & 5.3636 & 5.3636 & 4.5152 & 5.1818 & 5.3636 & 5.1364 & 5.0303 & \cellcolor{red!20}5.3333 & \cellcolor{red!20}5.3333 & \cellcolor{red!20}7 \\
+\textbf{CLARA} & \cellcolor{red!20}6.0303 & \cellcolor{red!20}6.1515 & \cellcolor{red!20}5.5152 & \cellcolor{red!20}5.9697 & \cellcolor{red!20}5.9848 & \cellcolor{red!20}6.1212 & \cellcolor{red!20}6.0606 & 5.9697 & 5.9697 & 5.9091 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A continuaci\'on, se presenta la interpretaci\'on de los resultados obtenidos en el ranking:
+
+\begin{itemize}
+  \item CURE obtiene los mejores rankings en las m\'etricas de cohesi\'on y en la \'unica de separaci\'on obtuvo el mejor. Tambi\'en obtuvo el mejor ranking en la mayor\'ia de las combinadas, situ\'andose adem\'as como el segundo m\'as r\'apido. Esto indica que el nuevo algoritmo jer\'arquico es capaz de generar agrupaciones compactas y bien separadas en un buen tiempo.
+  \item UPGMC presenta un comportamiento muy bueno en separaci\'on, pero sus rankings en cohesi\'on y m\'etricas combinadas son peores que los de CURE. Esto sugiere que, aunque UPGMC logra cl\'usteres muy separados, la consistencia interna de sus grupos es inferior.
+  \item DBSCAN destaca por ser el algoritmo m\'as r\'apido. Sin embargo, muestra un desempe\~no moderado en cohesi\'on y pobre en separaci\'on y m\'etricas combinadas.
+  \item K-Means y Farthest-First mantienen posiciones intermedias en todas las categor\'ias, mientras PAM y CLARA ocupan las \'ultimas posiciones, reflejando peor calidad de agrupamiento y adem\'as los peores tiempos.
+\end{itemize}
+
+Una vez obtenidos los rankings promedio de Friedman, se aplicaron los procedimientos \textit{post-hoc} de Bergmann [59], Holm [60] y Shaffer [61] para controlar la tasa de error familiar. A continuaci\'on, en la Tabla~\ref{tab:posthoc} se resumen los resultados de los procedimientos \textit{post hoc} de Bergmann, Holm y Shaffer para cada m\'etrica evaluada. Se indican las diferencias estad\'isticamente significativas ($\alpha=0.05$) y m\'as relevantes para el an\'alisis. Estos se emplearon porque son m\'etodos est\'andar para el control de rechazar una hip\'otesis nula verdadera tras un test de Friedman. Holm se usa por su simplicidad y aceptaci\'on general; Shaffer mejora la potencia al explotar las relaciones l\'ogicas entre las hip\'otesis de comparaciones por pares; y Bergmann proporciona la m\'axima potencia al determinar conjuntos de hip\'otesis aceptables.
+
+\begin{table}[H]
+\centering
+\caption{Resumen an\'alisis post-hoc.}
+\label{tab:posthoc}
+\footnotesize
+\begin{tabular}{@{}lp{4.5cm}lll@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Comparaci\'on} & \textbf{Holm} & \textbf{Shaffer} & \textbf{Bergmann} \\
+\midrule
+\textbf{SSE} & CURE $>$ CLARA, PAM & 0 & 0 & 0 \\
+& CURE $>$ UPGMC & 0.020341 & 0.017212 & 0.014082 \\
+& CURE $>$ DBSCAN & 0.000076 & 0.000067 & 0.000049 \\
+& KMEANS $>$ CLARA & 0 & 0 & 0 \\
+& KMEANS $>$ PAM & 0.000223 & 0.000223 & 0.000149 \\
+& FF $>$ CLARA & 0.000007 & 0.000006 & 0.000004 \\
+\textbf{DI} & UPGMC $>$ CURE & 0.036664 & 0.036664 & 0.026189 \\
+& UPGMC $>$ CLARA, PAM & 0 & 0 & 0 \\
+& CURE $>$ CLARA & 0 & 0 & 0 \\
+& CURE $>$ PAM & 0.000020 & 0.000019 & 0.000009 \\
+\textbf{CH} & CURE $>$ CLARA, PAM & 0 & 0 & 0 \\
+& CURE $>$ UPGMC & 0.011155 & 0.009439 & 0.007723 \\
+& KMEANS $>$ CLARA & 0 & 0 & 0 \\
+& FF $>$ CLARA & 0.000003 & 0.000002 & 0.000002 \\
+\textbf{CS} & CURE $>$ CLARA, PAM & 0 & 0 & 0 \\
+& CURE $>$ UPGMC & 0.027603 & 0.025303 & 0.020703 \\
+& KMEANS $>$ CLARA & 0 & 0 & 0 \\
+\textbf{DB} & CURE, KMEANS $>$ CLARA & 0 & 0 & 0 \\
+& FF $>$ CLARA & 0.000002 & 0.000002 & 0.000001 \\
+\textbf{XB y RT} & CURE, KMEANS $>$ CLARA & 0 & 0 & 0 \\
+& FF $>$ CLARA & 0.000002 & 0.000001 & 0.000001 \\
+\textbf{Tiempo} & DBSCAN $>$ PAM, CLARA, FF & 0 & 0 & 0 \\
+& DBSCAN $>$ UPGMC & 0.000001 & 0 & 0 \\
+& DBSCAN $>$ KMEANS & 0.000002 & 0.000002 & 0.000001 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+El an\'alisis \textit{post-hocs} muestra las siguientes conclusiones:
+
+\begin{itemize}
+  \item CURE es el algoritmo con mejor calidad de agrupamiento, superando significativamente a UPGMC en la mayor\'ia de las m\'etricas combinadas y mostrando una clara ventaja en cohesi\'on y tiempo de ejecuci\'on.
+  \item UPGMC solo conserva una ventaja significativa en el \'Indice de Dunn, lo que confirma que su buen comportamiento previo se debe a sus caracter\'isticas particulares y no a su naturaleza jer\'arquica.
+  \item DBSCAN domina en tiempo de ejecuci\'on, pero su calidad es moderada y significativamente inferior a CURE en la mayor\'ia de los aspectos.
+  \item KMEANS y Farthest-First ocupan posiciones intermedias, superando a PAM y CLARA.
+  \item PAM y CLARA son consistentemente los peores en calidad y tiempo, siendo superados por todos los dem\'as algoritmos en m\'ultiples m\'etricas.
+\end{itemize}
+
+Es importante destacar que DBSCAN, en su adaptaci\'on con restricciones de capacidad, resulta extremadamente r\'apido, pero produce agrupaciones de calidad moderada en t\'erminos de separaci\'on. Esto puede ser aceptable en contextos donde la velocidad computacional sea prioritaria y se pueda tolerar una asignaci\'on menos refinada. No obstante, para instancias donde se requiere alta calidad en la creaci\'on de rutas posterior, otros algoritmos como CURE o K-Means ser\'ian m\'as adecuados.
+
+Por \'ultimo, los rankings muestran que CURE supera a UPGMC en cohesi\'on y en la mayor\'ia de las m\'etricas combinadas, mientras que UPGMC solo le gana en el \'indice de Dunn. Esta diferencia sugiere que la estrategia de m\'ultiples puntos representativos y contracci\'on de CURE permite una mejor representaci\'on de la forma de los cl\'usteres. Esto tiene como resultado grupos m\'as homog\'eneos internamente sin sacrificar en exceso la separaci\'on. No obstante, para confirmar si estas diferencias son estad\'isticamente significativas, se requiere un an\'alisis espec\'ifico entre ambos algoritmos, el cual se aborda en el pr\'oximo ep\'igrafe mediante la prueba estad\'istica no param\'etrica de Wilcoxon.
+
+\section{Comparaci\'on entre los algoritmos de agrupamiento jer\'arquico}
+
+En este experimento se compara directamente UPGMC y CURE utilizando la prueba de Wilcoxon. Esto permitir\'a determinar si las diferencias observadas en los rankings de Friedman son estad\'isticamente significativas para cada m\'etrica. La prueba estad\'istica no param\'etrica de Wilcoxon se utiliza para dos muestras relacionadas, en este caso para dos algoritmos ejecutados en las mismas instancias [62].
+
+Con el objetivo de fortalecer el an\'alisis experimental, se incorporan 11 instancias adicionales, alcanzando un total de 44 instancias para la evaluaci\'on de estos dos algoritmos. Estas instancias provienen de la investigaci\'on realizada en [63], y se detallan en la Tabla~\ref{tab:nuevas_instancias}.
+
+\begin{table}[H]
+\centering
+\caption{Descripci\'on de las nuevas instancias.}
+\label{tab:nuevas_instancias}
+\small
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{ID} & \textbf{\shortstack{Total de\\clientes}} & \textbf{\shortstack{Total de\\dep\'ositos}} & \textbf{\shortstack{Total de veh\'iculos\\por dep\'osito}} & \textbf{\shortstack{Capacidad de los\\veh\'iculos}} \\
+\midrule
+gj1 & 50 & 2 & 2 & 492 \\
+gj2 & 75 & 3 & 3 & 415 \\
+gj3 & 100 & 2 & 2 & 841 \\
+gj4 & 150 & 4 & 4 & 651 \\
+gj5 & 199 & 5 & 5 & 758 \\
+gj6 & 75 & 2 & 2 & 669 \\
+gj7 & 125 & 3 & 3 & 768 \\
+gj8 & 249 & 4 & 4 & 1219 \\
+gj9 & 60 & 2 & 2 & 579 \\
+gj10 & 80 & 3 & 3 & 507 \\
+gj11 & 120 & 5 & 5 & 1000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Ambos algoritmos se ejecutaron bajo las mismas condiciones experimentales descritas en la secci\'on 3.3, y los resultados para cada m\'etrica de validaci\'on interna fueron sometidos a la prueba de Wilcoxon.
+
+A continuaci\'on, en la Tabla~\ref{tab:wilcoxon}, se presentan e interpretan los resultados de la prueba de Wilcoxon para cada una de las m\'etricas.
+
+\begin{table}[H]
+\centering
+\caption{Resumen de los resultados de Wilcoxon.}
+\label{tab:wilcoxon}
+\small
+\begin{tabular}{@{}lp{3.2cm}p{3.2cm}p{5.5cm}@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{\shortstack[l]{p-value\\(CURE vs UPGMC)}} & \textbf{\shortstack[l]{p-value\\(UPGMC vs CURE)}} & \textbf{Interpretaci\'on ($\alpha = 0.05$)} \\
+\midrule
+CH & 0.000000000122 & $\geq$ 0.2 & CURE es significativamente mejor \\
+DI & $\geq$ 0.2 & 0.0000616 & UPGMC es significativamente mejor \\
+CS & 0.0000000164 & $\geq$ 0.2 & CURE es significativamente mejor \\
+SSB & 0.00129 & $\geq$ 0.2 & CURE es significativamente mejor \\
+BH & $\geq$ 0.2 & $\geq$ 0.2 & No hay diferencia significativa \\
+DB & 0.06164 & $\geq$ 0.2 & No significativo ($p > 0.05$) aunque hay tendencia \\
+RT & 0.000178 & $\geq$ 0.2 & CURE es significativamente mejor \\
+SSE & 0.00000000913 & $\geq$ 0.2 & CURE es significativamente mejor \\
+Tiempo & 0.000000000000114 & $\geq$ 0.2 & CURE es significativamente mejor \\
+XB & 0.000153 & $\geq$ 0.2 & CURE es significativamente mejor \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La Tabla~\ref{tab:wilcoxon} ofrece una visi\'on concluyente de la comparaci\'on entre ambos algoritmos jer\'arquicos. CURE emerge como el algoritmo dominante en este estudio comparativo, superando a UPGMC de manera significativa en siete de las nueve m\'etricas de calidad de agrupamiento y en el tiempo de ejecuci\'on.
+
+\begin{itemize}
+  \item CURE demuestra ser superior en las m\'etricas de SSE y SSB. As\'i como en Calinski-Harabasz (CH), el Coeficiente de Silueta (CS) y el \'Indice de Xie-Beni (XB). Esto indica que, en promedio, la estructura de agrupamiento creada por CURE es de mayor calidad que la de UPGMC.
+  \item El \'unico aspecto donde UPGMC supera significativamente a CURE es en el \'Indice de Dunn (DI).
+  \item En el \'Indice de Ball-Hall (BH), ambos algoritmos se comportan de manera estad\'isticamente similar. Por otro lado, en el \'Indice de Davies-Bouldin (DB), la superioridad de CURE no es tan significativa.
+  \item La clara ventaja en t\'erminos de tiempo de ejecuci\'on es para CURE. No solo produce mejores agrupaciones en la mayor\'ia de los casos, sino que lo hace significativamente m\'as r\'apido.
+\end{itemize}
+
+La evidencia demuestra que la naturaleza jer\'arquica por s\'i sola no garantiza superioridad. El algoritmo UPGMC, muestra el mejor desempe\~no en la m\'etrica del \'Indice de Dunn que es separaci\'on entre los cl\'usteres m\'as cercanos, es superado de manera estad\'isticamente significativa por CURE. Adem\'as, CURE logra estos mejores resultados con un costo computacional significativamente menor.
+
+\section{Conclusiones parciales}
+
+A partir del estudio experimental realizado en este cap\'itulo, se pueden extraer las siguientes conclusiones:
+
+\begin{itemize}
+  \item Las pruebas unitarias aplicadas a los nuevos algoritmos (DBSCAN y CURE) confirmaron el correcto funcionamiento de sus m\'etodos fundamentales, garantizando su integraci\'on fiable en la biblioteca BHAVRP.
+  \item CURE se destaca como una buena alternativa, con los mejores rankings globales en la mayor\'ia de las m\'etricas, mientras que DBSCAN ofrece la opci\'on m\'as r\'apida, aunque de calidad m\'as limitada.
+  \item El an\'alisis detallado mediante la prueba de Wilcoxon entre los dos algoritmos jer\'arquicos determina que la buena actuaci\'on previa de UPGMC se deb\'ia a sus caracter\'isticas particulares y no a su naturaleza jer\'arquica. CURE, que presenta una mec\'anica basada en puntos representativos, demuestra ser estad\'isticamente superior en la mayor\'ia de las m\'etricas de calidad y en tiempo de ejecuci\'on.
+\end{itemize}
+
+%==============================================================
+%                      CONCLUSIONES
+%==============================================================
+\chapter*{Conclusiones}
+\addcontentsline{toc}{chapter}{Conclusiones}
+\markboth{Conclusiones}{}
+
+La presente investigaci\'on ha permitido abordar el problema planteado, logrando incorporar nuevos algoritmos de agrupamiento en la Biblioteca de Heur\'isticas de Asignaci\'on para Problemas de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos (BHAVRP). A partir del trabajo realizado, se pueden extraer las siguientes conclusiones generales.
+
+El estudio bibliogr\'afico desarrollado evidencia que la fase de asignaci\'on de clientes a dep\'ositos en el MDVRP puede ser abordada eficazmente mediante t\'ecnicas de agrupamiento de la miner\'ia de datos, aprovechando su capacidad para descubrir estructuras en los datos geogr\'aficos. Asimismo, el an\'alisis comparativo de bibliotecas existentes reafirma que BHAVRP constituye una buena alternativa dentro del MDVRP, al ser la \'unica especializada en esta fase y con una arquitectura abierta y extensible que facilita la incorporaci\'on de nuevos algoritmos. La implementaci\'on de los algoritmos DBSCAN y CURE aumenta la diversidad de enfoques de la biblioteca. La incorporaci\'on de restricciones de capacidad y adaptar los mecanismos de expansi\'on y fusi\'on, demuestra que es posible aplicar t\'ecnicas cl\'asicas de miner\'ia de datos a contextos de optimizaci\'on log\'istica, garantizando la factibilidad de las soluciones generadas.
+
+Por \'ultimo, el an\'alisis experimental desarrollado valida el correcto funcionamiento de los algoritmos implementados a trav\'es de pruebas unitarias. El primer experimento posiciona a CURE como el algoritmo de rendimiento superior, obteniendo los mejores rankings en la mayor\'ia de las m\'etricas de calidad de agrupamiento y un tiempo de ejecuci\'on aceptable. Por otra parte, DBSCAN demuestra ser la opci\'on m\'as r\'apida, aunque con una calidad de agrupamiento menor. En cuanto al segundo experimento, la comparaci\'on entre los dos algoritmos jer\'arquicos mediante la prueba de Wilcoxon demuestra que existen diferencias significativas. Se determina que la superioridad previamente observada en UPGMC no se debe a su naturaleza jer\'arquica, sino a sus caracter\'isticas particulares. CURE, con su estrategia de m\'ultiples puntos representativos y contracci\'on, resulta estad\'isticamente superior en la mayor\'ia de las m\'etricas de calidad y en tiempo de ejecuci\'on.
+
+%==============================================================
+%                      RECOMENDACIONES
+%==============================================================
+\chapter*{Recomendaciones}
+\addcontentsline{toc}{chapter}{Recomendaciones}
+\markboth{Recomendaciones}{}
+
+A partir de los resultados alcanzados durante el desarrollo de esta investigaci\'on, se formulan las siguientes recomendaciones para trabajos futuros.
+
+\begin{itemize}
+  \item Se recomienda explorar la incorporaci\'on de otros algoritmos de agrupamiento basados en densidad, como OPTICS, que podr\'ia ofrecer una mejor respuesta ante la presencia de cl\'usteres con densidades variables, superando una de las limitaciones conocidas de DBSCAN.
+  \item Dado que el presente estudio se ha centrado en la calidad de la asignaci\'on mediante m\'etricas de validaci\'on interna, se recomienda experimentar a trav\'es de herramientas como BHCVRP con estos dos nuevos algoritmos para ver la calidad de las rutas obtenidas y si se corresponden con lo prometedoras que son las asignaciones, CURE por calidad de las m\'etricas y DBSCAN por su rapidez.
+  \item Por \'ultimo, se recomienda incorporar estos cambios a la versi\'on en Python de la biblioteca.
+\end{itemize}
+
+%==============================================================
+%                 REFERENCIAS BIBLIOGRAFICAS
+%==============================================================
+\addcontentsline{toc}{chapter}{Referencias bibliogr\'aficas}
+\begin{thebibliography}{99}
+\markboth{Referencias bibliogr\'aficas}{}
+
+\bibitem{1} M.~E. Coloma Salazar, J.~Arzola Ruiz, y C.~E. Marrero Fornaris, ``La gesti\'on de la distribuci\'on y la planificaci\'on de rutas en el sector empresarial cubano'', \emph{Rev. Univ. Soc.}, vol.~14, pp. 357--368, 2022.
+
+\bibitem{2} G.~B. Dantzig y J.~H. Ramser, \emph{The Truck Dispatching Problem. Management Science}, 6.\textsuperscript{a} ed., 1959.
+
+\bibitem{3} Clarke, G. y Wright, J.R., \emph{Scheduling of Vehicle Routing Problem from a Central Depot to a Number of Delivery Points. Operations Research}, vol.~12, 1964.
+
+\bibitem{4} S.~Arora y B.~Barak, \emph{Computational complexity: a modern approach}. Cambridge University Press, 2009.
+
+\bibitem{5} K.~Braekers, K.~Ramaekers, y I.~Van Nieuwenhuyse, ``The vehicle routing problem: State of the art classification and review'', \emph{Comput. Ind. Eng.}, vol.~99, pp. 300--313, sep. 2016, doi: 10.1016/j.cie.2015.12.007.
+
+\bibitem{6} D.~I.~G. Mateos, ``Desarrollo de un m\'etodo h\'ibrido para la resoluci\'on del MDVRP'', \emph{Rev. Esc. Jacobea Posgrado}, 2013.
+
+\bibitem{7} J.~A.~G. Bermudez, ``Aplicaci\'on de t\'ecnicas de clusterizaci\'on como inicializadores y la metaheur\'istica ILS, al Problema de Ruteo Veh\'iculos con M\'ultiples Dep\'ositos (MDVRP)'', Proyecto de grado presentado como requisito parcial para optar al t\'itulo de Magister en Ingenier\'ia El\'ectrica, Universidad Tecnol\'ogica de Pereira.
+
+\bibitem{8} S.~Barreto, C.~Ferreira, J.~Paix\~ao, y B.~S. Santos, ``Using clustering analysis in a capacitated location-routing problem'', \emph{Eur. J. Oper. Res.}, vol.~179, n.\textsuperscript{o}~3, pp. 968--977, 2007, doi: 10.1016/j.ejor.2005.06.074.
+
+\bibitem{9} Y.~Z. Mehrjerdi y A.~Nadizadeh, ``Using greedy clustering method to solve capacitated location-routing problem with fuzzy demands'', \emph{Eur. J. Oper. Res.}, vol.~229, n.\textsuperscript{o}~1, pp. 75--84, 2013, doi: 10.1016/j.ejor.2013.02.013.
+
+\bibitem{10} A.~K. Jain y R.~C. Dubes, \emph{Algorithms for clustering data}. Prentice Hall advanced reference series. Englewood Cliffs, NJ: Prentice-Hall, 1988.
+
+\bibitem{11} K.~Khan, S.~U. Rehman, K.~Aziz, S.~Fong, y S.~Sarasvady, ``DBSCAN: Past, present and future'', en \emph{The fifth international conference on the applications of digital information and web technologies (ICADIWT 2014)}, IEEE, 2014, pp. 232--238.
+
+\bibitem{12} S.~Guha, R.~Rastogi, y K.~Shim, ``Cure: an efficient clustering algorithm for large databases'', \emph{Inf. Syst.}, vol.~26, n.\textsuperscript{o}~1, pp. 35--58, mar. 2001, doi: 10.1016/S0306-4379(01)00008-4.
+
+\bibitem{13} ``GitHub - vrpsolutions/BHAVRP: BHAVRP: Componente de software para la asignaci\'on de clientes a dep\'ositos en problemas de rutas de veh\'iculos''. Accedido: 21 de enero de 2026. [En l\'inea]. Disponible en: https://github.com/vrpsolutions/BHAVRP
+
+\bibitem{14} E.~R. Arag\'on, I.~T. P\'erez, A.~R. Su\'arez, y A.~de la C.~M. Morales, ``BHAVRP: Biblioteca de Heur\'isticas de Asignaci\'on para el Problema de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos'', \emph{Rev. Cuba. Ing. RCI}, pp. 1--13, 2025.
+
+\bibitem{15} Eric Ramos Arag\'on, ``Incorporaci\'on de un m\'odulo de m\'etricas de evaluaci\'on para algoritmos de asignaci\'on en BHAVRP'', Trabajo para optar por el t\'itulo de Ingeniero Inform\'atico, Universidad Tecnol\'ogica de la Habana ``Jos\'e Antonio Echeverr\'ia'', La Habana, Cuba, 2025.
+
+\bibitem{16} S.~N. Kumar, ``A survey on the vehicle routing problem and its variants'', \emph{Intell. Inf. Manag.}, 2012.
+
+\bibitem{17} G.~Berbeglia, J.-F. Cordeau, y G.~Laporte, ``Dynamic pickup and delivery problems'', \emph{Eur. J. Oper. Res.}, vol.~202, n.\textsuperscript{o}~1, pp. 8--15, 2007, doi: 10.1016/j.ejor.2009.04.024.
+
+\bibitem{18} R.~Baldacci, M.~Battarra, y D.~Vigo, ``Routing a heterogeneous fleet of vehicles'', en \emph{The Vehicle Routing Problem: Latest Advances and New Challenges}, B.~Golden, S.~Raghavan, y E.~Wasil, Eds., Springer, 2008, pp. 3--27. doi: 10.1007/978-0-387-77778-8\_1.
+
+\bibitem{19} D.~Sariklis y S.~Powell, ``A heuristic method for the open vehicle routing problem'', \emph{J. Oper. Res. Soc.}, vol.~51, n.\textsuperscript{o}~5, pp. 564--573, 2000, doi: 10.1057/palgrave.jors.2600924.
+
+\bibitem{20} J.-F. Cordeau, G.~Desaulniers, J.~Desrosiers, M.~M. Solomon, y F.~Soumis, ``The VRP with time windows'', en \emph{The Vehicle Routing Problem}, P.~Toth y D.~Vigo, Eds., SIAM, 2002, pp. 157--193. doi: 10.1137/1.9780898718515.ch7.
+
+\bibitem{21} J.~R. Montoya-Torres, J.~L\'opez Franco, S.~Nieto Isaza, H.~Felizzola Jim\'enez, y N.~Herazo-Padilla, ``A literature review on the vehicle routing problem with multiple depots'', \emph{Comput. Ind. Eng.}, vol.~79, pp. 115--129, 2015, doi: 10.1016/j.cie.2014.10.029.
+
+\bibitem{22} M.~Gendreau, G.~Laporte, y R.~S\'eguin, ``Stochastic vehicle routing'', \emph{Eur. J. Oper. Res.}, vol.~88, n.\textsuperscript{o}~1, pp. 3--12, 1996, doi: 10.1016/0377-2217(95)00050-X.
+
+\bibitem{23} P.~M. Francis, K.~R. Smilowitz, y M.~Tzur, ``The period vehicle routing problem and its extensions'', en \emph{The Vehicle Routing Problem: Latest Advances and New Challenges}, B.~Golden, S.~Raghavan, y E.~Wasil, Eds., Springer, 2008, pp. 73--102. doi: 10.1007/978-0-387-77778-8\_4.
+
+\bibitem{24} A.~Ibrahim, R.~Abdulaziz, y J.~Ishaya, ``Capacitated vehicle routing problem'', \emph{Int. J. Res. - GRANTHAALAYAH}, vol.~7, pp. 310--327, abr. 2019, doi: 10.5281/zenodo.2636820.
+
+\bibitem{25} V.~Rebillas Loredo, ``The multi-depot VRP with vehicle interchanges'', PhD Thesis, Universitat Polit\`ecnica de Catalunya, 2018. doi: 10.5821/dissertation-2117-127490.
+
+\bibitem{26} J.~B. Colin, ``Dise\~no de un algoritmo metaheur\'istico para la soluci\'on del Problema de Ruteo de Veh\'iculos MultiDep\'osito'', para obtener el grado de Maestr\'ia en Optimizaci\'on y C\'omputo Aplicado, Universidad Aut\'onoma del Estado de Morelos, 2024.
+
+\bibitem{27} NEO Research Group, ``Multiple Depot VRP''. Universidad de M\'alaga, 2019. [En l\'inea]. Disponible en: https://neo.lcc.uma.es/vrp/vrp-flavors/multiple-depot-vrp/
+
+\bibitem{28} T.~R.~P. Ramos, M.~I. Gomes, y A.~P. Barbosa-P\'ovoa, ``Multi-depot vehicle routing problem: a comparative study of alternative formulations'', \emph{Int. J. Logist. Res. Appl.}, vol.~23, n.\textsuperscript{o}~2, pp. 103--120, 2020, doi: 10.1080/13675567.2019.1630374.
+
+\bibitem{29} F.~Hamid, Ed., \emph{Optimization essentials: theory, tools, and applications}. International series in operations research \& management science, vol.~353. Singapore: Springer, 2024.
+
+\bibitem{30} M.~J\"unger \emph{et al.}, ``50 Years of Integer Programming 1958-2008: From the Early Years to the State-of-the-Art'', 2009, doi: 10.1007/978-3-540-68279-0.
+
+\bibitem{31} D.~G. Mogale, A.~Ghadge, y S.~K. Jena, ``Modelling and optimising a multi-depot vehicle routing problem for freight distribution in a retail logistics network'', \emph{Comput. Ind. Eng.}, vol.~207, p.~111315, sep. 2025, doi: 10.1016/j.cie.2025.111315.
+
+\bibitem{32} E.~Erdem, T.~Aydin, y B.~Erkayman, ``AI-Infused Evolutionary Optimization for Multi-Depot Vehicle Routing'', \emph{Case Study Beverage Distrib.}, vol.~37, n.\textsuperscript{o}~27-28, dic. 2025, doi: 10.1002/cpe.70431.
+
+\bibitem{33} F.~S. Hern\'andez, ``Aplicaci\'on del modelo VRP (Vehicle Routing Problem) para la optimizaci\'on de una red de distribuci\'on'', Universidad Nacional Aut\'onoma de M\'exico, 2015.
+
+\bibitem{34} I.-M. Chao, B.~L. Golden, y E.~A. Wasil, ``A new heuristic for the multi-depot vehicle routing problem that improves upon best-known solutions'', \emph{Am. J. Math. Manag. Sci.}, vol.~13, pp. 371--406, 1993.
+
+\bibitem{35} F.~A. Tillman, ``The multiple terminal delivery problem with probabilistic demands'', \emph{Transp. Sci.}, vol.~3, n.\textsuperscript{o}~3, pp. 192--204, 1969, doi: 10.1287/trsc.3.3.192.
+
+\bibitem{36} B.~E. Gillett y L.~R. Miller, ``A heuristic algorithm for the vehicle-dispatch problem'', \emph{Oper. Res.}, vol.~22, n.\textsuperscript{o}~2, pp. 340--349, 1974, doi: 10.1287/opre.22.2.340.
+
+\bibitem{37} Y.~Shi, L.~Lv, F.~Hu, y Q.~Han, ``A Heuristic Solution Method for Multi-Depot Vehicle Routing-Based Waste Collection Problems'', \emph{Appl. Sci.}, vol.~10, n.\textsuperscript{o}~7, 2020, doi: 10.3390/app10072403.
+
+\bibitem{38} C.~Blum y A.~Roli, ``Metaheuristics in combinatorial optimization: Overview and conceptual comparison'', \emph{ACM Comput. Surv.}, vol.~35, n.\textsuperscript{o}~3, pp. 268--308, sep. 2003, doi: 10.1145/937503.937505.
+
+\bibitem{39} J.~H. Orallo, M.~J.~R. Quintana, y C.~F. Ram\'irez, \emph{Introducci\'on a la Miner\'ia de Datos}. Pearson Educaci\'on, 2004.
+
+\bibitem{40} G.~Kesavaraj y S.~Sukumaran, ``A study on classification techniques in data mining'', en \emph{2013 fourth international conference on computing, communications and networking technologies (ICCCNT)}, IEEE, 2013, pp. 1--7.
+
+\bibitem{41} \c{S}. \c{S}eker, A.~F. G\"uneri, G.~Ermi\c{s}, y \.{I}. Y{\i}ld{\i}z, ``Solving the multi depot vehicle routing problem with assignment algorithm'', en \emph{13th International Research/Expert Conference ``Trends in the Development of Machinery and Associated Technology'', Hammamet}, 2009, pp. 225--228.
+
+\bibitem{42} K.~Koutroumbas y S.~Theodoridis, \emph{Pattern recognition}. Academic Press, 2008.
+
+\bibitem{43} S.~Salhi y M.~Sari, ``A heuristic algorithm for the multi-depot vehicle routing problem'', \emph{J. Oper. Res. Soc.}, vol.~49, n.\textsuperscript{o}~4, pp. 424--431, 1998, doi: 10.1057/palgrave.jors.2600526.
+
+\bibitem{44} JSprit Contributors, ``JSprit: A Java-based library for solving vehicle routing problems''. Accedido: 18 de marzo de 2026. [En l\'inea]. Disponible en: https://jsprit.readthedocs.io/en/latest/
+
+\bibitem{45} L.~Perron y V.~Furnon, \emph{OR-Tools}. Google. [En l\'inea]. Disponible en: https://developers.google.com/optimization/
+
+\bibitem{46} F.~Pedregosa, \emph{Scikit-learn: Machine Learning in Python}, 12.\textsuperscript{a} ed., 2011.
+
+\bibitem{47} Ananda de la Caridad Morales Morales, ``Nueva versi\'on de la biblioteca de heur\'isticas de construcci\'on para problemas de planificaci\'on de rutas de veh\'iculos'', Trabajo para optar por el t\'itulo de Ingeniero Inform\'atico, Universidad Tecnol\'ogica de la Habana ``Jos\'e Antonio Echeverr\'ia'', La Habana, Cuba, 2025.
+
+\bibitem{48} G.~Ya\~nez y I.~Torres, ``Desarrollo de nuevos modelos para el Problema del Transporte Obrero en CaSVRP'', Universidad Tecnol\'ogica de la Habana ``Jos\'e Antonio Echeverr\'ia'', La Habana, Cuba, 2021.
+
+\bibitem{49} R.~D. Hern\'andez, ``Nueva versi\'on de la biblioteca de clases BiCIAM para solucionar problemas multiobjetivo'', Trabajo de diploma, Universidad Tecnol\'ogica de La Habana ``Jos\'e Antonio Echeverr\'ia'', La Habana, Cuba, 2014.
+
+\bibitem{50} R.~D. Hern\'andez, ``Nueva versi\'on de la biblioteca de clases BiCIAM para solucionar problemas multiobjetivo'', Trabajo de diploma (Ingenier\'ia Inform\'atica), Universidad Tecnol\'ogica de La Habana ``Jos\'e Antonio Echeverr\'ia'', La Habana, Cuba, 2014.
+
+\bibitem{51} L.~Lores, ``Operadores de mutaci\'on basados en heur\'isticas de construcci\'on para Problemas de Planificaci\'on de Rutas de Veh\'iculos'', Trabajo de diploma (Ingenier\'ia Inform\'atica), Universidad Tecnol\'ogica de La Habana ``Jos\'e Antonio Echeverr\'ia'', La Habana, Cuba, 2017.
+
+\bibitem{52} W.~Quiala Fonseca, ``Agrupamiento de datos desde un enfoque paralelo'', \emph{Rev. Cuba. Cienc. Inform\'aticas}, vol.~17, 2023.
+
+\bibitem{53} A.~Patra, R.~Khan, y S.~Vijayalakshmi, ``Customer segmentation and future purchase prediction using RFM measures'', en \emph{2022 4th International Conference on Advances in Computing, Communication Control and Networking (ICAC3N)}, IEEE, 2022, pp. 753--759.
+
+\bibitem{54} M.~Ester, H.-P. Kriegel, J.~Sander, X.~Xu, y others, ``A density-based algorithm for discovering clusters in large spatial databases with noise'', en \emph{kdd}, 1996, pp. 226--231.
+
+\bibitem{55} S.~Suman, A.~Karna, y K.~Gibert, ``Bootstrap-CURE: A Novel Clustering Approach for Sensor Data---An Application to 3D Printing Industry'', \emph{Appl. Sci.}, vol.~12, n.\textsuperscript{o}~4, 2022, doi: 10.3390/app12042191.
+
+\bibitem{56} W.~Wu, H.~Xiong, y S.~Shekhar, \emph{Clustering and information retrieval}, vol.~11. Springer Science \& Business Media, 2003.
+
+\bibitem{57} J.~F. Cordeau, J.~Desrosiers, y M.~M. Solomon, ``The VRP with Multiple Depots: State-of-the-art and New Insights'', \emph{Transportation Science}, vol.~36, n.\textsuperscript{o}~4, pp. 278--292, 2002.
+
+\bibitem{58} M.~Friedman, ``The use of ranks to avoid the assumption of normality implicit in the analysis of variance'', \emph{J. Am. Stat. Assoc.}, vol.~32, n.\textsuperscript{o}~200, pp. 675--701, 1937.
+
+\bibitem{59} B.~Bergmann y G.~Hommel, ``Improvements of General Multiple Test Procedures for Redundant Systems of Hypotheses'', en \emph{Multiple Hypothesenpr\"ufung --- Multiple Hypotheses Testing}, Berlin, Heidelberg: Springer-Verlag, 1988, pp. 100--115. doi: 10.1007/978-3-642-52307-6\_8.
+
+\bibitem{60} S.~Holm, ``A Simple Sequentially Rejective Multiple Test Procedure'', \emph{Scand. J. Stat.}, vol.~6, pp. 65--70, 1979.
+
+\bibitem{61} J.~P. Shaffer, ``Modified Sequentially Rejective Multiple Test Procedures'', \emph{J. Am. Stat. Assoc.}, vol.~81, n.\textsuperscript{o}~395, pp. 826--831, 1986, doi: 10.1080/01621459.1986.10478341.
+
+\bibitem{62} F.~Wilcoxon, ``Individual Comparisons by Ranking Methods'', \emph{Biom. Bull.}, vol.~1, n.\textsuperscript{o}~6, pp. 80--83, 1945, doi: 10.2307/3001968.
+
+\bibitem{63} G.~E. Gillett y L.~R. Johnson, ``Multi-terminal vehicle-dispatch algorithm'', \emph{Transp. Res.}, vol.~10, n.\textsuperscript{o}~1, pp. 47--55, 1976.
+
+\end{thebibliography}
+
+\end{document}

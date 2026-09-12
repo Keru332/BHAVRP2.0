@@ -1,0 +1,67 @@
+
+
+# Lista de archivos de métricas internas
+metric_files <- c("ballhallindex.csv", "calinskiharabaszindex.csv", "daviesbouldinindex.csv",
+                  "dunnindex.csv", "rayturiindex.csv", "silhouettecoefficient.csv",
+                  "ssb.csv", "sse.csv", "xiebeniindex.csv")
+
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/Experimento Normalizacion Costes")
+
+
+# Leer coste (CMT)
+cost <- read.csv("nearestneighborwithrlc.csv", row.names = 1, check.names = FALSE)
+
+# Inicializar data.frame de resultados
+results <- data.frame(Metric = character(),
+                      Pearson = numeric(),
+                      Spearman = numeric(),
+                      N_Algorithms = integer(),
+                      stringsAsFactors = FALSE)
+
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/Experimento Normalizacion Metricas")
+
+# Bucle para cada archivo de métrica
+for (file in metric_files) {
+  # Leer métrica
+  metric <- read.csv(file, row.names = 1, check.names = FALSE)
+ 
+  # 1. Instancias comunes
+  common_inst <- intersect(rownames(cost), rownames(metric))
+  if (length(common_inst) == 0) {
+    warning(paste("No hay instancias comunes en", file))
+    next
+  }
+ 
+  cost_sub <- cost[common_inst, , drop = FALSE]
+  metric_sub <- metric[common_inst, , drop = FALSE]
+ 
+  # 2. Algoritmos comunes
+  common_alg <- intersect(colnames(cost_sub), colnames(metric_sub))
+  if (length(common_alg) == 0) {
+    warning(paste("No hay algoritmos comunes en", file))
+    next
+  }
+ 
+  x <- as.vector(as.matrix(cost))
+  y <- as.vector(as.matrix(metric))
+ 
+  pearson_coef <- cor(x, y, method = "pearson")
+  spearman_coef <- cor(x, y, method = "spearman")
+ 
+
+  # Guardar resultados
+  metric_name <- gsub(".csv", "", file)
+  results <- rbind(results, data.frame(Metric = metric_name,
+                                       Pearson = pearson_coef,
+                                       Spearman = spearman_coef,
+                                       N_Algorithms = sum(ok),
+                                       stringsAsFactors = FALSE))
+}
+
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/Experimento Correlacion")
+
+# 5. Exportar CSV
+write.csv(results, "correlacion_promediando_instancias nearestneighborwithrlc.csv", row.names = FALSE)
+
+# Mostrar en consola
+print(results)

@@ -1,0 +1,172 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.8)  9 SEP 2026 17:44
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./dunnindex_Summary.tex
+(dunnindex_Summary.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotatin
+g.sty
+Package: rotating 2025/01/14 v2.16e rotated objects in LaTeX
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphic
+x.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.
+sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphic
+s.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.st
+y
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gra
+phics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdf
+tex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count283
+\rotFPtop=\skip51
+\rotFPbot=\skip52
+\rot@float@box=\box53
+\rot@mess@toks=\toks18
+)
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.st
+y
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3back
+end-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count284
+)
+No file dunnindex_Summary.aux.
+\openout1 = `dunnindex_Summary.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp
+-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count285
+\scratchdimen=\dimen151
+\scratchbox=\box54
+\nofMPsegments=\count286
+\nofMParguments=\count287
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count288
+\MPscratchDim=\dimen152
+\MPnumerator=\count289
+\makeMPintoPDFobject=\count290
+\everyMPtoPDFconversion=\toks20
+)
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\eps
+topdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopd
+f-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 26.
+ [1
+
+{C:/Users/maykel-kevin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [
+3] [4
+
+
+] (dunnindex_Summary.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1474 strings out of 467871
+ 25005 string characters out of 5414989
+ 437733 words of memory out of 5000000
+ 30383 multiletter control sequences out of 15000+600000
+ 631430 words of font info for 52 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 72i,11n,79p,427b,347s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\maykel-kevin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi6
+00\tcrm1000.pk> <C:\Users\maykel-kevin\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\tcrm0700.pk><C:/Users/maykel-kevin/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/maykel-kevin/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/maykel-kev
+in/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/U
+sers/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr12.pfb><C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr17.pfb><C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/maykel-kevin/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on dunnindex_Summary.pdf (4 pages, 89284 bytes).
+PDF statistics:
+ 62 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

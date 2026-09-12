@@ -1,0 +1,169 @@
+% =============================================================================
+% PLANTILLA DE TESIS CON CITACIÓN IEEE
+% =============================================================================
+\documentclass[12pt, a4paper, oneside]{report}
+
+% --- Codificación e idioma ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{lmodern} % Fuente vectorial
+
+% --- Márgenes (ajusta según tu universidad) ---
+\usepackage[left=3cm, right=2.5cm, top=3cm, bottom=2.5cm]{geometry}
+
+% --- Matemáticas y símbolos ---
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{siunitx} % Unidades del SI
+
+% --- Gráficos y figuras ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption} % Subfiguras
+
+% --- Tablas profesionales ---
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+
+% --- Espaciado e interlineado ---
+\usepackage{setspace}
+\onehalfspacing % Interlineado 1.5 (ajusta a \doublespacing si te lo exigen)
+
+% --- Encabezados y pies de página ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\leftmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Títulos de capítulos y secciones ---
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+% Formato del capítulo: "Capítulo 1: Nombre" en una sola línea
+\titleformat{\chapter}[block]
+  {\normalfont\huge\bfseries}   % Formato general
+  {\chaptername\ \thechapter:}  % Etiqueta: "Capítulo 1:"
+  {1em}                         % Separación entre etiqueta y título
+  {}                            % Código antes del título
+
+% Ajuste de espaciado (opcional, para que no quede muy pegado)
+\titlespacing*{\chapter}{0pt}{-20pt}{30pt}
+
+
+\usepackage[titles]{tocloft}
+
+\renewcommand{\cftchappresnum}{\chaptername~}
+\renewcommand{\cftchapaftersnum}{:}
+\setlength{\cftchapnumwidth}{6.5em} % Ajusta el ancho según tu numeración
+
+
+% --- Hipervínculos (DEBE ir al final, casi siempre) ---
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+
+% --- Numeracion---
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% ---Indices ---
+\usepackage[titles]{tocloft}
+% --- Estilo del índice tipo Word ---
+% Puntos de relleno para capítulos, secciones y subsecciones
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+
+% Separación de los puntos (menor valor = puntos más juntos)
+\renewcommand{\cftdotsep}{0.5}
+
+% Ancho reservado para el número de página y margen derecho
+% Esto evita que los puntos se corten cuando la página tiene 2 o 3 dígitos
+\cftsetpnumwidth{2.5em}
+\cftsetrmarg{3.5em}
+
+% (Opcional) Que los capítulos aparezcan en negrita en el índice
+\renewcommand{\cftchapfont}{\normalfont\bfseries}
+\renewcommand{\cftchappagefont}{\normalfont\bfseries}
+
+\renewcommand{\cftchappresnum}{\chaptername~}
+\setlength{\cftchapnumwidth}{6em} % Ajusta el ancho para que quepa "Capítulo 1"
+% =============================================================================
+% CONFIGURACIÓN DE BIBLIOGRAFÍA CON IEEE (biblatex + biber)
+% =============================================================================
+\usepackage[
+    backend=biber,      % Motor de procesamiento (más moderno que BibTeX)
+    style=ieee,         % Estilo de citación IEEE
+    sorting=none,       % Ordena las referencias por orden de aparición
+    maxbibnames=6,      % Máximo de autores en la bibliografía
+    minbibnames=1,      % Mínimo de autores antes de "et al."
+    giveninits=true,    % Iniciales en lugar de nombres completos
+    isbn=false,         % Ocultar ISBN (opcional)
+    url=true,           % Mostrar URLs
+    doi=true            % Mostrar DOI
+]{biblatex}
+\addbibresource{referencias.bib} % Nombre del archivo .bib
+
+% =============================================================================
+% DATOS DE LA PORTADA
+% =============================================================================
+\title{Título de tu Tesis Doctoral}
+\author{Nombre Completo del Autor}
+\date{\today} % O especifica el mes y año: \date{Septiembre 2026}
+
+% =============================================================================
+% INICIO DEL DOCUMENTO
+% =============================================================================
+\begin{document}
+
+% --- Portada ---
+\begin{titlepage}
+    \centering
+    {\scshape\LARGE Universidad de Ejemplo \par}
+    \vspace{1cm}
+    {\scshape\Large Facultad de Ingeniería \par}
+    \vspace{1.5cm}
+    {\huge\bfseries Título de tu Tesis Doctoral \par}
+    \vspace{2cm}
+    {\Large\itshape Nombre Completo del Autor \par}
+    \vfill
+    Director(es): \\ Dr. Nombre del Director
+    \vfill
+    {\large \today \par}
+\end{titlepage}
+
+% --- Resumen ---
+\begin{abstract}
+    Aquí escribes el resumen de tu tesis, de aproximadamente 200-300 palabras.
+    Debe incluir el problema, la metodología, los resultados principales y las
+    conclusiones.
+\end{abstract}
+
+% --- Agradecimientos (opcional) ---
+\chapter*{Agradecimientos}
+\addcontentsline{toc}{chapter}{Agradecimientos}
+Escribe aquí tus agradecimientos.
+
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+
+
+% --- Capítulos (modular) ---
+\input{capitulos/01_introduccion}
+\chapter{Fundamentos teóricos del problema de planificación de rutas y su solución mediante diferentes métodos}{1}
+\input{capitulos/02_chapter1}
+\input{capitulos/02_chapter2}
+
+% --- Bibliografía con IEEE ---
+\printbibliography[heading=bibintoc, title={Referencias Bibliograficas}]
+
+% --- Apéndices (opcional) ---
+\appendix
+\chapter{Apéndice A: Datos Complementarios}
+Contenido del apéndice.
+
+\end{document}

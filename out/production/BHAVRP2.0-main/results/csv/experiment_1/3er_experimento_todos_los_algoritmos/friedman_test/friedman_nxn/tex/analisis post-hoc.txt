@@ -1,0 +1,162 @@
+Análisis post-hoc para SSE (Sum of Squared Errors)
+El mejor algoritmo según el ranking promedio fue TCC.
+
+Los contrastes post-hoc realizados (Holm, Shaffer, Nemenyi, Bergman) confirman que TCC presenta diferencias 
+estadísticamente significativas frente a múltiples algoritmos, especialmente aquellos con los peores desempeños 
+(como RE, CA, BCA, ND, PAM, etc.).
+
+En todos los procedimientos, TCC mantiene su superioridad frente a RE con valores p ajustados menores al umbral de 
+significancia (p < 0.05).
+
+Algunos algoritmos como FF o KM no presentan diferencias significativas con TCC, lo cual sugiere que estos tres 
+comparten un rendimiento competitivo para esta métrica, aunque TCC se posiciona como el más destacado.
+
+------------------------------------------------------
+
+Análisis post-hoc para BH (Ball-Hall Index)
+El mejor algoritmo según el ranking promedio fue UPGMC.
+
+Los procedimientos post-hoc (Holm, Shaffer, Nemenyi, Bergman) indican que UPGMC presenta diferencias estadísticamente
+significativas frente a los algoritmos con peores desempeños, como RE, CA, ND, BCA y CLARA.
+
+Frente a algoritmos de rendimiento medio (como NC, S, SW), las diferencias no siempre resultan significativas, lo 
+cual es esperable dada la proximidad de sus rankings.
+
+Nuevamente, algoritmos como FF y TCC se posicionan entre los mejores, y aunque no siempre son superados 
+significativamente por UPGMC, sí se reconoce el liderazgo de este último para la métrica BH.
+
+------------------------------------------------------
+
+Análisis post-hoc para SSB (Sum of Squares Between)
+El algoritmo con mejor ranking promedio fue FF (Farthest First), destacándose como el más eficiente en maximizar la 
+dispersión entre clústeres.
+
+Los contrastes post-hoc muestran que FF tiene diferencias estadísticamente significativas frente a un grupo amplio 
+de algoritmos con peor rendimiento: RE, CA, ND, BCA, CLARA, PAM, entre otros.
+
+TCC y KM también aparecen con buenos rankings, pero FF logra posicionarse como el líder indiscutible en esta métrica 
+de separación.
+
+La diferencia entre FF y algoritmos como TCC, KM y UPGMC no siempre es significativa, lo cual indica que estos 
+también presentan buen desempeño aunque con menor consistencia.
+
+RE vuelve a figurar como el peor algoritmo, siendo estadísticamente superado por casi todos los demás.
+
+------------------------------------------------------
+
+Análisis post-hoc para Calinski-Harabasz Index (CH)
+El algoritmo con mejor desempeño fue nuevamente FF (Farthest First), liderando el ranking promedio en esta métrica
+que favorece una alta separación entre clústeres y baja dispersión intra-clúster.
+
+Los contrastes post-hoc confirman diferencias estadísticamente significativas entre FF y varios algoritmos, 
+incluidos los de menor rendimiento como RE, CA, ND, PAM y BCA.
+
+TCC, KM y UPGMC vuelven a mostrar buen posicionamiento relativo, aunque las diferencias con FF no siempre alcanzan 
+significancia estadística.
+
+El comportamiento de FF en esta métrica reafirma su superioridad en aspectos relacionados con la calidad global de 
+las particiones generadas.
+
+------------------------------------------------------
+
+Análisis post-hoc para Dunn Index (D)
+El mejor algoritmo según el ranking fue UPGMC, con una posición destacada (ranking = 1.8194). Esta métrica premia 
+combinaciones de alta separación y baja dispersión, lo cual indica que UPGMC logró particiones bien definidas.
+
+Los post-hoc revelan diferencias estadísticamente significativas entre UPGMC y la mayoría de los algoritmos, 
+incluyendo RE, CA, PAM, BCA, ND y otros con desempeño medio-bajo.
+
+Aunque FF y KM se mantuvieron competitivos, no lograron superar estadísticamente a UPGMC en este índice.
+
+La ventaja de UPGMC en esta métrica reafirma su fortaleza en la generación de clústeres nítidamente separados con 
+alta compacidad.
+
+------------------------------------------------------
+
+Análisis post-hoc para Silhouette Coefficient (CS)
+El mejor algoritmo fue FF (Farthest First), con un ranking sobresaliente (ranking = 3.25), lo que refleja su 
+capacidad de generar particiones donde los elementos están claramente más cerca de su centroide que de los demás.
+
+Los análisis post-hoc evidencian diferencias estadísticamente significativas entre FF y una gran cantidad de 
+algoritmos, como RE, CA, BCA, PAM, ND, CP, entre otros.
+
+Algoritmos como KM, TCC, UPGMC y S también mostraron buenos rendimientos, pero sin superar significativamente a FF.
+
+Estos resultados consolidan a FF como uno de los métodos más consistentes en métricas combinadas, particularmente 
+cuando se evalúan la compacidad y separación de los clústeres en conjunto.
+
+------------------------------------------------------
+
+Análisis post-hoc para Davies-Bouldin Index (DB)
+El mejor algoritmo fue FF (Farthest First), con el ranking más bajo en esta métrica (ranking = 4.1389), lo que 
+implica una menor relación entre la dispersión intra-clúster y la separación inter-clúster, siendo esto deseable
+en este índice (a menor valor, mejor).
+
+Los resultados post-hoc muestran que FF supera significativamente a algoritmos como RE, CA, CLARA, CP, PAM, ND, y 
+BCA. Estos métodos presentan valores considerablemente más altos en la métrica DB, indicando una menor calidad de 
+agrupamiento.
+
+Algoritmos como KM, TCC y S también obtuvieron buenos desempeños, aunque sus diferencias con FF no fueron siempre 
+estadísticamente significativas.
+
+RE sigue posicionándose como uno de los métodos con peor rendimiento en métricas de calidad de asignación, 
+corroborando su naturaleza estocástica y descontrolada.
+
+------------------------------------------------------
+
+Análisis post-hoc para Xie-Beni Index (XB)
+El algoritmo con mejor rendimiento en esta métrica fue TCC (Three Criteria Clustering), al registrar el ranking 
+más bajo (≈ 4.04), lo que indica una buena relación entre cohesión y separación de los clústeres (a menor valor 
+del índice XB, mejor agrupamiento).
+
+Los contrastes post-hoc muestran que TCC supera significativamente a varios algoritmos, incluyendo:
+RE, CA, CLARA, CP, PAM, ND, y BCA.
+
+También destacan con buenos resultados los algoritmos FF, KM y NC, cuyas diferencias con TCC no siempre resultaron 
+significativas, pero muestran un rendimiento competitivo.
+
+Como en otras métricas, RE fue uno de los algoritmos con peor desempeño (ranking ≈ 15.97), validando su 
+comportamiento errático.
+
+En conjunto, los resultados post-hoc respaldan la superioridad estadística de TCC frente a un conjunto amplio de 
+métodos, reafirmando su consistencia en las métricas combinadas.
+
+------------------------------------------------------
+
+Análisis post-hoc para Ray-Turi Index (RT)
+El algoritmo con mejor rendimiento promedio fue nuevamente TCC (Three Criteria Clustering), con un ranking 
+de ≈ 4.04, lo que confirma su buena capacidad de generar agrupamientos compactos y bien separados según esta 
+métrica.
+
+Los contrastes post-hoc revelaron diferencias estadísticamente significativas a favor de TCC respecto a los 
+siguientes algoritmos:
+
+RE, CA, CP, CLARA, ND, BCA, y PAM.
+
+Al igual que en otras métricas, los algoritmos FF, KM y NC también presentan rendimientos competitivos, aunque sus 
+diferencias con TCC no siempre fueron significativas.
+
+RE volvió a ubicarse consistentemente como el peor algoritmo (ranking ≈ 15.97), siendo estadísticamente superado 
+por la mayoría.
+
+Estos resultados refuerzan la robustez de TCC en métricas combinadas de evaluación, posicionándolo como uno de los 
+algoritmos más estables y eficaces del estudio.
+
+------------------------------------------------------
+
+Análisis post-hoc para el tiempo de ejecución
+El algoritmo con mejor rendimiento en tiempo fue RE (Random by Element), con un ranking promedio de ≈ 1.76, lo 
+cual es consistente con su simplicidad computacional.
+
+NC (Nearest by Customer) y CA (Coefficient Assignment) también mostraron tiempos bajos, con rankings 
+de ≈ 3.74 y 4.15, respectivamente.
+
+PAM fue el algoritmo más lento con diferencia, con un ranking de ≈ 16.00, lo que concuerda con su naturaleza 
+iterativa y su costo computacional elevado. Este algoritmo fue estadísticamente superado por todos los demás 
+métodos en esta métrica.
+
+Los contrastes post-hoc mostraron diferencias significativas entre RE y la mayoría de algoritmos más complejos
+(como PAM, CLARA, FF, TCC, UPGMC, etc.).
+
+Aunque RE tuvo el mejor tiempo, en el resto de métricas su desempeño fue consistentemente el más bajo, lo que 
+plantea un claro trade-off entre velocidad y calidad de la asignación.

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph objective="0" IDExperiment="4" typeExperiment="1">
+    <experimentSeed>12345678</experimentSeed>
+
+    <nameGraph>C:\Users\maykel-kevin\Documents\BHCVRP-feature\resultados\Resultados
+        sin PAM ni CLARA\Ex.xml</nameGraph>
+    <Node xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        IDNode="3" typeNode="0" xsi:type="data-set">
+        <positionNode positionX="214" positionY="110"/>
+        <Description>
+            <subType>0</subType>
+            <name>cmt</name>
+            <name>molejameson</name>
+            <name>nearestneighborwithrlc</name>
+            <name>saveparallel</name>
+            <name>savesequential</name>
+            <name>sweep</name>
+            <path>/data/</path>
+            <path>/data/</path>
+            <path>/data/</path>
+            <path>/data/</path>
+            <path>/data/</path>
+            <path>/data/</path>
+            <jarName>cmt.jar</jarName>
+            <jarName>molejameson.jar</jarName>
+            <jarName>nearestneighborwithrlc.jar</jarName>
+            <jarName>saveparallel.jar</jarName>
+            <jarName>savesequential.jar</jarName>
+            <jarName>sweep.jar</jarName>
+        </Description>
+        <Files>
+            <string xsi:type="java:java.lang.String">cmt.dat,cmt.dat</string>
+        </Files>
+        <Files>
+            <string xsi:type="java:java.lang.String">molejameson.dat,molejameson.dat</string>
+        </Files>
+        <Files>
+            <string xsi:type="java:java.lang.String">nearestneighborwithrlc.dat,nearestneighborwithrlc.dat</string>
+        </Files>
+        <Files>
+            <string xsi:type="java:java.lang.String">saveparallel.dat,saveparallel.dat</string>
+        </Files>
+        <Files>
+            <string xsi:type="java:java.lang.String">savesequential.dat,savesequential.dat</string>
+        </Files>
+        <Files>
+            <string xsi:type="java:java.lang.String">sweep.dat,sweep.dat</string>
+        </Files>
+    </Node>
+    <Node xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        IDNode="1" typeNode="1" xsi:type="algorithm">
+        <positionNode positionX="448" positionY="124"/>
+        <Description>
+            <subType>4</subType>
+            <name>ZScore-TR</name>
+            <name>ZScore-TR</name>
+            <name>ZScore-TR</name>
+            <name>ZScore-TR</name>
+            <name>ZScore-TR</name>
+            <name>ZScore-TR</name>
+            <path>file:./algorithm/preprocess/</path>
+            <path>file:./algorithm/preprocess/</path>
+            <path>file:./algorithm/preprocess/</path>
+            <path>file:./algorithm/preprocess/</path>
+            <path>file:./algorithm/preprocess/</path>
+            <path>file:./algorithm/preprocess/</path>
+            <jarName>Trns-ZScore.jar</jarName>
+            <jarName>Trns-ZScore.jar</jarName>
+            <jarName>Trns-ZScore.jar</jarName>
+            <jarName>Trns-ZScore.jar</jarName>
+            <jarName>Trns-ZScore.jar</jarName>
+            <jarName>Trns-ZScore.jar</jarName>
+        </Description>
+        <Parameters>
+            <AlgorithmType>Z Score Normalization</AlgorithmType>
+            <numParameters>0</numParameters>
+            <Probabilistic>false</Probabilistic>
+            <numOutputs>0</numOutputs>
+            <numInputs>0</numInputs>
+            <numExecutions>1</numExecutions>
+            <trainingOutputs>../datasets/ZScore-TR.sweep/ZScore-TR.sweep1tra.dat</trainingOutputs>
+            <testOutputs>../datasets/ZScore-TR.sweep/ZScore-TR.sweep1tst.dat</testOutputs>
+            <trainingValues>../datasets/ZScore-TR.sweep/ZScore-TR.sweep1tra.dat</trainingValues>
+            <testValues>../datasets/ZScore-TR.sweep/ZScore-TR.sweep1tst.dat</testValues>
+            <configurations>/ZScore-TR/sweep/config0.txt</configurations>
+        </Parameters>
+        <Parameters>
+            <AlgorithmType>Z Score Normalization</AlgorithmType>
+            <numParameters>0</numParameters>
+            <Probabilistic>false</Probabilistic>
+            <numOutputs>0</numOutputs>
+            <numInputs>0</numInputs>
+            <numExecutions>1</numExecutions>
+        </Parameters>
+        <Parameters>
+            <AlgorithmType>Z Score Normalization</AlgorithmType>
+            <numParameters>0</numParameters>
+            <Probabilistic>false</Probabilistic>
+            <numOutputs>0</numOutputs>
+            <numInputs>0</numInputs>
+            <numExecutions>1</numExecutions>
+        </Parameters>
+        <Parameters>
+            <AlgorithmType>Z Score Normalization</AlgorithmType>
+            <numParameters>0</numParameters>
+            <Probabilistic>false</Probabilistic>
+            <numOutputs>0</numOutputs>
+            <numInputs>0</numInputs>
+            <numExecutions>1</numExecutions>
+        </Parameters>
+        <Parameters>
+            <AlgorithmType>Z Score Normalization</AlgorithmType>
+            <numParameters>0</numParameters>
+            <Probabilistic>false</Probabilistic>
+            <numOutputs>0</numOutputs>
+            <numInputs>0</numInputs>
+            <numExecutions>1</numExecutions>
+        </Parameters>
+        <Parameters>
+            <AlgorithmType>Z Score Normalization</AlgorithmType>
+            <numParameters>0</numParameters>
+            <Probabilistic>false</Probabilistic>
+            <numOutputs>0</numOutputs>
+            <numInputs>0</numInputs>
+            <numExecutions>1</numExecutions>
+        </Parameters>
+    </Node>
+    <Edge>
+        <originNode>0</originNode>
+        <destinyNode>1</destinyNode>
+    </Edge>
+</Graph>

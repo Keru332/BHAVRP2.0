@@ -1,0 +1,67 @@
+# ======== Configuración ========
+dir_costes   <- "C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/TODOS"
+dir_metricas <- "C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/keel Metricas"
+dir_salida   <- "C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/Experimento Correlacion"
+
+metric_files <- c("ballhallindex.csv", "calinskiharabaszindex.csv", "daviesbouldinindex.csv",
+                  "dunnindex.csv", "rayturiindex.csv", "silhouettecoefficient.csv",
+                  "ssb.csv", "sse.csv", "xiebeniindex.csv")
+   # añade aquí las demás métricas
+cost_file    <- "Sweep.csv"            # tu matriz de costes (cruda, sin normalizar)
+
+# ======== Normalización GLOBAL (toda la matriz, un solo mu/sigma) ========
+norm_global <- function(M, metodo) {
+  if (metodo == "none")   return(M)
+  if (metodo == "zscore") return((M - mean(M)) / sd(M))
+  if (metodo == "minmax") return((M - min(M)) / (max(M) - min(M)))
+  stop("método desconocido")
+}
+
+# ======== Leer coste ========
+cost <- read.csv(file.path(dir_costes, cost_file),
+                 row.names = 1, check.names = FALSE)
+
+results <- data.frame()
+
+for (file in metric_files) {
+  metric <- read.csv(file.path(dir_metricas, file),
+                     row.names = 1, check.names = FALSE)
+
+  # 1. Instancias comunes, orden fijo
+  ci <- intersect(rownames(cost), rownames(metric))
+  # 2. Algoritmos comunes, ordenado ALFABÉTICAMENTE en AMBAS matrices
+  ca <- sort(intersect(colnames(cost), colnames(metric)))
+
+  X0 <- as.matrix(cost[ci, ca, drop = FALSE])
+  Y0 <- as.matrix(metric[ci, ca, drop = FALSE])
+
+  for (nm in c("minmax")) {
+    X <- norm_global(X0, nm)
+    Y <- norm_global(Y0, nm)
+
+    # --- Variante 1: aglomerada (todas las celdas) ---
+    #r1 <- cor(as.vector(X), as.vector(Y), method = "pearson")
+    #s1 <- cor(as.vector(X), as.vector(Y), method = "spearman")
+    # --- Variante 2: por algoritmo (promedio de columnas) ---
+    r2 <- cor(colMeans(X), colMeans(Y), method = "pearson")
+    s2 <- cor(colMeans(X), colMeans(Y), method = "spearman")
+    # --- Variante 3: por instancia (promedio de filas) ---
+    #r3 <- cor(rowMeans(X), rowMeans(Y), method = "pearson")
+    #s3 <- cor(rowMeans(X), rowMeans(Y), method = "spearman")
+
+    results <- rbind(results, data.frame(
+      Metrica     = gsub("\\.csv$", "", file),
+      Coste       = gsub("\\.csv$", "", cost_file),
+      Normalizacion = nm,
+      N_instancias = nrow(X), N_algoritmos = ncol(X),
+      #Pearson  = c(r1, r2, r3),
+      #Spearman = c(s1, s2, s3)
+      Pearson  = c(r2),
+      Spearman = c(s2)
+
+    ))
+  }
+}
+
+write.csv(results, file.path(dir_salida, "correlaciones_correctas Sweep.csv"), row.names = FALSE)
+print(results)

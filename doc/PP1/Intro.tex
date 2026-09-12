@@ -1,0 +1,49 @@
+%==============================================================
+%                      INTRODUCCION
+%==============================================================
+\chapter*{Introducci\'on}
+\addcontentsline{toc}{chapter}{Introducci\'on}
+\markboth{Introducci\'on}{}
+
+La gesti\'on de la distribuci\'on, el transporte y la planificaci\'on de rutas son temas de gran importancia que han sido abordados a nivel internacional. Son ramas de la log\'istica donde yacen numerosas oportunidades de mejora y por esta raz\'on ha recibido especial atenci\'on motivando un intenso trabajo te\'orico en el desarrollo de modelos y algoritmos. En este contexto surgen los Problemas de Planificaci\'on de Rutas de Veh\'iculos (\textit{Vehicle Routing Problems}, VRP) [1].
+
+En [2] se introduce el \textit{``Truck Dispatching Problem''}, modelando c\'omo una flota de camiones homog\'eneos podr\'ia satisfacer la demanda de petr\'oleo de varias estaciones de servicio desde un dep\'osito central y con una distancia m\'inima recorrida. Cinco a\~nos despu\'es, en [3] se generaliza este a un problema de optimizaci\'on lineal que se encuentra com\'unmente en el \'ambito de la log\'istica y el transporte. El VRP es un problema NP-duro [4] por lo que se consideran muy dif\'iciles de resolver. Los problemas de la vida real son considerablemente m\'as grandes y complejos que los escenarios acad\'emicos, por lo que las heur\'isticas y metaheur\'isticas son necesarias para obtener buenos resultados. Estos algoritmos no garantizan encontrar la soluci\'on \'optima, pero s\'i proporcionan tiempos computacionales razonables. La cantidad de m\'etodos de soluci\'on introducidos en la literatura acad\'emica ha crecido en las \'ultimas d\'ecadas [5].
+
+El Problema de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos (\textit{Multi-Depot Vehicle Routing Problems}, MDVRP) es una variante del VRP cl\'asico que incorpora varios dep\'ositos con una ubicaci\'on predefinida. Cada dep\'osito cuenta con una flota de veh\'iculos de capacidad homog\'enea que tiene como objetivo satisfacer la demanda de un conjunto de clientes dispersos geogr\'aficamente. Cada veh\'iculo debe comenzar y terminar su ruta en el mismo dep\'osito, y cada cliente debe ser visitado una \'unica vez. Teniendo en cuenta la distancia entre la ubicaci\'on de los clientes y dep\'ositos, el MDVRP busca asignar un cliente a cada dep\'osito y se construye una ruta para cada veh\'iculo dentro de un dep\'osito para atender dichos clientes. El objetivo al crear la ruta es reducir al m\'inimo el costo total del recorrido [6].
+
+Durante un largo per\'iodo de tiempo, los m\'etodos heur\'isticos basados en la b\'usqueda tab\'u han sido los m\'as empleados en la literatura [6]. Sin embargo, este problema genera una gran cantidad de combinaciones que se refleja en los altos tiempos computacionales para obtener la soluci\'on. El potencial de las t\'ecnicas de an\'alisis de cl\'usteres para la soluci\'on de los MDVRP ha sido reconocido por autores como [7], [2], [8] y [9]. El an\'alisis de cl\'usteres estudia la divisi\'on de objetos en grupos basado en una o varias caracter\'isticas. Un grupo se define como una zona con muchos objetos parecidos muy cercanos entre s\'i, que est\'a separada de otros grupos por zonas donde casi no hay objetos. Esta definici\'on de grupo es bastante acorde a la agrupaci\'on de clientes por lo que se propone usar el an\'alisis de cl\'usteres en la soluci\'on del MDVRP, espec\'ificamente en la fase de asignaci\'on de clientes a dep\'ositos [7]. En [10] se describe la t\'ecnica ``divide y vencer\'as'', utilizada para reducir la complejidad computacional en el empleo heur\'isticas para resolver el MDVRP.
+
+Sin embargo, a\'un existen desaf\'ios en cuanto a la eficiencia computacional debido a los altos tiempos y la calidad de las agrupaciones dependiendo del escenario [7]. En la literatura sobresalen algoritmos como \textit{Density-Based Spatial Clustering of Applications with Noise} (DBSCAN) que permiten identificar cl\'usteres basados en la densidad local [11]. Por otra parte, \textit{Clustering Using Representatives} (CURE) identifica variaciones en la forma de los cl\'usteres mediante el uso de puntos representativos [12].
+
+En este contexto, la Universidad Tecnol\'ogica de la Habana ``Jos\'e Antonio Echeverr\'ia'' (CUJAE) ha desarrollado la Biblioteca de Heur\'isticas de Asignaci\'on para Problemas de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos (BHAVRP). Este componente est\'a dise\~nado para resolver la fase de asignaci\'on en MDVRP utilizando una arquitectura modular y 20 algoritmos repartidos en heur\'isticas cl\'asicas de asignaci\'on y algoritmos de agrupamiento de Miner\'ia de Datos adaptados al contexto de los MDVRP [13]. Esta alternativa gratuita y de c\'odigo abierto supone una ventaja frente a otras herramientas que no tienen una colecci\'on de algoritmos tan extensa o son software comercial.
+
+Esta biblioteca, en la categor\'ia de algoritmos de agrupamiento, incluye algoritmos particionales, algoritmos jer\'arquicos y un algoritmo basado en densidad. En la literatura se ha sugerido que ciertas m\'etricas de validaci\'on internas como Dunn Index o Silhouette podr\'ian tener una correlaci\'on con la calidad de las rutas en la posterior fase de planificaci\'on. En investigaciones anteriores [14], [15], se realiz\'o un an\'alisis experimental donde se concluy\'o que no hab\'ia una correlaci\'on positiva significativa entre las m\'etricas internas dentro de BHAVRP y la calidad de las rutas obtenidas. Sin embargo, este estudio fue realizado con poca variedad de algoritmos de agrupamiento y sin considerar una amplia variedad de heur\'isticas de construcci\'on.
+
+Debido a la situaci\'on problem\'atica antes descrita, se identifica como problema a resolver la falta de un estudio exhaustivo que determine si existe alguna m\'etrica interna que correlacione positivamente con la calidad de las rutas obtenidas en la planificaci\'on, lo que impide establecer un criterio de selecci\'on de los algoritmos de BHAVRP.
+
+Para dar soluci\'on al problema planteado se traza como objetivo general: Desarrollar una nueva versi\'on de BHAVRP que incluya m\'as algoritmos de agrupamiento basados en densidad.
+
+Para dar cumplimiento al objetivo general se definieron los siguientes objetivos espec\'ificos con sus respectivas tareas:
+
+\begin{enumerate}
+  \item Identificar algoritmos de agrupamiento utilizados para resolver la fase de asignaci\'on de los problemas de planificaci\'on de rutas de veh\'iculos con m\'ultiples dep\'ositos.
+  \begin{itemize}
+    \item Realizar b\'usqueda bibliogr\'afica de las caracter\'isticas de los problemas de planificaci\'on de rutas de veh\'iculos con m\'ultiples dep\'ositos y sus aplicaciones pr\'acticas.
+    \item Realizar b\'usqueda bibliogr\'afica de las propuestas de soluci\'on de MDVRP donde se realice la fase de asignaci\'on de clientes a dep\'ositos usando como v\'ia de resoluci\'on los algoritmos de agrupamiento.
+  \end{itemize}
+  \item Implementar en BHAVRP un nuevo algoritmo de agrupamiento.
+  \begin{itemize}
+    \item Analizar algoritmos de agrupamiento en cuanto a su funcionamiento para su incorporaci\'on en la nueva versi\'on de la biblioteca.
+    \item Seleccionar los algoritmos de agrupamiento que se van a incorporar a la biblioteca para resolver la variante MDVRP.
+    \item Implementar y adaptar el algoritmo seleccionado teniendo en cuenta las caracter\'isticas que presentan.
+  \end{itemize}
+  \item Validar el funcionamiento de estos algoritmos en BHAVRP mediante la ejecuci\'on de experimentos.
+  \begin{itemize}
+    \item Realizar pruebas unitarias, donde se muestre que el algoritmo implementado funcione correctamente.
+    \item Comparar los resultados obtenidos por los algoritmos de agrupamiento propuestos con los algoritmos de agrupamiento implementados en la versi\'on anterior de la biblioteca.
+  \end{itemize}
+\end{enumerate}
+
+El cumplimiento del objetivo general tiene como valor pr\'actico un aporte significativo en la resoluci\'on de la fase de asignaci\'on del problema de planificaci\'on de rutas de veh\'iculos con m\'ultiples dep\'ositos. Los resultados tienen valor cient\'ifico y tecnol\'ogico ya que se pone a disposici\'on de la comunidad cient\'ifica un componente de software que brinda nuevos algoritmos para la soluci\'on de MDVRP.
+
+Para alcanzar los objetivos mencionados, el trabajo se encuentra estructurado en tres cap\'itulos, incluyendo secciones importantes como conclusiones, recomendaciones y referencias bibliogr\'aficas. El Cap\'itulo 1: Fundamentos te\'oricos del problema de planificaci\'on de rutas y su soluci\'on mediante diferentes m\'etodos donde se presenta el estado del arte del MDVRP, las estrategias de soluci\'on existentes, as\'i como un an\'alisis comparativo de bibliotecas. El Cap\'itulo 2: Incorporaci\'on de algoritmos a la Biblioteca de Heur\'isticas de Asignaci\'on del Problema de Planificaci\'on de Rutas con M\'ultiples Dep\'ositos describe los algoritmos de agrupamiento de BHAVRP, los algoritmos propuestos detallando el funcionamiento de estos seg\'un la literatura y las adaptaciones al MDVRP que hay que realizar. Finalmente, el Cap\'itulo 3: An\'alisis experimental expone varias pruebas unitarias de las funciones m\'as relevantes de los algoritmos implementados, as\'i como un estudio comparativo entre algoritmos de asignaci\'on aplicados sobre ciertas instancias y pruebas estad\'isticas no param\'etricas para determinar su rendimiento y aplicabilidad.

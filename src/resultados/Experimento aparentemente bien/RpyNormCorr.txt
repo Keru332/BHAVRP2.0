@@ -1,0 +1,93 @@
+# ============================================================
+# Correlaciones métrica vs Costo
+# ============================================================
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/Experimento aparentemente bien/Por costo")
+
+# === 1. Leer CSV ===
+# Ajusta la ruta a tu archivo. La primera columna debe ser el Algoritmo.
+ruta_csv <- "NearestNeighborWithRLC=1.csv"   # <-- cambia esto por tu ruta
+
+df <- read.csv(ruta_csv, row.names = 1, check.names = FALSE)
+
+# Nombre de la columna de costo (déjala igual a la del CSV)
+col_costo <- "Costos"
+
+# Métricas a maximizar (el resto se asume minimizar)
+metricas_max <- c("SSB", "CH", "DI", "CS")
+
+# ============================================================
+# === 2. Normalizar ===
+# ============================================================
+minmax <- function(x) (x - min(x)) / (max(x) - min(x))
+
+df_norm <- as.data.frame(
+  lapply(names(df), function(col) {
+    if (col == col_costo) {
+      # Costo siempre a minimizar
+      (max(df[[col]]) - df[[col]]) / (max(df[[col]]) - min(df[[col]]))
+    } else if (col %in% metricas_max) {
+      # Maximizar
+      (df[[col]] - min(df[[col]])) / (max(df[[col]]) - min(df[[col]]))
+    } else {
+      # Minimizar
+      (max(df[[col]]) - df[[col]]) / (max(df[[col]]) - min(df[[col]]))
+    }
+  })
+)
+names(df_norm) <- names(df)
+rownames(df_norm) <- rownames(df)
+
+# ============================================================
+# === 3. Correlaciones por métrica vs Costo ===
+# ============================================================
+cat("======= CORRELACIONES POR MÉTRICA VS COSTO =======\n")
+
+metricas <- setdiff(names(df_norm), col_costo)
+
+resultado <- data.frame(
+  Metrica          = metricas,
+  Spearman         = NA_real_,
+  Spearman_pvalue  = NA_real_,
+  Spearman_sig     = "",
+  Pearson          = NA_real_,
+  Pearson_pvalue   = NA_real_,
+  Pearson_sig      = "",
+  stringsAsFactors = FALSE
+)
+
+for (i in seq_along(metricas)) {
+  col <- metricas[i]
+ 
+  x <- df_norm[[col]]
+  y <- df_norm[[col_costo]]
+ 
+  # Spearman
+  sp <- suppressWarnings(cor.test(x, y, method = "spearman"))
+  resultado$Spearman[i]        <- unname(sp$estimate)
+  resultado$Spearman_pvalue[i] <- sp$p.value
+  resultado$Spearman_sig[i]    <- ifelse(sp$p.value < 0.05, "SI", "NO")
+ 
+  # Pearson
+  pe <- cor.test(x, y, method = "pearson")
+  resultado$Pearson[i]         <- unname(pe$estimate)
+  resultado$Pearson_pvalue[i]  <- pe$p.value
+  resultado$Pearson_sig[i]     <- ifelse(pe$p.value < 0.05, "SI", "NO")
+ 
+  cat(sprintf("\n📊 %s\n", col))
+  cat(sprintf("   Spearman: %7.4f (p = %.4f) %s\n",
+              resultado$Spearman[i],
+              resultado$Spearman_pvalue[i],
+              resultado$Spearman_sig[i]))
+  cat(sprintf("   Pearson : %7.4f (p = %.4f) %s\n",
+              resultado$Pearson[i],
+              resultado$Pearson_pvalue[i],
+              resultado$Pearson_sig[i]))
+}
+
+cat("\n✅ Comparaciones completadas.\n")
+
+# ============================================================
+# === 4. (Opcional) Exportar resultado ===
+# ============================================================
+write.csv(resultado, "correlaciones_metricas_vs_costo NearestNeighborWithRLC=1.csv", row.names = FALSE)
+g()

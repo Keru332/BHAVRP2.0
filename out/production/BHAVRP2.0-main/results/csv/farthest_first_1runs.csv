@@ -1,0 +1,10 @@
+Instance:,1,Customers:,50,Depots:,4
+Executions:,1,Total Demand:,777.0,,,
+
+
+Run,SSE,SSB,DunnIndex,SilhouetteCoefficient,CalinskiHarabaszIndex,XieBeniIndex,DaviesBouldinIndex,RayTuriIndex,BallHallIndex,Time
+1,2103.51,1254.33,0.17,0.34,171.43,2.63,0.8,10.52,12.1,1213.0
+
+Min,2103.51,1254.33,0.17,0.34,171.43,2.63,0.8,10.52,12.1,1213.0
+Max,2103.51,1254.33,0.17,0.34,171.43,2.63,0.8,10.52,12.1,1213.0
+Avg,2103.51,1254.33,0.17,0.34,171.43,2.63,0.8,10.52,12.1,1213.0

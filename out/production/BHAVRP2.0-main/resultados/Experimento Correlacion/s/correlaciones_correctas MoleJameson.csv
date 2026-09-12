@@ -1,0 +1,10 @@
+"Metrica","Coste","Normalizacion","N_instancias","N_algoritmos","Pearson","Spearman"
+"ballhallindex","MoleJameson","minmax",44,21,0.958166870197896,0.85417347798297
+"calinskiharabaszindex","MoleJameson","minmax",44,21,-0.804334550787205,-0.71516729981692
+"daviesbouldinindex","MoleJameson","minmax",44,21,0.904923449358897,0.826891891613932
+"dunnindex","MoleJameson","minmax",44,21,-0.584863286954196,-0.742448886185958
+"rayturiindex","MoleJameson","minmax",44,21,0.850562686502094,0.665800619720566
+"silhouettecoefficient","MoleJameson","minmax",44,21,-0.883796285652772,-0.837284876897375
+"ssb","MoleJameson","minmax",44,21,-0.972720152715954,-0.842481369539097
+"sse","MoleJameson","minmax",44,21,0.90833927728051,0.851575231662109
+"xiebeniindex","MoleJameson","minmax",44,21,0.850856610371084,0.734654147223376

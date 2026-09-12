@@ -1,0 +1,10 @@
+Metrica,Coste,Normalizacion,N_instancias,N_algoritmos,Pearson,Spearman
+ballhallindex,cmt,minmax,44,21,0.948059703,0.943812976
+calinskiharabaszindex,cmt,minmax,44,21,-0.799948908,-0.828191015
+daviesbouldinindex,cmt,minmax,44,21,0.929199551,0.828191015
+dunnindex,cmt,minmax,44,21,-0.590752655,-0.84248137
+rayturiindex,cmt,minmax,44,21,0.878375807,0.68658659
+silhouettecoefficient,cmt,minmax,44,21,-0.876029103,-0.860669094
+ssb,cmt,minmax,44,21,-0.970033144,-0.880155941
+sse,cmt,minmax,44,21,0.887188117,0.930821744
+xiebeniindex,cmt,minmax,44,21,0.878747175,0.748944502

@@ -1,0 +1,740 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{graphicx}
+\usepackage{lscape}
+\title{Output tables for the test of Multiple comparisons.}
+\author{}
+\date{\today}
+\begin{document}
+\begin{landscape}
+\pagestyle{empty}
+\maketitle
+\thispagestyle{empty}
+\section{Average rankings of Friedman test}
+
+
+
+Average ranks obtained by applying the Friedman procedure
+
+\begin{table}[!htp]
+\centering
+\begin{tabular}{|c|c|}\hline
+Algorithm&Ranking\\\hline
+BestCyclicAssignment & 15.3472\\
+BestNearest & 8.0972\\
+CLARA & 10.4444\\
+CURE & 6.0972\\
+CoefficientPropagation & 12.2917\\
+CyclicAssignment & 17.4722\\
+DBSCAN & 13.5139\\
+Farthest-First & 6.375\\
+HDBSCAN & 8.6944\\
+KMEANS & 6.125\\
+NearestByCustomer & 7.6667\\
+NearestByDepot & 13.9861\\
+PAM & 10.9583\\
+Parallel & 7.6667\\
+RandomByElement & 20.25\\
+RandomSequentialCyclic & 19.5556\\
+SequentialCyclic & 19.4444\\
+Simplified & 6.4722\\
+Sweep & 6.6528\\
+ThreeCriteriaClustering & 7.7917\\
+UPGMC & 6.0972\\
+\hline
+\end{tabular}
+\caption{Average Rankings of the algorithms}
+\end{table}
+
+Friedman statistic considering reduction performance (distributed according to chi-square with 20 degrees of freedom: 455.338384.
+
+P-value computed by Friedman Test: 1.768675206292869E-10.\newline
+
+Iman and Davenport statistic considering reduction performance (distributed according to F-distribution with 20 and 700 degrees of freedom: 60.215923.
+
+P-value computed by Iman and Daveport Test: 3.042124536838987E-137.\newline
+
+
+
+\pagebreak
+
+\section{Post hoc comparisons}
+
+Results achieved on post hoc comparisons for $\alpha = 0.05$, $\alpha = 0.10$ and adjusted p-values.
+
+\subsection{P-values for $\alpha=0.05$}
+
+\begin{table}[!htp]
+\centering\scriptsize
+\begin{tabular}{cccccc}
+$i$&algorithms&$z=(R_0 - R_i)/SE$&$p$&Holm&Shaffer\\
+\hline210&CURE vs. RandomByElement&9.677152&0&0.000238&0.000238\\
+209&RandomByElement vs. UPGMC&9.677152&0&0.000239&0.000263\\
+208&KMEANS vs. RandomByElement&9.658159&0&0.00024&0.000263\\
+207&Farthest-First vs. RandomByElement&9.487218&0&0.000242&0.000263\\
+206&RandomByElement vs. Simplified&9.420741&0&0.000243&0.000263\\
+205&RandomByElement vs. Sweep&9.297284&0&0.000244&0.000263\\
+204&CURE vs. RandomSequentialCyclic&9.202317&0&0.000245&0.000263\\
+203&RandomSequentialCyclic vs. UPGMC&9.202317&0&0.000246&0.000263\\
+202&KMEANS vs. RandomSequentialCyclic&9.183323&0&0.000248&0.000263\\
+201&CURE vs. SequentialCyclic&9.126343&0&0.000249&0.000263\\
+200&SequentialCyclic vs. UPGMC&9.126343&0&0.00025&0.000263\\
+199&KMEANS vs. SequentialCyclic&9.107349&0&0.000251&0.000263\\
+198&Farthest-First vs. RandomSequentialCyclic&9.012382&0&0.000253&0.000263\\
+197&RandomSequentialCyclic vs. Simplified&8.945905&0&0.000254&0.000263\\
+196&Farthest-First vs. SequentialCyclic&8.936409&0&0.000255&0.000263\\
+195&SequentialCyclic vs. Simplified&8.869932&0&0.000256&0.000263\\
+194&RandomSequentialCyclic vs. Sweep&8.822448&0&0.000258&0.000263\\
+193&SequentialCyclic vs. Sweep&8.746474&0&0.000259&0.000263\\
+192&NearestByCustomer vs. RandomByElement&8.604024&0&0.00026&0.000263\\
+191&Parallel vs. RandomByElement&8.604024&0&0.000262&0.000263\\
+190&RandomByElement vs. ThreeCriteriaClustering&8.518553&0&0.000263&0.000263\\
+189&BestNearest vs. RandomByElement&8.309625&0&0.000265&0.000291\\
+188&NearestByCustomer vs. RandomSequentialCyclic&8.129188&0&0.000266&0.000291\\
+187&Parallel vs. RandomSequentialCyclic&8.129188&0&0.000267&0.000291\\
+186&NearestByCustomer vs. SequentialCyclic&8.053214&0&0.000269&0.000291\\
+185&Parallel vs. SequentialCyclic&8.053214&0&0.00027&0.000291\\
+184&RandomSequentialCyclic vs. ThreeCriteriaClustering&8.043717&0&0.000272&0.000291\\
+183&SequentialCyclic vs. ThreeCriteriaClustering&7.967744&0&0.000273&0.000291\\
+182&HDBSCAN vs. RandomByElement&7.901267&0&0.000275&0.000291\\
+181&BestNearest vs. RandomSequentialCyclic&7.83479&0&0.000276&0.000291\\
+180&CURE vs. CyclicAssignment&7.777809&0&0.000278&0.000291\\
+179&CyclicAssignment vs. UPGMC&7.777809&0&0.000279&0.000291\\
+178&CyclicAssignment vs. KMEANS&7.758816&0&0.000281&0.000291\\
+177&BestNearest vs. SequentialCyclic&7.758816&0&0.000282&0.000291\\
+176&CyclicAssignment vs. Farthest-First&7.587875&0&0.000284&0.000291\\
+175&CyclicAssignment vs. Simplified&7.521398&0&0.000286&0.000291\\
+174&HDBSCAN vs. RandomSequentialCyclic&7.426431&0&0.000287&0.000291\\
+173&CyclicAssignment vs. Sweep&7.397941&0&0.000289&0.000291\\
+172&HDBSCAN vs. SequentialCyclic&7.350457&0&0.000291&0.000291\\
+171&CLARA vs. RandomByElement&6.704681&0&0.000292&0.000292\\
+170&CyclicAssignment vs. NearestByCustomer&6.704681&0&0.000294&0.000321\\
+169&CyclicAssignment vs. Parallel&6.704681&0&0.000296&0.000321\\
+168&CyclicAssignment vs. ThreeCriteriaClustering&6.61921&0&0.000298&0.000321\\
+167&BestNearest vs. CyclicAssignment&6.410282&0&0.000299&0.000321\\
+166&PAM vs. RandomByElement&6.353302&0&0.000301&0.000321\\
+165&BestCyclicAssignment vs. CURE&6.324812&0&0.000303&0.000321\\
+164&BestCyclicAssignment vs. UPGMC&6.324812&0&0.000305&0.000321\\
+163&BestCyclicAssignment vs. KMEANS&6.305819&0&0.000307&0.000321\\
+162&CLARA vs. RandomSequentialCyclic&6.229845&0&0.000309&0.000321\\
+161&CLARA vs. SequentialCyclic&6.153871&0&0.000311&0.000321\\
+160&BestCyclicAssignment vs. Farthest-First&6.134878&0&0.000313&0.000321\\
+159&BestCyclicAssignment vs. Simplified&6.068401&0&0.000314&0.000321\\
+158&CyclicAssignment vs. HDBSCAN&6.001924&0&0.000316&0.000321\\
+157&BestCyclicAssignment vs. Sweep&5.944943&0&0.000318&0.000321\\
+156&PAM vs. RandomSequentialCyclic&5.878466&0&0.000321&0.000321\\
+155&PAM vs. SequentialCyclic&5.802493&0&0.000323&0.000325\\
+154&CoefficientPropagation vs. RandomByElement&5.441618&0&0.000325&0.000325\\
+153&CURE vs. NearestByDepot&5.394134&0&0.000327&0.000327\\
+152&NearestByDepot vs. UPGMC&5.394134&0&0.000329&0.000352\\
+151&KMEANS vs. NearestByDepot&5.375141&0&0.000331&0.000352\\
+150&BestCyclicAssignment vs. NearestByCustomer&5.251683&0&0.000333&0.000352\\
+149&BestCyclicAssignment vs. Parallel&5.251683&0&0.000336&0.000352\\
+148&Farthest-First vs. NearestByDepot&5.2042&0&0.000338&0.000352\\
+147&BestCyclicAssignment vs. ThreeCriteriaClustering&5.166213&0&0.00034&0.000352\\
+146&NearestByDepot vs. Simplified&5.137723&0&0.000342&0.000352\\
+145&CURE vs. DBSCAN&5.071246&0&0.000345&0.000352\\
+144&DBSCAN vs. UPGMC&5.071246&0&0.000347&0.000352\\
+143&DBSCAN vs. KMEANS&5.052252&0&0.00035&0.000352\\
+142&NearestByDepot vs. Sweep&5.014265&0.000001&0.000352&0.000352\\
+141&CoefficientPropagation vs. RandomSequentialCyclic&4.966782&0.000001&0.000355&0.00036\\
+140&BestCyclicAssignment vs. BestNearest&4.957285&0.000001&0.000357&0.00036\\
+139&CoefficientPropagation vs. SequentialCyclic&4.890808&0.000001&0.00036&0.00036\\
+138&DBSCAN vs. Farthest-First&4.881311&0.000001&0.000362&0.000362\\
+137&DBSCAN vs. Simplified&4.814834&0.000001&0.000365&0.000365\\
+136&CLARA vs. CyclicAssignment&4.805338&0.000002&0.000368&0.000368\\
+135&DBSCAN vs. Sweep&4.691377&0.000003&0.00037&0.000385\\
+134&DBSCAN vs. RandomByElement&4.605907&0.000004&0.000373&0.000385\\
+133&BestCyclicAssignment vs. HDBSCAN&4.548926&0.000005&0.000376&0.000385\\
+132&CyclicAssignment vs. PAM&4.453959&0.000008&0.000379&0.000385\\
+131&NearestByCustomer vs. NearestByDepot&4.321005&0.000016&0.000382&0.000385\\
+130&NearestByDepot vs. Parallel&4.321005&0.000016&0.000385&0.000385\\
+129&NearestByDepot vs. RandomByElement&4.283018&0.000018&0.000388&0.000397\\
+128&CURE vs. CoefficientPropagation&4.235535&0.000023&0.000391&0.000397\\
+127&CoefficientPropagation vs. UPGMC&4.235535&0.000023&0.000394&0.000397\\
+126&NearestByDepot vs. ThreeCriteriaClustering&4.235535&0.000023&0.000397&0.000397\\
+125&CoefficientPropagation vs. KMEANS&4.216541&0.000025&0.0004&0.000403\\
+124&DBSCAN vs. RandomSequentialCyclic&4.131071&0.000036&0.000403&0.000403\\
+123&DBSCAN vs. SequentialCyclic&4.055097&0.00005&0.000407&0.000407\\
+122&CoefficientPropagation vs. Farthest-First&4.0456&0.000052&0.00041&0.00041\\
+121&BestNearest vs. NearestByDepot&4.026607&0.000057&0.000413&0.000413\\
+120&DBSCAN vs. NearestByCustomer&3.998117&0.000064&0.000417&0.000417\\
+119&DBSCAN vs. Parallel&3.998117&0.000064&0.00042&0.000435\\
+118&CoefficientPropagation vs. Simplified&3.979123&0.000069&0.000424&0.000435\\
+117&DBSCAN vs. ThreeCriteriaClustering&3.912646&0.000091&0.000427&0.000435\\
+116&CoefficientPropagation vs. Sweep&3.855666&0.000115&0.000431&0.000435\\
+115&NearestByDepot vs. RandomSequentialCyclic&3.808183&0.00014&0.000435&0.000435\\
+114&NearestByDepot vs. SequentialCyclic&3.732209&0.00019&0.000439&0.000446\\
+113&BestNearest vs. DBSCAN&3.703719&0.000212&0.000442&0.000446\\
+112&HDBSCAN vs. NearestByDepot&3.618248&0.000297&0.000446&0.000446\\
+111&CoefficientPropagation vs. CyclicAssignment&3.542275&0.000397&0.00045&0.00045\\
+110&BestCyclicAssignment vs. RandomByElement&3.35234&0.000801&0.000455&0.000459\\
+109&BestCyclicAssignment vs. CLARA&3.35234&0.000801&0.000459&0.000459\\
+108&CURE vs. PAM&3.32385&0.000888&0.000463&0.000463\\
+107&PAM vs. UPGMC&3.32385&0.000888&0.000467&0.000467\\
+106&KMEANS vs. PAM&3.304857&0.00095&0.000472&0.000472\\
+105&DBSCAN vs. HDBSCAN&3.29536&0.000983&0.000476&0.000476\\
+104&CoefficientPropagation vs. NearestByCustomer&3.162406&0.001565&0.000481&0.000481\\
+103&CoefficientPropagation vs. Parallel&3.162406&0.001565&0.000485&0.000485\\
+102&Farthest-First vs. PAM&3.133916&0.001725&0.00049&0.00049\\
+101&CoefficientPropagation vs. ThreeCriteriaClustering&3.076936&0.002091&0.000495&0.000495\\
+100&PAM vs. Simplified&3.067439&0.002159&0.0005&0.0005\\
+99&BestCyclicAssignment vs. PAM&3.000962&0.002691&0.000505&0.000505\\
+98&CLARA vs. CURE&2.972472&0.002954&0.00051&0.00051\\
+97&CLARA vs. UPGMC&2.972472&0.002954&0.000515&0.000515\\
+96&CLARA vs. KMEANS&2.953478&0.003142&0.000521&0.000521\\
+95&PAM vs. Sweep&2.943982&0.00324&0.000526&0.000526\\
+94&BestCyclicAssignment vs. RandomSequentialCyclic&2.877505&0.004008&0.000532&0.000532\\
+93&BestNearest vs. CoefficientPropagation&2.868008&0.004131&0.000538&0.000538\\
+92&BestCyclicAssignment vs. SequentialCyclic&2.801531&0.005086&0.000543&0.000543\\
+91&CLARA vs. Farthest-First&2.782537&0.005394&0.000549&0.000549\\
+90&CLARA vs. Simplified&2.71606&0.006606&0.000556&0.000556\\
+89&CyclicAssignment vs. DBSCAN&2.706564&0.006798&0.000562&0.000562\\
+88&CLARA vs. Sweep&2.592603&0.009525&0.000568&0.000568\\
+87&CoefficientPropagation vs. HDBSCAN&2.459649&0.013907&0.000575&0.000575\\
+86&CLARA vs. NearestByDepot&2.421662&0.01545&0.000581&0.000581\\
+85&CyclicAssignment vs. NearestByDepot&2.383675&0.017141&0.000588&0.000588\\
+84&NearestByCustomer vs. PAM&2.250721&0.024403&0.000595&0.000595\\
+83&PAM vs. Parallel&2.250721&0.024403&0.000602&0.000602\\
+82&PAM vs. ThreeCriteriaClustering&2.165251&0.030368&0.00061&0.00061\\
+81&CLARA vs. DBSCAN&2.098774&0.035837&0.000617&0.000617\\
+80&BestCyclicAssignment vs. CoefficientPropagation&2.089277&0.036683&0.000625&0.000625\\
+79&NearestByDepot vs. PAM&2.070284&0.038426&0.000633&0.000633\\
+78&BestNearest vs. PAM&1.956323&0.050427&0.000641&0.000641\\
+77&CyclicAssignment vs. RandomByElement&1.899343&0.057519&0.000649&0.000649\\
+76&CLARA vs. NearestByCustomer&1.899343&0.057519&0.000658&0.000658\\
+75&CLARA vs. Parallel&1.899343&0.057519&0.000667&0.000667\\
+74&CLARA vs. ThreeCriteriaClustering&1.813873&0.069697&0.000676&0.000676\\
+73&CURE vs. HDBSCAN&1.775886&0.075752&0.000685&0.000685\\
+72&HDBSCAN vs. UPGMC&1.775886&0.075752&0.000694&0.000694\\
+71&HDBSCAN vs. KMEANS&1.756892&0.078936&0.000704&0.000704\\
+70&DBSCAN vs. PAM&1.747396&0.080569&0.000714&0.000714\\
+69&BestNearest vs. CLARA&1.604945&0.108506&0.000725&0.000725\\
+68&Farthest-First vs. HDBSCAN&1.585951&0.11275&0.000735&0.000735\\
+67&HDBSCAN vs. PAM&1.547964&0.121631&0.000746&0.000746\\
+66&HDBSCAN vs. Simplified&1.519474&0.128643&0.000758&0.000758\\
+65&BestCyclicAssignment vs. CyclicAssignment&1.452997&0.146224&0.000769&0.000769\\
+64&CyclicAssignment vs. RandomSequentialCyclic&1.424507&0.1543&0.000781&0.000781\\
+63&HDBSCAN vs. Sweep&1.396017&0.162709&0.000794&0.000794\\
+62&BestNearest vs. CURE&1.367527&0.17146&0.000806&0.000806\\
+61&BestNearest vs. UPGMC&1.367527&0.17146&0.00082&0.00082\\
+60&BestNearest vs. KMEANS&1.348533&0.177487&0.000833&0.000833\\
+59&CyclicAssignment vs. SequentialCyclic&1.348533&0.177487&0.000847&0.000847\\
+58&CLARA vs. CoefficientPropagation&1.263063&0.206567&0.000862&0.000862\\
+57&BestCyclicAssignment vs. DBSCAN&1.253566&0.21&0.000877&0.000877\\
+56&CLARA vs. HDBSCAN&1.196586&0.231468&0.000893&0.000893\\
+55&BestNearest vs. Farthest-First&1.177593&0.238959&0.000909&0.000909\\
+54&CURE vs. ThreeCriteriaClustering&1.158599&0.24662&0.000926&0.000926\\
+53&ThreeCriteriaClustering vs. UPGMC&1.158599&0.24662&0.000943&0.000943\\
+52&CoefficientPropagation vs. NearestByDepot&1.158599&0.24662&0.000962&0.000962\\
+51&KMEANS vs. ThreeCriteriaClustering&1.139606&0.254451&0.00098&0.00098\\
+50&BestNearest vs. Simplified&1.111116&0.266519&0.001&0.001\\
+49&CURE vs. NearestByCustomer&1.073129&0.283213&0.00102&0.00102\\
+48&CURE vs. Parallel&1.073129&0.283213&0.001042&0.001042\\
+47&NearestByCustomer vs. UPGMC&1.073129&0.283213&0.001064&0.001064\\
+46&Parallel vs. UPGMC&1.073129&0.283213&0.001087&0.001087\\
+45&KMEANS vs. NearestByCustomer&1.054135&0.291821&0.001111&0.001111\\
+44&KMEANS vs. Parallel&1.054135&0.291821&0.001136&0.001136\\
+43&BestNearest vs. Sweep&0.987658&0.32332&0.001163&0.001163\\
+42&Farthest-First vs. ThreeCriteriaClustering&0.968665&0.332712&0.00119&0.00119\\
+41&BestCyclicAssignment vs. NearestByDepot&0.930678&0.35202&0.00122&0.00122\\
+40&CoefficientPropagation vs. PAM&0.911685&0.361935&0.00125&0.00125\\
+39&Simplified vs. ThreeCriteriaClustering&0.902188&0.366957&0.001282&0.001282\\
+38&Farthest-First vs. NearestByCustomer&0.883194&0.377131&0.001316&0.001316\\
+37&Farthest-First vs. Parallel&0.883194&0.377131&0.001351&0.001351\\
+36&CoefficientPropagation vs. DBSCAN&0.835711&0.403318&0.001389&0.001389\\
+35&NearestByCustomer vs. Simplified&0.816717&0.41409&0.001429&0.001429\\
+34&Parallel vs. Simplified&0.816717&0.41409&0.001471&0.001471\\
+33&Sweep vs. ThreeCriteriaClustering&0.778731&0.436138&0.001515&0.001515\\
+32&HDBSCAN vs. NearestByCustomer&0.702757&0.482207&0.001563&0.001563\\
+31&HDBSCAN vs. Parallel&0.702757&0.482207&0.001613&0.001613\\
+30&NearestByCustomer vs. Sweep&0.69326&0.488146&0.001667&0.001667\\
+29&Parallel vs. Sweep&0.69326&0.488146&0.001724&0.001724\\
+28&HDBSCAN vs. ThreeCriteriaClustering&0.617286&0.537046&0.001786&0.001786\\
+27&RandomByElement vs. SequentialCyclic&0.550809&0.581764&0.001852&0.001852\\
+26&RandomByElement vs. RandomSequentialCyclic&0.474836&0.634904&0.001923&0.001923\\
+25&BestNearest vs. HDBSCAN&0.408359&0.68301&0.002&0.002\\
+24&CURE vs. Sweep&0.379869&0.704043&0.002083&0.002083\\
+23&Sweep vs. UPGMC&0.379869&0.704043&0.002174&0.002174\\
+22&KMEANS vs. Sweep&0.360875&0.718193&0.002273&0.002273\\
+21&CLARA vs. PAM&0.351378&0.725304&0.002381&0.002381\\
+20&DBSCAN vs. NearestByDepot&0.322888&0.74678&0.0025&0.0025\\
+19&BestNearest vs. NearestByCustomer&0.294398&0.768454&0.002632&0.002632\\
+18&BestNearest vs. Parallel&0.294398&0.768454&0.002778&0.002778\\
+17&CURE vs. Simplified&0.256411&0.797633&0.002941&0.002941\\
+16&Simplified vs. UPGMC&0.256411&0.797633&0.003125&0.003125\\
+15&KMEANS vs. Simplified&0.237418&0.812333&0.003333&0.003333\\
+14&BestNearest vs. ThreeCriteriaClustering&0.208928&0.834505&0.003571&0.003571\\
+13&CURE vs. Farthest-First&0.189934&0.849361&0.003846&0.003846\\
+12&Farthest-First vs. Sweep&0.189934&0.849361&0.004167&0.004167\\
+11&Farthest-First vs. UPGMC&0.189934&0.849361&0.004545&0.004545\\
+10&Farthest-First vs. KMEANS&0.170941&0.86427&0.005&0.005\\
+9&Simplified vs. Sweep&0.123457&0.901745&0.005556&0.005556\\
+8&NearestByCustomer vs. ThreeCriteriaClustering&0.08547&0.931887&0.00625&0.00625\\
+7&Parallel vs. ThreeCriteriaClustering&0.08547&0.931887&0.007143&0.007143\\
+6&RandomSequentialCyclic vs. SequentialCyclic&0.075974&0.93944&0.008333&0.008333\\
+5&Farthest-First vs. Simplified&0.066477&0.946998&0.01&0.01\\
+4&CURE vs. KMEANS&0.018993&0.984846&0.0125&0.0125\\
+3&KMEANS vs. UPGMC&0.018993&0.984846&0.016667&0.016667\\
+2&CURE vs. UPGMC&0&1&0.025&0.025\\
+1&NearestByCustomer vs. Parallel&0&1&0.05&0.05\\
+\hline
+\end{tabular}
+\caption{P-values Table for $\alpha=0.05$}
+\end{table}Nemenyi's procedure rejects those hypotheses that have an unadjusted p-value $\le0.000238$.
+
+Holm's procedure rejects those hypotheses that have an unadjusted p-value $\le0.000455$.
+
+Shaffer's procedure rejects those hypotheses that have an unadjusted p-value $\le0.000238$.
+
+\pagebreak
+
+\subsection{P-values for $\alpha=0.10$}
+
+\begin{table}[!htp]
+\centering\scriptsize
+\begin{tabular}{cccccc}
+$i$&algorithms&$z=(R_0 - R_i)/SE$&$p$&Holm&Shaffer\\
+\hline210&CURE vs. RandomByElement&9.677152&0&0.000476&0.000476\\
+209&RandomByElement vs. UPGMC&9.677152&0&0.000478&0.000526\\
+208&KMEANS vs. RandomByElement&9.658159&0&0.000481&0.000526\\
+207&Farthest-First vs. RandomByElement&9.487218&0&0.000483&0.000526\\
+206&RandomByElement vs. Simplified&9.420741&0&0.000485&0.000526\\
+205&RandomByElement vs. Sweep&9.297284&0&0.000488&0.000526\\
+204&CURE vs. RandomSequentialCyclic&9.202317&0&0.00049&0.000526\\
+203&RandomSequentialCyclic vs. UPGMC&9.202317&0&0.000493&0.000526\\
+202&KMEANS vs. RandomSequentialCyclic&9.183323&0&0.000495&0.000526\\
+201&CURE vs. SequentialCyclic&9.126343&0&0.000498&0.000526\\
+200&SequentialCyclic vs. UPGMC&9.126343&0&0.0005&0.000526\\
+199&KMEANS vs. SequentialCyclic&9.107349&0&0.000503&0.000526\\
+198&Farthest-First vs. RandomSequentialCyclic&9.012382&0&0.000505&0.000526\\
+197&RandomSequentialCyclic vs. Simplified&8.945905&0&0.000508&0.000526\\
+196&Farthest-First vs. SequentialCyclic&8.936409&0&0.00051&0.000526\\
+195&SequentialCyclic vs. Simplified&8.869932&0&0.000513&0.000526\\
+194&RandomSequentialCyclic vs. Sweep&8.822448&0&0.000515&0.000526\\
+193&SequentialCyclic vs. Sweep&8.746474&0&0.000518&0.000526\\
+192&NearestByCustomer vs. RandomByElement&8.604024&0&0.000521&0.000526\\
+191&Parallel vs. RandomByElement&8.604024&0&0.000524&0.000526\\
+190&RandomByElement vs. ThreeCriteriaClustering&8.518553&0&0.000526&0.000526\\
+189&BestNearest vs. RandomByElement&8.309625&0&0.000529&0.000581\\
+188&NearestByCustomer vs. RandomSequentialCyclic&8.129188&0&0.000532&0.000581\\
+187&Parallel vs. RandomSequentialCyclic&8.129188&0&0.000535&0.000581\\
+186&NearestByCustomer vs. SequentialCyclic&8.053214&0&0.000538&0.000581\\
+185&Parallel vs. SequentialCyclic&8.053214&0&0.000541&0.000581\\
+184&RandomSequentialCyclic vs. ThreeCriteriaClustering&8.043717&0&0.000543&0.000581\\
+183&SequentialCyclic vs. ThreeCriteriaClustering&7.967744&0&0.000546&0.000581\\
+182&HDBSCAN vs. RandomByElement&7.901267&0&0.000549&0.000581\\
+181&BestNearest vs. RandomSequentialCyclic&7.83479&0&0.000552&0.000581\\
+180&CURE vs. CyclicAssignment&7.777809&0&0.000556&0.000581\\
+179&CyclicAssignment vs. UPGMC&7.777809&0&0.000559&0.000581\\
+178&CyclicAssignment vs. KMEANS&7.758816&0&0.000562&0.000581\\
+177&BestNearest vs. SequentialCyclic&7.758816&0&0.000565&0.000581\\
+176&CyclicAssignment vs. Farthest-First&7.587875&0&0.000568&0.000581\\
+175&CyclicAssignment vs. Simplified&7.521398&0&0.000571&0.000581\\
+174&HDBSCAN vs. RandomSequentialCyclic&7.426431&0&0.000575&0.000581\\
+173&CyclicAssignment vs. Sweep&7.397941&0&0.000578&0.000581\\
+172&HDBSCAN vs. SequentialCyclic&7.350457&0&0.000581&0.000581\\
+171&CLARA vs. RandomByElement&6.704681&0&0.000585&0.000585\\
+170&CyclicAssignment vs. NearestByCustomer&6.704681&0&0.000588&0.000641\\
+169&CyclicAssignment vs. Parallel&6.704681&0&0.000592&0.000641\\
+168&CyclicAssignment vs. ThreeCriteriaClustering&6.61921&0&0.000595&0.000641\\
+167&BestNearest vs. CyclicAssignment&6.410282&0&0.000599&0.000641\\
+166&PAM vs. RandomByElement&6.353302&0&0.000602&0.000641\\
+165&BestCyclicAssignment vs. CURE&6.324812&0&0.000606&0.000641\\
+164&BestCyclicAssignment vs. UPGMC&6.324812&0&0.00061&0.000641\\
+163&BestCyclicAssignment vs. KMEANS&6.305819&0&0.000613&0.000641\\
+162&CLARA vs. RandomSequentialCyclic&6.229845&0&0.000617&0.000641\\
+161&CLARA vs. SequentialCyclic&6.153871&0&0.000621&0.000641\\
+160&BestCyclicAssignment vs. Farthest-First&6.134878&0&0.000625&0.000641\\
+159&BestCyclicAssignment vs. Simplified&6.068401&0&0.000629&0.000641\\
+158&CyclicAssignment vs. HDBSCAN&6.001924&0&0.000633&0.000641\\
+157&BestCyclicAssignment vs. Sweep&5.944943&0&0.000637&0.000641\\
+156&PAM vs. RandomSequentialCyclic&5.878466&0&0.000641&0.000641\\
+155&PAM vs. SequentialCyclic&5.802493&0&0.000645&0.000649\\
+154&CoefficientPropagation vs. RandomByElement&5.441618&0&0.000649&0.000649\\
+153&CURE vs. NearestByDepot&5.394134&0&0.000654&0.000654\\
+152&NearestByDepot vs. UPGMC&5.394134&0&0.000658&0.000704\\
+151&KMEANS vs. NearestByDepot&5.375141&0&0.000662&0.000704\\
+150&BestCyclicAssignment vs. NearestByCustomer&5.251683&0&0.000667&0.000704\\
+149&BestCyclicAssignment vs. Parallel&5.251683&0&0.000671&0.000704\\
+148&Farthest-First vs. NearestByDepot&5.2042&0&0.000676&0.000704\\
+147&BestCyclicAssignment vs. ThreeCriteriaClustering&5.166213&0&0.00068&0.000704\\
+146&NearestByDepot vs. Simplified&5.137723&0&0.000685&0.000704\\
+145&CURE vs. DBSCAN&5.071246&0&0.00069&0.000704\\
+144&DBSCAN vs. UPGMC&5.071246&0&0.000694&0.000704\\
+143&DBSCAN vs. KMEANS&5.052252&0&0.000699&0.000704\\
+142&NearestByDepot vs. Sweep&5.014265&0.000001&0.000704&0.000704\\
+141&CoefficientPropagation vs. RandomSequentialCyclic&4.966782&0.000001&0.000709&0.000719\\
+140&BestCyclicAssignment vs. BestNearest&4.957285&0.000001&0.000714&0.000719\\
+139&CoefficientPropagation vs. SequentialCyclic&4.890808&0.000001&0.000719&0.000719\\
+138&DBSCAN vs. Farthest-First&4.881311&0.000001&0.000725&0.000725\\
+137&DBSCAN vs. Simplified&4.814834&0.000001&0.00073&0.00073\\
+136&CLARA vs. CyclicAssignment&4.805338&0.000002&0.000735&0.000735\\
+135&DBSCAN vs. Sweep&4.691377&0.000003&0.000741&0.000769\\
+134&DBSCAN vs. RandomByElement&4.605907&0.000004&0.000746&0.000769\\
+133&BestCyclicAssignment vs. HDBSCAN&4.548926&0.000005&0.000752&0.000769\\
+132&CyclicAssignment vs. PAM&4.453959&0.000008&0.000758&0.000769\\
+131&NearestByCustomer vs. NearestByDepot&4.321005&0.000016&0.000763&0.000769\\
+130&NearestByDepot vs. Parallel&4.321005&0.000016&0.000769&0.000769\\
+129&NearestByDepot vs. RandomByElement&4.283018&0.000018&0.000775&0.000794\\
+128&CURE vs. CoefficientPropagation&4.235535&0.000023&0.000781&0.000794\\
+127&CoefficientPropagation vs. UPGMC&4.235535&0.000023&0.000787&0.000794\\
+126&NearestByDepot vs. ThreeCriteriaClustering&4.235535&0.000023&0.000794&0.000794\\
+125&CoefficientPropagation vs. KMEANS&4.216541&0.000025&0.0008&0.000806\\
+124&DBSCAN vs. RandomSequentialCyclic&4.131071&0.000036&0.000806&0.000806\\
+123&DBSCAN vs. SequentialCyclic&4.055097&0.00005&0.000813&0.000813\\
+122&CoefficientPropagation vs. Farthest-First&4.0456&0.000052&0.00082&0.00082\\
+121&BestNearest vs. NearestByDepot&4.026607&0.000057&0.000826&0.000826\\
+120&DBSCAN vs. NearestByCustomer&3.998117&0.000064&0.000833&0.000833\\
+119&DBSCAN vs. Parallel&3.998117&0.000064&0.00084&0.00087\\
+118&CoefficientPropagation vs. Simplified&3.979123&0.000069&0.000847&0.00087\\
+117&DBSCAN vs. ThreeCriteriaClustering&3.912646&0.000091&0.000855&0.00087\\
+116&CoefficientPropagation vs. Sweep&3.855666&0.000115&0.000862&0.00087\\
+115&NearestByDepot vs. RandomSequentialCyclic&3.808183&0.00014&0.00087&0.00087\\
+114&NearestByDepot vs. SequentialCyclic&3.732209&0.00019&0.000877&0.000893\\
+113&BestNearest vs. DBSCAN&3.703719&0.000212&0.000885&0.000893\\
+112&HDBSCAN vs. NearestByDepot&3.618248&0.000297&0.000893&0.000893\\
+111&CoefficientPropagation vs. CyclicAssignment&3.542275&0.000397&0.000901&0.000901\\
+110&BestCyclicAssignment vs. RandomByElement&3.35234&0.000801&0.000909&0.000917\\
+109&BestCyclicAssignment vs. CLARA&3.35234&0.000801&0.000917&0.000917\\
+108&CURE vs. PAM&3.32385&0.000888&0.000926&0.000926\\
+107&PAM vs. UPGMC&3.32385&0.000888&0.000935&0.000935\\
+106&KMEANS vs. PAM&3.304857&0.00095&0.000943&0.000943\\
+105&DBSCAN vs. HDBSCAN&3.29536&0.000983&0.000952&0.000952\\
+104&CoefficientPropagation vs. NearestByCustomer&3.162406&0.001565&0.000962&0.000962\\
+103&CoefficientPropagation vs. Parallel&3.162406&0.001565&0.000971&0.000971\\
+102&Farthest-First vs. PAM&3.133916&0.001725&0.00098&0.00098\\
+101&CoefficientPropagation vs. ThreeCriteriaClustering&3.076936&0.002091&0.00099&0.00099\\
+100&PAM vs. Simplified&3.067439&0.002159&0.001&0.001\\
+99&BestCyclicAssignment vs. PAM&3.000962&0.002691&0.00101&0.00101\\
+98&CLARA vs. CURE&2.972472&0.002954&0.00102&0.00102\\
+97&CLARA vs. UPGMC&2.972472&0.002954&0.001031&0.001031\\
+96&CLARA vs. KMEANS&2.953478&0.003142&0.001042&0.001042\\
+95&PAM vs. Sweep&2.943982&0.00324&0.001053&0.001053\\
+94&BestCyclicAssignment vs. RandomSequentialCyclic&2.877505&0.004008&0.001064&0.001064\\
+93&BestNearest vs. CoefficientPropagation&2.868008&0.004131&0.001075&0.001075\\
+92&BestCyclicAssignment vs. SequentialCyclic&2.801531&0.005086&0.001087&0.001087\\
+91&CLARA vs. Farthest-First&2.782537&0.005394&0.001099&0.001099\\
+90&CLARA vs. Simplified&2.71606&0.006606&0.001111&0.001111\\
+89&CyclicAssignment vs. DBSCAN&2.706564&0.006798&0.001124&0.001124\\
+88&CLARA vs. Sweep&2.592603&0.009525&0.001136&0.001136\\
+87&CoefficientPropagation vs. HDBSCAN&2.459649&0.013907&0.001149&0.001149\\
+86&CLARA vs. NearestByDepot&2.421662&0.01545&0.001163&0.001163\\
+85&CyclicAssignment vs. NearestByDepot&2.383675&0.017141&0.001176&0.001176\\
+84&NearestByCustomer vs. PAM&2.250721&0.024403&0.00119&0.00119\\
+83&PAM vs. Parallel&2.250721&0.024403&0.001205&0.001205\\
+82&PAM vs. ThreeCriteriaClustering&2.165251&0.030368&0.00122&0.00122\\
+81&CLARA vs. DBSCAN&2.098774&0.035837&0.001235&0.001235\\
+80&BestCyclicAssignment vs. CoefficientPropagation&2.089277&0.036683&0.00125&0.00125\\
+79&NearestByDepot vs. PAM&2.070284&0.038426&0.001266&0.001266\\
+78&BestNearest vs. PAM&1.956323&0.050427&0.001282&0.001282\\
+77&CyclicAssignment vs. RandomByElement&1.899343&0.057519&0.001299&0.001299\\
+76&CLARA vs. NearestByCustomer&1.899343&0.057519&0.001316&0.001316\\
+75&CLARA vs. Parallel&1.899343&0.057519&0.001333&0.001333\\
+74&CLARA vs. ThreeCriteriaClustering&1.813873&0.069697&0.001351&0.001351\\
+73&CURE vs. HDBSCAN&1.775886&0.075752&0.00137&0.00137\\
+72&HDBSCAN vs. UPGMC&1.775886&0.075752&0.001389&0.001389\\
+71&HDBSCAN vs. KMEANS&1.756892&0.078936&0.001408&0.001408\\
+70&DBSCAN vs. PAM&1.747396&0.080569&0.001429&0.001429\\
+69&BestNearest vs. CLARA&1.604945&0.108506&0.001449&0.001449\\
+68&Farthest-First vs. HDBSCAN&1.585951&0.11275&0.001471&0.001471\\
+67&HDBSCAN vs. PAM&1.547964&0.121631&0.001493&0.001493\\
+66&HDBSCAN vs. Simplified&1.519474&0.128643&0.001515&0.001515\\
+65&BestCyclicAssignment vs. CyclicAssignment&1.452997&0.146224&0.001538&0.001538\\
+64&CyclicAssignment vs. RandomSequentialCyclic&1.424507&0.1543&0.001563&0.001563\\
+63&HDBSCAN vs. Sweep&1.396017&0.162709&0.001587&0.001587\\
+62&BestNearest vs. CURE&1.367527&0.17146&0.001613&0.001613\\
+61&BestNearest vs. UPGMC&1.367527&0.17146&0.001639&0.001639\\
+60&BestNearest vs. KMEANS&1.348533&0.177487&0.001667&0.001667\\
+59&CyclicAssignment vs. SequentialCyclic&1.348533&0.177487&0.001695&0.001695\\
+58&CLARA vs. CoefficientPropagation&1.263063&0.206567&0.001724&0.001724\\
+57&BestCyclicAssignment vs. DBSCAN&1.253566&0.21&0.001754&0.001754\\
+56&CLARA vs. HDBSCAN&1.196586&0.231468&0.001786&0.001786\\
+55&BestNearest vs. Farthest-First&1.177593&0.238959&0.001818&0.001818\\
+54&CURE vs. ThreeCriteriaClustering&1.158599&0.24662&0.001852&0.001852\\
+53&ThreeCriteriaClustering vs. UPGMC&1.158599&0.24662&0.001887&0.001887\\
+52&CoefficientPropagation vs. NearestByDepot&1.158599&0.24662&0.001923&0.001923\\
+51&KMEANS vs. ThreeCriteriaClustering&1.139606&0.254451&0.001961&0.001961\\
+50&BestNearest vs. Simplified&1.111116&0.266519&0.002&0.002\\
+49&CURE vs. NearestByCustomer&1.073129&0.283213&0.002041&0.002041\\
+48&CURE vs. Parallel&1.073129&0.283213&0.002083&0.002083\\
+47&NearestByCustomer vs. UPGMC&1.073129&0.283213&0.002128&0.002128\\
+46&Parallel vs. UPGMC&1.073129&0.283213&0.002174&0.002174\\
+45&KMEANS vs. NearestByCustomer&1.054135&0.291821&0.002222&0.002222\\
+44&KMEANS vs. Parallel&1.054135&0.291821&0.002273&0.002273\\
+43&BestNearest vs. Sweep&0.987658&0.32332&0.002326&0.002326\\
+42&Farthest-First vs. ThreeCriteriaClustering&0.968665&0.332712&0.002381&0.002381\\
+41&BestCyclicAssignment vs. NearestByDepot&0.930678&0.35202&0.002439&0.002439\\
+40&CoefficientPropagation vs. PAM&0.911685&0.361935&0.0025&0.0025\\
+39&Simplified vs. ThreeCriteriaClustering&0.902188&0.366957&0.002564&0.002564\\
+38&Farthest-First vs. NearestByCustomer&0.883194&0.377131&0.002632&0.002632\\
+37&Farthest-First vs. Parallel&0.883194&0.377131&0.002703&0.002703\\
+36&CoefficientPropagation vs. DBSCAN&0.835711&0.403318&0.002778&0.002778\\
+35&NearestByCustomer vs. Simplified&0.816717&0.41409&0.002857&0.002857\\
+34&Parallel vs. Simplified&0.816717&0.41409&0.002941&0.002941\\
+33&Sweep vs. ThreeCriteriaClustering&0.778731&0.436138&0.00303&0.00303\\
+32&HDBSCAN vs. NearestByCustomer&0.702757&0.482207&0.003125&0.003125\\
+31&HDBSCAN vs. Parallel&0.702757&0.482207&0.003226&0.003226\\
+30&NearestByCustomer vs. Sweep&0.69326&0.488146&0.003333&0.003333\\
+29&Parallel vs. Sweep&0.69326&0.488146&0.003448&0.003448\\
+28&HDBSCAN vs. ThreeCriteriaClustering&0.617286&0.537046&0.003571&0.003571\\
+27&RandomByElement vs. SequentialCyclic&0.550809&0.581764&0.003704&0.003704\\
+26&RandomByElement vs. RandomSequentialCyclic&0.474836&0.634904&0.003846&0.003846\\
+25&BestNearest vs. HDBSCAN&0.408359&0.68301&0.004&0.004\\
+24&CURE vs. Sweep&0.379869&0.704043&0.004167&0.004167\\
+23&Sweep vs. UPGMC&0.379869&0.704043&0.004348&0.004348\\
+22&KMEANS vs. Sweep&0.360875&0.718193&0.004545&0.004545\\
+21&CLARA vs. PAM&0.351378&0.725304&0.004762&0.004762\\
+20&DBSCAN vs. NearestByDepot&0.322888&0.74678&0.005&0.005\\
+19&BestNearest vs. NearestByCustomer&0.294398&0.768454&0.005263&0.005263\\
+18&BestNearest vs. Parallel&0.294398&0.768454&0.005556&0.005556\\
+17&CURE vs. Simplified&0.256411&0.797633&0.005882&0.005882\\
+16&Simplified vs. UPGMC&0.256411&0.797633&0.00625&0.00625\\
+15&KMEANS vs. Simplified&0.237418&0.812333&0.006667&0.006667\\
+14&BestNearest vs. ThreeCriteriaClustering&0.208928&0.834505&0.007143&0.007143\\
+13&CURE vs. Farthest-First&0.189934&0.849361&0.007692&0.007692\\
+12&Farthest-First vs. Sweep&0.189934&0.849361&0.008333&0.008333\\
+11&Farthest-First vs. UPGMC&0.189934&0.849361&0.009091&0.009091\\
+10&Farthest-First vs. KMEANS&0.170941&0.86427&0.01&0.01\\
+9&Simplified vs. Sweep&0.123457&0.901745&0.011111&0.011111\\
+8&NearestByCustomer vs. ThreeCriteriaClustering&0.08547&0.931887&0.0125&0.0125\\
+7&Parallel vs. ThreeCriteriaClustering&0.08547&0.931887&0.014286&0.014286\\
+6&RandomSequentialCyclic vs. SequentialCyclic&0.075974&0.93944&0.016667&0.016667\\
+5&Farthest-First vs. Simplified&0.066477&0.946998&0.02&0.02\\
+4&CURE vs. KMEANS&0.018993&0.984846&0.025&0.025\\
+3&KMEANS vs. UPGMC&0.018993&0.984846&0.033333&0.033333\\
+2&CURE vs. UPGMC&0&1&0.05&0.05\\
+1&NearestByCustomer vs. Parallel&0&1&0.1&0.1\\
+\hline
+\end{tabular}
+\caption{P-values Table for $\alpha=0.10$}
+\end{table}Nemenyi's procedure rejects those hypotheses that have an unadjusted p-value $\le0.000476$.
+
+Holm's procedure rejects those hypotheses that have an unadjusted p-value $\le0.000943$.
+
+Shaffer's procedure rejects those hypotheses that have an unadjusted p-value $\le0.000476$.
+
+\pagebreak
+
+\subsection{Adjusted p-values}
+
+\begin{table}[!htp]
+\centering\scriptsize
+\begin{tabular}{ccccccc}
+i&hypothesis&unadjusted $p$&$p_{Neme}$&$p_{Holm}$&$p_{Shaf}$&$p_{Berg}$\\
+\hline1&CURE vs .RandomByElement&0&0&0&0&0\\
+2&RandomByElement vs .UPGMC&0&0&0&0&0\\
+3&KMEANS vs .RandomByElement&0&0&0&0&0\\
+4&Farthest-First vs .RandomByElement&0&0&0&0&0\\
+5&RandomByElement vs .Simplified&0&0&0&0&0\\
+6&RandomByElement vs .Sweep&0&0&0&0&0\\
+7&CURE vs .RandomSequentialCyclic&0&0&0&0&0\\
+8&RandomSequentialCyclic vs .UPGMC&0&0&0&0&0\\
+9&KMEANS vs .RandomSequentialCyclic&0&0&0&0&0\\
+10&CURE vs .SequentialCyclic&0&0&0&0&0\\
+11&SequentialCyclic vs .UPGMC&0&0&0&0&0\\
+12&KMEANS vs .SequentialCyclic&0&0&0&0&0\\
+13&Farthest-First vs .RandomSequentialCyclic&0&0&0&0&0\\
+14&RandomSequentialCyclic vs .Simplified&0&0&0&0&0\\
+15&Farthest-First vs .SequentialCyclic&0&0&0&0&0\\
+16&SequentialCyclic vs .Simplified&0&0&0&0&0\\
+17&RandomSequentialCyclic vs .Sweep&0&0&0&0&0\\
+18&SequentialCyclic vs .Sweep&0&0&0&0&0\\
+19&NearestByCustomer vs .RandomByElement&0&0&0&0&0\\
+20&Parallel vs .RandomByElement&0&0&0&0&0\\
+21&RandomByElement vs .ThreeCriteriaClustering&0&0&0&0&0\\
+22&BestNearest vs .RandomByElement&0&0&0&0&0\\
+23&NearestByCustomer vs .RandomSequentialCyclic&0&0&0&0&0\\
+24&Parallel vs .RandomSequentialCyclic&0&0&0&0&0\\
+25&NearestByCustomer vs .SequentialCyclic&0&0&0&0&0\\
+26&Parallel vs .SequentialCyclic&0&0&0&0&0\\
+27&RandomSequentialCyclic vs .ThreeCriteriaClustering&0&0&0&0&0\\
+28&SequentialCyclic vs .ThreeCriteriaClustering&0&0&0&0&0\\
+29&HDBSCAN vs .RandomByElement&0&0&0&0&0\\
+30&BestNearest vs .RandomSequentialCyclic&0&0&0&0&0\\
+31&CURE vs .CyclicAssignment&0&0&0&0&0\\
+32&CyclicAssignment vs .UPGMC&0&0&0&0&0\\
+33&CyclicAssignment vs .KMEANS&0&0&0&0&0\\
+34&BestNearest vs .SequentialCyclic&0&0&0&0&0\\
+35&CyclicAssignment vs .Farthest-First&0&0&0&0&0\\
+36&CyclicAssignment vs .Simplified&0&0&0&0&0\\
+37&HDBSCAN vs .RandomSequentialCyclic&0&0&0&0&0\\
+38&CyclicAssignment vs .Sweep&0&0&0&0&0\\
+39&HDBSCAN vs .SequentialCyclic&0&0&0&0&0\\
+40&CLARA vs .RandomByElement&0&0&0&0&0\\
+41&CyclicAssignment vs .NearestByCustomer&0&0&0&0&0\\
+42&CyclicAssignment vs .Parallel&0&0&0&0&0\\
+43&CyclicAssignment vs .ThreeCriteriaClustering&0&0&0&0&0\\
+44&BestNearest vs .CyclicAssignment&0&0&0&0&0\\
+45&PAM vs .RandomByElement&0&0&0&0&0\\
+46&BestCyclicAssignment vs .CURE&0&0&0&0&0\\
+47&BestCyclicAssignment vs .UPGMC&0&0&0&0&0\\
+48&BestCyclicAssignment vs .KMEANS&0&0&0&0&0\\
+49&CLARA vs .RandomSequentialCyclic&0&0&0&0&0\\
+50&CLARA vs .SequentialCyclic&0&0&0&0&0\\
+51&BestCyclicAssignment vs .Farthest-First&0&0&0&0&0\\
+52&BestCyclicAssignment vs .Simplified&0&0&0&0&0\\
+53&CyclicAssignment vs .HDBSCAN&0&0&0&0&0\\
+54&BestCyclicAssignment vs .Sweep&0&0.000001&0&0&0\\
+55&PAM vs .RandomSequentialCyclic&0&0.000001&0.000001&0.000001&0\\
+56&PAM vs .SequentialCyclic&0&0.000001&0.000001&0.000001&0\\
+57&CoefficientPropagation vs .RandomByElement&0&0.000011&0.000008&0.000008&0\\
+58&CURE vs .NearestByDepot&0&0.000014&0.000011&0.000011&0\\
+59&NearestByDepot vs .UPGMC&0&0.000014&0.000011&0.000011&0\\
+60&KMEANS vs .NearestByDepot&0&0.000016&0.000012&0.000011&0\\
+61&BestCyclicAssignment vs .NearestByCustomer&0&0.000032&0.000023&0.000021&0\\
+62&BestCyclicAssignment vs .Parallel&0&0.000032&0.000023&0.000021&0\\
+63&Farthest-First vs .NearestByDepot&0&0.000041&0.000029&0.000028&0\\
+64&BestCyclicAssignment vs .ThreeCriteriaClustering&0&0.00005&0.000035&0.000034&0\\
+65&NearestByDepot vs .Simplified&0&0.000058&0.000041&0.000039&0\\
+66&CURE vs .DBSCAN&0&0.000083&0.000057&0.000056&0\\
+67&DBSCAN vs .UPGMC&0&0.000083&0.000057&0.000056&0\\
+68&DBSCAN vs .KMEANS&0&0.000092&0.000062&0.000062&0\\
+69&NearestByDepot vs .Sweep&0.000001&0.000112&0.000076&0.000076&0\\
+70&CoefficientPropagation vs .RandomSequentialCyclic&0.000001&0.000143&0.000096&0.000095&0\\
+71&BestCyclicAssignment vs .BestNearest&0.000001&0.00015&0.0001&0.000099&0\\
+72&CoefficientPropagation vs .SequentialCyclic&0.000001&0.000211&0.00014&0.00014&0\\
+73&DBSCAN vs .Farthest-First&0.000001&0.000221&0.000145&0.000145&0\\
+74&DBSCAN vs .Simplified&0.000001&0.000309&0.000202&0.000202&0\\
+75&CLARA vs .CyclicAssignment&0.000002&0.000324&0.00021&0.00021&0\\
+76&DBSCAN vs .Sweep&0.000003&0.00057&0.000366&0.000353&0\\
+77&DBSCAN vs .RandomByElement&0.000004&0.000862&0.00055&0.000534&0\\
+78&BestCyclicAssignment vs .HDBSCAN&0.000005&0.001132&0.000717&0.000701&0\\
+79&CyclicAssignment vs .PAM&0.000008&0.00177&0.001113&0.001096&0\\
+80&NearestByCustomer vs .NearestByDepot&0.000016&0.003262&0.002035&0.002019&0\\
+81&NearestByDepot vs .Parallel&0.000016&0.003262&0.002035&0.002019&0\\
+82&NearestByDepot vs .RandomByElement&0.000018&0.003872&0.002378&0.002323&0\\
+83&CURE vs .CoefficientPropagation&0.000023&0.004788&0.002919&0.002873&0\\
+84&CoefficientPropagation vs .UPGMC&0.000023&0.004788&0.002919&0.002873&0\\
+85&NearestByDepot vs .ThreeCriteriaClustering&0.000023&0.004788&0.002919&0.002873&0\\
+86&CoefficientPropagation vs .KMEANS&0.000025&0.00521&0.003101&0.003076&0\\
+87&DBSCAN vs .RandomSequentialCyclic&0.000036&0.007583&0.004477&0.004477&0\\
+88&DBSCAN vs .SequentialCyclic&0.00005&0.010524&0.006164&0.006164&0\\
+89&CoefficientPropagation vs .Farthest-First&0.000052&0.01096&0.006367&0.006367&0\\
+90&BestNearest vs .NearestByDepot&0.000057&0.011883&0.006847&0.006847&0\\
+91&DBSCAN vs .NearestByCustomer&0.000064&0.013408&0.007662&0.007662&0\\
+92&DBSCAN vs .Parallel&0.000064&0.013408&0.007662&0.007662&0\\
+93&CoefficientPropagation vs .Simplified&0.000069&0.014526&0.008162&0.007955&0\\
+94&DBSCAN vs .ThreeCriteriaClustering&0.000091&0.019171&0.010681&0.010498&0\\
+95&CoefficientPropagation vs .Sweep&0.000115&0.024237&0.013388&0.013273&0\\
+96&NearestByDepot vs .RandomSequentialCyclic&0.00014&0.029398&0.016099&0.016099&0\\
+97&NearestByDepot vs .SequentialCyclic&0.00019&0.03986&0.021638&0.021258&0\\
+98&BestNearest vs .DBSCAN&0.000212&0.044617&0.024008&0.023796&0\\
+99&HDBSCAN vs .NearestByDepot&0.000297&0.062287&0.03322&0.03322&0\\
+100&CoefficientPropagation vs .CyclicAssignment&0.000397&0.083305&0.044033&0.044033&0\\
+101&BestCyclicAssignment vs .RandomByElement&0.000801&0.168276&0.088145&0.087343&0\\
+102&BestCyclicAssignment vs .CLARA&0.000801&0.168276&0.088145&0.087343&0\\
+103&CURE vs .PAM&0.000888&0.186446&0.095887&0.095887&0\\
+104&PAM vs .UPGMC&0.000888&0.186446&0.095887&0.095887&0\\
+105&KMEANS vs .PAM&0.00095&0.199552&0.100726&0.100726&0\\
+106&DBSCAN vs .HDBSCAN&0.000983&0.206421&0.10321&0.10321&0\\
+107&CoefficientPropagation vs .NearestByCustomer&0.001565&0.32859&0.16273&0.159601&0\\
+108&CoefficientPropagation vs .Parallel&0.001565&0.32859&0.16273&0.159601&0\\
+109&Farthest-First vs .PAM&0.001725&0.36223&0.17594&0.17594&0\\
+110&CoefficientPropagation vs .ThreeCriteriaClustering&0.002091&0.439195&0.211232&0.211232&0\\
+111&PAM vs .Simplified&0.002159&0.453393&0.215902&0.215902&0\\
+112&BestCyclicAssignment vs .PAM&0.002691&0.565169&0.266437&0.266437&0\\
+113&CLARA vs .CURE&0.002954&0.620366&0.289504&0.289504&0\\
+114&CLARA vs .UPGMC&0.002954&0.620366&0.289504&0.289504&0\\
+115&CLARA vs .KMEANS&0.003142&0.659851&0.301646&0.301646&0\\
+116&PAM vs .Sweep&0.00324&0.680441&0.307818&0.307818&0\\
+117&BestCyclicAssignment vs .RandomSequentialCyclic&0.004008&0.841752&0.376784&0.376784&0\\
+118&BestNearest vs .CoefficientPropagation&0.004131&0.867437&0.384151&0.384151&0\\
+119&BestCyclicAssignment vs .SequentialCyclic&0.005086&1.068076&0.467919&0.467919&0\\
+120&CLARA vs .Farthest-First&0.005394&1.132649&0.490814&0.490814&0\\
+121&CLARA vs .Simplified&0.006606&1.387341&0.594575&0.594575&0\\
+122&CyclicAssignment vs .DBSCAN&0.006798&1.427654&0.605054&0.605054&0\\
+123&CLARA vs .Sweep&0.009525&2.000305&0.838223&0.838223&0\\
+124&CoefficientPropagation vs .HDBSCAN&0.013907&2.920531&1.209934&1.209934&0\\
+125&CLARA vs .NearestByDepot&0.01545&3.244438&1.328674&1.328674&0\\
+126&CyclicAssignment vs .NearestByDepot&0.017141&3.59955&1.456961&1.456961&0\\
+127&NearestByCustomer vs .PAM&0.024403&5.12467&2.049868&2.049868&0\\
+128&PAM vs .Parallel&0.024403&5.12467&2.049868&2.049868&0\\
+129&PAM vs .ThreeCriteriaClustering&0.030368&6.377379&2.490215&2.490215&0\\
+130&CLARA vs .DBSCAN&0.035837&7.525735&2.902783&2.902783&0\\
+131&BestCyclicAssignment vs .CoefficientPropagation&0.036683&7.703383&2.934622&2.934622&0\\
+132&NearestByDepot vs .PAM&0.038426&8.069413&3.035636&3.035636&0\\
+133&BestNearest vs .PAM&0.050427&10.589689&3.933313&3.933313&0\\
+134&CyclicAssignment vs .RandomByElement&0.057519&12.079074&4.428994&4.428994&0\\
+135&CLARA vs .NearestByCustomer&0.057519&12.079074&4.428994&4.428994&0\\
+136&CLARA vs .Parallel&0.057519&12.079074&4.428994&4.428994&0\\
+137&CLARA vs .ThreeCriteriaClustering&0.069697&14.636445&5.157604&5.157604&0\\
+138&CURE vs .HDBSCAN&0.075752&15.907871&5.529879&5.529879&0\\
+139&HDBSCAN vs .UPGMC&0.075752&15.907871&5.529879&5.529879&0\\
+140&HDBSCAN vs .KMEANS&0.078936&16.576598&5.604469&5.604469&0\\
+141&DBSCAN vs .PAM&0.080569&16.919439&5.639813&5.639813&0\\
+142&BestNearest vs .CLARA&0.108506&22.786251&7.486911&7.486911&0\\
+143&Farthest-First vs .HDBSCAN&0.11275&23.677572&7.667023&7.667023&0\\
+144&HDBSCAN vs .PAM&0.121631&25.542477&8.149267&8.149267&0\\
+145&HDBSCAN vs .Simplified&0.128643&27.015059&8.490447&8.490447&0\\
+146&BestCyclicAssignment vs .CyclicAssignment&0.146224&30.707143&9.504592&9.504592&0\\
+147&CyclicAssignment vs .RandomSequentialCyclic&0.1543&32.402937&9.875181&9.875181&0\\
+148&HDBSCAN vs .Sweep&0.162709&34.168965&10.25069&10.25069&0\\
+149&BestNearest vs .CURE&0.17146&36.006643&10.630533&10.630533&0\\
+150&BestNearest vs .UPGMC&0.17146&36.006643&10.630533&10.630533&0\\
+151&BestNearest vs .KMEANS&0.177487&37.27224&10.649211&10.649211&0\\
+152&CyclicAssignment vs .SequentialCyclic&0.177487&37.27224&10.649211&10.649211&0\\
+153&CLARA vs .CoefficientPropagation&0.206567&43.378969&11.980858&11.980858&0\\
+154&BestCyclicAssignment vs .DBSCAN&0.21&44.099931&11.980858&11.980858&0\\
+155&CLARA vs .HDBSCAN&0.231468&48.608267&12.962205&12.962205&0\\
+156&BestNearest vs .Farthest-First&0.238959&50.181401&13.142748&13.142748&0\\
+157&CURE vs .ThreeCriteriaClustering&0.24662&51.790115&13.317458&13.317458&0\\
+158&ThreeCriteriaClustering vs .UPGMC&0.24662&51.790115&13.317458&13.317458&0\\
+159&CoefficientPropagation vs .NearestByDepot&0.24662&51.790115&13.317458&13.317458&0\\
+160&KMEANS vs .ThreeCriteriaClustering&0.254451&53.434622&13.317458&13.317458&0\\
+161&BestNearest vs .Simplified&0.266519&55.968903&13.325929&13.325929&0\\
+162&CURE vs .NearestByCustomer&0.283213&59.474803&13.877454&13.877454&0\\
+163&CURE vs .Parallel&0.283213&59.474803&13.877454&13.877454&0\\
+164&NearestByCustomer vs .UPGMC&0.283213&59.474803&13.877454&13.877454&0\\
+165&Parallel vs .UPGMC&0.283213&59.474803&13.877454&13.877454&0\\
+166&KMEANS vs .NearestByCustomer&0.291821&61.282402&13.877454&13.877454&0\\
+167&KMEANS vs .Parallel&0.291821&61.282402&13.877454&13.877454&0\\
+168&BestNearest vs .Sweep&0.32332&67.897202&13.90276&13.90276&0\\
+169&Farthest-First vs .ThreeCriteriaClustering&0.332712&69.869606&13.973921&13.973921&0\\
+170&BestCyclicAssignment vs .NearestByDepot&0.35202&73.924228&14.432825&14.432825&0\\
+171&CoefficientPropagation vs .PAM&0.361935&76.006301&14.477391&14.477391&0\\
+172&Simplified vs .ThreeCriteriaClustering&0.366957&77.060983&14.477391&14.477391&0\\
+173&Farthest-First vs .NearestByCustomer&0.377131&79.197554&14.477391&14.477391&0\\
+174&Farthest-First vs .Parallel&0.377131&79.197554&14.477391&14.477391&0\\
+175&CoefficientPropagation vs .DBSCAN&0.403318&84.696689&14.519432&14.519432&0\\
+176&NearestByCustomer vs .Simplified&0.41409&86.958881&14.519432&14.519432&0\\
+177&Parallel vs .Simplified&0.41409&86.958881&14.519432&14.519432&0\\
+178&Sweep vs .ThreeCriteriaClustering&0.436138&91.589069&14.519432&14.519432&0\\
+179&HDBSCAN vs .NearestByCustomer&0.482207&101.263526&15.430633&15.430633&0\\
+180&HDBSCAN vs .Parallel&0.482207&101.263526&15.430633&15.430633&0\\
+181&NearestByCustomer vs .Sweep&0.488146&102.510721&15.430633&15.430633&0\\
+182&Parallel vs .Sweep&0.488146&102.510721&15.430633&15.430633&0\\
+183&HDBSCAN vs .ThreeCriteriaClustering&0.537046&112.779618&15.430633&15.430633&0\\
+184&RandomByElement vs .SequentialCyclic&0.581764&122.170504&15.707636&15.707636&0\\
+185&RandomByElement vs .RandomSequentialCyclic&0.634904&133.329853&16.507506&16.507506&0\\
+186&BestNearest vs .HDBSCAN&0.68301&143.432168&17.075258&17.075258&0\\
+187&CURE vs .Sweep&0.704043&147.849023&17.075258&17.075258&0\\
+188&Sweep vs .UPGMC&0.704043&147.849023&17.075258&17.075258&0\\
+189&KMEANS vs .Sweep&0.718193&150.820483&17.075258&17.075258&0\\
+190&CLARA vs .PAM&0.725304&152.313935&17.075258&17.075258&0\\
+191&DBSCAN vs .NearestByDepot&0.74678&156.823766&17.075258&17.075258&0\\
+192&BestNearest vs .NearestByCustomer&0.768454&161.375272&17.075258&17.075258&0\\
+193&BestNearest vs .Parallel&0.768454&161.375272&17.075258&17.075258&0\\
+194&CURE vs .Simplified&0.797633&167.502986&17.075258&17.075258&0\\
+195&Simplified vs .UPGMC&0.797633&167.502986&17.075258&17.075258&0\\
+196&KMEANS vs .Simplified&0.812333&170.589852&17.075258&17.075258&0\\
+197&BestNearest vs .ThreeCriteriaClustering&0.834505&175.245979&17.075258&17.075258&0\\
+198&CURE vs .Farthest-First&0.849361&178.36573&17.075258&17.075258&0\\
+199&Farthest-First vs .Sweep&0.849361&178.36573&17.075258&17.075258&0\\
+200&Farthest-First vs .UPGMC&0.849361&178.36573&17.075258&17.075258&0\\
+201&Farthest-First vs .KMEANS&0.86427&181.496755&17.075258&17.075258&0\\
+202&Simplified vs .Sweep&0.901745&189.366448&17.075258&17.075258&0\\
+203&NearestByCustomer vs .ThreeCriteriaClustering&0.931887&195.696354&17.075258&17.075258&0\\
+204&Parallel vs .ThreeCriteriaClustering&0.931887&195.696354&17.075258&17.075258&0\\
+205&RandomSequentialCyclic vs .SequentialCyclic&0.93944&197.282402&17.075258&17.075258&0\\
+206&Farthest-First vs .Simplified&0.946998&198.869594&17.075258&17.075258&0\\
+207&CURE vs .KMEANS&0.984846&206.817733&17.075258&17.075258&0\\
+208&KMEANS vs .UPGMC&0.984846&206.817733&17.075258&17.075258&0\\
+209&CURE vs .UPGMC&1&210&17.075258&17.075258&0\\
+210&NearestByCustomer vs .Parallel&1&210&17.075258&17.075258&0\\
+\hline
+\end{tabular}
+\caption{Adjusted $p$-values}
+\end{table}
+
+\end{landscape}
+\end{document}

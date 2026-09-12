@@ -1,0 +1,10 @@
+"Metrica","Coste","Normalizacion","N_instancias","N_algoritmos","Pearson","Spearman"
+"ballhallindex","SaveSequential","minmax",44,21,0.948739880334661,0.886651556993729
+"calinskiharabaszindex","SaveSequential","minmax",44,21,-0.799237387758125,-0.755440117790262
+"daviesbouldinindex","SaveSequential","minmax",44,21,0.926357315455076,0.825592768453502
+"dunnindex","SaveSequential","minmax",44,21,-0.587886877722946,-0.78402082731973
+"rayturiindex","SaveSequential","minmax",44,21,0.875576078209714,0.6800909744853
+"silhouettecoefficient","SaveSequential","minmax",44,21,-0.874756465011158,-0.816498906330489
+"ssb","SaveSequential","minmax",44,21,-0.97041322141275,-0.824293645293071
+"sse","SaveSequential","minmax",44,21,0.888621890588291,0.859369970624692
+"xiebeniindex","SaveSequential","minmax",44,21,0.875957098877011,0.732055900902515

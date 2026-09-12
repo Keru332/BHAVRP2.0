@@ -1,0 +1,32 @@
+{
+  "heuristic": "CoefficientPropagation",
+  "solution": {
+    "clusters": [
+      {
+        "id_cluster": 11,
+        "request_cluster": 62.0,
+        "items_of_cluster": [
+          4,
+          5,
+          9,
+          10,
+          3
+        ]
+      },
+      {
+        "id_cluster": 12,
+        "request_cluster": 75.0,
+        "items_of_cluster": [
+          6,
+          1,
+          8,
+          2
+        ]
+      }
+    ],
+    "unassigned_items": [
+      7
+    ]
+  },
+  "unassigned_depots": []
+}

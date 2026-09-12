@@ -1,0 +1,103 @@
+\documentclass[a4paper,10pt]{article}
+\title{Wilcoxon Signed Ranks test.}
+\date{\today}
+\author{KEEL non-parametric statistical module}
+\begin{document}
+
+\pagestyle{empty}
+\maketitle
+\thispagestyle{empty}
+
+
+
+\section{Detailed results for UPGMC}
+
+
+\subsection{Results}
+
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{
+|c|c|c|c|c|}
+\hline
+ VS & $R^{+}$ & $R^{-}$ & Exact P-value & Asymptotic P-value \\ \hline 
+CURE & 719.0 & 271.0 & 0.008168 & 0.007306\\ \hline 
+
+\end{tabular}
+\caption{Results obtained by the Wilcoxon test for algorithm UPGMC}
+\end{table}
+
+\subsection{Confidence intervals for Median of diferences}
+
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{
+|c|c|c|}
+\hline
+ $\alpha$=0.90 & Confidence interval & Exact confidence \\ \hline 
+CURE & [-185.155 , -21.17] & 0.901\\ \hline 
+
+\end{tabular}
+\caption{Confidence intervals for algorithm UPGMC ($\alpha$=0.90)}
+\end{table}
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{
+|c|c|c|}
+\hline
+ $\alpha$=0.95 & Confidence interval & Exact confidence \\ \hline 
+CURE & [-197.37 , -13.315] & 0.95006\\ \hline 
+
+\end{tabular}
+\caption{Confidence intervals for algorithm UPGMC ($\alpha$=0.95)}
+\end{table}
+
+ \clearpage 
+
+
+\section{Detailed results for CURE}
+
+
+\subsection{Results}
+
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{
+|c|c|c|c|c|}
+\hline
+ VS & $R^{+}$ & $R^{-}$ & Exact P-value & Asymptotic P-value \\ \hline 
+UPGMC & 271.0 & 719.0 & $\geq$ 0.2 & 1\\ \hline 
+
+\end{tabular}
+\caption{Results obtained by the Wilcoxon test for algorithm CURE}
+\end{table}
+
+\subsection{Confidence intervals for Median of diferences}
+
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{
+|c|c|c|}
+\hline
+ $\alpha$=0.90 & Confidence interval & Exact confidence \\ \hline 
+UPGMC & [21.17 , 185.155] & 0.901\\ \hline 
+
+\end{tabular}
+\caption{Confidence intervals for algorithm CURE ($\alpha$=0.90)}
+\end{table}
+\begin{table}[!htp]
+\centering\small
+\begin{tabular}{
+|c|c|c|}
+\hline
+ $\alpha$=0.95 & Confidence interval & Exact confidence \\ \hline 
+UPGMC & [13.315 , 197.37] & 0.95006\\ \hline 
+
+\end{tabular}
+\caption{Confidence intervals for algorithm CURE ($\alpha$=0.95)}
+\end{table}
+
+ \clearpage 
+
+
+\end{document}

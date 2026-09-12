@@ -1,0 +1,241 @@
+%==============================================================
+%                    CAPITULO 1
+%==============================================================
+\chapter{Fundamentos te\'oricos del problema de planificaci\'on de rutas y su soluci\'on mediante diferentes m\'etodos}
+
+En este cap\'itulo se describen los aspectos te\'oricos de la investigaci\'on que se encuentran relacionados con los MDVRP. Entre los aspectos que se abordan est\'an las caracter\'isticas y variantes del problema, as\'i como los diferentes m\'etodos de soluci\'on encontrados en la literatura. Adem\'as, se hace \'enfasis en los algoritmos de agrupamiento como alternativa para la fase de asignaci\'on de clientes a dep\'ositos. Por \'ultimo, se describe la Biblioteca de Heur\'isticas de Asignaci\'on para Problemas de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos y sus algoritmos existentes.
+
+\section{Problemas de Planificaci\'on de Rutas de Veh\'iculos}
+
+El concepto de Problema de Planificaci\'on de Rutas de Veh\'iculos (\textit{Vehicle Routing Problem}, VRP) es una generalizaci\'on del Problema del Viajero (\textit{Traveling Salesman Problem}, TSP). En concreto, el VRP es un problema de optimizaci\'on combinatoria cuyo objetivo es atender las demandas de clientes que se encuentran dispersos geogr\'aficamente sujetos a un conjunto de restricciones. La diferencia radica en que TSP dispone de un mapa con m\'ultiples puntos que un individuo tiene que visitar para volver a su punto de origen realizando la ruta m\'as corta posible. En cambio, el VRP no se limita a solo una persona, sino que pueden existir m\'as de un individuo, en este caso veh\'iculos, que normalmente deben entregar objetos en diversos puntos de la ciudad a clientes. De este modo, el problema se vuelve m\'as complejo que el TSP [16].
+
+Las aplicaciones inform\'aticas para el dise\~no de rutas se derivan de modelos VRP que atienden diferentes necesidades e incluyen diversas restricciones. Esto ha dado como resultado el surgimiento de diferentes variantes del cl\'asico VRP, de las cuales se pueden mencionar las siguientes:
+
+\begin{itemize}
+  \item VRP con recolecci\'on y entrega (VRPPD): estudia el caso donde una empresa debe recolectar y entregar bienes en cantidades espec\'ificas para cada cliente visitado [17].
+  \item VRP con flota heterog\'enea: los veh\'iculos tienen diferentes capacidades de carga [18].
+  \item \textit{Open VRP} (OVRP): se refiere al caso de cuando el veh\'iculo no regresa al dep\'osito de origen, es decir, que se dirige a otro dep\'osito o sitio diferente para cargar productos, en un contexto de flota rentada [19].
+  \item VRP con ventanas de tiempo (VRPTW): plantea que cada cliente tiene que ser atendido de manera obligada dentro de un cierto horario espec\'ifico [20].
+  \item VRP con dep\'ositos m\'ultiples (MDVRP): implica que la empresa posee diversos dep\'ositos desde los cuales puede abastecer a los clientes [21].
+  \item \textit{Stochastic VRP} (SVRP): Propone que las variables involucradas son desconocidas o aleatorias, e incluso que se pueden encontrar en un rango de probabilidad, tales como el n\'umero de clientes, sus demandas, tiempo de servicio, tiempo de viaje, entre otras [22].
+  \item \textit{Periodic VRP} (PVRP): analiza un problema donde los pedidos pueden ser llevados s\'olo en ciertos d\'ias [23].
+  \item Capacitated VRP: estudia el caso donde los veh\'iculos tienen una capacidad m\'axima de carga y se deben dise\~nar rutas que satisfagan la demanda de los clientes sin exceder dicha capacidad [24].
+\end{itemize}
+
+\subsection{Problema de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos}
+
+El MDVRP es un problema de optimizaci\'on combinatoria, categorizado por su complejidad como NP-Duro [25]. Por lo que es dif\'icil encontrar su soluci\'on \'optima usando m\'etodos exactos en un tiempo polinomial. Esta variante cuenta con varios dep\'ositos y cada uno tiene su propia flota de veh\'iculos [26].
+
+El problema puede ser representado mediante modelos de optimizaci\'on. Sea el grafo completo $G = (V,A)$, donde el conjunto de v\'ertices $V = \{v_{01},...,v_{0d}\} \cup \{v_{1},...,v_{n}\}$ incluye los $d$ dep\'ositos y $c$ clientes y el conjunto de arcos $A = \{(i,j) \vee i,j \in V, i \neq j\}$ [27]. El objetivo es minimizar el costo total de las rutas, sujeto a las restricciones operativas. La funci\'on objetivo, variables de decisi\'on y las restricciones fundamentales son [28]:
+
+\noindent\textbf{Funci\'on Objetivo:} Minimizar el costo total de transporte, generalmente expresado como la suma de las distancias recorridas por todos los veh\'iculos.
+
+\begin{equation}
+\min \sum_{k \in K}{\sum_{(i,j) \in A}{c_{ij} \cdot x_{ijk}}}
+\end{equation}
+
+\noindent\textbf{Variables de Decisi\'on:}
+\begin{equation}
+x_{ijk} = \left\{ \begin{array}{ll}
+1 & \text{si el veh\'iculo } k \text{ viaja del v\'ertice } i \text{ al v\'ertice } j \\
+0 & \text{en caso contrario}
+\end{array} \right. \quad \forall(i,j) \in A,\ \forall k \in K
+\end{equation}
+
+\noindent\textbf{Restricciones:}
+
+Cada ruta debe comenzar y terminar en el mismo dep\'osito.
+\begin{equation}
+\text{Salida del Dep\'osito:}\quad \sum_{j \in C}{x_{djk}} = 1 \quad \forall d \in V_{0},\ \forall k \in K
+\end{equation}
+\begin{equation}
+\text{Entrada del Dep\'osito:}\quad \sum_{j \in C}{x_{jdk}} = 1 \quad \forall d \in V_{0},\ \forall k \in K
+\end{equation}
+
+\begin{itemize}
+  \item Cada cliente debe ser visitado exactamente una vez.
+\end{itemize}
+\begin{equation}
+\sum_{k \in K}{\sum_{j \in V, j \neq i}{x_{ijk}}} = 1 \quad \forall i \in C
+\end{equation}
+
+\begin{itemize}
+  \item La demanda del cliente es un n\'umero diferente a cero y no negativo.
+\end{itemize}
+\begin{equation}
+q_{i} > 0 \quad \forall i \in C
+\end{equation}
+
+\begin{itemize}
+  \item La demanda total de cada ruta no debe exceder la capacidad del veh\'iculo.
+\end{itemize}
+\begin{equation}
+\sum_{i \in C}{q_{i} \cdot \left( \sum_{j \in V, j \neq i}{x_{ijk}} \right)} \leq Q \quad \forall k \in K
+\end{equation}
+
+\begin{itemize}
+  \item Todos los veh\'iculos tienen una misma capacidad.
+\end{itemize}
+\begin{equation}
+Q_{k} = Q \quad \forall k \in K
+\end{equation}
+
+\begin{itemize}
+  \item Se dispone de un n\'umero limitado de veh\'iculos.
+\end{itemize}
+\begin{equation}
+\sum_{k \in K}{\sum_{j \in C}{x_{djk}}} \leq m_{d} \quad \forall d \in V_{0}
+\end{equation}
+
+\begin{itemize}
+  \item Todos los dep\'ositos tienen el mismo n\'umero de veh\'iculos disponibles.
+\end{itemize}
+\begin{equation}
+m_{d} = m \quad \forall d \in V_{0} \qquad \sum_{k \in K}{\sum_{j \in C}{x_{djk}}} \leq m \quad \forall d \in V_{0}
+\end{equation}
+
+En la Figura~\ref{fig:mdvrp} se ilustra la estructura del problema:
+
+\begin{itemize}
+  \item Se observan tres dep\'ositos (representados por cuadrados), cada uno con una flota de veh\'iculos.
+  \item Los clientes (c\'irculos rojos) son asignados a un dep\'osito espec\'ifico.
+  \item Las l\'ineas verdes muestran las rutas de los veh\'iculos, que parten y regresan a su dep\'osito de origen.
+\end{itemize}
+
+\figura{fig01_mdvrp.png}{0.75\textwidth}{Representaci\'on gr\'afica de MDVRP.}{fig:mdvrp}
+
+La literatura documenta m\'ultiples aplicaciones del MDVRP a problemas log\'isticos reales. Un estudio aplicado a una red de distribuci\'on de productos de limpieza y cuidado personal en Turqu\'ia utiliza el MDVRP para optimizar las rutas desde tres dep\'ositos a 502 clientes. Mediante un enfoque de agrupar primero y rutear despu\'es se logran mejoras significativas en la eficiencia de la distribuci\'on, utilizando datos reales de demanda y coordenadas geogr\'aficas [29].
+
+Otro ejemplo se encuentra en el Reino Unido, donde se desarrolla un modelo de programaci\'on entera mixta (MIP) [30] para resolver un MDVRP que incluye complejidades del mundo real como una flota heterog\'enea, costos de conductores y ventanas de tiempo. La implementaci\'on de este modelo permite reducir sustancialmente los costos de transporte sin necesidad de abrir nuevas instalaciones [31].
+
+Tambi\'en se encuentra un caso de estudio en Estambul que trata sobre la distribuci\'on de una empresa de bebidas utilizando datos hist\'oricos de GPS para construir una matriz de tiempo-distancia m\'as precisa. Se eval\'uan m\'ultiples enfoques de optimizaci\'on, incluyendo algoritmos evolutivos y de aprendizaje profundo, para resolver el MDVRP. Los resultados muestran que estos m\'etodos son efectivos para manejar la complejidad y la naturaleza din\'amica de las entregas en entornos urbanos de alta densidad [32].
+
+\section{Algoritmos heur\'isticos}
+
+Debido a la complejidad que presentan los VRP, existen dos tipos de algoritmos que pueden resolver este tipo de problemas, los m\'etodos exactos y aproximados. Cada uno de ellos posee diferentes caracter\'isticas que pueden considerarse ventajas y/o desventajas que deben ser tomadas en cuenta al ser utilizados [26]. En la Figura~\ref{fig:tecnicas} se puede apreciar una taxonom\'ia de estos m\'etodos:
+
+\figura{fig02_tecnicas.png}{0.85\textwidth}{T\'ecnicas utilizadas para la soluci\'on de MDVRP.}{fig:tecnicas}
+
+Entre los m\'etodos exactos se pueden distinguir tres grupos: b\'usqueda directa de \'arbol, programaci\'on din\'amica y programaci\'on lineal, entera y mixta. Todos estos m\'etodos son eficientes en problemas de hasta 50 clientes, debido a restricciones de tiempo computacional. Se han llevado a cabo algunas investigaciones introduciendo m\'etodos exactos para MDVRP [15], [26]. Algunos ejemplos de los m\'as utilizados para el MDVRP de este tipo de m\'etodos son:
+
+\begin{itemize}
+  \item Ramificaci\'on y Corte: los algoritmos \textit{Branch \& Cut} se basan en el c\'alculo simult\'aneo de cotas inferiores y superiores de la soluci\'on \'optima. Las cotas superiores se obtienen por medio de la resoluci\'on de las relajaciones lineales asociadas a cada nodo del \'arbol de enumeraci\'on, eventualmente ajustados por medio de planos de corte, mientras que las cotas inferiores son halladas por medio de procedimientos heur\'isticos y cuando la relajaci\'on lineal asociada con alg\'un subproblema tiene \'optimo entero [33].
+  \item Programaci\'on Lineal: la programaci\'on lineal es un m\'etodo a trav\'es del cual se optimiza una funci\'on objetivo, bien sea maximizando o minimizando dicha funci\'on, en la cual las variables est\'an elevadas a la potencia 1. Este campo de la programaci\'on lineal es un \'area de la programaci\'on matem\'atica, dedicada a maximizar o minimizar una funci\'on lineal que recibe el nombre de ``funci\'on objetivo'', de manera que las variables de tal funci\'on est\'en sujetas a una serie de restricciones expresadas a trav\'es de un sistema de ecuaciones o inecuaciones lineales [26].
+\end{itemize}
+
+La investigaci\'on se centra en los m\'etodos heur\'isticos, los cuales se han caracterizado por ser procedimientos que garantizan buenas soluciones mediante una exploraci\'on limitada del espacio de b\'usqueda. Los m\'etodos heur\'isticos se pueden clasificar en m\'etodos constructivos y heur\'isticas de mejora [15], [26]. Algunas heur\'isticas utilizadas en la literatura para solucionar el MDVRP son:
+
+\begin{itemize}
+  \item Heur\'istica ad hoc: en 1993 fue presentada una nueva heur\'istica ad hoc en el aporte de [34], su m\'etodo de soluci\'on asigna los clientes a los dep\'ositos de manera f\'acil y r\'apida. En el procedimiento de mejora, permite que la distancia total recorrida por la flota aumente con la esperanza de encontrar finalmente rutas muy cortas [26].
+  \item Algoritmo de Ahorros: extensi\'on del m\'etodo cl\'asico para VRP al contexto de m\'ultiples dep\'ositos. Asigna clientes a dep\'ositos y luego construye rutas fusionando recorridos seg\'un el ahorro de distancia [3]. En [35] se present\'o la primera adaptaci\'on para MDVRP.
+  \item Algoritmo de Barrido: m\'etodo de dos fases: primero agrupa clientes por \'angulo polar respecto al dep\'osito, luego construye rutas para cada grupo. Bueno para problemas de tama\~no medio-grande [36].
+  \item \textit{Merge-Head and Drop-Tail}: una t\'ecnica planteada para resolver el MDVRP es la denominada estrategia \textit{Merge-Head and Drop-Tail} (MHDT), combinada con optimizaci\'on de combinaci\'on de sectores (SCO), aplicada por [37]; aqu\'i se plantea un comportamiento inverso a la entrega, es decir debe generar rutas de recolecci\'on, dada esta \'unica diferencia, el resto de las caracter\'isticas y restricciones son id\'enticas, su propuesta funciona de igual manera para el MDVRP. En este m\'etodo, primero asignan puntos de recolecci\'on de acuerdo con la distancia m\'as cercana a los puntos de recolecci\'on, luego cada planta resuelve el VRP respectivamente, asignando clientes a los veh\'iculos y planificando el orden en que los veh\'iculos visitan a los clientes. En el \'ultimo paso, proponen el algoritmo de optimizaci\'on de combinaci\'on de sectores (SCO) para generar m\'ultiples soluciones iniciales, y luego estas soluciones iniciales se mejoran utilizando la estrategia de combinaci\'on de cabeza y ca\'ida (MHDT).
+\end{itemize}
+
+Las metaheur\'isticas son estrategias de alto nivel que gu\'ian y modifican heur\'isticas subyacentes para explorar el espacio de b\'usqueda de forma eficiente. Estos algoritmos se basan en la exploraci\'on iterativa del espacio de soluciones, utilizando estrategias para escapar de los \'optimos locales. Estas se clasifican en basadas en poblaci\'on o basadas en un punto [38].
+
+La B\'usqueda Tab\'u se mantiene como uno de los mejores enfoques para resolver el MDVRP. Esta es una metaheur\'istica que explora el espacio de soluciones permitiendo movimientos que empeoran la soluci\'on actual para escapar de \'optimos locales. Para evitar ciclos, mantiene una lista de movimientos prohibidos o tab\'u durante un n\'umero determinado de iteraciones [33].
+
+Tambi\'en otra de las metaheur\'isticas de punto \'unico que se destaca es la B\'usqueda Local Iterada. Este algoritmo parte de una soluci\'on inicial, aplica una perturbaci\'on para diversificar la b\'usqueda, luego una b\'usqueda local para alcanzar un nuevo \'optimo y finalmente decide si acepta la nueva soluci\'on seg\'un alg\'un criterio [26].
+
+Entre los poblacionales se destacan bastante los gen\'eticos por la flexibilidad ante ciertas restricciones. Estos algoritmos mantienen una poblaci\'on de soluciones que evoluciona mediante operadores de selecci\'on, cruce y mutaci\'on. Para el MDVRP, las soluciones se representan como secuencias de clientes. El cruce combina sub-rutas de dos padres para generar un descendiente, reparando la factibilidad si es necesario [33].
+
+Otro de los algoritmos poblacionales que se destacan fue el Algoritmo Colonia de Hormigas. Esta simula el comportamiento de hormigas reales que depositan feromona en el camino. Las hormigas artificiales construyen soluciones probabil\'isticamente guiadas por la feromona (que refleja la calidad de soluciones previas) y por informaci\'on heur\'istica local. Para MDVRP, se optimizan rutas por dep\'osito y se a\~naden operadores de cruce para mejorar el rendimiento [26].
+
+\section{Algoritmos de agrupamiento para la fase de asignaci\'on de clientes a dep\'ositos}
+
+La miner\'ia de datos es un campo interdisciplinario de la computaci\'on que se centra en el descubrimiento de patrones significativos en grandes vol\'umenes de datos mediante el uso de m\'etodos avanzados de inteligencia artificial, aprendizaje autom\'atico, estad\'istica y bases de datos. Su objetivo principal es extraer conocimiento valioso de los datos y transformarlo en una estructura comprensible, ya sea para su an\'alisis o para su almacenamiento en bases de datos con miras a usos posteriores [39].
+
+La miner\'ia de datos se basa en una variedad de t\'ecnicas y m\'etodos que permiten extraer informaci\'on \'util de grandes vol\'umenes de datos. Algunas de las t\'ecnicas m\'as comunes incluyen [40]:
+
+\begin{itemize}
+  \item Clasificaci\'on: es una t\'ecnica utilizada para asignar elementos de un conjunto de datos a categor\'ias predefinidas. Esto se logra mediante algoritmos de aprendizaje supervisado, como los \'arboles de decisi\'on, las m\'aquinas de vectores de soporte (SVM) y las redes neuronales.
+  \item Agrupamiento: es una t\'ecnica no supervisada que organiza los datos en cl\'usteres basados en la similitud entre los datos. Esta no requiere categor\'ias predefinidas.
+  \item Regresi\'on: es una t\'ecnica utilizada para predecir un valor num\'erico basado en la relaci\'on entre variables.
+  \item Reglas de asociaci\'on: identifican relaciones entre variables en un conjunto de datos.
+\end{itemize}
+
+La fase de asignaci\'on de clientes a dep\'ositos en MDVRP puede considerarse un problema de agrupamiento, ya que el resultado es un conjunto de clientes agrupados por dep\'osito. Esta interpretaci\'on sugiere un enfoque que agrupa a los clientes y luego programa los veh\'iculos en cada grupo. En la literatura el MDVRP puede resolverse en dos etapas: primero, los clientes deben asignarse a los dep\'ositos; luego, se deben construir rutas que vinculen a los clientes asignados al mismo dep\'osito. Un enfoque razonable ser\'ia dividir el problema en tantos subproblemas como dep\'ositos existan y resolver cada subproblema por separado, lo cual transforma el MDVRP en m\'ultiples VRP independientes [41]. Por tanto, resulta interesante adaptar los algoritmos de agrupamiento para la fase de asignaci\'on en el MDVRP.
+
+Los algoritmos de agrupamiento se basan en la cuantificaci\'on de qu\'e tan similares o no sean los objetos del conjunto de datos. Las m\'etricas de distancia desempe\~nan un papel central en la agrupaci\'on de estos objetos en grupos. Entre las medidas comunes de similitud y distancia se incluyen varios tipos de distancia como \textit{Euclidian}, \textit{Manhattan}, \textit{Haversine} y \textit{Chebyshev}. La elecci\'on de la medida de proximidad influye en los resultados de la agrupaci\'on, ya que los distintos conjuntos de datos requieren t\'ecnicas de separaci\'on espec\'ificas y m\'etricas de similitud adaptadas a sus caracter\'isticas. Estos algoritmos de agrupamiento seg\'un [42], se pueden clasificar como:
+
+\begin{itemize}
+  \item Agrupamiento particional: en estos algoritmos cada partici\'on representa un grupo y cada objeto debe pertenecer exactamente a un grupo. Si se aplica la partici\'on difusa, permite que los objetos pertenezcan a m\'ultiples grupos con probabilidades. Aqu\'i se encuentran algoritmos como k-means, k-medoids, k-modes y c-means difusos. Estos m\'etodos son sensibles a la inicializaci\'on y a los valores at\'ipicos, y se obtienen resultados confiables cuando los grupos son esf\'ericos, de tama\~no y distribuci\'on uniformes. En la Figura~\ref{fig:particional} se puede apreciar gr\'aficamente el funcionamiento de este tipo de agrupamientos.
+  \item Agrupamiento jer\'arquico: se dividen en enfoques basados en aglomeraci\'on (de abajo hacia arriba) y divisivos (de arriba hacia abajo), que producen una jerarqu\'ia de grupos representados como dendrogramas. Los m\'etodos basados en aglomeraci\'on comienzan con cada punto de datos como un grupo separado y fusionan los grupos m\'as cercanos de forma iterativa, mientras que los m\'etodos divisivos comienzan con todos los puntos de datos en un grupo y los dividen de forma recursiva. Los criterios de vinculaci\'on incluyen la vinculaci\'on simple, completa, promedio y el m\'etodo de Ward, cada uno de los cuales define la proximidad del grupo de manera diferente. Los ejemplos de algoritmos de agrupamiento jer\'arquico incluyen BIRCH, CURE y ROCK. En la Figura~\ref{fig:jerarquico} se puede apreciar gr\'aficamente el funcionamiento de este tipo de agrupamientos.
+  \item Agrupamiento basado en densidad: los algoritmos de agrupamiento basados en densidad identifican los agrupamientos como regiones de alta densidad separadas por \'areas de baja densidad, sin requerir el n\'umero de agrupamientos como entrada. Dentro de esta clasificaci\'on se encuentra el agrupamiento espacial basado en densidad de aplicaciones con ruido (DBSCAN), el agrupamiento de puntos para identificar la estructura del agrupamiento (OPTICS) y el agrupamiento de picos de densidad (DPC). Estos m\'etodos pueden presentar dificultades con densidades variables. En la Figura~\ref{fig:densidad} se puede apreciar gr\'aficamente el funcionamiento de este tipo de agrupamientos.
+\end{itemize}
+
+\figura{fig03_particional.png}{1\textwidth}{Representaci\'on gr\'afica de algoritmos de agrupamiento particionales [43].}{fig:particional}
+
+\figura{fig04_jerarquico.png}{1\textwidth}{Representaci\'on gr\'afica de algoritmos de agrupamiento jer\'arquicos [43].}{fig:jerarquico}
+
+\figura{fig05_densidad.png}{1\textwidth}{Representaci\'on gr\'afica de algoritmos de agrupamiento basados en densidad [43].}{fig:densidad}
+
+Los algoritmos de agrupamiento se aplican al MDVRP principalmente bajo el enfoque ``agrupar primero, rutear despu\'es'', donde primero se agrupan clientes y luego se construyen rutas para cada grupo. Un buen ejemplo de la aplicaci\'on de esto es una distribuci\'on de alimentos a supermercados en Reino Unido donde se utiliz\'o K-means para agrupar 120 supermercados en cuatro cl\'usteres correspondientes a los dep\'ositos disponibles, minimizando la distancia intra-cluster. Luego se optimizaron rutas independientes para cada cl\'uster. El ahorro en costos operativos fue del 15\% [43].
+
+\section{Biblioteca de Heur\'isticas de Asignaci\'on en la Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos}
+
+El \'area de optimizaci\'on ha llevado a la creaci\'on de diversas bibliotecas en diferentes lenguajes de programaci\'on, cada una con su propia variedad de algoritmos y caracter\'isticas. A continuaci\'on, se presenta una lista no exhaustiva de bibliotecas destacadas en resolver VRP y sus variantes, entre las cuales se incluye el MDVRP. De cada una se ofrece una breve descripci\'on de sus caracter\'isticas y usos [15]:
+
+\begin{itemize}
+  \item JSprit: es una biblioteca de c\'odigo abierto escrita en Java. Es un componente ligero y flexible que resulta f\'acil de utilizar, fundamentado en una \'unica metaheur\'istica multiprop\'osito que actualmente aborda una variedad amplia de problemas, como el Problema del Agente Viajero y sus variantes de VRP. Aunque no est\'a espec\'ificamente dise\~nada para abordar la fase de asignaci\'on en problemas con m\'ultiples dep\'ositos, JSprit puede implementar estrategias de agrupamiento geogr\'afico como un paso preliminar, utilizando t\'ecnicas como ordenamientos angulares o agrupaciones espaciales similares al enfoque del cl\'asico algoritmo de barrido. Estas estrategias permiten organizar a los clientes en funci\'on de su proximidad antes de aplicar su metaheur\'istica interna [44].
+  \item \textit{Google Operation Research Tools} (OR-Tools): es un software de c\'odigo abierto desarrollado en C++, con versiones estables disponibles en Java, C\# y Python. Originalmente dise\~nado para abordar diversos problemas de optimizaci\'on como la programaci\'on lineal, la programaci\'on entera y la programaci\'on con restricciones, esta herramienta ha ido incorporando gradualmente capacidades para resolver variantes del VRP. Aunque brinda herramientas para construir modelos completos de VRP, su arquitectura flexible permite personalizar fases espec\'ificas, como la asignaci\'on, mediante programaci\'on y heur\'isticas personalizadas. Adem\'as, se pueden integrar algoritmos de agrupamiento para realizar una asignaci\'on previa de clientes a los dep\'ositos. Tambi\'en es posible implementar restricciones a medida en el modelo, como l\'imites de capacidad o balanceo de carga, para ajustar la asignaci\'on inicial antes de continuar con la planificaci\'on de las rutas de los veh\'iculos. Esta herramienta resuelve varias variantes de VRP de manera nativa, pero no el MDVRP [45].
+  \item \textit{Vehicle Routing Open-Source Optimization Machine} (VROOM): es un componente de software para problemas de planificaci\'on de rutas de veh\'iculos desarrollado en el lenguaje de programaci\'on C++. Esta herramienta utiliza \textit{Open Street Map} (OSM) y \textit{Open Source Routing Machine} (OSRM) como \textit{backend} para obtener rutas y devolver soluciones para las diferentes variantes del VRP. VROOM puede resolver distintas variantes del VRP que incluyen m\'ultiples dep\'ositos, capacidades, ventanas de tiempo, as\'i como entrega y recogida [45].
+  \item Scikit-learn: es una biblioteca de aprendizaje autom\'atico en Python que, aunque no est\'a dise\~nada espec\'ificamente para resolver problemas de optimizaci\'on como el MDVRP, proporciona una amplia gama de algoritmos de agrupamiento y an\'alisis de datos que pueden ser utilizados para abordar la fase de asignaci\'on en este tipo de problemas. Algoritmos como K-means, DBSCAN y el agrupamiento jer\'arquico son \'utiles para preprocesar los datos y asignar clientes a dep\'ositos de manera eficiente, bas\'andose en proximidad y restricciones de capacidad. Su flexibilidad y compatibilidad con otras bibliotecas de Python la convierten en una herramienta vers\'atil para integrar t\'ecnicas de agrupamiento en soluciones personalizadas para el MDVRP [46].
+\end{itemize}
+
+En el \'ambito nacional, se han desarrollado diversas soluciones en el contexto acad\'emico orientadas a la resoluci\'on de problemas de planificaci\'on de rutas de veh\'iculos, como parte del proyecto de Optimizaci\'on y Metaheur\'isticas de la Facultad de Ingenier\'ia Inform\'atica de la Universidad Tecnol\'ogica de La Habana ``Jos\'e Antonio Echeverr\'ia'' (CUJAE). Algunas de estas herramientas se caracterizan por su enfoque modular y por estar dise\~nadas para abordar distintas variantes del VRP, con especial \'enfasis en la utilizaci\'on de heur\'isticas y metaheur\'isticas aplicadas al MDVRP [15]:
+
+\begin{itemize}
+  \item Bibliotecas de Heur\'isticas de Construcci\'on para Problemas de Planificaci\'on de Rutas de Veh\'iculos (BHCVRP): es un componente que implementa diez heur\'isticas de construcci\'on para resolver siete variantes del VRP, incluyendo el MDVRP. Actualmente las soluciones obtenidas mediante estas heur\'isticas pueden ser utilizadas como soluci\'on final o como parte de una soluci\'on m\'as compleja en un contexto donde se empleen metaheur\'isticas [47].
+  \item Capa de servicio para soluciones a Problemas de Planificaci\'on de Rutas de Veh\'iculos (CaSVRP): es una capa de servicios web dirigidos a la resoluci\'on de diferentes variantes de VRP mediante algoritmos metaheur\'isticos. Entre las variantes del VRP que resuelve se halla MDVRP [48]. Esta soluci\'on se compone de un m\'odulo de optimizaci\'on donde se utiliza la Biblioteca de Clases para la Integraci\'on de Algoritmos Metaheur\'isticos (BiCIAM) [49], un m\'odulo para la generaci\'on de soluciones iniciales empleando BHCVRP [50] y otro para la generaci\'on de nuevas soluciones a partir de otras soluciones haciendo uso de LMOVRP [51].
+  \item Biblioteca de Heur\'isticas de Asignaci\'on para Problemas de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos (BHAVRP): es una biblioteca que resuelve la fase de asignaci\'on de clientes a dep\'ositos en el MDVRP. Esta herramienta contiene 18 algoritmos de agrupamiento y heur\'isticas cl\'asicas de asignaci\'on, y es utilizada por otras herramientas como BHCVRP, CaSVRP y TransO [15].
+\end{itemize}
+
+La Tabla~\ref{tab:bibliotecas} presenta una comparaci\'on entre las bibliotecas antes mencionadas que resuelven la fase de asignaci\'on del MDVRP. Es importante resaltar criterios como el hecho de ser de c\'odigo abierto ya que eso ser\'ia de utilidad para seguir mejorando el componente.
+
+\begin{table}[H]
+\centering
+\caption{Comparaci\'on entre las herramientas que resuelven el MDVRP.}
+\label{tab:bibliotecas}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Biblioteca} & \textbf{\shortstack{Implementan\\heur\'isticas cl\'asicas}} & \textbf{\shortstack{Implementan\\algoritmos de\\agrupamiento}} & \textbf{\shortstack{Lenguajes\\soportados}} & \textbf{\shortstack{C\'odigo\\abierto}} \\
+\midrule
+JSprit & No & No & Java & S\'i \\
+OR-Tools & S\'i & No & \shortstack{C++, Python,\\Java, C\#} & S\'i \\
+VROOM & No & No & C++ & No \\
+Scikit-learn & No & S\'i & Python & S\'i \\
+CaSVRP & S\'i & No & Java & S\'i \\
+BHCVRP & S\'i & No & \shortstack{Java, Python} & S\'i \\
+BHAVRP & S\'i & S\'i & \shortstack{Java, Python} & S\'i \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A partir del an\'alisis comparativo de las bibliotecas podemos ver que solo BHAVRP y Scikit-learn ofrecen algoritmos de agrupamiento, lo que los posiciona como herramientas especialmente \'utiles cuando las necesidades incluyen esta capacidad para el preprocesamiento o modelado del problema. BHAVRP es la \'unica biblioteca espec\'ificamente enfocada en resolver la fase de asignaci\'on del MDVRP, mediante la implementaci\'on de heur\'isticas cl\'asicas y algoritmos de agrupamiento. Las dem\'as bibliotecas analizadas abordan el problema completo o incluyen la asignaci\'on como un paso preliminar, sin especializaci\'on expl\'icita en esta etapa.
+
+BHAVRP actualmente ha sido integrado como parte funcional en herramientas como: CaSVRP y BHCVRP. Aunque su uso se ha concentrado en estos sistemas, su arquitectura modular y sus implementaciones en Java y Python permiten su potencial integraci\'on en otras aplicaciones compatibles con estos entornos [15].
+
+Como se puede apreciar en la Figura~\ref{fig:flujo}, el flujo de ejecuci\'on comienza en el software que consume BHAVRP, donde se introducen los datos correspondientes a una instancia del problema MDVRP. Estos datos se env\'ian al componente BHAVRP, el cual procede a cargar los datos del problema y a determinar el tipo de distancia que se utilizar\'a en el c\'alculo de costos. A continuaci\'on, BHAVRP verifica si los datos fueron cargados correctamente. Si los datos presentan errores, el proceso se detiene. En caso contrario, se configuran los par\'ametros de ejecuci\'on necesarios, y se genera la matriz de costo correspondiente seg\'un la distancia seleccionada. Una vez generada la matriz de costos, el algoritmo se ejecuta en el contexto de BHAVRP, utilizando los par\'ametros definidos y la matriz de costos generada previamente. Al finalizar la ejecuci\'on del algoritmo, BHAVRP genera una soluci\'on, que es devuelta al sistema solicitante. Este \'ultimo obtiene as\'i los resultados de la asignaci\'on de clientes a dep\'ositos, completando el ciclo de interacci\'on [15].
+
+\figura{fig06_flujo_bhavrp.png}{1\textwidth}{Diagrama de actividades del flujo de BHAVRP.}{fig:flujo}
+
+Para soportar la variedad de algoritmos y garantizar su correcta ejecuci\'on, BHAVRP presenta una arquitectura n-capas con un enfoque basado en reutilizaci\'on, promoviendo consistencia con los lenguajes de desarrollo seleccionados [15]. Esta arquitectura se presenta en la Figura~\ref{fig:arquitectura}, que ofrece una vista detallada de BHAVRP.
+
+\figura{fig07_arquitectura.png}{1\textwidth}{Diagrama de arquitectura n-capas con enfoque en reutilizaci\'on de BHAVRP.}{fig:arquitectura}
+
+La capa espec\'ifica contiene los elementos responsables de gestionar la ejecuci\'on del sistema, como la clase Controller, que coordina la carga de datos, la configuraci\'on de par\'ametros y el flujo general de ejecuci\'on. Por su parte, en la capa general, que representa el n\'ucleo de la biblioteca es responsable de la definici\'on del problema, la modelaci\'on de las instancias y la ejecuci\'on de los algoritmos de asignaci\'on. Por su parte, la biblioteca trabaja con una estructura de datos que representan los elementos clave del MDVRP: clientes, dep\'ositos, y sus respectivas restricciones y par\'ametros. La estructura b\'asica para utilizar la biblioteca incluye un encabezado con el n\'umero de dep\'ositos, clientes y veh\'iculos disponibles por dep\'osito, seguido de las capacidades m\'aximas de los veh\'iculos. Los clientes y los dep\'ositos est\'an definidos por un identificador y sus coordenadas (x, y). Adem\'as, cada cliente tiene una demanda asociada, mientras que cada dep\'osito cuenta con una capacidad equivalente a la suma de las capacidades de los veh\'iculos en su flota. BHAVRP en la capa intermedia contiene varias herramientas. Una de estas permite trabajar tanto con distancias reales como aproximadas (Euclidean, Manhattan, Chebyshev y Haversine). Luego para abordar el c\'alculo aproximado de las distancias, integra la herramienta OSRM (Open Source Routing Machine), que permite calcular distancias y tiempos de viaje basados en mapas reales, tanto en modalidad local como a trav\'es de solicitudes a un servidor en l\'inea. En la capa de software se implementa la comunicaci\'on de la herramienta OSRM que expone sus servicios a trav\'es de una API HTTP RESTful. El cliente Java (como osrm-java-client) construye las peticiones HTTP y convierte las respuestas a JSON [15].
+
+\section{Conclusiones parciales}
+
+A partir del estudio realizado sobre el marco te\'orico de los problemas de planificaci\'on de rutas de veh\'iculos, espec\'ificamente la variante con m\'ultiples dep\'ositos, as\'i como los m\'etodos de soluci\'on y algoritmos de Miner\'ia de Datos existentes para resolver estos problemas se puede concluir que:
+
+\begin{itemize}
+  \item Los VRP son problemas de optimizaci\'on combinatoria clasificados como NP-Duro por lo que se utilizan principalmente algoritmos heur\'isticos y metaheur\'isticos para su soluci\'on. El MDVRP es una de las numerosas variantes del VRP y requiere otro tipo de estrategias de soluci\'on.
+  \item Una de las estrategias para la soluci\'on del MDVRP es dividir en la fase de asignaci\'on y la fase de planificaci\'on de las rutas. Adem\'as, para esta primera fase de asignaci\'on resulta efectivo el uso de algoritmos de miner\'ia de datos.
+  \item BHAVRP es una biblioteca que permite resolver esa primera fase de asignaci\'on y tiene la facilidad para a\~nadir nuevas heur\'isticas y algoritmos de agrupamiento gracias a su arquitectura n-capas orientada a reutilizaci\'on.
+  \item La incorporaci\'on de un algoritmo basado en densidad resulta interesante ya que presenta un enfoque diferente a los algoritmos particionales y jer\'arquicos que ya presenta BHAVRP.
+  \item La incorporaci\'on de otro algoritmo de agrupamiento jer\'arquico a la biblioteca enriquece la biblioteca con otro algoritmo de esta categor\'ia y verifica si UPGMC presenta los mejores resultados gracias a su comportamiento jer\'arquico o a su naturaleza intr\'inseca.
+\end{itemize}

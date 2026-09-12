@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="not_used">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/not_used/graphhopper-core-7.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/mapbox-java-core-2.2.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/jackson-core-2.15.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/okhttp-5.0.0-alpha.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/mapbox-java-services-2.2.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/commons-lang3-3.13.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/mapbox-java-geojson-2.2.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/slf4j-api-2.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/commons-codec-1.16.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/httpclient-4.5.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/jackson-databind-2.15.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/not_used/slf4j-simple-2.0.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

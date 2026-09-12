@@ -1,0 +1,31 @@
+Heuristic: ThreeCriteriaClustering
+
+Solution:
+Number of clusters: 4
+
+Cluster ID: 52
+Cluster demand: 182.0
+Number of elements: 11
+Element IDs:
+[6, 23, 7, 43, 24, 48, 27, 26, 8, 14, 25]
+
+Cluster ID: 51
+Cluster demand: 231.0
+Number of elements: 14
+Element IDs:
+[19, 40, 41, 42, 13, 4, 17, 44, 47, 18, 37, 12, 15, 45]
+
+Cluster ID: 53
+Cluster demand: 209.0
+Number of elements: 14
+Element IDs:
+[49, 10, 39, 30, 9, 5, 38, 33, 34, 50, 11, 16, 21, 46]
+
+Cluster ID: 54
+Cluster demand: 155.0
+Number of elements: 11
+Element IDs:
+[35, 36, 3, 20, 29, 2, 28, 22, 31, 32, 1]
+
+Unassigned customers: 0
+Depots without assigned customers: 0

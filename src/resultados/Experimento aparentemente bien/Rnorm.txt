@@ -1,0 +1,40 @@
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/Experimento aparentemente bien")
+# === Leer datos ===
+df <- read.csv("tabla costos ruta.csv", stringsAsFactors = FALSE)
+
+# Si la primera columna es el nombre del algoritmo, la usamos como rownames
+rownames(df) <- df[[1]]
+df <- df[, -1]
+
+# === Definir qué métricas se maximizan ===
+metricas_max <- c("SSB", "CH", "DI", "CS")
+metricas <- setdiff(names(df), "Costo")  # todas menos Costo
+
+# === Función de normalización min-max ===
+# Si maximize = TRUE: (x - min) / (max - min)
+# Si maximize = FALSE: (max - x) / (max - min)
+minmax <- function(x, maximize = TRUE) {
+  rng <- max(x) - min(x)
+  if (rng == 0) return(rep(0, length(x)))  # evita división por cero
+  if (maximize) (x - min(x)) / rng else (max(x) - x) / rng
+}
+
+# === Normalizar todas las métricas ===
+df_norm <- as.data.frame(
+  lapply(metricas, function(col) {
+    minmax(df[[col]], maximize = col %in% metricas_max)
+  })
+)
+names(df_norm) <- metricas
+rownames(df_norm) <- rownames(df)
+
+# === Métrica global (promedio por fila) ===
+#df_norm$MetricaGlobal <- rowMeans(df_norm[, metricas])
+
+# === Normalizar Costo (a minimizar) ===
+#df_norm$Costo <- minmax(df$Costo, maximize = FALSE)
+
+# === Exportar a CSV ===
+write.csv(df_norm, "MetricaGlobal_vs_Costo.csv", row.names = TRUE)
+
+cat("✅ Archivo 'MetricaGlobal_vs_Costo.csv' generado correctamente.\n")

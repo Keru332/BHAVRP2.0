@@ -1,0 +1,147 @@
+%  Informe de Practica Profesional I - Implementacion de nuevos
+%  algoritmos de agrupamiento en BHAVRP
+%  Compilar con: pdflatex (dos veces para el indice)
+%==============================================================
+\documentclass[12pt,letterpaper,oneside]{report}
+
+%---------------------- Codificacion e idioma -------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands,es-tabla]{babel}
+
+%---------------------- Fuentes (Times) -------------------------
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb}
+\usepackage{newtxmath}
+
+%---------------------- Pagina y margenes -----------------------
+\usepackage[letterpaper,top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing                 % interlineado 1.5
+\usepackage{indentfirst}        % sangria en primer parrafo
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+%---------------------- Graficos y figuras ----------------------
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{Figuras/}}
+% Las figuras del documento original deben exportarse del Word
+% (clic derecho -> Guardar como imagen) dentro de la carpeta Figuras/.
+
+%---------------------- Tablas ----------------------------------
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{tabularx}
+
+%---------------------- Encabezados -----------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+%---------------------- Titulos de capitulos/secciones ----------
+\usepackage{titlesec}
+\titleformat{\chapter}[block]
+  {\normalfont\Large\bfseries}{Cap\'itulo \thechapter:}{0.6em}{}
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.8em}{}
+
+%---------------------- Captions --------------------------------
+\usepackage{caption}
+\captionsetup[table]{position=above,skip=6pt}
+\captionsetup[figure]{position=below,skip=10pt}
+\captionsetup{font=small,labelfont=bf}
+
+%---------------------- Hipervinculos ---------------------------
+\usepackage[plainpages=false,pdfpagelabels ,hidelinks]{hyperref}
+
+%---------------------- Comando util ----------------------------
+% Inserta la figura si existe el archivo; si no, deja un recuadro
+% indicativo con el nombre del fichero que falta.
+\newcommand{\figura}[4]{%
+  \begin{figure}[H]
+    \centering
+    \IfFileExists{Figuras/#1}{%
+      \includegraphics[width=#2]{#1}%
+    }{%
+      \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering
+        \textit{[Insertar aqu\'i la figura: \texttt{ \detokenize{Figuras/#1}}]}}}}%
+    \caption{#3}\label{#4}
+  \end{figure}%
+}
+
+\begin{document}
+\pagenumbering{roman}
+
+%==============================================================
+%                         PORTADA
+%==============================================================
+\begin{titlepage}
+\centering
+{\large \textbf{Universidad Tecnol\'ogica de La Habana}}\\[2pt]
+{\large \textbf{``Jos\'e Antonio Echeverr\'ia''}}\\[2pt]
+{\large \textbf{Facultad de Ingenier\'ia Inform\'atica}}\\[40pt]
+
+\IfFileExists{Figuras/isotipo.png}{%
+  \includegraphics[width=3.2cm]{isotipo.png}\\[40pt]%
+}{%
+  \fbox{\parbox[c][3.2cm][c]{3.2cm}{\centering\textit{[Logo: Figuras/isotipo.png]}}}\\[40pt]%
+}
+
+{\Large \textbf{Informe de Pr\'actica Profesional I}}\\[30pt]
+
+{\large \textbf{Implementaci\'on de nuevos algoritmos de agrupamiento en BHAVRP}}\\[45pt]
+
+\begin{flushleft}
+\hspace{2cm}{\large \textbf{Autor:}}\\[6pt]
+\hspace{2cm}{\large Maykel Kevin D\'iaz Men\'endez}\\[25pt]
+\hspace{2cm}{\large \textbf{Tutores:}}\\[6pt]
+\hspace{2cm}{\large Ing.\ Eric Ramos Arag\'on}\\
+\hspace{2cm}{\large Ing.\ Ananda de la Caridad Morales Morales}
+\end{flushleft}
+
+\vfill
+{\large \textbf{La Habana, Cuba}}\\[6pt]
+{\large \textbf{Marzo 2026}}
+\end{titlepage}
+
+%==============================================================
+%                         RESUMEN
+%==============================================================
+\chapter*{Resumen}
+
+El Problema de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos (MDVRP) constituye una variante compleja dentro de los problemas de optimizaci\'on combinatoria. En la pr\'actica, este problema suele resolverse dividi\'endolo en dos etapas: asignar los clientes a los dep\'ositos y construir las rutas desde cada dep\'osito. La Biblioteca de Heur\'isticas de Asignaci\'on para Problemas de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos (BHAVRP) es un componente de software dise\~nado para resolver esta primera fase de asignaci\'on. La biblioteca presenta una arquitectura modular que encapsula m\'etodos de agrupamiento clasificados en particionales y jer\'arquicos, incluye un sistema de tratamiento de excepciones y un conjunto de m\'etricas de evaluaci\'on internas. Actualmente, BHAVRP carece de algoritmos de agrupamiento basados en densidad y cuenta con un solo algoritmo de agrupamiento jer\'arquico. Se propone la incorporaci\'on de dos nuevos algoritmos de agrupamiento: DBSCAN como basado en densidad, y CURE como jer\'arquico. Ambos algoritmos de agrupamiento son adaptados para resolver la fase de asignaci\'on de clientes a dep\'ositos incorporando restricciones de capacidad de los dep\'ositos y mecanismos de asignaci\'on controlada. Por \'ultimo, se realiza un estudio experimental que permite garantizar el correcto funcionamiento de los m\'odulos implementados, as\'i como identificar qu\'e algoritmos generan asignaciones de mayor calidad. Para ello, se utilizan los criterios definidos por las m\'etricas de evaluaci\'on que ya tiene BHAVRP.
+
+\vspace{12pt}
+\noindent\textbf{Palabras clave:} algoritmos de agrupamiento, BHAVRP, CURE, DBSCAN, MDVRP.
+
+%==============================================================
+%                         ABSTRACT
+%==============================================================
+\chapter*{Abstract}
+
+The Multi-Depot Vehicle Routing Problem (MDVRP) is a complex variant within combinatorial optimization problems. In practice, this problem is often solved by dividing it into two stages: assigning customers to depots and building routes from each depot. The Assignment Heuristics Library for Multi-Depot Vehicle Routing Problems (BHAVRP) is a software component designed to solve this first assignment phase. The library features a modular architecture that encapsulates clustering methods classified into partitional and hierarchical, includes an exception handling system, and a set of internal evaluation metrics. Currently, BHAVRP lacks density-based clustering algorithms and has only one hierarchical clustering algorithm. The incorporation of two new clustering algorithms is proposed: DBSCAN as a density-based algorithm, and CURE as a hierarchical algorithm. Both clustering algorithms are adapted to solve the customer-to-depot assignment phase by incorporating depot capacity constraints and controlled assignment mechanisms. Finally, an experimental study is conducted to ensure the correct functioning of the implemented modules, as well as to identify which algorithms generate higher-quality assignments. For this purpose, the criteria defined by the evaluation metrics already present in BHAVRP are used.
+
+\vspace{12pt}
+\noindent\textbf{Keywords:} BHAVRP, CURE, clustering algorithms, DBSCAN, MDVRP.
+
+%==============================================================
+%                       INDICES
+%==============================================================
+\tableofcontents
+\listoffigures
+\listoftables
+
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{Intro}
+\input{chapter1}
+\input{chapter2}
+\input{chapter3}

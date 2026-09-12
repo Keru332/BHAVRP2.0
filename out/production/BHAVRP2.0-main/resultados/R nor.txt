@@ -1,0 +1,93 @@
+# Normalizar por columna (cada algoritmo) con Min-Max
+normalize_col_minmax <- function(mat) {
+  apply(mat, 2, function(col) (col - min(col, na.rm=TRUE)) / (max(col, na.rm=TRUE) - min(col, na.rm=TRUE)))
+}
+
+# Normalizar por columna con Z-score
+normalize_col_z <- function(mat) {
+  apply(mat, 2, function(col) (col - mean(col, na.rm=TRUE)) / sd(col, na.rm=TRUE))
+}
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/TODOS")
+# Ejemplo con coste
+cost_crudo <- read.csv("CMT.csv", row.names = 1, check.names = FALSE)
+cost_minmax <- as.data.frame(normalize_col_z(cost_crudo))
+cost_z <- as.data.frame(normalize_col_z(cost_crudo))
+
+# Lista de archivos de métricas internas
+metric_files <- c("ballhallindex.csv", "calinskiharabaszindex.csv", "daviesbouldinindex.csv",
+                  "dunnindex.csv", "rayturiindex.csv", "silhouettecoefficient.csv",
+                  "ssb.csv", "sse.csv", "xiebeniindex.csv")
+
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/Experimento Normalizacion Costes")
+
+
+# Leer coste (CMT)
+cost <- cost_minmax
+
+# Inicializar data.frame de resultados
+results <- data.frame(Metric = character(),
+                      Pearson = numeric(),
+                      Spearman = numeric(),
+                      N_Algorithms = integer(),
+                      stringsAsFactors = FALSE)
+
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/keel Metricas")
+
+# Bucle para cada archivo de métrica
+for (file in metric_files) {
+  # Leer métrica
+  metric <- read.csv(file, row.names = 1, check.names = FALSE)
+ 
+  # 1. Instancias comunes
+  common_inst <- intersect(rownames(cost), rownames(metric))
+  if (length(common_inst) == 0) {
+    warning(paste("No hay instancias comunes en", file))
+    next
+  }
+ 
+  cost_sub <- cost[common_inst, , drop = FALSE]
+  metric_sub <- metric[common_inst, , drop = FALSE]
+ 
+  # 2. Algoritmos comunes
+  common_alg <- intersect(colnames(cost_sub), colnames(metric_sub))
+  if (length(common_alg) == 0) {
+    warning(paste("No hay algoritmos comunes en", file))
+    next
+  }
+ 
+  cost_sub <- cost_sub[, common_alg, drop = FALSE]
+  metric_sub <- metric_sub[, common_alg, drop = FALSE]
+ 
+  # 3. PRIMERO: Promediar las instancias (columnas -> vectores de promedios)
+  #    Cada vector tiene longitud = número de algoritmos
+  mean_cost <- colMeans(cost_sub, na.rm = TRUE)
+  mean_metric <- colMeans(metric_sub, na.rm = TRUE)
+ 
+  # 4. AHORA: Correlacionar esos dos vectores de promedios
+  #    Eliminar posibles NA (si algún algoritmo no tiene datos en alguna instancia)
+  ok <- complete.cases(mean_cost, mean_metric)
+  if (sum(ok) < 3) {
+    warning(paste("No hay suficientes algoritmos válidos para", file))
+    next
+  }
+ 
+  pearson_coef <- cor(mean_cost[ok], mean_metric[ok], method = "pearson")
+  spearman_coef <- cor(mean_cost[ok], mean_metric[ok], method = "spearman")
+ 
+
+  # Guardar resultados
+  metric_name <- gsub(".csv", "", file)
+  results <- rbind(results, data.frame(Metric = metric_name,
+                                       Pearson = pearson_coef,
+                                       Spearman = spearman_coef,
+                                       N_Algorithms = sum(ok),
+                                       stringsAsFactors = FALSE))
+}
+
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados")
+
+# 5. Exportar CSV
+write.csv(results, "correlacion_promediando_instancias.csv", row.names = FALSE)
+
+# Mostrar en consola
+print(results)

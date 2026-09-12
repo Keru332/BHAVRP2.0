@@ -1,0 +1,22 @@
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Representaci\'on gr\'afica de MDVRP.}}{8}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces T\'ecnicas utilizadas para la soluci\'on de MDVRP.}}{9}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Representaci\'on gr\'afica de algoritmos de agrupamiento particionales [43].}}{13}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Representaci\'on gr\'afica de algoritmos de agrupamiento jer\'arquicos [43].}}{13}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Representaci\'on gr\'afica de algoritmos de agrupamiento basados en densidad [43].}}{14}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Diagrama de actividades del flujo de BHAVRP.}}{18}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Diagrama de arquitectura n-capas con enfoque en reutilizaci\'on de BHAVRP.}}{18}{figure.caption.14}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Ejemplo de la agrupaci\'on de puntos por densidad de DBSCAN.}}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de flujo del algoritmo DBSCAN.}}{22}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Diagrama de flujo del algoritmo DBSCAN a MDVRP.}}{22}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Flujo de CURE.}}{23}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Diagrama de flujo del algoritmo CURE.}}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Diagrama de flujo del algoritmo CURE adaptado al MDVRP.}}{26}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Diagrama de arquitectura actualizado.}}{29}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Diagrama de clases actualizado.}}{31}{figure.caption.24}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Resultados de las pruebas del m\'etodo distance.}}{33}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Resultados de las pruebas de constructor y del m\'etodo merge.}}{34}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Resultados de las pruebas del m\'etodo calculateClusterDistance.}}{35}{figure.caption.27}%

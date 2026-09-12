@@ -1,0 +1,145 @@
+# ============================================================
+# CORRELACIÓN POR INSTANCIA (PROMEDIADA) PARA CADA HEURÍSTICA
+# ============================================================
+
+# Cargar librerías necesarias
+library(dplyr)
+
+# 1. Definir las heurísticas (archivos de coste)
+heuristica_files <- c(
+  "cmt.csv",
+  "savesequential.csv",
+  "saveparallel.csv",
+  "nearestneighborwithrlc.csv",
+  "molejameson.csv",
+  "sweep.csv"
+)
+
+# 2. Definir los archivos de métricas de validación interna
+metric_files <- c(
+  "ballhallindex.csv",
+  "calinskiharabaszindex.csv",
+  "daviesbouldinindex.csv",
+  "dunnindex.csv",
+  "rayturiindex.csv",
+  "silhouettecoefficient.csv",
+  "ssb.csv",
+  "sse.csv",
+  "xiebeniindex.csv"
+)
+
+# 3. Inicializar data.frame para resultados globales
+resultados_globales <- data.frame()
+
+
+# 4. Bucle principal: para cada heurística
+for (heuristica in heuristica_files) {
+ 
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/TODOS")
+
+  # Leer coste de la heurística actual
+  cost <- read.csv(heuristica, row.names = 1, check.names = FALSE)
+ 
+  # Extraer nombre de la heurística (sin extensión)
+  heuristica_name <- gsub(".csv", "", heuristica)
+ 
+  cat("\n Procesando heurística:", heuristica_name, "\n")
+ 
+  # Bucle para cada métrica
+  for (metric_file in metric_files) {
+   
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/keel Metricas")
+    # Leer métrica
+    metric <- read.csv(metric_file, row.names = 1, check.names = FALSE)
+   
+    # 4.1 Alinear instancias (filas)
+    common_inst <- intersect(rownames(cost), rownames(metric))
+    if (length(common_inst) == 0) {
+      warning(paste("  No hay instancias comunes en", heuristica_name, "y", metric_file))
+      next
+    }
+    cost_sub <- cost[common_inst, , drop = FALSE]
+    metric_sub <- metric[common_inst, , drop = FALSE]
+   
+    # 4.2 Alinear algoritmos (columnas) por NOMBRE
+    common_alg <- intersect(colnames(cost_sub), colnames(metric_sub))
+    if (length(common_alg) == 0) {
+      warning(paste("  No hay algoritmos comunes en", heuristica_name, "y", metric_file))
+      next
+    }
+    # Mantener solo los comunes y en el mismo orden (el de cost_sub)
+    cost_sub <- cost_sub[, common_alg, drop = FALSE]
+    metric_sub <- metric_sub[, common_alg, drop = FALSE]
+   
+    # 4.3 Calcular correlación por instancia
+    pearson_vals <- numeric(nrow(cost_sub))
+    spearman_vals <- numeric(nrow(cost_sub))
+   
+    for (i in 1:nrow(cost_sub)) {
+      x <- as.numeric(cost_sub[i, ])
+      y <- as.numeric(metric_sub[i, ])
+      ok <- complete.cases(x, y)
+      if (sum(ok) >= 3) {
+        pearson_vals[i] <- cor(x[ok], y[ok], method = "pearson")
+        spearman_vals[i] <- cor(x[ok], y[ok], method = "spearman")
+      } else {
+        pearson_vals[i] <- NA
+        spearman_vals[i] <- NA
+      }
+    }
+   
+    # Eliminar NAs
+    pearson_vals <- pearson_vals[!is.na(pearson_vals)]
+    spearman_vals <- spearman_vals[!is.na(spearman_vals)]
+   
+    if (length(pearson_vals) == 0) next
+   
+    # 4.4 Promediar (Pearson con Fisher Z, Spearman directo)
+    z <- atanh(pearson_vals)
+    avg_pearson <- tanh(mean(z))
+    avg_spearman <- mean(spearman_vals)
+   
+    # 4.5 Guardar resultados
+    metric_name <- gsub(".csv", "", metric_file)
+    resultados_globales <- rbind(resultados_globales, data.frame(
+      Heuristica = heuristica_name,
+      Metrica = metric_name,
+      Pearson_Avg = avg_pearson,
+      Spearman_Avg = avg_spearman,
+      N_Instancias = length(pearson_vals),
+      stringsAsFactors = FALSE
+    ))
+   
+    cat("  ", metric_name, "-> Pearson:", round(avg_pearson, 4),
+        "Spearman:", round(avg_spearman, 4),
+        "(n=", length(pearson_vals), ")\n")
+  }
+}
+
+setwd("C:/Users/maykel-kevin/Documents/BHAVRP2.0-main/BHAVRP2.0-main/src/resultados/Experimento Correlacion")
+# 5. Exportar resultados a CSV
+write.csv(resultados_globales,
+          "correlacion_por_instancia_promediada_todas_heurísticas.csv",
+          row.names = FALSE)
+
+# 6. Mostrar resultados en consola
+cat("\n\n========== RESULTADOS FINALES ==========\n")
+print(resultados_globales)
+
+# 7. Opcional: formato más legible (ordenado por heurística y métrica)
+library(tidyr)
+resultados_wide <- resultados_globales %>%
+  select(Heuristica, Metrica, Spearman_Avg) %>%
+  pivot_wider(names_from = Heuristica, values_from = Spearman_Avg)
+
+cat("\n\n========== MATRIZ DE SPEARMAN POR HEURÍSTICA ==========\n")
+print(resultados_wide)
+
+# Guardar también la matriz de Spearman
+write.csv(resultados_wide,
+          "matriz_spearman_por_heuristica.csv",
+          row.names = FALSE)
+
+cat("\n Archivos exportados:\n")
+cat("  - correlacion_por_instancia_promediada_todas_heurísticas.csv\n")
+cat("  - matriz_spearman_por_heuristica.csv\n")
