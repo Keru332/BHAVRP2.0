@@ -61,9 +61,6 @@
 \captionsetup[figure]{position=below,skip=10pt}
 \captionsetup{font=small,labelfont=bf}
 
-%---------------------- Hipervinculos ---------------------------
-\usepackage[plainpages=false,pdfpagelabels ,hidelinks]{hyperref}
-
 %---------------------- Comando util ----------------------------
 % Inserta la figura si existe el archivo; si no, deja un recuadro
 % indicativo con el nombre del fichero que falta.
@@ -79,8 +76,18 @@
   \end{figure}%
 }
 
+%==============================================================
+%                         BIBLIOGRAFIA
+%==============================================================
+%\usepackage{csquotes}
+\usepackage[backend=biber, style=ieee]{biblatex}
+\addbibresource{referencias.bib} % Nombre de tu archivo .bib exportado de Zotero
+%---------------------- Hipervinculos ---------------------------
+\usepackage[plainpages=false,pdfpagelabels ,hidelinks]{hyperref}
+
 \begin{document}
 \pagenumbering{roman}
+
 
 %==============================================================
 %                         PORTADA
@@ -149,3 +156,7 @@ The Multi-Depot Vehicle Routing Problem (MDVRP) is a complex variant within comb
 \input{chapter1}
 \input{chapter2}
 \input{chapter3}
+
+\printbibliography[title={Referencias Bibliogr\'aficas}, heading=bibintoc]
+
+\end{document}

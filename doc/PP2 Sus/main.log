@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.8)  12 SEP 2026 01:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.8)  12 SEP 2026 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -592,26 +592,10 @@ Package caption Info: Standard document class detected.
 \c@continuedfloat=\count321
 Package caption Info: float package is loaded.
 )
-(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperre
-f.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblate
+x.sty
+Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
 
-(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetk
-eys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)
-(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\k
-vdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)
-(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfe
-scape.sty
-Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-
-(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmd
-s.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdf
 texcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -621,10 +605,291 @@ Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 arerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmd
+s.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvopti
+ons.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetk
+eys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ))
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.st
+y
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count322
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.de
+f
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+)) (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@tabx@nest=\count323
+\c@listtotal=\count324
+\c@listcount=\count325
+\c@liststart=\count326
+\c@liststop=\count327
+\c@citecount=\count328
+\c@citetotal=\count329
+\c@multicitecount=\count330
+\c@multicitetotal=\count331
+\c@instcount=\count332
+\c@maxnames=\count333
+\c@minnames=\count334
+\c@maxitems=\count335
+\c@minitems=\count336
+\c@citecounter=\count337
+\c@maxcitecounter=\count338
+\c@savedcitecounter=\count339
+\c@uniquelist=\count340
+\c@uniquename=\count341
+\c@refsection=\count342
+\c@refsegment=\count343
+\c@maxextratitle=\count344
+\c@maxextratitleyear=\count345
+\c@maxextraname=\count346
+\c@maxextradate=\count347
+\c@maxextraalpha=\count348
+\c@abbrvpenalty=\count349
+\c@highnamepenalty=\count350
+\c@lownamepenalty=\count351
+\c@maxparens=\count352
+\c@parenlevel=\count353
+\blx@tempcnta=\count354
+\blx@tempcntb=\count355
+\blx@tempcntc=\count356
+\c@blx@maxsection=\count357
+\blx@maxsegment@0=\count358
+\blx@notetype=\count359
+\blx@parenlevel@text=\count360
+\blx@parenlevel@foot=\count361
+\blx@sectionciteorder@0=\count362
+\blx@sectionciteorderinternal@0=\count363
+\blx@entrysetcounter=\count364
+\blx@biblioinstance=\count365
+\labelnumberwidth=\skip75
+\labelalphawidth=\skip76
+\biblabelsep=\skip77
+\bibitemsep=\skip78
+\bibnamesep=\skip79
+\bibinitsep=\skip80
+\bibparsep=\skip81
+\bibhang=\skip82
+\blx@bcfin=\read4
+\blx@bcfout=\write3
+\blx@langwohyphens=\language80
+\c@mincomprange=\count366
+\c@maxcomprange=\count367
+\c@mincompwidth=\count368
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.
+def
+File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'ieee.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count369
+\c@savedafterword=\count370
+\c@annotator=\count371
+\c@savedannotator=\count372
+\c@author=\count373
+\c@savedauthor=\count374
+\c@bookauthor=\count375
+\c@savedbookauthor=\count376
+\c@commentator=\count377
+\c@savedcommentator=\count378
+\c@editor=\count379
+\c@savededitor=\count380
+\c@editora=\count381
+\c@savededitora=\count382
+\c@editorb=\count383
+\c@savededitorb=\count384
+\c@editorc=\count385
+\c@savededitorc=\count386
+\c@foreword=\count387
+\c@savedforeword=\count388
+\c@holder=\count389
+\c@savedholder=\count390
+\c@introduction=\count391
+\c@savedintroduction=\count392
+\c@namea=\count393
+\c@savednamea=\count394
+\c@nameb=\count395
+\c@savednameb=\count396
+\c@namec=\count397
+\c@savednamec=\count398
+\c@translator=\count399
+\c@savedtranslator=\count400
+\c@shortauthor=\count401
+\c@savedshortauthor=\count402
+\c@shorteditor=\count403
+\c@savedshorteditor=\count404
+\c@labelname=\count405
+\c@savedlabelname=\count406
+\c@institution=\count407
+\c@savedinstitution=\count408
+\c@lista=\count409
+\c@savedlista=\count410
+\c@listb=\count411
+\c@savedlistb=\count412
+\c@listc=\count413
+\c@savedlistc=\count414
+\c@listd=\count415
+\c@savedlistd=\count416
+\c@liste=\count417
+\c@savedliste=\count418
+\c@listf=\count419
+\c@savedlistf=\count420
+\c@location=\count421
+\c@savedlocation=\count422
+\c@organization=\count423
+\c@savedorganization=\count424
+\c@origlocation=\count425
+\c@savedoriglocation=\count426
+\c@origpublisher=\count427
+\c@savedorigpublisher=\count428
+\c@publisher=\count429
+\c@savedpublisher=\count430
+\c@language=\count431
+\c@savedlanguage=\count432
+\c@origlanguage=\count433
+\c@savedoriglanguage=\count434
+\c@pageref=\count435
+\c@savedpageref=\count436
+\shorthandwidth=\skip83
+\shortjournalwidth=\skip84
+\shortserieswidth=\skip85
+\shorttitlewidth=\skip86
+\shortauthorwidth=\skip87
+\shorteditorwidth=\skip88
+\locallabelnumberwidth=\skip89
+\locallabelalphawidth=\skip90
+\localshorthandwidth=\skip91
+\localshortjournalwidth=\skip92
+\localshortserieswidth=\skip93
+\localshorttitlewidth=\skip94
+\localshortauthorwidth=\skip95
+\localshorteditorwidth=\skip96
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-com
+pat.def
+File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblate
+x.def
+File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+\c@textcitecount=\count437
+\c@textcitetotal=\count438
+\c@textcitemaxnames=\count439
+\c@biburlbigbreakpenalty=\count440
+\c@biburlbreakpenalty=\count441
+\c@biburlnumpenalty=\count442
+\c@biburlucpenalty=\count443
+\c@biburllcpenalty=\count444
+\biburlbigskip=\muskip19
+\biburlnumskip=\muskip20
+\biburlucskip=\muskip21
+\biburllcskip=\muskip22
+\c@smartand=\count445
+)
+Package biblatex Info: Trying to load bibliography style 'ieee'...
+Package biblatex Info: ... file 'ieee.bbx' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ie
+ee.bbx
+File: ieee.bbx 2025-08-01 v1.4f biblatex bibliography style
+Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.bbx' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\num
+eric-comp.bbx
+File: numeric-comp.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\num
+eric.bbx
+File: numeric.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\sta
+ndard.bbx
+File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count446
+\c@bbx:relatedtotal=\count447
+))))
+Package biblatex Info: Trying to load citation style 'ieee'...
+Package biblatex Info: ... file 'ieee.cbx' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ie
+ee.cbx
+File: ieee.cbx 2025-08-01 v1.4f biblatex citation style
+Package biblatex Info: Trying to load citation style 'numeric-verb'...
+Package biblatex Info: ... file 'numeric-verb.cbx' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\num
+eric-verb.cbx
+File: numeric-verb.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+Package biblatex Info: Redefining '\textcites'.
+))
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblate
+x.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2025-12-24 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-cas
+e-expl3.sty
+Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
+))
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperre
+f.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\k
+vdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfe
+scape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.
 sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
@@ -640,12 +905,8 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring
 \gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-
-(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvopti
-ons.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-))
-\c@section@level=\count322
+)
+\c@section@level=\count448
 )
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stri
 ngenc.sty
@@ -653,8 +914,8 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
 \@linkdim=\dimen273
-\Hy@linkcounter=\count323
-\Hy@pagecounter=\count324
+\Hy@linkcounter=\count449
+\Hy@pagecounter=\count450
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.
 def
@@ -666,7 +927,7 @@ Now handling font encoding PD1 ...
 c.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count325
+\Hy@SavedSpaceFactor=\count451
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.d
 ef
@@ -683,11 +944,7 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count326
- (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
-\Urlmuskip=\muskip18
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
+\c@Hy@tempcnt=\count452
 LaTeX Info: Redefining \url on input line 4801.
 \XeTeXLinkMargin=\dimen274
 
@@ -700,7 +957,7 @@ intcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count327
+\Fld@menulength=\count453
 \Field@Width=\dimen275
 \Fld@charsize=\dimen276
 Package hyperref Info: Hyper figures OFF on input line 6078.
@@ -710,17 +967,17 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count328
-\c@Item=\count329
-\c@Hfootnote=\count330
+\Hy@abspage=\count454
+\c@Item=\count455
+\c@Hfootnote=\count456
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex
 .def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count331
-\c@bookmark@seq@number=\count332
+\Fld@listcount=\count457
+\c@bookmark@seq@number=\count458
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\r
 erunfilecheck.sty
@@ -733,90 +990,97 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip75
+\Hy@SectionHShift=\skip97
 )
 LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line
- 82.
+ 88.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\t1ntxtlf.f
 d
 File: t1ntxtlf.fd 2021/05/24 v1.1 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 82.
- (main.aux
-LaTeX Info: Redefining \. on input line 7.
-LaTeX Info: Redefining \% on input line 7.
+(Font)              scaled to size 12.0pt on input line 88.
+
+
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+\@quotelevel=\count459
+\@quotereset=\count460
+(main.aux
+LaTeX Info: Redefining \. on input line 8.
+LaTeX Info: Redefining \% on input line 8.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 7.
+(babel)             Reported on input line 8.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 82.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 88.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line
- 82.
+ 88.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlntxmi.f
 d
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 88.
 LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 
-82.
+88.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 88.
 LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line
- 82.
+ 88.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmsntxsy.f
 d
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 88.
 LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input lin
-e 82.
+e 88.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmxntxexx.
 fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp
 -pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count333
+\scratchcounter=\count461
 \scratchdimen=\dimen277
 \scratchbox=\box60
-\nofMPsegments=\count334
-\nofMParguments=\count335
+\nofMPsegments=\count462
+\nofMParguments=\count463
 \everyMPshowfont=\toks38
-\MPscratchCnt=\count336
+\MPscratchCnt=\count464
 \MPscratchDim=\dimen278
-\MPnumerator=\count337
-\makeMPintoPDFobject=\count338
+\MPnumerator=\count465
+\makeMPintoPDFobject=\count466
 \everyMPtoPDFconversion=\toks39
 )
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\eps
@@ -829,10 +1093,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 f-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@mv@tabular=\count339
-\c@mv@boldtabular=\count340
-LaTeX Info: Command `\dddot' is already robust on input line 82.
-LaTeX Info: Command `\ddddot' is already robust on input line 82.
+\c@mv@tabular=\count467
+\c@mv@boldtabular=\count468
+LaTeX Info: Command `\dddot' is already robust on input line 88.
+LaTeX Info: Command `\ddddot' is already robust on input line 88.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -871,45 +1135,63 @@ LaTeX Info: Command `\ddddot' is already robust on input line 82.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 82.
-(main.out) (main.out)
-\@outlinefile=\write3
-\openout3 = `main.out'.
+Package biblatex Info: Trying to load language 'spanish'...
+Package biblatex Info: ... file 'spanish.lbx' found.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\spa
+nish.lbx
+File: spanish.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout3 = `main.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' found.
+ (main.bbl)
+Package biblatex Info: Reference section=0 on input line 88.
+Package biblatex Info: Reference segment=0 on input line 88.
+Package hyperref Info: Link coloring OFF on input line 88.
+ (main.out) (main.out)
+\@outlinefile=\write4
+\openout4 = `main.out'.
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 90.
+(Font)              scaled to size 14.4pt on input line 97.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 14.4pt on input line 90.
-<Figuras/isotipo.png, id=110, 91.0602pt x 95.8782pt>
+(Font)              scaled to size 14.4pt on input line 97.
+<Figuras/isotipo.png, id=39, 91.0602pt x 95.8782pt>
 File: Figuras/isotipo.png Graphic file (type png)
 <use Figuras/isotipo.png>
-Package pdftex.def Info: Figuras/isotipo.png  used on input line 98.
+Package pdftex.def Info: Figuras/isotipo.png  used on input line 105.
 (pdftex.def)             Requested size: 91.04872pt x 95.87062pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 17.28pt on input line 100.
+(Font)              scaled to size 17.28pt on input line 107.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 17.28pt on input line 100.
+(Font)              scaled to size 17.28pt on input line 107.
  [1
 
 {C:/Users/maykel-kevin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Use
 rs/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.
 enc} <./Figuras/isotipo.png>]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 125.
+(Font)              scaled to size 12.0pt on input line 132.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 12.0pt on input line 130.
+(Font)              scaled to size 12.0pt on input line 137.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.130 \chapter
+l.137 \chapter
               *{Abstract} [1
 
 {C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-
 ec-tlf-pc.enc}] [2
 
 ] (main.toc
+LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Trying to load font information for OT1+minntx on input lin
@@ -995,42 +1277,36 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 8.8pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 4.
+)
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
  [3
 
-]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 18.
-)
-\tf@toc=\write4
-\openout4 = `main.toc'.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[4] (main.lof
+] (main.lof
+LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
-\tf@lof=\write5
-\openout5 = `main.lof'.
+\tf@lof=\write6
+\openout6 = `main.lof'.
+
+ [4
+
+] (main.lot
+LaTeX Info: Redefining \sptext on input line 1.
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+\tf@lot=\write7
+\openout7 = `main.lot'.
 
  [5
 
-] (main.lot
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-)
-\tf@lot=\write6
-\openout6 = `main.lot'.
-
- [6
-
-] (Intro.tex [1
+] (Intro.tex
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 12.0pt on input line 8.
+ [1
 
 
 ]
@@ -1078,11 +1354,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [7]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 40.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 40.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1092,16 +1363,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8{C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/nt
 x-ot1-tlf.enc}]
-<Figuras/fig01_mdvrp.png, id=287, 426.59375pt x 176.66pt>
-File: Figuras/fig01_mdvrp.png Graphic file (type png)
-<use Figuras/fig01_mdvrp.png>
-Package pdftex.def Info: Figuras/fig01_mdvrp.png  used on input line 105.
-(pdftex.def)             Requested size: 343.35364pt x 142.19617pt.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 105.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.95pt on input line 105.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1110,6 +1371,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [9]
+<Figuras/fig01_mdvrp.png, id=240, 426.59375pt x 176.66pt>
+File: Figuras/fig01_mdvrp.png Graphic file (type png)
+<use Figuras/fig01_mdvrp.png>
+Package pdftex.def Info: Figuras/fig01_mdvrp.png  used on input line 100.
+(pdftex.def)             Requested size: 343.35364pt x 142.19617pt.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.95pt on input line 100.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 10.95pt on input line 100.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1118,10 +1389,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10 <./Figuras/fig01_mdvrp.png>]
-<Figuras/fig02_tecnicas.png, id=303, 426.84468pt x 307.1475pt>
+<Figuras/fig02_tecnicas.png, id=254, 426.84468pt x 307.1475pt>
 File: Figuras/fig02_tecnicas.png Graphic file (type png)
 <use Figuras/fig02_tecnicas.png>
-Package pdftex.def Info: Figuras/fig02_tecnicas.png  used on input line 117.
+Package pdftex.def Info: Figuras/fig02_tecnicas.png  used on input line 112.
 (pdftex.def)             Requested size: 389.13692pt x 280.03426pt.
 
 
@@ -1131,7 +1402,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[11 <./Figuras/fig02_tecnicas.png>]
+[11]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1139,7 +1410,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[12]
+[12 <./Figuras/fig02_tecnicas.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1164,13 +1435,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [15]
-<Figuras/fig03_particional.png, id=329, 776.9025pt x 286.82156pt>
-File: Figuras/fig03_particional.png Graphic file (type png)
-<use Figuras/fig03_particional.png>
-Package pdftex.def Info: Figuras/fig03_particional.png  used on input line 168.
-
-(pdftex.def)             Requested size: 457.80486pt x 169.01755pt.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1179,15 +1443,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [16]
-<Figuras/fig04_jerarquico.png, id=334, 872.50969pt x 523.20468pt>
+<Figuras/fig03_particional.png, id=319, 776.9025pt x 286.82156pt>
+File: Figuras/fig03_particional.png Graphic file (type png)
+<use Figuras/fig03_particional.png>
+Package pdftex.def Info: Figuras/fig03_particional.png  used on input line 163.
+
+(pdftex.def)             Requested size: 457.80486pt x 169.01755pt.
+<Figuras/fig04_jerarquico.png, id=322, 872.50969pt x 523.20468pt>
 File: Figuras/fig04_jerarquico.png Graphic file (type png)
 <use Figuras/fig04_jerarquico.png>
-Package pdftex.def Info: Figuras/fig04_jerarquico.png  used on input line 170.
+Package pdftex.def Info: Figuras/fig04_jerarquico.png  used on input line 165.
 (pdftex.def)             Requested size: 457.80486pt x 274.5269pt.
-<Figuras/fig05_densidad.png, id=335, 1385.92781pt x 369.63094pt>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[17 <./Figuras/fig03_particional.png>]
+<Figuras/fig05_densidad.png, id=330, 1385.92781pt x 369.63094pt>
 File: Figuras/fig05_densidad.png Graphic file (type png)
 <use Figuras/fig05_densidad.png>
-Package pdftex.def Info: Figuras/fig05_densidad.png  used on input line 172.
+Package pdftex.def Info: Figuras/fig05_densidad.png  used on input line 167.
 (pdftex.def)             Requested size: 457.80486pt x 122.09702pt.
 
 
@@ -1197,15 +1476,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[17 <./Figuras/fig03_particional.png> <./Figuras/fig04_jerarquico.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[18 <./Figuras/fig05_densidad.png>]
+[18 <./Figuras/fig04_jerarquico.png> <./Figuras/fig05_densidad.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1223,53 +1494,53 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [20]
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 202.
+(Font)              scaled to size 10.95pt on input line 197.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 8.0pt on input line 202.
+(Font)              scaled to size 8.0pt on input line 197.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 202.
+(Font)              scaled to size 6.1pt on input line 197.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 202.
+(Font)              scaled to size 10.95pt on input line 197.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 8.0pt on input line 202.
+(Font)              scaled to size 8.0pt on input line 197.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 202.
+(Font)              scaled to size 6.1pt on input line 197.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 202.
+(Font)              scaled to size 10.95pt on input line 197.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.0pt on input line 202.
+(Font)              scaled to size 8.0pt on input line 197.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 202.
+(Font)              scaled to size 6.1pt on input line 197.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 202.
+(Font)              scaled to size 10.95pt on input line 197.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.0pt on input line 202.
+(Font)              scaled to size 8.0pt on input line 197.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 202.
+(Font)              scaled to size 6.1pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 202.
+(Font)              scaled to size 10.95pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.0pt on input line 202.
+(Font)              scaled to size 8.0pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 202.
+(Font)              scaled to size 6.1pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 202.
+(Font)              scaled to size 10.95pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.0pt on input line 202.
+(Font)              scaled to size 8.0pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 202.
+(Font)              scaled to size 6.1pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 202.
+(Font)              scaled to size 10.95pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.0pt on input line 202.
+(Font)              scaled to size 8.0pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 202.
+(Font)              scaled to size 6.1pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 202.
+(Font)              scaled to size 10.95pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.0pt on input line 202.
+(Font)              scaled to size 8.0pt on input line 197.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 202.
+(Font)              scaled to size 6.1pt on input line 197.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1279,10 +1550,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [21]
-<Figuras/fig06_flujo_bhavrp.png, id=362, 741.52031pt x 749.80125pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22]
+<Figuras/fig06_flujo_bhavrp.png, id=381, 741.52031pt x 749.80125pt>
 File: Figuras/fig06_flujo_bhavrp.png Graphic file (type png)
 <use Figuras/fig06_flujo_bhavrp.png>
-Package pdftex.def Info: Figuras/fig06_flujo_bhavrp.png  used on input line 223
+Package pdftex.def Info: Figuras/fig06_flujo_bhavrp.png  used on input line 218
 .
 (pdftex.def)             Requested size: 457.80486pt x 462.927pt.
 
@@ -1293,11 +1572,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[22]
-<Figuras/fig07_arquitectura.png, id=368, 998.22937pt x 776.14969pt>
+[23]
+<Figuras/fig07_arquitectura.png, id=388, 998.22937pt x 776.14969pt>
 File: Figuras/fig07_arquitectura.png Graphic file (type png)
 <use Figuras/fig07_arquitectura.png>
-Package pdftex.def Info: Figuras/fig07_arquitectura.png  used on input line 227
+Package pdftex.def Info: Figuras/fig07_arquitectura.png  used on input line 222
 .
 (pdftex.def)             Requested size: 457.80486pt x 355.95547pt.
 
@@ -1308,7 +1587,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[23 <./Figuras/fig06_flujo_bhavrp.png>]
+[24 <./Figuras/fig06_flujo_bhavrp.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1316,7 +1595,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[24 <./Figuras/fig07_arquitectura.png>]
+[25 <./Figuras/fig07_arquitectura.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1324,7 +1603,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25]) (chapter2.tex
+[26]) (chapter2.tex) (chapter3.tex)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1332,35 +1611,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[26]
-Cap\'{\i }tulo 2.
-[27
-
-]
+[27]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.8pt on input line 160.
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-31.
+160.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
-LaTeX Font Info:    Trying to load font information for T1+txtt on input line 3
-1.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 12.0pt on input line 160.
+ [28
 
-(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\t1txtt.f
-d
-File: t1txtt.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Font shape `T1/ntxtt/m/it' in size <12> not available
-(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 31.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[28]
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1416,498 +1680,41 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[35]
-Overfull \hbox (12.46684pt too wide) in paragraph at lines 109--119
- [][] 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[36]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[37]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[38]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[39]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[40]) (chapter3.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[41]
-Cap\'{\i }tulo 3.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
-(Font)              scaled to size 12.0pt on input line 14.
-[42
-
-]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[43]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[44]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[45]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[46]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 88.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 89.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 89.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 89.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.0pt on input line 89.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 7.3pt on input line 89.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 89.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.0pt on input line 89.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.3pt on input line 89.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 89.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 89.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 89.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.0pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.3pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.3pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.3pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.0pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.3pt on input line 89.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 89.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 91.
-
-Underfull \hbox (badness 1742) in paragraph at lines 91--91
-[]|\T1/ntxtlf/b/n/10 Resultados es-pe-ra-
- []
-
-
-Underfull \hbox (badness 5711) in paragraph at lines 93--93
-[]|\T1/ntxtlf/m/n/10 Verificar asig-na-
- []
-
-
-Underfull \hbox (badness 8113) in paragraph at lines 93--93
-\T1/ntxtlf/m/n/10 ción bá-si-ca de
- []
-
-
-Underfull \hbox (badness 7291) in paragraph at lines 93--93
-[]|\T1/ntxtlf/m/n/10 2 de-pó-si-tos y 6
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-[]|\T1/ntxtlf/m/n/10 Capacidad
- []
-
-
-Underfull \hbox (badness 1163) in paragraph at lines 94--94
-\T1/ntxtlf/m/n/10 li-mi-ta-da DBS-
- []
-
-
-Underfull \hbox (badness 5359) in paragraph at lines 95--95
-\T1/ntxtlf/m/n/10 na-ción fi-nal de
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 95--95
-[]|\T1/ntxtlf/m/n/10 Reasignación
- []
-
-
-Overfull \hbox (6.91321pt too wide) in paragraph at lines 89--100
- [][] 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[47]
-Underfull \hbox (badness 1742) in paragraph at lines 109--109
-[]|\T1/ntxtlf/b/n/10 Resultados es-pe-ra-
- []
-
-
-Underfull \hbox (badness 1132) in paragraph at lines 111--111
-\T1/ntxtlf/m/n/10 tos me-dian-te fu-
- []
-
-
-Underfull \hbox (badness 1584) in paragraph at lines 111--111
-\T1/ntxtlf/m/n/10 clien-tes dis-tri-bui-dos
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 112--112
-[]|\T1/ntxtlf/m/n/10 Clientes cer-ca-nos
- []
-
-
-Underfull \hbox (badness 3291) in paragraph at lines 113--113
-[]|\T1/ntxtlf/m/n/10 No asig-na-bles
- []
-
-
-Overfull \hbox (6.91321pt too wide) in paragraph at lines 107--117
- [][] 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[48]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[49]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[50]
-Underfull \hbox (badness 10000) in paragraph at lines 170--170
-[]|\T1/ntxtlf/b/n/10.95 ?`Qué eva-
- []
-
-
-Underfull \hbox (badness 3735) in paragraph at lines 175--175
-[]|\T1/ntxtlf/m/n/10.95 Cohesión y
- []
-
-
-Underfull \hbox (badness 3735) in paragraph at lines 176--176
-[]|\T1/ntxtlf/m/n/10.95 Cohesión y
- []
-
-
-Underfull \hbox (badness 3735) in paragraph at lines 177--177
-[]|\T1/ntxtlf/m/n/10.95 Cohesión y
- []
-
-
-Underfull \hbox (badness 3735) in paragraph at lines 178--178
-[]|\T1/ntxtlf/m/n/10.95 Cohesión y
- []
-
-
-Underfull \hbox (badness 3735) in paragraph at lines 179--179
-[]|\T1/ntxtlf/m/n/10.95 Cohesión y
- []
-
-
-Underfull \hbox (badness 3735) in paragraph at lines 180--180
-[]|\T1/ntxtlf/m/n/10.95 Cohesión y
- []
-
-
-Overfull \hbox (82.217pt too wide) in paragraph at lines 168--183
- [][] 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[51]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[52]
-Overfull \hbox (1.65512pt too wide) in paragraph at lines 196--209
- [][] 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[53]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[54]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[55]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[56]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[57]
-Overfull \hbox (3.66867pt too wide) in paragraph at lines 314--314
-[]|[]| 
- []
-
-
-Overfull \hbox (3.66867pt too wide) in paragraph at lines 314--314
-[]|[]| 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[58]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[59]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[60] [61
-
-]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[62] [63
-
-] [64
-
-]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[65]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[66]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[67]
-Underfull \hbox (badness 5119) in paragraph at lines 472--473
-[]\T1/ntxtlf/m/n/12 JSprit Con-tri-bu-tors, ``JS-prit: A Java-based li-brary fo
-r sol-ving vehi-cle rou-
- []
-
-
-Underfull \hbox (badness 2035) in paragraph at lines 472--473
-\T1/ntxtlf/m/n/12 ting pro-blems''. Ac-ce-di-do: 18 de mar-zo de 2026. [En lí-n
-ea]. Dis-po-ni-ble en:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 474--475
-[]\T1/ntxtlf/m/n/12 L. Pe-rron y V. Fur-non, \T1/ntxtlf/m/it/12 OR-Tools\T1/ntx
-tlf/m/n/12 . Goo-gle. [En lí-nea]. Dis-po-ni-ble en:
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[68]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[69]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[70] (main.aux
-LaTeX Info: Redefining \. on input line 7.
-LaTeX Info: Redefining \% on input line 7.
+[35] (main.aux
+LaTeX Info: Redefining \sptext on input line 8.
+LaTeX Info: Redefining \. on input line 8.
+LaTeX Info: Redefining \% on input line 8.
 )
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0669B1575445387B0FCF056B0639D4F3;7720.
- ) ) 
+(rerunfilecheck)             Checksum: C301330CC2848335ED846458F1CCA57A;3114.
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
 Here is how much of TeX's memory you used:
- 18604 strings out of 467871
- 291408 string characters out of 5414989
- 711397 words of memory out of 5000000
- 46931 multiletter control sequences out of 15000+600000
- 720704 words of font info for 172 fonts, out of 8000000 for 9000
+ 25750 strings out of 467871
+ 449390 string characters out of 5414989
+ 1265681 words of memory out of 5000000
+ 54122 multiletter control sequences out of 15000+600000
+ 692720 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,117p,1864b,805s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/new
-tx/NewTXMI.pfb><C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/txfonts/t1xtt.pfb><C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/newtx/txexs.pfb><C:/Users/maykel-kevin/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/maykel-kevin/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/maykel-kevin/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/maykel-
-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmbi.pfb><C:/User
-s/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb>
-<C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/z
-tmri.pfb>
-Output written on main.pdf (77 pages, 2123023 bytes).
+ 74i,13n,117p,1991b,3342s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx
+/NewTXMI.pfb><C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/txfonts/t1xtt.pfb><C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/newtx/txexs.pfb><C:/Users/maykel-kevin/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/maykel-kevin/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/maykel-kevin/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/maykel-ke
+vin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/m
+aykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
+Output written on main.pdf (41 pages, 2035245 bytes).
 PDF statistics:
- 762 PDF objects out of 1000 (max. 8388607)
- 220 named destinations out of 1000 (max. 500000)
- 257 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 572 PDF objects out of 1000 (max. 8388607)
+ 136 named destinations out of 1000 (max. 500000)
+ 113 words of extra memory for PDF output out of 10000 (max. 10000000)
 
