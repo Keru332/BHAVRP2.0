@@ -16,7 +16,7 @@ import java.util.*;
 
 public class DBSCAN extends AbstractDensity {
     public static DistanceType distance_type = DistanceType.Euclidean;
-    private static Solution solution = new Solution();
+    private Solution solution = new Solution();
     private ArrayList<Cluster> list_clusters;
     private ArrayList<Depot> list_depots;
     private int maxClientsPerDepot;
@@ -121,22 +121,48 @@ public class DBSCAN extends AbstractDensity {
     }
 
 
-    public void assign() throws ProblemException, ClusterException {
+    public void assign() throws ProblemException, ClusterException, AssignmentException {
         visitedCustomers = new HashSet<>();
         assignedCustomers = new HashSet<>();
         expansionQueue = new LinkedList<>();
 
-        for (int i = 0; i < list_depots.size(); i++) {
-            Depot depot = list_depots.get(i);
-            Cluster cluster = list_clusters.get(i);
-            ArrayList<Customer> directNeighbors = getNeighboursDepots(depot);
+            for (int i = 0; i < list_depots.size(); i++) {
+                Depot depot = list_depots.get(i);
+                System.out.println("Analizar deposito: "+ depot.get_id_depot());
+                Cluster cluster = list_clusters.get(i);
+                ArrayList<Customer> directNeighbors = getNeighboursDepots(depot);
 
-            if (directNeighbors.size() >= minimumNumberOfClusterMembers) {
-                expandCluster(depot, directNeighbors, cluster);
-            }else{
-                throw new ClusterException("No se pudieron asignar clientes al deposito, considere aumentar radio o reducir minimo de puntos.");
+                System.out.println("Vecinos deposito: "+ directNeighbors.size());
+
+
+                if (directNeighbors.size() >= minimumNumberOfClusterMembers) {
+                    expandCluster(depot, directNeighbors, cluster);
+                }else{
+                    ArrayList<Integer> list_id_elements = Problem.get_problem().get_list_id_depots();
+                    if (list_id_elements == null || list_id_elements.isEmpty())
+                        throw new AssignmentException("No se encontraron elementos iniciales para los cl�steres.");
+
+                    list_clusters = new ArrayList<>();
+                    for(Integer id : list_id_elements){
+                        Cluster clustr = new Cluster(id, 0.0, new ArrayList<>());
+                        list_clusters.add(clustr);
+                    }
+                    if (list_clusters == null || list_clusters.isEmpty())
+                        throw new ClusterException("No se pudieron inicializar los cl�steres a partir de los elementos proporcionados.");
+
+                    list_customers = new ArrayList<Customer>(Problem.get_problem().get_customers());
+                    if (list_customers.isEmpty())
+                        throw new AssignmentException("La lista de clientes est� vac�a.");
+
+                    list_depots = new ArrayList<Depot>(Problem.get_problem().get_depots());
+
+                    epsilon = epsilon * 1.2;
+                    System.out.println("Epsilon reintegrado");
+                    assign();
+                    break;
+                    //throw new ClusterException("No se pudieron asignar clientes al deposito, considere aumentar radio o reducir minimo de puntos.");
+                }
             }
-        }
     }
 
     private void expandCluster(Depot depot, ArrayList<Customer> customerslist, Cluster cluster)
@@ -158,6 +184,7 @@ public class DBSCAN extends AbstractDensity {
                 continue;
             }
             // entra si no ha sido visitado
+            System.out.println("Vecinos asignado: "+ assignedCustomers.contains(current));
             if (!visitedCustomers.contains(current)) {
                 visitedCustomers.add(current);
                 assignCustomerToCluster(current, cluster, assignedCustomers);
@@ -223,6 +250,13 @@ public class DBSCAN extends AbstractDensity {
             throw new AssignmentException("Error al agregar en lista de no asignados.", e);
         }
         solution.get_clusters().clear();
+
+        int indx = -1;
+        for(int i = 0; i < list_clusters.size(); i++)
+            if(list_clusters.get(i).get_items_of_cluster().size() == 0)
+                indx = i;
+        if(indx > -1)
+            list_clusters.remove(indx);
         solution.get_clusters().addAll(list_clusters);
         solution.get_unassigned_items().addAll(unnasigned_items);
         return solution;

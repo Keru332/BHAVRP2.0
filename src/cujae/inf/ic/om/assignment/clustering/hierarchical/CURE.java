@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class CURE extends AbstractHierarchical {
 	public static DistanceType distance_type = DistanceType.Euclidean;
-	private static Solution solution = new Solution();
+	private Solution solution = new Solution();
 
     private ArrayList<CureCluster> list_clusters;
 	private ArrayList<CureCluster> list_clustersDepot;

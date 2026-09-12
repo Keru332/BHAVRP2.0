@@ -56,7 +56,7 @@ public class Mainp {
 		// Acepta extensiones: .dat, .txt, .csv, .json, .xml
 		// Si no se especifica extensi�n (ej: "p1"), se asume que es un archivo tipo .dat
 		//String instance_path = "instances//large_instance"; // error inducido
-		String instance_path = "instances//p9";
+		String instance_path = "instances//r1000.txt";
 		
 		// --- N�mero de ejecuciones para cada heur�stica ---
 		int number_of_executions = 1;
@@ -76,8 +76,8 @@ public class Mainp {
 
 		// Configuraci�n de la exportaci�n
 		String export_format = "txt"; // Opciones: csv, json, xls, txt, xml
-		boolean export_solution = true; 		// true = exportar soluci�n, false = exportar m�tricas
-		boolean export_metrics_summary = false; // true = exportar resumen .csv para an�lisis en KEEL
+		boolean export_solution = false; 		// true = exportar soluci�n, false = exportar m�tricas
+		boolean export_metrics_summary = true; // true = exportar resumen .csv para an�lisis en KEEL
 		boolean export_visualization = false;   // true = exportar formato visualizable con VRPlotLIB
 		
 		boolean compare_large_vs_regular = false;
@@ -106,7 +106,7 @@ public class Mainp {
 				}
 
 				// --- Selecci�n individual de la heur�stica a ejecutar ---
-				int j = 9;
+				int j = 8;
 				EAssignmentType heuristic;
 
 				switch (j) {
@@ -120,6 +120,7 @@ public class Mainp {
 				case 7: heuristic = EAssignmentType.CLARA; break;
                 case 8: heuristic = EAssignmentType.CURE; break;
                 case 9: heuristic = EAssignmentType.DBSCAN; break;
+				case 10: heuristic = EAssignmentType.HDBSCAN; break;
 				default: throw new IllegalArgumentException("�ndice de heur�stica no v�lido: " + j);
 				}
 
@@ -205,13 +206,38 @@ public class Mainp {
 			MetricException, FactoryCreationException, ExportException, 
 			CostMatrixException, ClusterException {
 
-		String[] instance_ids = {"p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10"};
+		//String[] instance_ids = {"r10000.txt"};
+		//String[] instance_ids = {"p10"};
+		/*String[] instance_ids = {"p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12",
+				"p13", "p14", "p15", "p16", "p17", "p18", "p19", "p20", "p21","p22","p23",
+				"pr1", "pr2", "pr3", "pr4", "pr5", "pr6", "pr7", "pr8", "pr9", "pr10",
+				"gj1", "gj2", "gj3", "gj4", "gj5", "gj6", "gj7", "gj8", "gj9", "gj10","gj11"};*/
+		String[] instance_ids = {"p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12",
+				"p15", "p18","p21",
+				"pr1", "pr2", "pr3", "pr4", "pr5", "pr6", "pr7", "pr8", "pr9", "pr10",
+				"gj1", "gj2", "gj3", "gj4", "gj5", "gj6", "gj7", "gj8", "gj9", "gj10","gj11"};
+		//String[] instance_ids = {"pr1", "pr2", "pr3", "pr4", "pr5", "pr6", "pr7", "pr8", "pr9", "pr10"};
+		//String[] instance_ids = {"gj1", "gj2", "gj3", "gj4", "gj5", "gj6", "gj7", "gj8", "gj9", "gj10","gj11"};
 		String base_path = "instances//";
 
 		EAssignmentType[] selected_heuristics = new EAssignmentType[] {
 				EAssignmentType.BestCyclicAssignment,
+				EAssignmentType.CLARA,
+				EAssignmentType.CURE,
+				EAssignmentType.CoefficientPropagation,
+				EAssignmentType.CyclicAssignment,
+				EAssignmentType.DBSCAN,
 				EAssignmentType.Farthest_First,
+				EAssignmentType.HDBSCAN,
+				EAssignmentType.KMEANS,
+				EAssignmentType.Sweep,
+				//EAssignmentType.RandomSequentialCyclic,
+				EAssignmentType.Parallel,
+				EAssignmentType.PAM,
+				EAssignmentType.BestNearest,
+				//EAssignmentType.SequentialCyclic,
 				EAssignmentType.NearestByCustomer,
+				EAssignmentType.NearestByDepot,
 				EAssignmentType.RandomByElement,
 				EAssignmentType.Simplified,
 				EAssignmentType.ThreeCriteriaClustering,
@@ -225,6 +251,7 @@ public class Mainp {
 
 		for (EMetricType metric : metrics)
 			results.put(metric, new LinkedHashMap<String, Map<String, Double>>());
+
 
 		long start_execution_experiment = System.currentTimeMillis();
 
@@ -346,8 +373,10 @@ public class Mainp {
 				{
 					Map<String, Map<String, Double>> per_instance = results.get(metric);
 					per_instance.putIfAbsent(instance_id, new LinkedHashMap<String, Double>());
-					per_instance.get(instance_id).put(heuristic.name(), avg_metrics.get(metric) / 20.0);
+					per_instance.get(instance_id).put(heuristic.name(), avg_metrics.get(metric)  /*/20 */);
 				}
+
+				System.out.println("EL AVERAGE TIENE: "+avg_metrics.entrySet().size());
 				double avg_time = Arrays.stream(execution_times).sum() / 20.0;
 				instance_times.put(heuristic.name(), avg_time);
 			}
@@ -360,6 +389,7 @@ public class Mainp {
 		{
 			String path = "results/csv/keel/" + entry.getKey().name().toLowerCase() + ".csv";
 			exporter.export_metrics_by_metric(entry.getKey(), entry.getValue(), path);
+			System.out.println("MAYKEL PRUEBA: "+entry.getKey()+": "+entry.getValue());
 		}
 		exporter.export_metrics_by_metric(null, time_results, "results/csv/keel/time.csv");
 

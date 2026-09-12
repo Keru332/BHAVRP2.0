@@ -178,5 +178,12 @@ public enum EAssignmentType {
 		{
 			return cujae.inf.ic.om.assignment.clustering.density.DBSCAN.class.getName();
 		}
+	},
+	HDBSCAN {
+		@Override
+		public String toString()
+		{
+			return cujae.inf.ic.om.assignment.clustering.density.HDBSCAN.class.getName();
+		}
 	}
 }
