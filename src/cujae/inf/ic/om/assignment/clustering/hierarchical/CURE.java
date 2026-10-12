@@ -16,7 +16,6 @@ import cujae.inf.ic.om.service.OSRMService;
 import java.util.ArrayList;
 
 public class CURE extends AbstractHierarchical {
-	public static DistanceType distance_type = DistanceType.Euclidean;
 	private Solution solution = new Solution();
 
     private ArrayList<CureCluster> list_clusters;
@@ -185,9 +184,25 @@ public class CURE extends AbstractHierarchical {
 	}
 
 	public static double distance(Location loc1, Location loc2) {
-		double dx = loc1.get_axis_x() - loc2.get_axis_x();
-		double dy = loc1.get_axis_y() - loc2.get_axis_y();
-		return Math.sqrt(dx * dx + dy * dy);
+		double result = -1;
+
+		try{
+			switch (distance_type){
+
+				case Euclidean -> {
+					double dx = loc1.get_axis_x() - loc2.get_axis_x();
+					double dy = loc1.get_axis_y() - loc2.get_axis_y();
+					result = Math.sqrt(dx * dx + dy * dy);
+				}
+				case Real -> {
+					result = OSRMService.calculate_distance(loc1.get_axis_x(), loc1.get_axis_y(), loc2.get_axis_x(), loc2.get_axis_y());
+				}
+			}
+		} catch (Exception e) {
+			throw new RuntimeException("Error en OSRM");
+		}
+
+		return result;
 	}
 
 

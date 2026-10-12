@@ -62,3 +62,35 @@
 [62] \parencite{shafferModifiedSequentiallyRejective1986}
 [63] \parencite{wilcoxonIndividualComparisonsRanking1945}
 [64] \parencite{gillettMultiterminalVehicledispatchAlgorithm1976}
+
+pip install pandas numpy matplotlib scipy
+
+\begin{algorithm}
+\caption{Asignación de clústeres a depósitos.}
+\begin{algorithmic}[1]
+\Require Conjunto de clústeres \(C = \{C_1, C_2, \dots, C_k\}\), Conjunto de depósitos \(D = \{d_1, d_2, \dots, d_m\}\)
+\Ensure Asignación de clústeres a depósitos
+
+\For{cada clúster \(C_i\) en \(C\)}
+    \State \(D(C_i) \gets\) suma de demandas de clientes en \(C_i\)
+    \For{cada depósito \(d_j\) en \(D\)}
+        \State \(dist(C_i, d_j) \gets\) distancia euclidiana entre centroide(\(C_i\)) y coordenadas(\(d_j\))
+    \EndFor
+    \State Ordenar \(D\) por \(dist(C_i, d_j)\) ascendente
+    \State \(asignado \gets \text{falso}\)
+    \For{cada depósito \(d_j\) en \(D\) ordenado}
+        \If{\(Q_{restante}(d_j) \geq D(C_i)\)}
+            \State asignar \(C_i\) a \(d_j\)
+            \State \(Q_{restante}(d_j) \gets Q_{restante}(d_j) - D(C_i)\)
+            \State \(asignado \gets \text{verdadero}\)
+            \State \textbf{romper}
+        \EndIf
+    \EndFor
+    \If{no \(asignado\)}
+        \State marcar \(C_i\) como no asignable
+    \EndIf
+\EndFor
+\State \Return asignación
+\end{algorithmic}
+\end{algorithm}
+

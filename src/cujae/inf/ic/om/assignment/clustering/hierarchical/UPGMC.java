@@ -23,7 +23,6 @@ import cujae.inf.ic.om.matrix.RowCol;
 import java.util.ArrayList;
 
 public class UPGMC extends AbstractHierarchical {
-	public static DistanceType distance_type = DistanceType.Euclidean;
 	private static Solution solution = new Solution();
 	
 	private ArrayList<Integer> list_id_elements;

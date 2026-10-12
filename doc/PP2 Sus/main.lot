@@ -1,3 +1,20 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces Comparaci\'on entre las herramientas que resuelven el MDVRP.}}{22}{table.caption.12}%
+\contentsline {table}{\numberline {1.1}{\ignorespaces Comparación entre las herramientas que resuelven el MDVRP.}}{22}{table.caption.12}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Tabla comparativa de algoritmos de agrupamiento basados en densidad.}}{31}{table.caption.17}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Comparación entre DBSCAN y HDBSCAN.}}{32}{table.caption.18}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Clases implementadas para la incorporaci\'on de los nuevos algoritmos de agrupamiento.}}{41}{table.caption.21}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Pruebas unitarias de caja negra del algoritmo HDBSCAN.}}{55}{table.caption.28}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Descripci\'on de las instancias.}}{57}{table.caption.29}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Descripci\'on de las nuevas instancias.}}{58}{table.caption.30}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Resultados de la prueba de Friedman NxN.}}{60}{table.caption.31}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Resumen de las m\'etricas incorporadas en BHAVRP.}}{64}{table.caption.32}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Correlaci\'on entre m\'etricas internas y costo total (heur\'istica SaveParallel).}}{65}{table.caption.33}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Correlaci\'on entre m\'etricas internas y costo total (heur\'istica SaveSequential).}}{65}{table.caption.34}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces Correlaci\'on entre m\'etricas internas y costo total (heur\'istica Sweep).}}{66}{table.caption.35}%
+\contentsline {table}{\numberline {3.9}{\ignorespaces Correlaci\'on entre m\'etricas internas y costo total (heur\'istica CMT).}}{66}{table.caption.36}%
+\contentsline {table}{\numberline {3.10}{\ignorespaces Correlaci\'on entre m\'etricas internas y costo total (heur\'istica MoleJameson).}}{67}{table.caption.37}%
+\contentsline {table}{\numberline {3.11}{\ignorespaces Correlaci\'on entre m\'etricas internas y costo total (heur\'istica NearestNeighborWithRLC).}}{67}{table.caption.38}%
+\contentsline {table}{\numberline {3.12}{\ignorespaces Correlaci\'on entre m\'etricas internas y costo total (heur\'istica NearestNeighborWithRLC con RLC=1).}}{68}{table.caption.39}%

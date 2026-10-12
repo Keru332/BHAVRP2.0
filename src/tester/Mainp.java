@@ -36,16 +36,13 @@ import cujae.inf.ic.om.problem.input.Problem;
 import cujae.inf.ic.om.problem.output.Solution;
 
 import cujae.inf.ic.om.matrix.NumericMatrix;
+import tester.statical.Configuration;
+import tester.statical.Friedman;
+import tester.statical.Wilcoxon;
 
 import java.io.File;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Mainp {
 	
@@ -56,7 +53,7 @@ public class Mainp {
 		// Acepta extensiones: .dat, .txt, .csv, .json, .xml
 		// Si no se especifica extensi�n (ej: "p1"), se asume que es un archivo tipo .dat
 		//String instance_path = "instances//large_instance"; // error inducido
-		String instance_path = "instances//r1000.txt";
+		String instance_path = "instances//rp1";
 		
 		// --- N�mero de ejecuciones para cada heur�stica ---
 		int number_of_executions = 1;
@@ -77,8 +74,8 @@ public class Mainp {
 		// Configuraci�n de la exportaci�n
 		String export_format = "txt"; // Opciones: csv, json, xls, txt, xml
 		boolean export_solution = false; 		// true = exportar soluci�n, false = exportar m�tricas
-		boolean export_metrics_summary = true; // true = exportar resumen .csv para an�lisis en KEEL
-		boolean export_visualization = false;   // true = exportar formato visualizable con VRPlotLIB
+		boolean export_metrics_summary = false; // true = exportar resumen .csv para an�lisis en KEEL
+		boolean export_visualization = true;   // true = exportar formato visualizable con VRPlotLIB
 		
 		boolean compare_large_vs_regular = false;
 		if (compare_large_vs_regular) 
@@ -206,7 +203,12 @@ public class Mainp {
 			MetricException, FactoryCreationException, ExportException, 
 			CostMatrixException, ClusterException {
 
-		//String[] instance_ids = {"r10000.txt"};
+		/*String[] instance_ids = {"rp1", "rp2", "rp3", "rp4", "rp5", "rp6", "rp7", "rp8", "rp9", "rp10", "rp11", "rp12",
+				"rp13", "rp14", "rp15", "rp16", "rp17", "rp18", "rp19", "rp20", "rp21", "rp22", "rp23",
+				"rpr1", "rpr2", "rpr3", "rpr4", "rpr5", "rpr6", "rpr7", "rpr8", "rpr9", "rpr10",
+				"rgj1", "rgj2", "rgj3", "rgj4", "rgj5", "rgj6", "rgj7", "rgj8", "rgj9", "rgj10","rgj11"};*/
+		//String[] instance_ids = {"rpr7"};
+		//String[] instance_ids = {"r01.txt"};
 		//String[] instance_ids = {"p10"};
 		/*String[] instance_ids = {"p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12",
 				"p13", "p14", "p15", "p16", "p17", "p18", "p19", "p20", "p21","p22","p23",
@@ -221,27 +223,27 @@ public class Mainp {
 		String base_path = "instances//";
 
 		EAssignmentType[] selected_heuristics = new EAssignmentType[] {
-				EAssignmentType.BestCyclicAssignment,
-				EAssignmentType.CLARA,
-				EAssignmentType.CURE,
-				EAssignmentType.CoefficientPropagation,
-				EAssignmentType.CyclicAssignment,
+				//EAssignmentType.BestCyclicAssignment,
+				//EAssignmentType.CLARA,
+				//EAssignmentType.CURE,
+				//EAssignmentType.CoefficientPropagation,
+				///EAssignmentType.CyclicAssignment,
 				EAssignmentType.DBSCAN,
-				EAssignmentType.Farthest_First,
+				//EAssignmentType.Farthest_First,
 				EAssignmentType.HDBSCAN,
-				EAssignmentType.KMEANS,
-				EAssignmentType.Sweep,
+				//EAssignmentType.KMEANS,
+				//EAssignmentType.Sweep,
 				//EAssignmentType.RandomSequentialCyclic,
-				EAssignmentType.Parallel,
-				EAssignmentType.PAM,
-				EAssignmentType.BestNearest,
+				//EAssignmentType.Parallel,
+				//EAssignmentType.PAM,
+				//EAssignmentType.BestNearest,
 				//EAssignmentType.SequentialCyclic,
-				EAssignmentType.NearestByCustomer,
-				EAssignmentType.NearestByDepot,
-				EAssignmentType.RandomByElement,
-				EAssignmentType.Simplified,
-				EAssignmentType.ThreeCriteriaClustering,
-				EAssignmentType.UPGMC
+				//EAssignmentType.NearestByCustomer,
+				//EAssignmentType.NearestByDepot,
+				//EAssignmentType.RandomByElement,
+				//EAssignmentType.Simplified,
+				//EAssignmentType.ThreeCriteriaClustering,
+				//EAssignmentType.UPGMC,
 		};
 
 		Map<EMetricType, Map<String, Map<String, Double>>> results = new HashMap<>();
@@ -324,6 +326,7 @@ public class Mainp {
 				{
 					try {
 						long start = System.currentTimeMillis();
+
 						Controller.get_controller().execute_assignment(heuristic);
 						long end = System.currentTimeMillis();
 
@@ -384,6 +387,108 @@ public class Mainp {
 			Problem.get_problem().clean_info_problem();
 		}
 		CSVExporter exporter = new CSVExporter();
+
+
+
+		if (selected_heuristics.length > 2) {
+			for (Map.Entry<EMetricType, Map<String, Map<String, Double>>> entry : results.entrySet())
+			{
+				Configuration.setPath("results/csv/keel/Friedman/" + entry.getKey().name().toLowerCase() + "Friedman.tex");
+				Configuration.setHolm(true);
+				Configuration.setShaffer(true);
+				Configuration.setBergman(true);
+				Configuration.setNemenyi(true);
+				Configuration.setIman(true);
+				Configuration.setNAlgorithms(selected_heuristics.length);
+				Configuration.setNDatasets(instance_ids.length);
+
+				List<EMetricType> selected_metrics = Arrays.asList(
+						EMetricType.SSB,
+						EMetricType.CalinskiHarabaszIndex,
+						EMetricType.DunnIndex,
+						EMetricType.SilhouetteCoefficient
+				);
+
+				if(selected_metrics.contains(entry.getKey()))
+					Configuration.setObjective(1);
+				else
+					Configuration.setObjective(0);
+
+				String[] algoritmo= new String[selected_heuristics.length];
+				double[][] data = new double[selected_heuristics.length][instance_ids.length];
+
+				for (int i = 0; i < selected_heuristics.length; i++) {
+					algoritmo[i] = selected_heuristics[i].name();
+				}
+
+				Set<Map.Entry<String, Map<String, Double>>> value = entry.getValue().entrySet();
+
+				Object[] intacias = value.toArray();
+				for (int j = 0; j < intacias.length; j++) {
+					Object o = intacias[j];
+					Map.Entry<String, Map<String, Double>> ou = (Map.Entry<String, Map<String, Double>>) o;
+
+					Map<String, Double> valor = ou.getValue();
+					for (int i = 0; i < algoritmo.length; i++) {
+						String s = algoritmo[i];
+						data[i][j] = AbstractTools.truncate_double(valor.get(s), 4);
+					}
+
+					Friedman.doFriedman(data,algoritmo);
+
+				}
+
+
+
+
+				//Friedman.;
+			}
+		} else if (selected_heuristics.length == 2) {
+			for (Map.Entry<EMetricType, Map<String, Map<String, Double>>> entry : results.entrySet())
+			{
+				Configuration.setPath("results/csv/keel/Wilcoxon/"+ selected_heuristics[0].name() +"vs"+ selected_heuristics[1].name()+"_" + entry.getKey().name().toLowerCase() + "_Wilcoxon.tex");
+				//Configuration.setNAlgorithms(selected_heuristics.length);
+				//Configuration.setNDatasets(instance_ids.length);
+
+				List<EMetricType> selected_metrics = Arrays.asList(
+						EMetricType.SSB,
+						EMetricType.CalinskiHarabaszIndex,
+						EMetricType.DunnIndex,
+						EMetricType.SilhouetteCoefficient
+				);
+
+				if(selected_metrics.contains(entry.getKey()))
+					Configuration.setObjective(1);
+				else
+					Configuration.setObjective(0);
+
+				String[] algoritmo= new String[selected_heuristics.length];
+				double[][] data = new double[selected_heuristics.length][instance_ids.length];
+
+				for (int i = 0; i < selected_heuristics.length; i++) {
+					algoritmo[i] = selected_heuristics[i].name();
+				}
+
+				Set<Map.Entry<String, Map<String, Double>>> value = entry.getValue().entrySet();
+
+				Object[] intacias = value.toArray();
+				for (int j = 0; j < intacias.length; j++) {
+					Object o = intacias[j];
+					Map.Entry<String, Map<String, Double>> ou = (Map.Entry<String, Map<String, Double>>) o;
+
+					Map<String, Double> valor = ou.getValue();
+					for (int i = 0; i < algoritmo.length; i++) {
+						String s = algoritmo[i];
+						data[i][j] = AbstractTools.truncate_double(valor.get(s), 4);
+					}
+
+					Wilcoxon.doWilcoxon(data,algoritmo);
+
+
+				}
+			}
+			
+		}
 
 		for (Map.Entry<EMetricType, Map<String, Map<String, Double>>> entry : results.entrySet()) 
 		{

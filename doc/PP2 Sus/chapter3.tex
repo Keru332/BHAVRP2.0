@@ -1,0 +1,472 @@
+%==============================================================
+%                    CAPITULO 3
+%==============================================================
+\chapter{An\'alisis experimental}
+
+En este cap\'itulo se presentan las pruebas funcionales y unitarias para las funcionalidades principales del algoritmo implementado, adem\'as de un estudio comparativo entre los resultados obtenidos por las heurísticas de construcción de BHCVRP usando los algoritmos de agrupamiento de la biblioteca y el nuevo algoritmo propuesto. Tambi\'en se realiza un an\'alisis de correlaci\'on entre las m\'etricas internas de BHAVRP y la calidad de las rutas obtenidas, a modo de validaci\'on complementaria.
+
+Todos los experimentos se llevan a cabo en un entorno controlado, utilizando un ordenador con las siguientes especificaciones: procesador AMD Ryzen 5 5500U with Radeon Graphics de 2.10 GHz, 8 GB de memoria RAM y sistema operativo Windows 11 Home de 64 bits versión 25H2, usando el IDE IntelliJ IDEA con Java en su versi\'on 23.
+
+\section{Pruebas funcionales}
+
+Con el prop\'osito de garantizar la correcta integraci\'on y funcionamiento del nuevo algoritmo implementado en BHAVRP, se desarrolla un conjunto de pruebas unitarias usando el componente JUnit para validar las funciones esenciales del algoritmo HDBSCAN. Se prueban los m\'etodos \textit{distance} y \textit{getNeighbours} heredados de la clase AbstractDensity y el método propio del algoritmo \textit{findNearestDepotIndice}. Estas pruebas funcionales se realizan previamente al an\'alisis de calidad y rendimiento del algoritmo sobre instancias.
+
+\subsection{Pruebas del m\'etodo \textit{distance} heredado de AbstractDensity}
+
+El m\'etodo \textit{distance} de la clase AbstractDensity es fundamental para HDBSCAN, ya que calcula la distancia euclidiana entre dos puntos geogr\'aficos representados por objetos de la clase Location. Este m\'etodo se utiliza tanto en el c\'alculo de las distancias al n\'ucleo como en la construcci\'on del \'arbol de expansi\'on m\'inima. Para asegurar su correcto funcionamiento se dise\~nan pruebas unitarias que verifican:
+
+\begin{itemize}
+  \item C\'alculo correcto de distancias: se comparan distancias conocidas, como la distancia entre (0,0) y (3,4) que debe ser 5.0 por la m\'etrica euclidiana.
+  \item Distancia a s\'i mismo: se verifica que la distancia de un punto a s\'i mismo sea cero, lo cual es una propiedad b\'asica de cualquier m\'etrica.
+  \item Manejo de coordenadas negativas: se prueba con puntos que incluyen coordenadas negativas para asegurar que el c\'alculo no se ve afectado por el signo.
+  \item Simetr\'ia: se comprueba que la distancia entre A y B sea igual a la distancia entre B y A, propiedad necesaria para cualquier funci\'on de distancia.
+  \item Consistencia del tipo de distancia: se verifica que el tipo de distancia por defecto sea la euclidiana.
+\end{itemize}
+
+En la Figura~\ref{fig:prueba_distance_hdbscan} se puede apreciar el resultado proporcionado por el IDE a esta prueba.
+
+\figura{fig19_prueba_distance_hdbscan.png}{0.85\textwidth}{Resultados de las pruebas del m\'etodo distance para HDBSCAN.}{fig:prueba_distance_hdbscan}
+
+\subsection{Pruebas del m\'etodo \textit{getNeighbours} de la clase AbstractDensity}
+
+El m\'etodo \textit{getNeighbours} es fundamental para el funcionamiento de HDBSCAN, ya que identifica los vecinos de un cliente dentro de un radio \(\varepsilon\) epsilon. Esta operaci\'on se utiliza durante el c\'alculo de las distancias al n\'ucleo y en la fase de expansi\'on de cl\'usteres. El m\'etodo recibe un cliente de entrada, la lista completa de clientes y el radio de vecindad, y retorna una lista con todos los clientes cuya distancia al cliente de entrada es menor o igual a \(\varepsilon\). Las pruebas unitarias dise\~nadas verifican:
+
+\begin{itemize}
+  \item Vecindad b\'asica: se comprueba que para un cliente con vecinos dentro del radio, el m\'etodo retorne exactamente los clientes esperados.
+  \item Exclusi\'on del propio cliente: se verifica que el cliente de entrada no se incluya a s\'i mismo en la lista de vecinos, salvo que la implementaci\'on lo contemple expl\'icitamente.
+  \item Vecindad vac\'ia: se prueba con un cliente aislado y un radio peque\~no, asegurando que la lista retornada est\'e vac\'ia pero no sea nula.
+  \item L\'imite del radio: se comprueba que un cliente cuya distancia es exactamente igual a \(\varepsilon\) se incluya como vecino con condici\'on \(\leq\).
+  \item Radio cero: se verifica que con \(\varepsilon = 0\), solo se incluyan los clientes con coordenadas id\'enticas al cliente de entrada.
+  \item Manejo de coordenadas negativas: se prueba con clientes en el segundo y tercer cuadrante del plano cartesiano.
+\end{itemize}
+
+En la Figura~\ref{fig:prueba_getNeighbours} se puede apreciar el resultado proporcionado por el IDE a esta prueba.
+
+\figura{fig23_prueba_getNeighbours.png}{0.85\textwidth}{Resultados de las pruebas del m\'etodo getNeighbours.}{fig:prueba_getNeighbours}
+
+\subsection{Pruebas del m\'etodo \textit{findNearestDepotIndice} de la clase HDBSCAN}
+
+El m\'etodo \textit{findNearestDepotIndice} construye una cola de prioridad con los \'indices de los dep\'ositos ordenados de menor a mayor distancia respecto a un cliente dado. Esta operaci\'on es clave en la fase de reasignaci\'on individual, ya que permite seleccionar eficientemente el dep\'osito m\'as cercano con capacidad disponible. Las pruebas unitarias dise\~nadas verifican:
+
+\begin{itemize}
+  \item Ordenamiento correcto: se comprueba que al extraer los elementos de la cola, los \'indices correspondan a los dep\'ositos en orden ascendente de distancia al cliente.
+  \item Tama\~no de la cola: se verifica que la cola contenga exactamente tantos elementos como dep\'ositos haya en la instancia.
+  \item Dep\'osito m\'as cercano: se comprueba que el primer elemento extra\'ido corresponda al \'indice del dep\'osito m\'as cercano al cliente.
+  \item Dep\'osito m\'as lejano: se verifica que el \'ultimo elemento de la cola sea el \'indice del dep\'osito m\'as alejado.
+  \item Cliente en coordenadas de un dep\'osito: se prueba con un cliente cuya ubicaci\'on coincide exactamente con un dep\'osito, verificando que ese dep\'osito sea el primero en la cola.
+  \item Consistencia entre llamadas: se comprueba que dos llamadas consecutivas con el mismo cliente retornen colas con el mismo orden.
+  \item Manejo de coordenadas negativas: se prueba con clientes y dep\'ositos en cuadrantes negativos.
+\end{itemize}
+
+En la Figura~\ref{fig:prueba_findNearestDepot} se puede apreciar el resultado proporcionado por el IDE a esta prueba.
+
+\figura{fig24_prueba_findNearestDepot.png}{0.85\textwidth}{Resultados de las pruebas del m\'etodo findNearestDepotIndice.}{fig:prueba_findNearestDepot}
+
+\section{Pruebas unitarias de caja negra}
+
+Adem\'as de las pruebas funcionales de los m\'etodos esenciales, se realizaron pruebas de caja negra para verificar el comportamiento global del algoritmo HDBSCAN en escenarios extremos, asegurando que la adaptaci\'on al MDVRP respeta las restricciones de capacidad y asignaci\'on.
+
+En la Tabla~\ref{tab:pruebas_hdbscan}, HDBSCAN demuestra que su mecanismo de expansi\'on controlada desde los dep\'ositos, junto con la reasignaci\'on final de clientes no asignados, logra respetar los l\'imites de capacidad incluso cuando la demanda de los cl\'usteres supera la capacidad disponible. La capacidad de HDBSCAN para identificar puntos de ruido permite tratar de forma diferenciada a los clientes at\'ipicos, mejorando la calidad estructural de las asignaciones. Estos resultados confirman que la adaptaci\'on cumple con las reglas de negocio del MDVRP.
+
+\clearpage
+\begin{landscape}
+\begin{table}[htbp]
+\centering
+\caption{Pruebas unitarias de caja negra del algoritmo HDBSCAN.}
+\label{tab:pruebas_hdbscan}
+\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}cp{2.8cm}p{2.2cm}p{3.2cm}p{5cm}p{5cm}@{}}
+\toprule
+\textbf{No} & \textbf{Descripci\'on} & \textbf{Caso prueba} & \textbf{Juego de Datos} & \textbf{Resultados esperados} & \textbf{Resultados Reales} \\
+\midrule
+1 & Asignaci\'on b\'asica con dos grupos bien separados. & Asignaci\'on b\'asica & 2 dep\'ositos, 6 clientes (3 por dep\'osito). & Cl\'usteres [1,2,3] y [4,5,6]. Sin no asignados. & Cl\'usteres [1,2,3] y [4,5,6]. Sin no asignados. \\
+2 & Detecci\'on y reasignaci\'on de ruido. & Detecci\'on de ruido & 7 clientes, uno aislado en (50,50). & Grupos [1,2,3] y [4,5,6]. Cliente 7 reasignado. & Grupos [1,2,3] y [4,5,6]. Cliente 7 reasignado. \\
+3 & Respeto a la capacidad de los dep\'ositos. & Capacidad limitada & 2 dep\'ositos cap. 15, 6 clientes demanda 10 (total 60 $>$ 30). & Se asignan hasta 30 unidades. Resto no asignados. & Se asignan hasta 30 unidades. Resto no asignados. \\
+4 & Un solo grupo denso de clientes. & Un solo cl\'uster & 5 clientes cerca del dep\'osito 1; dep\'osito 2 lejos. & 1 cl\'uster con 5 clientes. Dep\'osito 2 sin asignaci\'on. & 1 cl\'uster con 5 clientes. Dep\'osito 2 sin asignaci\'on. \\
+5 & Sin estructura de densidad clara. & Todos at\'ipicos & 5 clientes dispersos sin agrupaciones. & Finaliza sin errores. Asignaci\'on m\'inima o nula. & Finaliza sin errores. Asignaci\'on m\'inima o nula. \\
+6 & Configuraci\'on din\'amica de \texttt{minPoints}. & C\'alculo de \texttt{minPoints} & 6 clientes. & \texttt{minPoints}=3, \texttt{minClusterSize}=2. & \texttt{minPoints}=3, \texttt{minClusterSize}=2. \\
+7 & Excepci\'on sin problema cargado. & Error en los Datos & Sin instancia cargada. & Lanza \texttt{AssignmentException}. & Lanza \texttt{AssignmentException}. \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{landscape}
+\clearpage
+
+\section{Comparaci\'on entre los algoritmos de agrupamiento}
+
+Con el objetivo de analizar el comportamiento y la calidad de las asignaciones generadas por los algoritmos implementados en BHAVRP, se dise\~na un experimento enfocado en instancias utilizadas en trabajos anteriores \parencite{ericramosaragonIncorporacionModuloMetricas2025, aragonBHAVRPBibliotecaHeuristicas2025}. Este experimento busca comparar el rendimiento de cada algoritmo de asignaci\'on en condiciones controladas, evaluando los resultados mediante el conjunto de m\'etricas internas incluidas dentro de la biblioteca. El estudio experimental se lleva a cabo empleando las 33 instancias originalmente introducidas por \parencite{Cordeau2012} en su trabajo sobre el MDVRP. Estas instancias tienen amplio reconocimiento en el \'ambito cient\'ifico de la optimizaci\'on de rutas. La Tabla~\ref{tab:instancias_hdbscan} detalla, para cada instancia del problema, el n\'umero total de clientes, la cantidad de dep\'ositos, la flota de veh\'iculos asignada a cada dep\'osito y su capacidad.
+
+Con el objetivo de fortalecer el an\'alisis experimental, se incorporan 11 instancias adicionales, alcanzando un total de 44 instancias para la evaluaci\'on. Estas instancias provienen de la investigaci\'on realizada en [63], y se detallan en la Tabla~\ref{tab:nuevas_instancias}.
+
+Para el experimento se usaron todoa los algoritmos de BHAVRP junto con el nuevo algoritmo HDBSCAN, excluyendo RandomSequentialCyclic y SequentialCyclic ya que presentan problemas con algunas instancias al generar un solo clúster. Cada algoritmo se ejecuta una sola vez por instancia, utilizando como tipo de distancia aproximada la distancia euclidiana.
+
+\begin{table}[H]
+\centering
+\caption{Descripci\'on de las instancias.}
+\label{tab:instancias_hdbscan}
+\small
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{ID} & \textbf{\shortstack{Total de\\clientes}} & \textbf{\shortstack{Total de\\dep\'ositos}} & \textbf{\shortstack{Total de veh\'iculos\\por dep\'osito}} & \textbf{\shortstack{Capacidad\\de los veh\'iculos}} \\
+\midrule
+p01 & 50 & 4 & 4 & 80 \\
+p02 & 50 & 4 & 2 & 160 \\
+p03 & 75 & 5 & 3 & 140 \\
+p04 & 100 & 2 & 8 & 100 \\
+p05 & 100 & 2 & 5 & 200 \\
+p06 & 100 & 3 & 6 & 100 \\
+p07 & 100 & 4 & 4 & 100 \\
+p08 & 249 & 2 & 14 & 500 \\
+p09 & 249 & 3 & 12 & 500 \\
+p10 & 249 & 4 & 8 & 500 \\
+p11 & 249 & 5 & 6 & 500 \\
+p12, p13, p14 & 80 & 2 & 5 & 60 \\
+p15, p16, p17 & 160 & 4 & 5 & 60 \\
+p18, p19, p20 & 240 & 6 & 5 & 60 \\
+p21, p22, p23 & 360 & 9 & 5 & 60 \\
+pr1 & 48 & 4 & 1 & 200 \\
+pr2 & 96 & 4 & 2 & 195 \\
+pr3 & 144 & 4 & 3 & 190 \\
+pr4 & 192 & 4 & 4 & 185 \\
+pr5 & 240 & 4 & 5 & 180 \\
+pr6 & 288 & 4 & 6 & 175 \\
+pr7 & 72 & 1 & 6 & 200 \\
+pr8 & 144 & 2 & 6 & 190 \\
+pr9 & 216 & 6 & 3 & 180 \\
+pr10 & 288 & 6 & 4 & 170 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Descripci\'on de las nuevas instancias.}
+\label{tab:nuevas_instancias}
+\small
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{ID} & \textbf{\shortstack{Total de\\clientes}} & \textbf{\shortstack{Total de\\dep\'ositos}} & \textbf{\shortstack{Total de veh\'iculos\\por dep\'osito}} & \textbf{\shortstack{Capacidad de los\\veh\'iculos}} \\
+\midrule
+gj1 & 50 & 2 & 2 & 492 \\
+gj2 & 75 & 3 & 3 & 415 \\
+gj3 & 100 & 2 & 2 & 841 \\
+gj4 & 150 & 4 & 4 & 651 \\
+gj5 & 199 & 5 & 5 & 758 \\
+gj6 & 75 & 2 & 2 & 669 \\
+gj7 & 125 & 3 & 3 & 768 \\
+gj8 & 249 & 4 & 4 & 1219 \\
+gj9 & 60 & 2 & 2 & 579 \\
+gj10 & 80 & 3 & 3 & 507 \\
+gj11 & 120 & 5 & 5 & 1000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%Para analizar la calidad de las asignaciones generadas por cada algoritmo, se utilizan todas las m\'etricas de validaci\'on interna incorporadas en BHAVRP. Estas m\'etricas permiten evaluar cuantitativamente aspectos clave como la cohesi\'on y la separaci\'on entre cl\'usteres. En la Tabla~\ref{tab:metricas_hdbscan}, se presentan las m\'etricas a utilizar con sus siglas, el criterio que eval\'uan y una descripci\'on.
+
+\subsection{An\'alisis estad\'istico}
+
+A partir de los experimentos realizados, se decide utilizar la prueba estad\'istica no param\'etrica de Friedman N $\times$ N \parencite{friedmanUseRanksAvoid1937}, la cual posibilita enfrentar por pares todos los algoritmos examinados.
+
+Para la prueba se utilizan las seis heurísticas de construcción implementadas en BHCVRP excluyendo RandomByElement debido a que presentaba errores con varias instancias. Algunas de estas heurísticas requieren de parámetros en su ejecución. A continuación, se presenta las heurística de construcción utilizadas y la configuración de estos parámetro:
+\begin{itemize}
+ \item Heurística del Vecino más Cercano con Lista de Candidatos Restringidos (NN): propone la construcción de una solución insertando al cliente más cercano dentro de la lista de candidatos restringida al último cliente ya insertado. Posee como parámetro el tamaño de la lista de candidatos restringidos (size\_RLC): 3
+ \item Algoritmo de Ahorros en su versión secuencial (SaveSeq): este algoritmo plantea que en una solución dos rutas diferentes pueden ser combinadas formando una nueva ruta. Esta versión del algoritmo propone la construcción de las rutas una a una. Utiliza el parámetro $\lambda$ (parameter\_shape) con valor 1 para la construcción de la matriz de ahorros. 
+ \item Algoritmo de Ahorros en su versión paralela (SaveParall): esta otra versión del algoritmo tiene la misma filosofía, pero trabaja sobre todas las rutas de forma simultánea. Utiliza el parámetro $\lambda$ (parameter\_shape) con valor 1 para la construcción de la matriz de ahorros.
+ \item Heurística de Inserción Secuencial de Mole \& Jameson (MJ): esta heurística de inserción utiliza dos medidas para decidir el próximo cliente a insertar en la solución. Utiliza los parámetros $\lambda$ (c1) con valor 1 que representa el peso del costo directo entre los clientes en la ruta, $\mu$ (c2) con valor 1 que representa el peso del costo desde el depósito hasta el cliente que se está considerando insertar y la forma de seleccionar el primer cliente a insertar en la ruta (select\_customer\_MJ\_type) con valor 1 que significa el más cercano al depósito.
+ \item Heurística de Barrido (Sweep): esta heurística trabaja en dos fases, primero forma los grupos de clientes y luego construyen las rutas para cada grupo.
+ \item Heurística de Inserción en Paralelo de Christofides, Mingozzi y Toth (CMT): esta heurística de inserción opera en dos fases. En la primera fase se determina la cantidad de rutas a utilizar, junto con un cliente para inicializar cada ruta. En la segunda fase se crean dichas rutas y se inserta el resto de los clientes en ellas según el costo de inserción. Utiliza el parámetro $\lambda$ (parameter\_L) con valor 1, que controla el peso del costo de viajar desde el cliente j hasta el cliente i en el cálculo del costo de inserción.
+\end{itemize}
+
+
+En la Tabla~\ref{tab:friedman_hdbscan} se presenta, para cada algoritmo de asignaci\'on, su valor promedio por cada heur\'istica de construcci\'on en todas las instancias. Las celdas en verde reflejan las mejores posiciones, mientras que las celdas en rojo indican los desempe\~nos m\'as bajos.
+
+\clearpage
+	\begin{landscape}
+\begin{table}[H]
+\centering
+\caption{Resultados de la prueba de Friedman NxN.}
+\label{tab:friedman_hdbscan}
+\footnotesize
+\begin{tabular}{@{}lcccccccccc@{}}
+\toprule
+\textbf{Algoritmo} & \textbf{CMT} & \textbf{MoleJameson} & \textbf{NearestNeighborWithRLC} & \textbf{SaveParallel} & \textbf{SaveSequential} & \textbf{Sweep} \\
+\midrule
+    BestCyclicAssignment & 12.2727 & 12.375 & 9.9545 & 12.2955 & 12.4205 & 10.3636 \\
+    BestNearest & 8.5909 & 6.7841 & 6.25  & 8.0341 & 7.8523 & 8.7727 \\
+    CLARA & 11.7727 & 11    & 12.1364 & 11.9545 & 11.9091 & 12.3409 \\
+    CoefficientPropagation & 11.9318 & 12.4318 & 10.1364 & 10.7045 & 12.0455 & 12.1591 \\
+    CURE  & \cellcolor[rgb]{ 0,  .69,  .314}6.0682 & \cellcolor[rgb]{ 0,  .69,  .314}5.7841 & 4.5682 & 6.4091 & 6.5568 & 8.2045 \\
+    CyclicAssignment & 16.2045 & 15.6591 & 14.6591 & 15.8409 & 15.7273 & 15.1591 \\
+    DBSCAN & 11.8409 & 12.3182 & 10.7045 & 10.9545 & 12.4318 & 9.2386 \\
+    Farthest-First & 10.1136 & 9.4659 & 7.2727 & 10.8409 & 9.8864 & 7.9091 \\
+    HDBSCAN & 8.1818 & 8.7955 & 9.5   & 7.5795 & 8.7955 & 10.5227 \\
+    KMEANS & 6.1818 & 8.0795 & 5.2727 & 7.6477 & 8.1818 & 7.4545 \\
+    NearestByCustomer & 6.8636 & 6.6023 & 13.0455 & 7.8409 & 7.1818 & 6.8068 \\
+    NearestByDepot & 13.0455 & 11.9545 & 9.3636 & 13.3977 & 12.4432 & 11.3636 \\
+    PAM   & 11.5682 & 12.4773 & 10.2045 & 11.6364 & 10.9773 & 12.6591 \\
+    Parallel & 7.25  & 6.8523 & 12.7273 & 7.8409 & 7.7159 & \cellcolor[rgb]{ 0,  .69,  .314}6.2727 \\
+    RandomByElement & \cellcolor[rgb]{ 1,  0,  0}19 & \cellcolor[rgb]{ 1,  0,  0}18.9773 & \cellcolor[rgb]{ 1,  0,  0}19 & \cellcolor[rgb]{ 1,  0,  0}19 & \cellcolor[rgb]{ 1,  0,  0}19 & \cellcolor[rgb]{ 1,  0,  0}18.9318 \\
+    Simplified & 7.2727 & 7.6364 & 10.3182 & 7.75  & 6.6818 & 8.4091 \\
+    Sweep & 7.2045 & 6.1477 & 11.0682 & 6.6818 & 6.2614 & 6.5227 \\
+    ThreeCriteriaClustering & 7.9545 & 7.8295 & 9.4659 & 9.1136 & 7.875 & 8.8409 \\
+    UPGMC & 6.6818 & 8.8295 & \cellcolor[rgb]{ 0,  .69,  .314}4.3523 & \cellcolor[rgb]{ 0,  .69,  .314}4.4773 & \cellcolor[rgb]{ 0,  .69,  .314}6.0568 & 8.0682 \\
+\bottomrule
+\end{tabular}
+\end{table}
+	\end{landscape}
+\clearpage
+
+A continuaci\'on, se presenta la interpretaci\'on de los resultados obtenidos en el ranking:
+
+\begin{itemize}
+  \item Entre los mejores algoritmos se posicionan CURE, UPGMC, KMEANS y Sweep lideran el ranking en la mayor\'ia de las heur\'isticas de construcci\'on. CURE obtiene el mejor resultado en heurística como CMT y MoleJameson, mientras que UPGMC es el mejor en NearestNeighborWithRLC, SaveParallel y SaveSequential, mientras que KMEANS y Sweep mantienen posiciones competitivas de forma consistente.
+  
+  \item HDBSCAN obtiene un ranking promedio que lo ubica en una posici\'on intermedia dentro del conjunto de algoritmos evaluados. Sus mejores resultados se dan con SaveParallel y CMT, mientras que su peor desempe\~no ocurre con Sweep. Aunque no alcanza los primeros puestos, HDBSCAN supera consistentemente a DBSCAN en todas las heur\'isticas y muchas de las heurísticas clásicas de asignación, lo cual confirma la mejora que aporta respecto a su predecesor dentro de la misma familia de algoritmos basados en densidad.
+  
+  \item RandomByElement obtiene el peor ranking de forma sistem\'atica, seguido por CyclicAssignment y NearestByDepot. CLARA, BestCyclicAssignment, PAM, CoefficientPropagation y DBSCAN tambi\'en ocupan posiciones desfavorables.
+\end{itemize}
+
+Es importante destacar que HDBSCAN, aunque no sea de los más destacados, presenta un comportamiento s\'olido y consistente en los resultados de las heurísticas de construcción, con un desempe\~no significativamente superior al de DBSCAN y al de los algoritmos con peores resultados. Su principal fortaleza radica en la detecci\'on y manejo del ruido.
+
+Una vez obtenidos los rankings promedio de Friedman, se aplicaron los procedimientos \textit{post-hoc} de Bergmann \parencite{bergmannImprovementsGeneralMultiple1988}, Holm \parencite{holmSimpleSequentiallyRejective1979} y Shaffer \parencite{shafferModifiedSequentiallyRejective1986} para controlar la tasa de error familiar. La prueba de Friedman arroj\'o un estad\'istico $\chi^2 = 313.15$ con 18 grados de libertad y un valor $p = 1.55 \times 10^{-10}$, lo que confirma la existencia de diferencias estad\'isticamente significativas entre los algoritmos.
+
+Los resultados del an\'alisis \textit{post-hoc} permiten extraer las siguientes conclusiones sobre el algoritmo HDBSCAN:
+
+\begin{itemize}
+  \item Es significativamente mejor que RandomByElement con ($p = 0$), lo cual confirma que las asignaciones generadas por HDBSCAN producen rutas de mejor calidad que las del algoritmo aleatorio.
+  \item Es significativamente mejor que DBSCAN con ($p = 0.0049$), demostrando que la evoluci\'on jer\'arquica basada en estabilidad supera al DBSCAN cl\'asico en el contexto de la asignaci\'on del MDVRP.
+  \item Es significativamente mejor que NearestByDepot con ($p = 0.000001$), superando a la heur\'istica de asignaci\'on por dep\'osito m\'as cercano.
+  \item Es significativamente mejor que PAM y CLARA con ($p = 0.00072$ y $p = 0.00027$ respectivamente), superando a los algoritmos particionales cl\'asicos.
+  \item UPGMC es significativamente mejor que HDBSCAN ($p = 0.0097$), lo cual es consistente con el ranking promedio.
+  \item No se encontraron diferencias estad\'isticamente significativas con CURE, KMEANS, BestNearest y Sweep, lo que indica que HDBSCAN es competitivo con los mejores algoritmos en t\'erminos de calidad de rutas, aunque su promedio es ligeramente inferior.
+\end{itemize}
+
+En s\'intesis, HDBSCAN demuestra ser un algoritmo que aporta mejoras significativas respecto a DBSCAN y a las heur\'isticas cl\'asicas, aunque no supera a los mejores algoritmos del estado de la biblioteca como CURE y UPGMC en el ranking global. Su principal valor reside en la calidad estructural de las asignaciones y en su capacidad para manejar el ruido, lo cual no siempre se traduce directamente en mejores rutas.
+
+\section{An\'alisis de correlaci\'on entre m\'etricas internas y calidad de rutas}
+
+Con el objetivo de evaluar si existe una relaci\'on entre la calidad estructural de las asignaciones, medida mediante las m\'etricas internas de BHAVRP que se pueden apreciar en la Tabla~\ref{tab:metricas}, y la calidad de las rutas obtenidas en la fase posterior, se realiza un an\'alisis de correlaci\'on complementario. A diferencia del estudio de \parencite{ericramosaragonIncorporacionModuloMetricas2025}, donde no se encontr\'o correlaci\'on significativa entre la suma de las métricas normalizadas, en este estudio se analiza la relaci\'on para cada métrica y heur\'istica de construcci\'on por separado. 
+
+\clearpage
+\begin{landscape}
+\begin{table}[htbp]
+\centering
+\caption{Resumen de las m\'etricas incorporadas en BHAVRP.}
+\label{tab:metricas}
+\small
+\begin{tabular}{@{}lp{1.3cm}p{2cm}p{8.5cm}@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Siglas} & \textbf{?`Qu\'e eval\'ua?} & \textbf{Descripci\'on} \\
+\midrule
+\textbf{Suma de Errores al Cuadrado} & SSE & Cohesi\'on & Suma de las distancias cuadr\'aticas entre cada punto y el centroide de su grupo. \textbf{Minimizar}. \\
+\textbf{\'Indice de Ball-Hall} & BH & Cohesi\'on & Mide la dispersi\'on promedio dentro de los cl\'usteres. \textbf{Minimizar}. \\
+\textbf{Suma de Cuadrados entre Cl\'usteres} & SSB & Separaci\'on & Eval\'ua la separaci\'on entre los grupos considerando la distancia entre sus centroides y el centro global de los datos. \textbf{Maximizar}. \\
+\textbf{\'Indice de Calinski-Harabasz} & CH & Cohesi\'on y Separaci\'on & Relaci\'on entre la dispersi\'on entre cl\'usteres (SSB) y la dispersi\'on dentro de los cl\'usteres (SSE). \textbf{Maximizar}. \\
+\textbf{\'Indice de Dunn} & DI & Cohesi\'on y Separaci\'on & Relaci\'on entre la distancia m\'inima inter-cl\'uster y el di\'ametro m\'aximo intra-cl\'uster (el tama\~no del grupo m\'as grande). \textbf{Maximizar}. \\
+\textbf{\'Indice de Davies-Bouldin} & DB & Cohesi\'on y Separaci\'on & Analiza la relaci\'on entre la dispersi\'on interna de los cl\'usteres y la distancia entre sus centroides. \textbf{Minimizar}. \\
+\textbf{Coeficiente de Silueta} & CS & Cohesi\'on y Separaci\'on & Combina cohesi\'on y separaci\'on para cada punto. \textbf{Maximizar}. \\
+\textbf{\'Indice de Xie-Beni} & XB & Cohesi\'on y Separaci\'on & Penaliza los agrupamientos donde los puntos est\'an alejados de sus centroides y los que est\'an muy pr\'oximos entre s\'i. \textbf{Minimizar}. \\
+\textbf{\'Indice de Ray-Turi} & RT & Cohesi\'on y Separaci\'on & Eval\'ua la relaci\'on entre la dispersi\'on dentro de los cl\'usteres y la distancia m\'inima entre los centroides de los cl\'usteres. \textbf{Minimizar}. \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{landscape}
+\clearpage
+
+Para cada heur\'istica de construcci\'on se calcularon los coeficientes de Spearman y Pearson entre cada m\'etrica interna y el costo total de las rutas. Los resultados completos se presentan en las Tablas~\ref{tab:correlacion_saveparallel} a \ref{tab:correlacion_nnrlc1}.
+
+\begin{table}[H]
+\centering
+\caption{Correlaci\'on entre m\'etricas internas y costo total (heur\'istica SaveParallel).}
+\label{tab:correlacion_saveparallel}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Spearman} & \textbf{p-valor} & \textbf{Pearson} & \textbf{p-valor} \\
+\midrule
+BH & 0.8555 & $3.02\times10^{-6}$ & 0.9161 & $3.68\times10^{-8}$ \\
+CH & -0.6921 & $1.02\times10^{-3}$ & -0.7436 & $2.63\times10^{-4}$ \\
+DB & 0.7577 & $1.72\times10^{-4}$ & 0.8459 & $5.06\times10^{-6}$ \\
+DI & -0.7893 & $5.88\times10^{-5}$ & -0.8474 & $4.68\times10^{-6}$ \\
+RT & 0.6816 & $1.31\times10^{-3}$ & 0.7578 & $1.71\times10^{-4}$ \\
+CS & -0.6605 & $2.08\times10^{-3}$ & -0.7123 & $6.23\times10^{-4}$ \\
+SSB & -0.6611 & $2.06\times10^{-3}$ & -0.8084 & $2.81\times10^{-5}$ \\
+SSE & 0.6945 & $9.69\times10^{-4}$ & 0.7575 & $1.73\times10^{-4}$ \\
+XB & 0.6804 & $1.35\times10^{-3}$ & 0.7541 & $1.92\times10^{-4}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Correlaci\'on entre m\'etricas internas y costo total (heur\'istica SaveSequential).}
+\label{tab:correlacion_savesequential}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Spearman} & \textbf{p-valor} & \textbf{Pearson} & \textbf{p-valor} \\
+\midrule
+BH & 0.8648 & $1.78\times10^{-6}$ & 0.9520 & $3.63\times10^{-10}$ \\
+CH & -0.7305 & $3.83\times10^{-4}$ & -0.8337 & $9.24\times10^{-6}$ \\
+DB & 0.7749 & $9.77\times10^{-5}$ & 0.8945 & $2.39\times10^{-7}$ \\
+DI & -0.7942 & $4.90\times10^{-5}$ & -0.8335 & $9.33\times10^{-6}$ \\
+RT & 0.7217 & $4.86\times10^{-4}$ & 0.8371 & $7.85\times10^{-6}$ \\
+CS & -0.7199 & $5.10\times10^{-4}$ & -0.8015 & $3.70\times10^{-5}$ \\
+SSB & -0.6292 & $3.90\times10^{-3}$ & -0.8533 & $3.42\times10^{-6}$ \\
+SSE & 0.7380 & $3.09\times10^{-4}$ & 0.8451 & $5.26\times10^{-6}$ \\
+XB & 0.7222 & $4.79\times10^{-4}$ & 0.8348 & $8.79\times10^{-6}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Correlaci\'on entre m\'etricas internas y costo total (heur\'istica Sweep).}
+\label{tab:correlacion_sweep}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Spearman} & \textbf{p-valor} & \textbf{Pearson} & \textbf{p-valor} \\
+\midrule
+BH & 0.8068 & $2.99\times10^{-5}$ & 0.8612 & $2.20\times10^{-6}$ \\
+CH & -0.7717 & $1.09\times10^{-4}$ & -0.8159 & $2.06\times10^{-5}$ \\
+DB & 0.7723 & $1.07\times10^{-4}$ & 0.8513 & $3.80\times10^{-6}$ \\
+DI & -0.7126 & $6.18\times10^{-4}$ & -0.7728 & $1.05\times10^{-4}$ \\
+RT & 0.7682 & $1.22\times10^{-4}$ & 0.8253 & $1.36\times10^{-5}$ \\
+CS & -0.7366 & $3.22\times10^{-4}$ & -0.7716 & $1.09\times10^{-4}$ \\
+SSB & -0.6617 & $2.03\times10^{-3}$ & -0.8165 & $2.00\times10^{-5}$ \\
+SSE & 0.7775 & $8.93\times10^{-5}$ & 0.8176 & $1.91\times10^{-5}$ \\
+XB & 0.7723 & $1.07\times10^{-4}$ & 0.8237 & $1.47\times10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Correlaci\'on entre m\'etricas internas y costo total (heur\'istica CMT).}
+\label{tab:correlacion_cmt}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Spearman} & \textbf{p-valor} & \textbf{Pearson} & \textbf{p-valor} \\
+\midrule
+BH & 0.9315 & $6.92\times10^{-9}$ & 0.9522 & $3.47\times10^{-10}$ \\
+CH & -0.8235 & $1.48\times10^{-5}$ & -0.8540 & $3.28\times10^{-6}$ \\
+DB & 0.8495 & $4.19\times10^{-6}$ & 0.9156 & $3.86\times10^{-8}$ \\
+DI & -0.8126 & $2.36\times10^{-5}$ & -0.8383 & $7.41\times10^{-6}$ \\
+RT & 0.8042 & $3.32\times10^{-5}$ & 0.8600 & $2.35\times10^{-6}$ \\
+CS & -0.7981 & $4.23\times10^{-5}$ & -0.8226 & $1.54\times10^{-5}$ \\
+SSB & -0.7301 & $3.86\times10^{-4}$ & -0.8829 & $5.59\times10^{-7}$ \\
+SSE & 0.8284 & $1.18\times10^{-5}$ & 0.8624 & $2.05\times10^{-6}$ \\
+XB & 0.8004 & $3.87\times10^{-5}$ & 0.8580 & $2.63\times10^{-6}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Correlaci\'on entre m\'etricas internas y costo total (heur\'istica MoleJameson).}
+\label{tab:correlacion_molejameson}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Spearman} & \textbf{p-valor} & \textbf{Pearson} & \textbf{p-valor} \\
+\midrule
+BH & 0.7612 & $1.54\times10^{-4}$ & 0.9245 & $1.54\times10^{-8}$ \\
+CH & -0.7717 & $1.09\times10^{-4}$ & -0.8569 & $2.81\times10^{-6}$ \\
+DB & 0.7301 & $3.86\times10^{-4}$ & 0.8864 & $4.37\times10^{-7}$ \\
+DI & -0.6547 & $2.35\times10^{-3}$ & -0.7569 & $1.76\times10^{-4}$ \\
+RT & 0.7630 & $1.45\times10^{-4}$ & 0.8548 & $3.14\times10^{-6}$ \\
+CS & -0.7507 & $2.13\times10^{-4}$ & -0.8218 & $1.60\times10^{-5}$ \\
+SSB & -0.7021 & $8.06\times10^{-4}$ & -0.8662 & $1.64\times10^{-6}$ \\
+SSE & 0.7705 & $1.13\times10^{-4}$ & 0.8592 & $2.46\times10^{-6}$ \\
+XB & 0.7617 & $1.51\times10^{-4}$ & 0.8547 & $3.16\times10^{-6}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Correlaci\'on entre m\'etricas internas y costo total (heur\'istica NearestNeighborWithRLC).}
+\label{tab:correlacion_nnrlc}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Spearman} & \textbf{p-valor} & \textbf{Pearson} & \textbf{p-valor} \\
+\midrule
+BH & 0.5426 & $1.64\times10^{-2}$ & 0.6879 & $1.13\times10^{-3}$ \\
+CH & -0.4583 & $4.85\times10^{-2}$ & -0.6088 & $5.67\times10^{-3}$ \\
+DB & 0.5274 & $2.03\times10^{-2}$ & 0.6908 & $1.06\times10^{-3}$ \\
+DI & -0.6959 & $9.36\times10^{-4}$ & -0.8299 & $1.11\times10^{-5}$ \\
+RT & 0.4241 & $7.04\times10^{-2}$ & 0.6254 & $4.19\times10^{-3}$ \\
+CS & -0.4943 & $3.15\times10^{-2}$ & -0.6249 & $4.23\times10^{-3}$ \\
+SSB & -0.3975 & $9.19\times10^{-2}$ & -0.6177 & $4.83\times10^{-3}$ \\
+SSE & 0.4642 & $4.52\times10^{-2}$ & 0.6236 & $4.33\times10^{-3}$ \\
+XB & 0.4133 & $7.86\times10^{-2}$ & 0.6200 & $4.63\times10^{-3}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Correlaci\'on entre m\'etricas internas y costo total (heur\'istica NearestNeighborWithRLC con RLC=1).}
+\label{tab:correlacion_nnrlc1}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{M\'etrica} & \textbf{Spearman} & \textbf{p-valor} & \textbf{Pearson} & \textbf{p-valor} \\
+\midrule
+BH & 0.2828 & $2.41\times10^{-1}$ & 0.2447 & $3.13\times10^{-1}$ \\
+CH & -0.1353 & $5.81\times10^{-1}$ & -0.1692 & $4.89\times10^{-1}$ \\
+DB & 0.2555 & $2.91\times10^{-1}$ & 0.2648 & $2.73\times10^{-1}$ \\
+DI & -0.5610 & $1.25\times10^{-2}$ & -0.6209 & $4.56\times10^{-3}$ \\
+RT & 0.1036 & $6.73\times10^{-1}$ & 0.1863 & $4.45\times10^{-1}$ \\
+CS & -0.1827 & $4.54\times10^{-1}$ & -0.1870 & $4.43\times10^{-1}$ \\
+SSB & -0.0061 & $9.80\times10^{-1}$ & -0.1465 & $5.50\times10^{-1}$ \\
+SSE & 0.1484 & $5.44\times10^{-1}$ & 0.1885 & $4.40\times10^{-1}$ \\
+XB & 0.0957 & $6.97\times10^{-1}$ & 0.1805 & $4.60\times10^{-1}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Los resultados revelan que todas las m\'etricas internas presentan una correlaci\'on estad\'isticamente significativa con el costo total de las rutas con (valor $p < 0.05$) en la mayor\'ia de las heur\'isticas de construcci\'on evaluadas. La \'unica excepci\'on es la heur\'istica NearestNeighborWithRLC con RLC=1, donde solo el \'Indice de Dunn (DI) mantiene significaci\'on estad\'istica. Este resultado contrasta con la conclusi\'on del estudio previo, donde se afirmaba que no exist\'ia correlaci\'on. 
+
+\subsection*{Interpretaci\'on de las correlaciones}
+
+Las correlaciones observadas siguen la direcci\'on esperada seg\'un el criterio de cada m\'etrica:
+
+\begin{itemize}
+  \item M\'etricas de cohesi\'on (SSE, BH): presentan correlaci\'on {positiva} con el costo. Es decir, valores m\'as altos de dispersi\'on intra-cl\'uster se asocian con rutas m\'as costosas. El \'Indice de Ball-Hall (BH) destaca con la correlaci\'on m\'as fuerte (Pearson hasta $0.952$ en SaveSequential y CMT), lo que lo posiciona como el mejor predictor del costo dentro de este conjunto.
+  \item M\'etricas de separaci\'on (SSB): presentan correlaci\'on {negativa}. Una mayor separaci\'on entre cl\'usteres se asocia con un menor costo de rutas.
+  \item M\'etricas combinadas (CH, DI, CS): muestran correlaci\'on {negativa} con el costo. Los \'indices de Dunn (DI) y Calinski-Harabasz (CH) destacan por su capacidad predictiva (DI: Pearson hasta $-0.847$ en SaveParallel; CH: Pearson hasta $-0.857$ en MoleJameson).
+  \item \'Indices DB, RT y XB: presentan correlaci\'on {positiva}. Valores m\'as altos se asocian con costos m\'as elevados.
+\end{itemize}
+
+\subsection*{Patrones por heur\'istica}
+
+Al comparar las heur\'isticas de construcci\'on, se observan patrones consistentes:
+
+\begin{itemize}
+  \item {SaveSequential, CMT y MoleJameson} presentan las correlaciones m\'as fuertes, con m\'etricas como BH y DB alcanzando coeficientes superiores a $0.9$.
+  \item {Sweep y SaveParallel} muestran correlaciones s\'olidas y significativas en todas las m\'etricas.
+  \item {NearestNeighborWithRLC} es la heur\'istica con correlaciones m\'as d\'ebiles, y algunas de ellas no resultan significativas (RT, SSB, XB con Spearman $p > 0.05$).
+  \item {NearestNeighborWithRLC=1} presenta el caso m\'as extremo: solo el \'Indice de Dunn mantiene correlaci\'on significativa. Esto sugiere que con un tama\~no de lista de candidatos restringidos muy peque\~no, las asignaciones pierden estructura y las m\'etricas internas dejan de ser predictivas del costo.
+\end{itemize}
+
+En todos los casos, {BH (Ball-Hall), DI (Dunn), CH (Calinski-Harabasz), DB (Davies-Bouldin) y SSE} destacan como las m\'etricas con mayor poder predictivo del costo total. Esto las posiciona como candidatas ideales para ser utilizadas como criterios de selecci\'on de algoritmos de asignaci\'on cuando no se dispone del costo de las rutas.
+
+\section{Conclusiones parciales}
+
+A partir del estudio experimental realizado en este cap\'itulo, se pueden extraer las siguientes conclusiones:
+
+\begin{itemize}
+  \item Las pruebas funcionales verificaron el correcto funcionamiento de los m\'etodos esenciales de HDBSCAN, incluyendo el c\'alculo de distancias, la obtención de vecinos y la búsqueda del depósito más cercano, garantizando su integraci\'on fiable en BHAVRP.
+  
+  \item Las pruebas unitarias de caja negra confirmaron que la adaptaci\'on de HDBSCAN respeta las restricciones de capacidad y maneja adecuadamente escenarios extremos como datos err\'oneos, dep\'ositos vac\'ios y cl\'usteres no asignables.
+  
+  \item La comparaci\'on estad\'istica mediante la prueba de Friedman y los an\'alisis \textit{post-hoc} revel\'o que CURE, UPGMC, KMEANS y Sweep conforman el grupo de mejor desempe\~no en la calidad de las rutas. HDBSCAN se posiciona en un nivel intermedio, superando significativamente a DBSCAN y a las heur\'isticas cl\'asicas, y sin diferencias significativas con varios de los mejores algoritmos, lo que demuestra su rendimiento y su aporte como alternativa basada en densidad.
+  
+  \item El an\'alisis de correlaci\'on demostr\'o que las m\'etricas internas de validaci\'on presentan correlaci\'on estad\'isticamente significativa con el costo total de las rutas en la mayor\'ia de las heur\'isticas de construcci\'on. Los \'indices de Ball-Hall y Dunn destacan como los mejores predictores, lo que confirma la utilidad pr\'actica de las m\'etricas internas para seleccionar algoritmos de asignaci\'on sin necesidad de construir las rutas.
+\end{itemize}

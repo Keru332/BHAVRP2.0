@@ -185,5 +185,5 @@ public enum EAssignmentType {
 		{
 			return cujae.inf.ic.om.assignment.clustering.density.HDBSCAN.class.getName();
 		}
-	}
+	},
 }

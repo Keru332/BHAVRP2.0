@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.8)  12 SEP 2026 16:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.8)  5 OCT 2026 20:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -84,9 +84,9 @@ Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quotdepth=\count286
 ))
 LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) 
-on input line 11.
+on input line 10.
 LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1)
- on input line 11.
+ on input line 10.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\newtxtext.
 sty
@@ -992,22 +992,46 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip97
 )
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflsc
+ape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflsc
+ape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.
+sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotatin
+g.sty
+Package: rotating 2025/01/14 v2.16e rotated objects in LaTeX
+\c@r@tfl@t=\count459
+\rotFPtop=\skip98
+\rotFPbot=\skip99
+\rot@float@box=\box60
+\rot@mess@toks=\toks38
+)
 LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line
- 88.
+ 96.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\t1ntxtlf.f
 d
 File: t1ntxtlf.fd 2021/05/24 v1.1 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 88.
+(Font)              scaled to size 12.0pt on input line 96.
 
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count459
-\@quotereset=\count460
+\@quotelevel=\count460
+\@quotereset=\count461
 (main.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
@@ -1016,72 +1040,72 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 88.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 96.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line
- 88.
+ 96.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlntxmi.f
 d
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 96.
 LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 
-88.
+96.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 96.
 LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line
- 88.
+ 96.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmsntxsy.f
 d
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 96.
 LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input lin
-e 88.
+e 96.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmxntxexx.
 fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Info: Redefining \. on input line 88.
-LaTeX Info: Redefining \% on input line 88.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Info: Redefining \. on input line 96.
+LaTeX Info: Redefining \% on input line 96.
 
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp
 -pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count461
+\scratchcounter=\count462
 \scratchdimen=\dimen277
-\scratchbox=\box60
-\nofMPsegments=\count462
-\nofMParguments=\count463
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count464
+\scratchbox=\box61
+\nofMPsegments=\count463
+\nofMParguments=\count464
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count465
 \MPscratchDim=\dimen278
-\MPnumerator=\count465
-\makeMPintoPDFobject=\count466
-\everyMPtoPDFconversion=\toks39
+\MPnumerator=\count466
+\makeMPintoPDFobject=\count467
+\everyMPtoPDFconversion=\toks40
 )
 (C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\eps
 topdf-base.sty
@@ -1093,10 +1117,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 f-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@mv@tabular=\count467
-\c@mv@boldtabular=\count468
-LaTeX Info: Command `\dddot' is already robust on input line 88.
-LaTeX Info: Command `\ddddot' is already robust on input line 88.
+\c@mv@tabular=\count468
+\c@mv@boldtabular=\count469
+LaTeX Info: Command `\dddot' is already robust on input line 96.
+LaTeX Info: Command `\ddddot' is already robust on input line 96.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1134,6 +1158,7 @@ LaTeX Info: Command `\ddddot' is already robust on input line 88.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
+Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Trying to load language 'spanish'...
 Package biblatex Info: ... file 'spanish.lbx' found.
@@ -1150,41 +1175,46 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
-Package biblatex Info: Reference section=0 on input line 88.
-Package biblatex Info: Reference segment=0 on input line 88.
-Package hyperref Info: Link coloring OFF on input line 88.
+Package biblatex Info: Reference section=0 on input line 96.
+Package biblatex Info: Reference segment=0 on input line 96.
+Package hyperref Info: Link coloring OFF on input line 96.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 97.
+(Font)              scaled to size 14.4pt on input line 105.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 14.4pt on input line 97.
-<Figuras/isotipo.png, id=39, 91.0602pt x 95.8782pt>
+(Font)              scaled to size 14.4pt on input line 105.
+<Figuras/isotipo.png, id=123, 91.0602pt x 95.8782pt>
 File: Figuras/isotipo.png Graphic file (type png)
 <use Figuras/isotipo.png>
-Package pdftex.def Info: Figuras/isotipo.png  used on input line 105.
+Package pdftex.def Info: Figuras/isotipo.png  used on input line 113.
 (pdftex.def)             Requested size: 91.04872pt x 95.87062pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 17.28pt on input line 107.
+(Font)              scaled to size 17.28pt on input line 115.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 17.28pt on input line 107.
+(Font)              scaled to size 17.28pt on input line 115.
  [1
 
 {C:/Users/maykel-kevin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Use
 rs/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.
 enc} <./Figuras/isotipo.png>]
+Overfull \hbox (1.67308pt too wide) in paragraph at lines 137--138
+[]\T1/ntxtlf/m/n/12 El Pro-ble-ma de Pla-ni-fi-ca-ción de Ru-tas de Vehícu-los 
+con Múl-ti-ples De-pó-si-tos (MDVRP) cons-ti-tu-ye
+ []
+
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 132.
+(Font)              scaled to size 12.0pt on input line 140.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 12.0pt on input line 137.
+(Font)              scaled to size 12.0pt on input line 145.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.137 \chapter
+l.145 \chapter
               *{Abstract} [1
 
 {C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-
@@ -1277,13 +1307,30 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 8.8pt on input line 4.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 4.
+
+Overfull \hbox (4.29036pt too wide) in paragraph at lines 11--11
+ [] [][]\T1/ntxtlf/b/n/12 Incorporación de al-go-rit-mo a la Bi-blio-te-ca de H
+eu-rís-ti-cas de Asig-na-ción del Pro-ble-ma 
+ []
+
+[3
+
+]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 12.0pt on input line 23.
 )
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [3
 
-] (main.lof
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4] (main.lof
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -1291,22 +1338,37 @@ LaTeX Info: Redefining \% on input line 1.
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [4
+ [5
 
 ] (main.lot
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
+
+Overfull \hbox (15.51051pt too wide) in paragraph at lines 7--7
+ [][] [][]\T1/ntxtlf/m/n/12 Clases im-ple-men-ta-das pa-ra la in-cor-po-ra-ción
+ de los nue-vos al-go-rit-mos de agru-pa-mien-to.[] [][]  
+ []
+
+
+Overfull \hbox (19.65063pt too wide) in paragraph at lines 19--19
+ [][] [][]\T1/ntxtlf/m/n/12 Correlación en-tre mé-tri-cas in-ter-nas y cos-to t
+o-tal (heu-rís-ti-ca Nea-rest-Neigh-bor-WithRLC).[] [][]  
+ []
+
+
+Overfull \hbox (24.65463pt too wide) in paragraph at lines 20--20
+ [][] [][]\T1/ntxtlf/m/n/12 Correlación en-tre mé-tri-cas in-ter-nas y cos-to t
+o-tal (heu-rís-ti-ca Nea-rest-Neigh-bor-WithRLC 
+ []
+
 )
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [5
+ [6
 
-] (Intro.tex
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 8.
- [1
+] (Intro.tex [1
 
 
 ]
@@ -1318,6 +1380,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2]
+Overfull \hbox (2.41882pt too wide) in paragraph at lines 32--33
+[]\T1/ntxtlf/m/n/12 Realizar bús-que-da bi-blio-grá-fi-ca de las ca-rac-te-rís-
+ti-cas de los pro-ble-mas de pla-ni-fi-ca-ción
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1325,7 +1392,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3]) (chapter1.tex
+[3]
+Overfull \hbox (14.40677pt too wide) in paragraph at lines 37--38
+[]\T1/ntxtlf/m/n/12 Analizar al-go-rit-mos de agru-pa-mien-to ba-sa-dos en den-
+si-dad en cuan-to a su fun-cio-na-mien-to
+ []
+
+
+Overfull \hbox (0.94286pt too wide) in paragraph at lines 39--40
+[]\T1/ntxtlf/m/n/12 Implementar y adap-tar el al-go-rit-mo se-lec-cio-na-do te-
+nien-do en cuen-ta las ca-rac-te-rís-ti-cas
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1333,7 +1411,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4]
+[4]) (chapter1.tex
+Overfull \hbox (14.07181pt too wide) in paragraph at lines 51--4
+\T1/ntxtlf/m/n/12 in-clu-yen-do sec-cio-nes im-por-tan-tes co-mo con-clu-sio-ne
+s, re-co-men-da-cio-nes y re-fe-ren-cias bi-blio-grá-fi-cas.
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1343,6 +1426,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [5]
 Cap\'{\i }tulo 1.
+
+Overfull \hbox (9.48001pt too wide) in paragraph at lines 4--4
+|\T1/ntxtlf/b/n/17.28 Capítulo 1: Fun-da-men-tos teó-ri-cos del pro-ble-ma de p
+la-ni-fi-ca-ción
+ []
+
+
+Overfull \hbox (9.14548pt too wide) in paragraph at lines 12--13
+\T1/ntxtlf/m/n/12 di-fe-ren-tes ne-ce-si-da-des e in-clu-yen di-ver-sas res-tri
+c-cio-nes. Es-to ha da-do co-mo re-sul-ta-do el sur-gi-mien-to
+ []
+
 [6
 
 ]
@@ -1371,7 +1466,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [9]
-<Figuras/fig01_mdvrp.png, id=240, 426.59375pt x 176.66pt>
+<Figuras/fig01_mdvrp.png, id=408, 426.59375pt x 176.66pt>
 File: Figuras/fig01_mdvrp.png Graphic file (type png)
 <use Figuras/fig01_mdvrp.png>
 Package pdftex.def Info: Figuras/fig01_mdvrp.png  used on input line 100.
@@ -1389,12 +1484,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10 <./Figuras/fig01_mdvrp.png>]
-<Figuras/fig02_tecnicas.png, id=254, 426.84468pt x 307.1475pt>
+Overfull \hbox (13.92279pt too wide) in paragraph at lines 106--107
+\T1/ntxtlf/m/n/12 tiempo-distancia más pre-ci-sa. Se eva-lúan múl-ti-ples en-fo
+-ques de op-ti-mi-za-ción, in-clu-yen-do al-go-rit-mos
+ []
+
+<Figuras/fig02_tecnicas.png, id=423, 426.84468pt x 307.1475pt>
 File: Figuras/fig02_tecnicas.png Graphic file (type png)
 <use Figuras/fig02_tecnicas.png>
 Package pdftex.def Info: Figuras/fig02_tecnicas.png  used on input line 112.
 (pdftex.def)             Requested size: 389.13692pt x 280.03426pt.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1403,6 +1502,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [11]
+Overfull \hbox (9.49101pt too wide) in paragraph at lines 114--115
+[]\T1/ntxtlf/m/n/12 Entre los mé-to-dos exac-tos se pue-den dis-tin-guir tres g
+ru-pos: bús-que-da di-rec-ta de ár-bol, pro-gra-ma-ción
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1411,6 +1515,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [12 <./Figuras/fig02_tecnicas.png>]
+Overfull \hbox (5.55139pt too wide) in paragraph at lines 127--128
+[]\T1/ntxtlf/m/it/12 Merge-Head and Drop-Tail\T1/ntxtlf/m/n/12 : una téc-ni-ca 
+plan-tea-da pa-ra re-sol-ver el MDVRP es la de-no-mi-na-da
+ []
+
+
+Overfull \hbox (11.27318pt too wide) in paragraph at lines 127--128
+\T1/ntxtlf/m/n/12 es-tra-te-gia \T1/ntxtlf/m/it/12 Merge-Head and Drop-Tail \T1
+/ntxtlf/m/n/12 (MHDT), com-bi-na-da con op-ti-mi-za-ción de com-bi-na-ción
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1443,18 +1558,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [16]
-<Figuras/fig03_particional.png, id=319, 776.9025pt x 286.82156pt>
+Overfull \hbox (1.01308pt too wide) in paragraph at lines 160--161
+\T1/ntxtlf/m/n/12 rui-do (DBS-CAN), el agru-pa-mien-to de pun-tos pa-ra iden-ti
+-fi-car la es-truc-tu-ra del agru-pa-mien-to
+ []
+
+<Figuras/fig03_particional.png, id=486, 776.9025pt x 286.82156pt>
 File: Figuras/fig03_particional.png Graphic file (type png)
 <use Figuras/fig03_particional.png>
 Package pdftex.def Info: Figuras/fig03_particional.png  used on input line 163.
 
 (pdftex.def)             Requested size: 457.80486pt x 169.01755pt.
-<Figuras/fig04_jerarquico.png, id=322, 872.50969pt x 523.20468pt>
+<Figuras/fig04_jerarquico.png, id=489, 872.50969pt x 523.20468pt>
 File: Figuras/fig04_jerarquico.png Graphic file (type png)
 <use Figuras/fig04_jerarquico.png>
 Package pdftex.def Info: Figuras/fig04_jerarquico.png  used on input line 165.
 (pdftex.def)             Requested size: 457.80486pt x 274.5269pt.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1463,7 +1582,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [17 <./Figuras/fig03_particional.png>]
-<Figuras/fig05_densidad.png, id=330, 1385.92781pt x 369.63094pt>
+<Figuras/fig05_densidad.png, id=497, 1385.92781pt x 369.63094pt>
 File: Figuras/fig05_densidad.png Graphic file (type png)
 <use Figuras/fig05_densidad.png>
 Package pdftex.def Info: Figuras/fig05_densidad.png  used on input line 167.
@@ -1477,6 +1596,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [18 <./Figuras/fig04_jerarquico.png> <./Figuras/fig05_densidad.png>]
+Overfull \hbox (9.10225pt too wide) in paragraph at lines 176--177
+\T1/ntxtlf/m/n/12 fle-xi-ble que re-sul-ta fá-cil de uti-li-zar, fun-da-men-ta-
+do en una úni-ca me-ta-heu-rís-ti-ca mul-ti-pro-pó-si-to
+ []
+
+
+Overfull \hbox (1.6526pt too wide) in paragraph at lines 177--178
+[]\T1/ntxtlf/m/it/12 Google Ope-ra-tion Re-search Tools \T1/ntxtlf/m/n/12 (OR-T
+ools): es un soft-wa-re de có-di-go abier-to de-sa-rro-lla-do
+ []
+
+
+Overfull \hbox (19.42229pt too wide) in paragraph at lines 177--178
+\T1/ntxtlf/m/n/12 pa-ra abor-dar di-ver-sos pro-ble-mas de op-ti-mi-za-ción co-
+mo la pro-gra-ma-ción li-neal, la pro-gra-ma-ción
+ []
+
+
+Overfull \hbox (15.63026pt too wide) in paragraph at lines 177--178
+\T1/ntxtlf/m/n/12 en-te-ra y la pro-gra-ma-ción con res-tric-cio-nes, es-ta he-
+rra-mien-ta ha ido in-cor-po-ran-do gra-dual-men-te
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1558,7 +1700,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [22]
-<Figuras/fig06_flujo_bhavrp.png, id=381, 741.52031pt x 749.80125pt>
+<Figuras/fig06_flujo_bhavrp.png, id=548, 741.52031pt x 749.80125pt>
 File: Figuras/fig06_flujo_bhavrp.png Graphic file (type png)
 <use Figuras/fig06_flujo_bhavrp.png>
 Package pdftex.def Info: Figuras/fig06_flujo_bhavrp.png  used on input line 218
@@ -1573,7 +1715,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [23]
-<Figuras/fig07_arquitectura.png, id=388, 998.22937pt x 776.14969pt>
+<Figuras/fig07_arquitectura.png, id=555, 998.22937pt x 776.14969pt>
 File: Figuras/fig07_arquitectura.png Graphic file (type png)
 <use Figuras/fig07_arquitectura.png>
 Package pdftex.def Info: Figuras/fig07_arquitectura.png  used on input line 222
@@ -1596,6 +1738,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [25 <./Figuras/fig07_arquitectura.png>]
+Overfull \hbox (27.64246pt too wide) in paragraph at lines 229--230
+\T1/ntxtlf/m/n/12 prin-ci-pal-men-te me-dian-te heu-rís-ti-cas clá-si-cas de as
+ig-na-ción y al-go-rit-mos de agru-pa-mien-to par-ti-cio-na-les.
+ []
+
+<Figuras/fig27_tcc.png, id=571, 932.73468pt x 530.73282pt>
+File: Figuras/fig27_tcc.png Graphic file (type png)
+<use Figuras/fig27_tcc.png>
+Package pdftex.def Info: Figuras/fig27_tcc.png  used on input line 233.
+(pdftex.def)             Requested size: 389.13692pt x 221.42427pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1603,7 +1755,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[26]) (chapter2.tex) (chapter3.tex)
+[26]
+<Figuras/fig28_ff.png, id=576, 973.38657pt x 542.77782pt>
+File: Figuras/fig28_ff.png Graphic file (type png)
+<use Figuras/fig28_ff.png>
+Package pdftex.def Info: Figuras/fig28_ff.png  used on input line 235.
+(pdftex.def)             Requested size: 389.13692pt x 216.99133pt.
+
+Overfull \hbox (7.54109pt too wide) in paragraph at lines 239--240
+[]\T1/ntxtlf/m/n/12 Estos re-sul-ta-dos fun-da-men-tan la ne-ce-si-dad de in-co
+r-po-rar a BHAVRP un al-go-rit-mo de agru-pa-mien-to
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1611,28 +1774,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[27]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 160.
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-160.
+[27 <./Figuras/fig27_tcc.png> <./Figuras/fig28_ff.png>]) (chapter2.tex
 
-(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\t1ntxtt.fd
-File: t1ntxtt.fd 2012/04/20 v3.1
-)
-LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 160.
- [28
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[28]
+Cap\'{\i }tulo 2.
+[29
 
 ]
+Overfull \hbox (1.90106pt too wide) in paragraph at lines 19--20
+[]\T1/ntxtlf/m/n/12 DENCLUE: mo-de-la el es-pa-cio de da-tos me-dian-te fun-cio
+-nes de in-fluen-cia (co-mo gaus-sia-nas)
+ []
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[29]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1641,6 +1800,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [30]
+Overfull \hbox (0.47897pt too wide) in paragraph at lines 54--55
+[]\T1/ntxtlf/m/n/12 El al-go-rit-mo DPC es el me-nos ade-cua-do se-gún los cri-
+te-rios eva-lua-dos. Re-quie-re de-ma-sia-dos
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1648,7 +1812,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[31]
+[31
+
+]
+Overfull \hbox (15.79837pt too wide) in paragraph at lines 86--87
+[]\T1/ntxtlf/m/n/12 El al-go-rit-mo \T1/ntxtlf/m/it/12 Hie-rar-chi-cal Density-
+Based Spa-tial Clus-te-ring of Ap-pli-ca-tions with Noi-se \T1/ntxtlf/m/n/12 (H
+DBS-CAN)
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1657,6 +1829,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [32]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.8pt on input line 89.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.6pt on input line 89.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1665,6 +1842,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [33]
+<Figuras/activHDBSCAN.png, id=631, 517.33275pt x 627.5445pt>
+File: Figuras/activHDBSCAN.png Graphic file (type png)
+<use Figuras/activHDBSCAN.png>
+Package pdftex.def Info: Figuras/activHDBSCAN.png  used on input line 108.
+(pdftex.def)             Requested size: 457.80486pt x 555.3529pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1680,7 +1863,803 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[35] (main.aux
+[35 <./Figuras/activHDBSCAN.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[36]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[37
+
+]
+<Figuras/adapActivHDBSCAN.png, id=659, 453.49425pt x 668.4975pt>
+File: Figuras/adapActivHDBSCAN.png Graphic file (type png)
+<use Figuras/adapActivHDBSCAN.png>
+Package pdftex.def Info: Figuras/adapActivHDBSCAN.png  used on input line 158.
+(pdftex.def)             Requested size: 457.80486pt x 674.88133pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[38]
+Overfull \vbox (45.7751pt too high) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[39 <./Figuras/adapActivHDBSCAN.png>]
+Overfull \hbox (10.80606pt too wide) in paragraph at lines 162--163
+\T1/ntxtlf/m/n/12 que ofre-ce un cos-to de $\OML/ntxmi/m/it/12 O\LMS/ntxsy/m/n/
+12 ¹\OT1/minntx/m/n/12 1\LMS/ntxsy/m/n/12 º$ \T1/ntxtlf/m/n/12 pa-ra las ope-ra
+-cio-nes de in-ser-ción y dis-mi-nu-ción de cla-ve (\T1/ntxtlf/m/it/12 decrease
+-key\T1/ntxtlf/m/n/12 ),
+ []
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 10.95pt on input line 180.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[40]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[41]
+<Figuras/aaa.png, id=695, 532.389pt x 793.16325pt>
+File: Figuras/aaa.png Graphic file (type png)
+<use Figuras/aaa.png>
+Package pdftex.def Info: Figuras/aaa.png  used on input line 191.
+(pdftex.def)             Requested size: 457.80486pt x 682.0587pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[42]
+Overfull \vbox (52.95247pt too high) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[43 <./Figuras/aaa.png>]
+<Figuras/fig14_arquitectura_actualizada.png, id=708, 791.20593pt x 608.2725pt>
+File: Figuras/fig14_arquitectura_actualizada.png Graphic file (type png)
+<use Figuras/fig14_arquitectura_actualizada.png>
+Package pdftex.def Info: Figuras/fig14_arquitectura_actualizada.png  used on in
+put line 208.
+(pdftex.def)             Requested size: 389.13692pt x 299.16992pt.
+
+Overfull \hbox (18.34235pt too wide) in paragraph at lines 210--211
+\T1/ntxtlf/m/n/12 co-mún que cons-ta de tres fa-ses: ini-cia-li-za-ción, asig-n
+a-ción ite-ra-ti-va y fi-na-li-za-ción. In-de-pen-dien-te-men-te
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[44 <./Figuras/fig14_arquitectura_actualizada.png>]
+Overfull \hbox (0.28354pt too wide) in paragraph at lines 216--217
+[]\T1/ntxtlf/m/n/12 Asignación (\T1/ntxtlf/m/it/12 as-sign\T1/ntxtlf/m/n/12 ): 
+eje-cu-ta el al-go-rit-mo HDBS-CAN com-ple-to co-mo cálcu-lo de dis-tan-cias,
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[45]
+
+pdfTeX warning: miktex-pdftex.exe (file ./Figuras/fig_class_diagram.pdf): PDF i
+nclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figuras/fig_class_diagram.pdf, id=722, 845.04686pt x 597.50786pt>
+File: Figuras/fig_class_diagram.pdf Graphic file (type pdf)
+<use Figuras/fig_class_diagram.pdf>
+Package pdftex.def Info: Figuras/fig_class_diagram.pdf  used on input line 228.
+
+(pdftex.def)             Requested size: 675.75473pt x 477.80635pt.
+
+Overfull \hbox (23.04851pt too wide) in paragraph at lines 228--229
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 43.60149pt on input line 231.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[46 <./Figuras/fig_class_diagram.pdf>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[47
+
+
+
+
+]
+Overfull \hbox (16.49803pt too wide) in paragraph at lines 251--252
+[]\T1/ntxtlf/m/n/12 AssignmentException: en-cap-su-la erro-res ines-pe-ra-dos d
+u-ran-te la fa-se de asig-na-ción, in-clu-yen-do
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[48]) (chapter3.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[49
+
+]
+Cap\'{\i }tulo 3.
+
+Overfull \hbox (0.4731pt too wide) in paragraph at lines 6--7
+\T1/ntxtlf/m/n/12 ob-te-ni-dos por las heu-rís-ti-cas de cons-truc-ción de BHCV
+RP usan-do los al-go-rit-mos de agru-pa-mien-to
+ []
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
+(Font)              scaled to size 12.0pt on input line 14.
+[50
+
+]
+Overfull \hbox (2.55267pt too wide) in paragraph at lines 21--22
+[]\T1/ntxtlf/m/n/12 Manejo de coor-de-na-das ne-ga-ti-vas: se prue-ba con pun-t
+os que in-clu-yen coor-de-na-das ne-ga-ti-vas
+ []
+
+<Figuras/fig19_prueba_distance_hdbscan.png, id=753, 390.70969pt x 71.51718pt>
+File: Figuras/fig19_prueba_distance_hdbscan.png Graphic file (type png)
+<use Figuras/fig19_prueba_distance_hdbscan.png>
+Package pdftex.def Info: Figuras/fig19_prueba_distance_hdbscan.png  used on inp
+ut line 28.
+(pdftex.def)             Requested size: 389.13692pt x 71.23218pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[51 <./Figuras/fig19_prueba_distance_hdbscan.png>]
+<Figuras/fig23_prueba_getNeighbours.png, id=760, 401.24907pt x 156.585pt>
+File: Figuras/fig23_prueba_getNeighbours.png Graphic file (type png)
+<use Figuras/fig23_prueba_getNeighbours.png>
+Package pdftex.def Info: Figuras/fig23_prueba_getNeighbours.png  used on input 
+line 45.
+(pdftex.def)             Requested size: 389.13692pt x 151.86813pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[52 <./Figuras/fig23_prueba_getNeighbours.png>]
+<Figuras/fig24_prueba_findNearestDepot.png, id=767, 404.26031pt x 128.73094pt>
+File: Figuras/fig24_prueba_findNearestDepot.png Graphic file (type png)
+<use Figuras/fig24_prueba_findNearestDepot.png>
+Package pdftex.def Info: Figuras/fig24_prueba_findNearestDepot.png  used on inp
+ut line 63.
+(pdftex.def)             Requested size: 389.13692pt x 123.91617pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[53]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[54 <./Figuras/fig24_prueba_findNearestDepot.png>]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.0pt on input line 77.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 10.0pt on input line 79.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 79.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 5.5pt on input line 79.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 10.0pt on input line 79.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 7.3pt on input line 79.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 5.5pt on input line 79.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 10.0pt on input line 79.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 7.3pt on input line 79.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 5.5pt on input line 79.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 10.0pt on input line 79.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 79.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 5.5pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 10.0pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 7.3pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 5.5pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 10.0pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 7.3pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 5.5pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 10.0pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 7.3pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 5.5pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 10.0pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 7.3pt on input line 79.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 5.5pt on input line 79.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 10.0pt on input line 81.
+
+Underfull \hbox (badness 3635) in paragraph at lines 83--83
+[]|\T1/ntxtlf/m/n/10 Asignación bá-si-ca
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+[]|\T1/ntxtlf/m/n/10 Asignación
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
+[]|\T1/ntxtlf/m/n/10 Detección y
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
+\T1/ntxtlf/m/n/10 reasig-na-ción de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
+[]|\T1/ntxtlf/m/n/10 Detección de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+[]|\T1/ntxtlf/m/n/10 Respeto a la
+ []
+
+
+Underfull \hbox (badness 3907) in paragraph at lines 85--85
+\T1/ntxtlf/m/n/10 ca-pa-ci-dad de los
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+[]|\T1/ntxtlf/m/n/10 Capacidad
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+[]|\T1/ntxtlf/m/n/10 Un so-lo gru-po
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 86--86
+[]|\T1/ntxtlf/m/n/10 5 clien-tes cer-ca del
+ []
+
+
+Underfull \hbox (badness 2980) in paragraph at lines 87--87
+[]|\T1/ntxtlf/m/n/10 Sin es-truc-tu-ra de
+ []
+
+
+Underfull \hbox (badness 1540) in paragraph at lines 87--87
+[]|\T1/ntxtlf/m/n/10 Finaliza sin erro-res. Asig-na-ción
+ []
+
+
+Underfull \hbox (badness 1540) in paragraph at lines 87--88
+[]|\T1/ntxtlf/m/n/10 Finaliza sin erro-res. Asig-na-ción
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
+88.
+
+(C:\Users\maykel-kevin\AppData\Local\Programs\MiKTeX\tex/latex/newtx\t1ntxtt.fd
+File: t1ntxtt.fd 2012/04/20 v3.1
+)
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 10.0pt on input line 88.
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
+[]|\T1/ntxtlf/m/n/10 Configuración
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
+\T1/ntxtlf/m/n/10 di-ná-mi-ca de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
+[]|\T1/ntxtlf/m/n/10 Cálculo de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--88
+[]|\T1/ntxtt/m/n/10 minPoints\T1/ntxtlf/m/n/10 =3,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+[]|\T1/ntxtt/m/n/10 minPoints\T1/ntxtlf/m/n/10 =3,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
+[]|\T1/ntxtlf/m/n/10 Excepción sin
+ []
+
+
+Underfull \hbox (badness 5403) in paragraph at lines 89--89
+[]|\T1/ntxtlf/m/n/10 Error en los
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[55
+
+
+]
+Overfull \hbox (4.24255pt too wide) in paragraph at lines 102--103
+\T1/ntxtlf/m/n/12 HDBS-CAN, ex-clu-yen-do Ran-dom-Se-quen-tialCy-clic y Se-quen
+-tialCy-clic ya que pre-sen-tan pro-ble-mas
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[56
+
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[57]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[58]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[59]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[60
+
+
+]
+Overfull \hbox (23.68233pt too wide) in paragraph at lines 228--229
+[]\T1/ntxtlf/m/n/12 RandomByElement ob-tie-ne el peor ran-king de for-ma sis-te
+-má-ti-ca, se-gui-do por Cy-cli-cAs-sign-ment
+ []
+
+
+Overfull \hbox (21.50568pt too wide) in paragraph at lines 228--229
+\T1/ntxtlf/m/n/12 y Nea-restBy-De-pot. CLA-RA, BestCy-cli-cAs-sign-ment, PAM, C
+oef-fi-cient-Pro-pa-ga-tion y DBS-CAN
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[61
+
+
+]
+Overfull \hbox (0.50365pt too wide) in paragraph at lines 239--240
+[]\T1/ntxtlf/m/n/12 Es sig-ni-fi-ca-ti-va-men-te me-jor que DBS-CAN con ($\OML/
+ntxmi/m/it/12 p \U/ntxmia/m/it/12 = \OT1/minntx/m/n/12 0\OML/ntxmi/m/it/12 :\OT
+1/minntx/m/n/12 0049$\T1/ntxtlf/m/n/12 ), de-mos-tran-do que la evo-lu-ción
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[62]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 261--261
+[]|\T1/ntxtlf/b/n/10.95 ?`Qué
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 266--266
+[]|\T1/ntxtlf/m/n/10.95 Cohesión y
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 267--267
+[]|\T1/ntxtlf/m/n/10.95 Cohesión y
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 268--268
+[]|\T1/ntxtlf/m/n/10.95 Cohesión y
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 269--269
+[]|\T1/ntxtlf/m/n/10.95 Cohesión y
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 270--270
+[]|\T1/ntxtlf/m/n/10.95 Cohesión y
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 271--271
+[]|\T1/ntxtlf/m/n/10.95 Cohesión y
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[64]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[65
+
+
+
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[66]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[67]
+Overfull \hbox (3.49577pt too wide) in paragraph at lines 441--442
+\T1/ntxtlf/m/n/12 Ball-Hall (BH) des-ta-ca con la co-rre-la-ción más fuer-te (P
+ear-son has-ta $\OT1/minntx/m/n/12 0\OML/ntxmi/m/it/12 :\OT1/minntx/m/n/12 952$
+ \T1/ntxtlf/m/n/12 en Sa-ve-Se-quen-tial
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[68]
+Overfull \hbox (1.42235pt too wide) in paragraph at lines 452--453
+[]\T1/ntxtlf/m/n/12 SaveSequential, CMT y Mo-le-Ja-me-son pre-sen-tan las co-rr
+e-la-cio-nes más fuer-tes, con mé-tri-cas
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[69])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[70]
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 12.0pt on input line 168.
+
+Overfull \hbox (8.461pt too wide) in paragraph at lines 168--168
+[]\T1/ntxtlf/m/n/12 S. Aro-ra y B. Ba-rak, \T1/ntxtlf/m/it/12 Compu-tatio-nal C
+om-ple-xity: A Mo-dern Ap-proach\T1/ntxtlf/m/n/12 . Cam-brid-ge Uni-ver-sity
+ []
+
+
+Overfull \hbox (3.35503pt too wide) in paragraph at lines 168--168
+[]\T1/ntxtlf/m/n/12 D. I. G. Ma-teos, ``DE-SA-RRO-LLO DE UN MÉ-TO-DO HÍ-BRI-DO 
+PA-RA LA RE-SO-LU-CIÓN
+ []
+
+[71
+
+]
+Overfull \hbox (38.40106pt too wide) in paragraph at lines 168--168
+\T1/ntxtlf/m/n/12 Re-fe-ren-ce Se-ries). En-gle-wood Cliffs, NJ: Prentice-Hall,
+ 1988, 320 págs., \T1/ntxtlf/m/sc/12 isbn\T1/ntxtlf/m/n/12 : 978-0-13-022278-7.
+ 
+ []
+
+
+Overfull \hbox (7.6943pt too wide) in paragraph at lines 168--168
+[]\T1/ntxtlf/m/n/12 J. Mac-Queen, ``So-me Methods for Clas-si-fi-ca-tion and An
+aly-sis of Mul-ti-va-ria-te Ob-ser-va-tions,''
+ []
+
+
+Overfull \hbox (5.08418pt too wide) in paragraph at lines 168--168
+\T1/ntxtlf/m/n/12 en \T1/ntxtlf/m/it/12 Pro-cee-dings of the Fifth Ber-ke-ley S
+ym-po-sium on Mathe-ma-ti-cal Sta-tis-tics and Pro-ba-bi-lity\T1/ntxtlf/m/n/12 
+,
+ []
+
+
+Overfull \hbox (5.4323pt too wide) in paragraph at lines 168--168
+[]\T1/ntxtlf/m/n/12 ``GitHub - Vr-pso-lu-tions/BHAVRP: BHAVRP: Com-po-nen-te de
+ Soft-wa-re Pa-ra La Asig-na-ción
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[72]
+Overfull \hbox (1.74355pt too wide) in paragraph at lines 168--168
+\T1/ntxtlf/m/n/12 In-for-má-ti-co, Uni-ver-si-dad Tec-no-ló-gi-ca de la Ha-ba-n
+a ^^PJo-sé An-to-nio Eche-ve-rría^^Q, La Ha-ba-na,
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[73]
+Overfull \hbox (5.59067pt too wide) in paragraph at lines 168--168
+[]\T1/ntxtlf/m/n/12 A. Ibrahim, R. Ab-du-la-ziz y J. Isha-ya, ``CA-PA-CI-TA-TED
+ VEHI-CLE ROU-TING PRO-BLEM,''
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[74]
+Overfull \hbox (3.69463pt too wide) in paragraph at lines 168--168
+[]\T1/ntxtlf/m/n/12 E. Er-dem, T. Ay-din y B. Er-kay-man, ``AI-Infused Evo-lu-t
+io-nary Op-ti-mi-za-tion for Multi-Depot
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[75]
+Overfull \hbox (6.64075pt too wide) in paragraph at lines 168--168
+[]\T1/ntxtlf/m/n/12 F. S. Her-nán-dez, ``APLI-CA-CIÓN DEL MO-DE-LO VRP (VEHI-CL
+E ROU-TING PRO-BLEM)
+ []
+
+
+Overfull \hbox (4.72662pt too wide) in paragraph at lines 168--168
+[]\T1/ntxtlf/m/n/12 C. Blum y A. Ro-li, ``Me-ta-heu-ris-tics in com-bi-na-to-ri
+al op-ti-mi-za-tion: Over-view and con-cep-tual
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[76]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[77]
+Overfull \hbox (6.86626pt too wide) in paragraph at lines 168--168
+[]\T1/ntxtlf/m/n/12 L. Lo-res, ``Ope-ra-do-res de Mu-ta-ción Ba-sa-dos En Heu-r
+ís-ti-cas de Cons-truc-ción Pa-ra Pro-ble-mas
+ []
+
+
+Overfull \hbox (1.85599pt too wide) in paragraph at lines 168--168
+[]\T1/ntxtlf/m/n/12 M. Es-ter, H.[]P. Krie-gel, J. San-der, X. Xu et al., ``A D
+ensity-Based Al-go-rithm for Dis-co-ve-ring
+ []
+
+
+Overfull \hbox (1.06781pt too wide) in paragraph at lines 168--168
+\T1/ntxtlf/m/n/12 Iden-tify the Clus-te-ring Struc-tu-re,'' en \T1/ntxtlf/m/it/
+12 Pro-cee-dings of the 1999 ACM SIG-MOD In-ter-na-tio-nal
+ []
+
+
+Overfull \hbox (0.10786pt too wide) in paragraph at lines 168--168
+\T1/ntxtlf/m/n/12 Den-sity Es-ti-ma-tes,'' en \T1/ntxtlf/m/it/12 Pacific-Asia C
+on-fe-ren-ce on Know-led-ge Dis-co-very and Da-ta Mi-ning\T1/ntxtlf/m/n/12 ,
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[78]
+Overfull \hbox (7.84793pt too wide) in paragraph at lines 168--168
+\T1/ntxtlf/m/n/12 Re-dun-dant Sys-tems of Hy-pothe-ses,'' en \T1/ntxtlf/m/it/12
+ Mul-ti-ple Hy-pothe-sen-prü-fung ^^V Mul-ti-ple Hy-pothe-ses
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[79]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[80] (main.aux
 LaTeX Info: Redefining \sptext on input line 8.
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
@@ -1690,19 +2669,19 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C301330CC2848335ED846458F1CCA57A;3114.
+(rerunfilecheck)             Checksum: 5B87DA9411DF0C6C01DD3B4BA6AB1FC6;9429.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25750 strings out of 467871
- 449390 string characters out of 5414989
- 1265681 words of memory out of 5000000
- 54122 multiletter control sequences out of 15000+600000
- 692720 words of font info for 129 fonts, out of 8000000 for 9000
+ 26272 strings out of 467871
+ 462869 string characters out of 5414989
+ 1280802 words of memory out of 5000000
+ 54487 multiletter control sequences out of 15000+600000
+ 725355 words of font info for 177 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,13n,117p,1991b,3342s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,13n,117p,1962b,3342s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx
 /NewTXMI.pfb><C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/txfonts/t1xtt.pfb><C:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fo
@@ -1710,11 +2689,13 @@ nts/type1/public/newtx/txexs.pfb><C:/Users/maykel-kevin/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/maykel-kevin/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/maykel-kevin/AppD
 ata/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/maykel-ke
-vin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/m
-aykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (41 pages, 2035245 bytes).
+vin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmbi.pfb><C:/Users/
+maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C
+:/Users/maykel-kevin/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztm
+ri.pfb>
+Output written on main.pdf (87 pages, 4583105 bytes).
 PDF statistics:
- 572 PDF objects out of 1000 (max. 8388607)
- 136 named destinations out of 1000 (max. 500000)
- 113 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1088 PDF objects out of 1200 (max. 8388607)
+ 265 named destinations out of 1000 (max. 500000)
+ 331 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -10,12 +10,12 @@ import cujae.inf.ic.om.problem.input.Location;
 import cujae.inf.ic.om.problem.input.Problem;
 import cujae.inf.ic.om.problem.output.Cluster;
 import cujae.inf.ic.om.problem.output.Solution;
+import cujae.inf.ic.om.service.OSRMService;
 
 import java.util.*;
 
 
 public class DBSCAN extends AbstractDensity {
-    public static DistanceType distance_type = DistanceType.Euclidean;
     private Solution solution = new Solution();
     private ArrayList<Cluster> list_clusters;
     private ArrayList<Depot> list_depots;
@@ -259,6 +259,8 @@ public class DBSCAN extends AbstractDensity {
             list_clusters.remove(indx);
         solution.get_clusters().addAll(list_clusters);
         solution.get_unassigned_items().addAll(unnasigned_items);
+
+        OSRMService.clear_distance_cache();
         return solution;
     }
 

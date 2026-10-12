@@ -1,0 +1,274 @@
+%==============================================================
+%                    CAPITULO 2
+%==============================================================
+\chapter{Incorporaci\'on de algoritmo a la Biblioteca de Heur\'isticas de Asignaci\'on del Problema de Planificaci\'on de Rutas con M\'ultiples Dep\'ositos}\label{cap:incorporacion}
+
+En este cap\'itulo se presenta la incorporaci\'on del nuevos algoritmo en BHAVRP. Se muestra una tabla comparativa entre los algoritmos de agrupamiento candidatos para implementar en la biblioteca. Adem\'as, se presenta una descripci\'on detallada de el algoritmo de agrupamiento elegido, modificaciones en la arquitectura de la biblioteca para la incorporaci\'on de este y la adaptaci\'on para el MDVRP mediante diagrama de actividades.
+
+\section{Análisis y selección del algoritmo basado en densidad}
+
+La incorporación de un algoritmo basado en densidad responde a una necesidad identificada en  la biblioteca BHAVRP carece de una variedad suficiente de algoritmos de esta categoría para garantizar un mecanismo deteccción de ruido en las asignaciones de clientes de depósitos. Las heuristicas clásicas y los algoritmos particionales son sensibles al ruido, mientras que los jerárquicos son más flexibles pero pueden verse afectados por el ruido \parencite{jainAlgorithmsClusteringData1988}. Sin embargo, los algoritmos de agrupamiento basados en densidad identifican clústeres como regiones de alta densidad separadas por áreas de baja densidad siendo capaces de detectar formas arbitrarias e identificar correctamente el ruido \parencite{esterDensitybasedAlgorithmDiscovering1996}.
+
+Como candidatos a incluir en la biblioteca se seleccionaron los algoritmos de agrupamiento basados en densidad más comentados en la literatura, los cuales se presentan a continuación:
+
+\begin{itemize}
+\item OPTICS: genera un ordenamiento de los puntos basado en su densidad de alcanzabilidad, lo que permite identificar estructuras jerárquicas y densidades variables sin requerir un parámetro global de radio. Sin embargo, no devuelve directamente una partición de clústeres, sino que requiere un paso posterior de extracción. Es uno de los algoritmos de referencia más citados en la literatura de agrupamiento basado en densidad \parencite{ankerst1999optics}.
+
+\item HDBSCAN: es una versión extendida de DBSCAN que construye un árbol jerárquico de clústeres basado en la distancia de alcanzabilidad mutua. Extrae los clústeres más estables, lo que le permite manejar densidades variables, detectar formas arbitrarias y aislar el ruido de forma robusta, manteniendo una complejidad computacional adecuada para grandes volúmenes de datos. Está considerado como el estado del arte dentro de los algoritmos jerárquicos basados en densidad por su enfoque híbrido de ambos enfoques \parencite{campello2013density}.
+
+\item DENCLUE: modela el espacio de datos mediante funciones de influencia (como gaussianas) para estimar la densidad. Los clústeres se identifican como los máximos locales de esta función. Su rendimiento depende en gran medida de la correcta configuración del ancho de banda y del umbral de densidad. Se considera uno de los métodos pioneros en combinar funciones de densidad con técnicas de agrupamiento \parencite{hinneburg1998efficient}.
+
+\item DPC: identifica los centros de los clústeres buscando puntos con alta densidad local y una distancia considerable a puntos de mayor densidad, para luego asignar el resto de los puntos. Aunque es conceptualmente simple y no requiere especificar el número de clústeres, su complejidad computacional es \(O(n^2)\) y carece de un mecanismo explícito para el etiquetado de ruido. Es uno de los algoritmos de agrupamiento por densidad más populares de la última década, con miles de citas y múltiples extensiones \parencite{rodriguez2014clustering}.
+\end{itemize}
+
+Para fundamentar la selección del algoritmo que se incluirá en BHAVRP, en la Tabla~\ref{tab:comparate} se realizó un análisis comparativo por sus caracteristicas mas relevantes para resolver la fase de asignación del MDVRP:
+
+\clearpage
+\begin{table}[htbp]
+\centering
+\caption{Tabla comparativa de algoritmos de agrupamiento basados en densidad.}
+\label{tab:comparate}
+ \begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Caracterstica} & \textbf{{OPTICS}} & \textbf{{HDBSCAN}} & \textbf{{DENCLUE}} & \textbf{{DPC}} \\
+\midrule
+Devuelve cluster como resultado & No    & Sí    & Sí    & Sí \\
+Detección de Ruido & Sí    & Sí    & Sí    & Parcial \\
+Pocos Parámetros & Sí    & Sí    & No    & No \\
+Escalabillidad & Media    & Alta    & Media    & Baja \\
+Maneja densidades variables & Parcial    & Sí    & Sí    & No \\
+Forma de los clústeres detectados & Arbitraria & Arbitraria & Arbitraria & Limitada \\
+\bottomrule
+\end{tabular}%
+\end{table}%
+
+A partir del análisis de la Tabla~\ref{tab:comparate}, se seleccionó HDBSCAN como el algoritmo a implementar. Los criterios que fundamentan esta decisión son los siguientes:
+
+\begin{itemize}
+    \item HDBSCAN es el único algoritmo que cumple con todos los criterios deseables de forma positiva. Devuelve clústeres como resultado, detecta ruido, requiere pocos parámetros, posee una escalabilidad alta, maneja densidades variables y detecta formas arbitrarias en los clústeres.
+    
+    \item Aunque OPTICS detecta ruido y requiere pocos parámetros, no devuelve clústeres como resultado directo que es un requisito muy importante para la fase de asignación del MDVRP, solo maneja densidades variables de forma parcial y su escalabilidad es media.
+    
+    \item Si bien DENCLUE devuelve clústeres, detecta ruido y maneja densidades variables, presenta dos desventajas clave frente a HDBSCAN, requiere muchos parámetros lo cual dificulta la selección de un parámetro global dentro de la biblioteca que permita un buen funcionamiento para todas las instancias posibles y su escalabilidad es solo media.
+    
+    \item El algoritmo DPC es el menos adecuado según los criterios evaluados. Requiere demasiados parámetros, su escalabilidad es baja, no maneja densidades variables, la forma de los clústeres que detecta es limitada y su detección de ruido es solo parcial.
+\end{itemize}
+
+Dado que BHAVRP ya contaba con una implementación de DBSCAN en su versión anterior, resulta interesante comparar la implementación existente con la nueva propuesta para entender las ventajas que HDBSCAN aporta a la biblioteca. La Tabla~\ref{tab:dbscan_vs_hdbscan} resume las diferencias clave.
+
+\begin{table}[H]
+\centering
+\caption{Comparación entre DBSCAN y HDBSCAN.}
+\label{tab:dbscan_vs_hdbscan}
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Característica} & \textbf{DBSCAN} & \textbf{HDBSCAN} \\
+\midrule
+Parámetro \(\varepsilon\) (radio) & Requerido & No requerido \\
+Manejo de densidades variables & No & Sí \\
+Extracción de clústeres & Por umbral global & Por estabilidad jerárquica \\
+Detección de ruido & Sí & Sí \\
+Complejidad computacional & \(O(n \log n)\) & \(O(n^2)\) \\
+Calidad de agrupamiento & Limitada por \(\varepsilon\) & Adaptativa \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La principal ventaja de HDBSCAN sobre DBSCAN es la eliminación del parámetro \(\varepsilon\), que en DBSCAN es extremadamente sensible y debe ajustarse manualmente para cada instancia. En su adaptación dentro de la biblioteca este se ajusta automaticamente, sin embargo esto puede fallar en ciertas instancias y empeorar la calidad de la solución. En HDBSCAN la densidad local se captura de forma adaptativa mediante la distancia de alcanzabilidad mutua, lo que permite descubrir clústeres de densidades variables sin intervención del usuario.
+
+Sin embargo, esta mejora tiene un costo: HDBSCAN es computacionalmente más costoso que DBSCAN. Mientras que DBSCAN puede ejecutarse en \(O(n \log n)\) con un índice espacial adecuado, HDBSCAN requiere \(O(n^2)\) en su implementación actual.
+
+La incorporación de HDBSCAN junto a DBSCAN en BHAVRP proporciona a la biblioteca dos enfoques complementarios dentro de la familia de algoritmos basados en densidad: uno muy rápido y simple con DBSCAN y otro más robusto y adaptativo con HDBSCAN. Esto enriquece las opciones disponibles para el usuario y permite tener más mecanismo para detección de ruido dentro de la biblioteca.
+
+\section{Algoritmo HDBSCAN}
+
+El algoritmo \textit{Hierarchical Density-Based Spatial Clustering of Applications with Noise} (HDBSCAN) fue propuesto por \parencite{campello2013density}. El algoritmo es una extensión de DBSCAN convirtiéndolo en un híbrido entre un método jerárquico y basado en densidad, que construye un dendrograma de clústeres y luego extrae una partición plana basada en la estabilidad de los mismos. Su funcionamiento se puede descomponer en cinco fases fundamentales.
+
+\begin{enumerate}
+\item Transformación del espacio: el primer paso consiste en transformar el espacio de datos para reflejar la densidad local. Para cada punto \(p\), se define su distancia al núcleo (\textit{core distance}, \(d_{core}(p)\)) como la distancia al \(k\)-ésimo vecino más cercano, donde \(k = \text{minPts}\). A partir de esta, se define la distancia de alcanzabilidad mutua (\textit{Mutual Reachability Distance}, MRD) entre dos puntos \(p\) y \(q\) como:
+
+\begin{equation}
+d_{mrd}(p, q) = \max\{ d_{core}(p), d_{core}(q), d(p, q) \}
+\end{equation}
+
+donde \(d(p, q)\) es la distancia euclidiana entre \(p\) y \(q\). Esta transformación hace que los puntos en regiones de baja densidad sean ``alejados'' entre sí, mientras que los puntos en regiones densas permanecen cercanos, lo que permite que el algoritmo sea robusto ante el ruido.
+
+\item Construcción del árbol de expansión mínima: con las distancias MRD, se construye un grafo completo donde los nodos son los puntos de datos y el peso de cada arista \((p, q)\) es \(d_{mrd}(p, q)\). Sobre este grafo se calcula el Árbol de Expansión Mínima (\textit{Minimum Spanning Tree}, MST) \parencite{jainAlgorithmsClusteringData1988}, que conecta todos los puntos con el costo total mínimo. El MST se puede construir eficientemente utilizando el algoritmo de Prim\parencite{prim1957shortest}, con una complejidad de \(O(n^2)\) en el peor caso para espacios de baja dimensionalidad.
+
+\item Construcción de la jerarquía de clústeres: a partir del MST, se construye una jerarquía de componentes conectados. Si se ordenan las aristas del MST por peso de menor a mayor y se eliminan progresivamente, se obtiene una secuencia de componentes que se fusionan. Este proceso genera un dendrograma que representa la estructura jerárquica de los clústeres a diferentes niveles de densidad.
+
+\item Condensación de la jerarquía: el dendrograma completo puede contener muchas ramas que representan clústeres con muy pocos puntos. Para simplificarlo, se aplica un proceso de condensación basado en el parámetro \textit{min\_cluster\_size}. Las ramas que no alcanzan este tamaño mínimo se consideran ruido y se podan del árbol, dando como resultado un árbol condensado que solo contiene los clústeres significativos.
+
+\item Extracción de clústeres estables: finalmente, se calcula la estabilidad de cada clúster en el árbol condensado. La estabilidad de un clúster \(C\) se define como la suma, sobre cada punto \(p \in C\), de la diferencia entre el nivel de densidad en el que el punto se une al clúster y el nivel en el que el clúster se divide. El algoritmo selecciona el conjunto de clústeres que maximiza la estabilidad total, lo que resulta en una partición robusta que no depende de un umbral de densidad fijo.
+\end{enumerate}
+
+A modo de resumen en la Figura~\ref{fig:hdbscan_act} se puede apreciar el diagrama de flujo del algoritmo HDBSCAN base.
+
+\figura{activHDBSCAN.png}{1\textwidth}{Diagrama de flujo del algoritmo HDBSCAN.}{fig:hdbscan_act}
+
+\section{Adaptación de HDBSCAN al contexto del MDVRP}
+
+La aplicación directa de HDBSCAN al MDVRP no es posible, ya que el algoritmo original no contempla las restricciones de capacidad de los depósitos ni la necesidad de asignar cada clúster a un depósito específico. Por ello, se diseñó una adaptación que preserva la lógica de agrupamiento por densidad pura y añade una fase posterior de asignación heurística con restricciones de capacidad.
+
+\subsection{Mecanismo de inicialización y configuración}
+
+A diferencia de una ejecución estándar de HDBSCAN, donde los clústeres se forman libremente a partir de la densidad de los datos, en la adaptación propuesta el algoritmo opera exclusivamente sobre el conjunto de clientes. Los depósitos no se introducen en esta etapa, sino que su rol se reserva para la fase de reasignación posterior. 
+
+La clase HDBSCAN hereda de AbstractDensity, la cual proporciona métodos auxiliares para el cálculo de distancias euclidianas y la gestión de clústeres. En la fase de inicialización, se cargan las listas de clientes, depósitos y se crean las estructuras de clústeres vacías a partir de los depósitos. Además, se configuran dinámicamente los dos parámetros principales del algoritmo:
+\begin{itemize}
+    \item \textit{minPoints} (\(m\_pts\)): Se calcula adaptativamente como \(\max(3, \ln(1.5 \cdot N))\), donde \(N\) es el número de clientes. Esto ajusta la sensibilidad a la densidad según el tamaño de la instancia.
+    \item \textit{minClusterSize} (\(m\_clSize\)): Se establece en 2, garantizando que cualquier agrupación significativa tenga al menos dos clientes.
+\end{itemize}
+
+\clearpage
+\subsection{Construcción de la jerarquía y extracción de clústeres}
+
+La implementación sigue fielmente los pasos teóricos de HDBSCAN:
+\begin{enumerate}
+    \item Cálculo de distancias núcleo: para cada cliente, se calcula su distancia al \(m\_pts\)-ésimo vecino más cercano (\(d_{core}\)).
+    \item Construcción del MST: se utiliza el algoritmo de Prim para construir el Árbol de Expansión Mínima (MST) sobre el grafo completo, donde los pesos de las aristas son las distancias de alcanzabilidad mutua (MRD), calculadas como \(\max(d_{core}(p), d_{core}(q), d(p,q))\). Para optimizar la extracción del mínimo, se emplea una estructura de datos auxiliar llamada \textit{Fibonacci Heap}, lo que reduce la complejidad de la cola de prioridad.
+    \item Construcción del dendrograma: se añaden aristas de auto-conexión (self-edges) con el peso de la distancia núcleo y se procesan las aristas del MST ordenadas por peso ascendente. se utiliza la estructura llamada \textit{UnionFind} para gestionar la fusión de componentes conectados de forma eficiente, registrando el nacimiento, la muerte y la estabilidad de cada clúster candidato.
+    \item Extracción por estabilidad: se calcula la estabilidad \(S(C_i)\) para cada clúster y se propaga hacia arriba en el árbol (\(\hat{S}\)). Se seleccionan aquellos clústeres que maximizan la estabilidad total, etiquetando el resto de los puntos (ruido) con el valor \(-1\).
+\end{enumerate}
+
+\subsection{Asignación de clústeres a depósitos}
+
+Una vez que HDBSCAN ha generado los clústeres finales, se procede a la fase de asignación a los depósitos con su respectiva restricción de capacidad. El procedimiento implementado es el siguiente:
+
+\begin{enumerate}
+    \item Cálculo del centroide: para cada clúster \(C_i\), se calcula su centroide \((cx, cy)\) como el promedio de las coordenadas de sus clientes.
+    \item Búsqueda del depósito más cercano: se calcula la distancia euclidiana entre el centroide del clúster y cada depósito, seleccionando el más cercano (\(d_j\)).
+    \item Verificación de capacidad: se comprueba si la demanda acumulada del clúster más la demanda actual del depósito \(d_j\) no excede su capacidad total. Si se cumple, el clúster se fusiona con el depósito y se actualiza su demanda.
+    \item Manejo de clústeres no asignables: si el depósito más cercano no tiene capacidad suficiente, los clientes de ese clúster se eliminan temporalmente del conjunto de clientes asignados (\textit{assignedCustomers}). Esto permite que sean procesados individualmente en la fase de finalización, evitando que un clúster completo quede sin asignar por una restricción de capacidad.
+\end{enumerate}
+
+\subsection{Manejo del ruido y reasignación individual}
+
+Los puntos clasificados como ruido por HDBSCAN, así como los clientes de clústeres que no pudieron ser asignados por falta de capacidad, se procesan en la fase final del algoritmo. Para cada cliente no asignado se aplica la siguiente lógica:
+
+\begin{enumerate}
+    \item Se construye una cola de prioridad con los índices de los depósitos ordenados por distancia ascendente al cliente.
+    \item Se recorre la cola y se asigna el cliente al primer depósito cuya capacidad restante sea suficiente para absorber su demanda individual.
+    \item Si ningún depósito puede absorberlo, el cliente se añade a la lista de elementos no asignados definitivamente (\textit{unnasigned\_items}) en la solución final.
+\end{enumerate}
+
+A modo de resumen en la Figura~\ref{fig:hdbscan_act_adap} se puede apreciar el diagrama de flujo del procedimiento que realiza el algoritmo HDBSCAN adaptado para asignar los clústeres resultantes a los depósitos.
+
+\figura{adapActivHDBSCAN.png}{1\textwidth}{Diagrama de flujo del paso final del algoritmo HDBSCAN adaptado.}{fig:hdbscan_act_adap}
+
+Esta versión de HDBSCAN es una adaptación al MDVRP del algoritmo disponible en la librería de código abierto \textit{Java Statistical Analysis Tool} (JSAT)\parencite{raffJSATJavaStatistical}. De esta librería se reutilizaron las estructuras de datos fundamentales para garantizar el correcto funcionamiento del algoritmo. 
+
+La primera estructura de datos importante es Fibonacci Heap, una estructura de cola de prioridad que ofrece un costo de \(O(1)\) para las operaciones de inserción y disminución de clave (\textit{decrease-key}), y \(O(\log n)\) para la extracción del mínimo \parencite{fredmanFibonacciHeapsUses1987}. Esta característica es crucial para la construcción del Árbol de Expansión Mínima (MST) mediante el algoritmo de Prim, ya que reduce su complejidad de \(O(V^2)\) a \(O(E + V \log V)\) para grafos dispersos \parencite{cormenIntroductionAlgorithms2009}. 
+
+La segunda es la estructura \textit{Disjoint Set Union} (Union-Find), utilizada para gestionar la fusión de componentes conectados durante la construcción de la jerarquía de clústeres \parencite{gallerImprovedEquivalenceAlgorithm1964}. Gracias a las optimizaciones de compresión de caminos y unión por rango, esta estructura permite que las operaciones de búsqueda y unión tengan un costo casi constante de \(O(\alpha(n))\), donde \(\alpha\) es la función inversa de Ackermann \parencite{tarjanWorstcaseAnalysisSet1984}. 
+
+\section{Incorporación del algoritmo propuesto a BHAVRP}
+
+La incorporaci\'on del nuevo algoritmo de agrupamiento a la biblioteca BHAVRP requiri\'o la definici\'on de las siguientes clases:  HDBSCAN que extiende de AbstractDensity, así como un subpaquete de utilidades (\textit{utils}) que contiene las estructuras de datos auxiliares: UnionFind, FibHeap,  FibNode, Pair y Tuple3. Estas clases se integran a la arquitectura existente respetando el patr\'on de dise\~no que organiza los algoritmos de agrupamiento dentro de la biblioteca, basado en el patr\'on \textit{Template Method}. En la Tabla~\ref{tab:clases} se puede apreciar las clases con una peque\~na descripci\'on de estas:
+
+\begin{table}[H]
+\centering
+\caption{Clases implementadas para la incorporaci\'on de los nuevos algoritmos de agrupamiento.}
+\label{tab:clases}
+\small
+\begin{tabular}{@{}lp{10cm}@{}}
+\toprule
+\textbf{Clase} & \textbf{Descripci\'on} \\
+\midrule
+\textbf{HDBSCAN} & Implementa el algoritmo HDBSCAN adaptado al MDVRP. Realiza el cálculo de distancias núcleo, la construcción del MST mediante el algoritmo de Prim, la generación del dendrograma, la extracción de clústeres por estabilidad y la asignación de estos a los depósitos respetando las capacidades. \\
+\textbf{UnionFind} & Implementación de la estructura de datos \textit{Disjoint Set Union} (Union-Find). Se utiliza durante el procesamiento de las aristas del MST para gestionar la fusión eficiente de componentes conectados y construir la jerarquía de clústeres (dendrograma). \\
+\textbf{FibHeap} & Implementación de una cola de prioridad basada en un \textit{Fibonacci Heap}. Se utiliza en el algoritmo de Prim para extraer de forma eficiente el nodo de menor distancia (peso) durante la construcción del MST. \\
+\textbf{FibNode} & Representa un nodo individual dentro del FibHeap. Almacena el valor (índice del cliente), la clave (distancia), punteros a su padre, hijo, nodos hermanos y su grado, facilitando las operaciones de consolidación y disminución de clave. \\
+\textbf{Pair} & Almacena un par de valores genéricos \((X, Y)\). Se utiliza en la fase de extracción de clústeres para registrar las relaciones padre-hijo (clústeres izquierdo y derecho) en el árbol condensado. \\
+\textbf{Tuple3} & Almacena una tupla de tres valores genéricos \((X, Y, Z)\). Se emplea para representar las aristas del MST, donde \(X\) e \(Y\) son los vértices conectados y \(Z\) es el peso (distancia MRD). También se usa para ordenar las aristas durante la construcción del dendrograma. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Una vez definidas las clases que componen la solución, resulta pertinente analizar cómo interactúan durante la ejecución del algoritmo. La Figura~\ref{fig:aaa_act} presenta el diagrama de secuencia de la implementación base de HDBSCAN, correspondiente a la adaptación del algoritmo original de la librería JSAT. 
+
+\figura{aaa.png}{1\textwidth}{Diagrama de secuencia del algoritmo HDBSCAN.}{fig:aaa_act}
+
+%\clearpage
+%	\begin{landscape}
+%		\begin{figure}[p]
+%			\centering
+%			\includegraphics[width=1\paperwidth, height=1\paperwidth,keepaspectratio]{secuencia_diagrama.pdf}
+%			\caption{Diagrama de secuencia de la implementación de HDBSCAN.}
+%			\label{fig:secuencia_hdbscan_base}
+%		\end{figure}
+%	\end{landscape}
+%\clearpage
+
+Este diagrama de secuencia ilustra la interacción dinámica entre las clases descritas en la Tabla~\ref{tab:clases}, abarcando desde la inicialización hasta la extracción de clústeres por estabilidad. Es importante precisar que esta figura representa principalmente el flujo de agrupamiento por densidad.
+
+Para esta actualizaci\'on de la biblioteca fue necesario modificar el paquete \textit{Clustering} de la capa general, ya que todas estas clases fueron implementadas en este. Como se puede apreciar en la Figura~\ref{fig:arquitectura_actualizada}, en azul se muestra el paquete modificado:
+
+\figura{fig14_arquitectura_actualizada.png}{0.85\textwidth}{Diagrama de arquitectura actualizado.}{fig:arquitectura_actualizada}
+
+En BHAVRP, todos los algoritmos de asignaci\'on de clientes a dep\'ositos siguen una estructura com\'un que consta de tres fases: inicializaci\'on, asignaci\'on iterativa y finalizaci\'on. Independientemente de la heur\'istica espec\'ifica, el flujo general es siempre el mismo: se preparan las estructuras de datos, se asignan los clientes a los dep\'ositos respetando las restricciones del problema, y se construye la soluci\'on final. Sin embargo, los detalles de c\'omo se realiza la inicializaci\'on, c\'omo se asignan los clientes en cada iteraci\'on y c\'omo se determina la convergencia var\'ian de un algoritmo a otro.
+
+En este contexto, el patr\'on \textit{Template Method} se utiliza para definir el esqueleto del algoritmo en un m\'etodo plantilla que establece la secuencia invariante de ejecuci\'on. En el dise\~no de BHAVRP, la clase abstracta AssignmentTemplate (que hereda de la clase base Heuristic) encapsula el flujo del algoritmo en su m\'etodo plantilla \textit{toClustering} declarado en la interfaz IAssignment. Este m\'etodo define la secuencia de pasos invariantes:
+
+\begin{enumerate}
+  \item Inicialización (\textit{initialize}): crea las estructuras necesarias, carga los datos y configura los parámetros dinámicos de HDBSCAN.
+  \item Asignación (\textit{assign}): ejecuta el algoritmo HDBSCAN completo como cálculo de distancias, MST, dendrograma, estabilidad y realiza la primera fase de asignación de clústeres a depósitos.
+  \item Finalización (\textit{finish}): genera la solución final, procesando los clientes no asignados como ruido y clústeres rechazados mediante la reasignación individual.
+\end{enumerate}
+
+HDBSCAN respeta este patr\'on al implementar las operaciones abstractas definidas en la plantilla sin modificar la estructura general del flujo. El m\'etodo \textit{to\_clustering} mantiene la secuencia establecida por la clase base, mientras que cada algoritmo redefine los m\'etodos \textit{initialize}, \textit{assign} y \textit{finish} para incorporar su l\'ogica particular de agrupamiento. De esta manera, HDBSCAN implementa la expansi\'on de cl\'usteres basada en densidad y sigue el mismo esquema de ejecuci\'on definido por la biblioteca.
+
+En la Figura~\ref{fig:diagrama_clases} se puede apreciar la jerarqu\'ia de clases donde se aplica el patr\'on Template Method y la implementaci\'on de las nuevas clases respetando este. La clase AssignmentTemplate act\'ua como clase base con el m\'etodo plantilla, y las distintas heur\'isticas de asignaci\'on sobrescriben los m\'etodos abstractos seg\'un su l\'ogica espec\'ifica. La clase HDBSCAN extiende AbstractDensity y utiliza composición con las clases auxiliares para la construcción del MST y el dendrograma.
+
+\clearpage
+	\begin{landscape}
+		\begin{figure}[p]
+			\centering
+			\includegraphics[width=1.1\paperwidth, height=1.1\paperwidth,keepaspectratio]{fig_class_diagram.pdf}
+			\caption{Diagrama de clases del paquete \textit{Clustering}.}
+			\label{fig:diagrama_clases}
+		\end{figure}
+	\end{landscape}
+\clearpage
+
+La integración de HDBSCAN respeta los siguientes principios de diseño de software:
+
+\begin{itemize}
+  \item Principio Abierto/Cerrado: la arquitectura base de BHAVRP no requiere modificaciones para incorporar nuevos algoritmos de agrupamiento. La extensi\'on del sistema se logra mediante la creaci\'on de nuevas clases que implementan los m\'etodos definidos en la jerarqu\'ia existente.
+  \item Principio de Responsabilidad Única: la clase HDBSCAN se encarga exclusivamente de la lógica de agrupamiento y asignación. Las operaciones comunes (cálculo de distancias, manejo de excepciones) se delegan a AbstractDensity, y las estructuras de datos complejas (Fibonacci Heap, Union-Find) se encapsulan en clases auxiliares independientes.
+  \item Alta cohesi\'on: las operaciones relacionadas con el c\'alculo de distancias, vecindades y otras funcionalidades compartidas se agrupan en clases espec\'ificas como AbstractDensity. Esto permite que cada componente del sistema concentre funcionalidades relacionadas entre s\'i.
+  \item Bajo acoplamiento: las implementaciones concretas dependen \'unicamente de las interfaces y estructuras generales proporcionadas por BHAVRP, lo que facilita la sustituci\'on o incorporaci\'on de nuevas heur\'isticas sin afectar el resto del sistema.
+\end{itemize}
+
+La complejidad computacional de HDBSCAN en su implementación estándar es \(O(n^2)\) en el peor caso \parencite{abduaziz2025minimal}, debido al cálculo de la matriz de distancias mutuas y la construcción del MST sobre un grafo completo. Sin embargo, el uso de FibHeap reduce el costo de las operaciones de la cola de prioridad. La fase de asignación de clústeres a depósitos tiene una complejidad de \(O(k \cdot m)\), donde \(k\) es el número de clústeres y \(m\) es el número de depósitos. Dado que \(k \ll n\) y \(m \ll n\), esta fase es computacionalmente despreciable en comparación con el agrupamiento.
+
+La implementación de HDBSCAN en BHAVRP utiliza las excepciones incluidas en la biblioteca para su manejo explícito y poder para garantizar la estabilidad del algoritmo ante datos de entrada inválidos o situaciones imprevistas. Se utilizan las siguientes excepciones:
+
+\begin{itemize}
+    \item ProblemException: se lanza cuando los datos del problema son inconsistentes, por ejemplo, lista de clientes vacía, menos de dos clientes, o ausencia de depósitos.
+    \item ClusterException: se lanza cuando ocurre un error durante la creación o manipulación de los clústeres.
+    \item AssignmentException: encapsula errores inesperados durante la fase de asignación, incluyendo fallos en la construcción del MST o del dendrograma.
+\end{itemize}
+
+En la fase de inicialización, se realizan validaciones como:
+\begin{itemize}
+    \item Verificar que la lista de clientes no sea nula ni vacía.
+    \item Verificar que existan al menos dos clientes para poder agrupar.
+    \item Verificar que la lista de depósitos no esté vacía.
+    \item Verificar que existan identificadores de depósitos para inicializar los clústeres.
+\end{itemize}
+
+Si alguna validación falla, se lanza la excepción correspondiente con un mensaje descriptivo, permitiendo que el sistema que consume BHAVRP pueda reaccionar adecuadamente y buscar una solución con mayor facilidad.
+
+\clearpage
+
+\section{Conclusiones parciales}
+
+A partir del análisis, diseño e implementación descritos en este capítulo, se pueden extraer las siguientes conclusiones:
+
+\begin{itemize}
+  \item La selección de HDBSCAN como algoritmo basado en densidad para BHAVRP se fundamenta en su capacidad para manejar clústeres de densidades variables y su robustez ante el ruido, superando las limitaciones de DBSCAN.
+  \item La adaptación propuesta para el MDVRP, basada en una fase de asignación heurística por cercanía con restricciones de capacidad y reasignación individual de ruido, permite integrar el algoritmo en el contexto logístico sin comprometer la lógica de agrupamiento por densidad.
+  \item La integración de HDBSCAN en la arquitectura de BHAVRP respeta los patrones de diseño existentes como \textit{Template Method} y los principios de diseño de software, garantizando la mantenibilidad y extensibilidad de la biblioteca mediante el uso de clases auxiliares especializadas.
+\end{itemize}

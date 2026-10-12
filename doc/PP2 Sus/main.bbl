@@ -494,8 +494,8 @@
       \strng{authornamehash}{1c80931c8f086c94a4655483e35042d3}
       \strng{authorfullhash}{1c80931c8f086c94a4655483e35042d3}
       \strng{authorfullhashraw}{1c80931c8f086c94a4655483e35042d3}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability}
@@ -949,8 +949,8 @@
       \strng{authornamehash}{8aab5b23db5de7c92331dce1f23c4581}
       \strng{authorfullhash}{4aadd958af0842d831bddca5a11ca439}
       \strng{authorfullhashraw}{4aadd958af0842d831bddca5a11ca439}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computers \& Industrial Engineering}
@@ -990,8 +990,8 @@
       \strng{authornamehash}{918ff77df20642e35a6e188dd28f70ed}
       \strng{authorfullhash}{4613425b3bf7310a559179c1fcf48070}
       \strng{authorfullhashraw}{4613425b3bf7310a559179c1fcf48070}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{European Journal of Operational Research}
@@ -1346,8 +1346,8 @@
       \strng{authornamehash}{5cc32e9899c2d87e130de92ef23a06fb}
       \strng{authorfullhash}{effdf7ec56cc4e347fef9af2d84395cf}
       \strng{authorfullhashraw}{effdf7ec56cc4e347fef9af2d84395cf}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1381-1231}
@@ -1390,8 +1390,8 @@
       \strng{authorfullhash}{3b95e690c87586edebaf7c3c36c6e3d0}
       \strng{authorfullhashraw}{3b95e690c87586edebaf7c3c36c6e3d0}
       \field{extraname}{2}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Networks}
@@ -1872,8 +1872,8 @@
       \strng{authornamehash}{8eed76b07f7359dbd7c10ae47b5c6adf}
       \strng{authorfullhash}{f321d8a6b2be4b04aed7ff24281d57af}
       \strng{authorfullhashraw}{f321d8a6b2be4b04aed7ff24281d57af}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This paper addresses waste collection problems in which urban household and solid waste are brought from waste collection points to waste disposal plants. The collection of waste from the collection points herein is modeled as a multi-depot vehicle routing problem (MDVRP), aiming at minimizing the total transportation distance. In this study, we propose a heuristic solution method to address this problem. In this method, we firstly assign waste collection points to waste disposal plants according to the nearest distance, then each plant solves the single-vehicle routing problem (VRP) respectively, assigning customers to vehicles and planning the order in which customers are visited by vehicles. In the latter step, we propose the sector combination optimization (SCO) algorithm to generate multiple initial solutions, and then these initial solutions are improved using the merge-head and drop-tail (MHDT) strategy. After a certain number of iterations, the optimal solution in the last generation is reported. Computational experiments on benchmark instances showed that the initial solutions obtained by the sector combination optimization algorithm were more abundant and better than other iterative algorithms using only one solution for initialization, and the solutions with distance gap were obtained using the merge-head and drop-tail strategy in a lower CPU time compared to the Tabu search algorithm.}
@@ -1915,8 +1915,8 @@
       \strng{authornamehash}{3bf54f2be74f711cf21d323b264b1e4d}
       \strng{authorfullhash}{3bf54f2be74f711cf21d323b264b1e4d}
       \strng{authorfullhashraw}{3bf54f2be74f711cf21d323b264b1e4d}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{The field of metaheuristics for the application to combinatorial optimization problems is a rapidly growing field of research. This is due to the importance of combinatorial optimization problems for the scientific as well as the industrial world. We give a survey of the nowadays most important metaheuristics from a conceptual point of view. We outline the different components and concepts that are used in the different metaheuristics in order to analyze their similarities and differences. Two very important concepts in metaheuristics are intensification and diversification. These are the two forces that largely determine the behavior of a metaheuristic. They are in some way contrary but also complementary to each other. We introduce a framework, that we call the I\&D frame, in order to put different intensification and diversification components into relation with each other. Outlining the advantages and disadvantages of different metaheuristic approaches we conclude by pointing out the importance of hybridization of metaheuristics as well as the integration of metaheuristics and other methods for optimization.}
@@ -2173,8 +2173,8 @@
       \strng{authornamehash}{ae4b2e28f7d53161f9bca2f552433686}
       \strng{authorfullhash}{b5620b7167309e86115e03c736ba4482}
       \strng{authorfullhashraw}{b5620b7167309e86115e03c736ba4482}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{1}
@@ -2327,8 +2327,8 @@
       \strng{authornamehash}{335dace6ec0e2bebf0539da91c9bcbcc}
       \strng{authorfullhash}{7d897d7d99ec2b7f3cc18de1c1108fcd}
       \strng{authorfullhashraw}{7d897d7d99ec2b7f3cc18de1c1108fcd}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Carpathian Logistics Congress}
@@ -2351,8 +2351,8 @@
       \strng{authornamehash}{a362947969cd784c379ce732fd18ef08}
       \strng{authorfullhash}{a362947969cd784c379ce732fd18ef08}
       \strng{authorfullhashraw}{a362947969cd784c379ce732fd18ef08}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{12}
@@ -2486,6 +2486,674 @@
       \field{type}{Trabajo de diploma (Ingeniería Informática)}
       \field{year}{2017}
       \field{dateera}{ce}
+    \endentry
+    \entry{esterDensitybasedAlgorithmDiscovering1996}{inproceedings}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{4}{}{%
+        {{hash=2c062e64ed26aacc08a62155e7944f04}{%
+           family={Ester},
+           familyi={E\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9559fe65ed2c0877cf14a66fe1f8e9b3}{%
+           family={Kriegel},
+           familyi={K\bibinitperiod},
+           given={Hans-Peter},
+           giveni={H\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=802157026f850823b2027c2100cb359a}{%
+           family={Sander},
+           familyi={S\bibinitperiod},
+           given={Jörg},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2dda16c0a5d50fc830d0d4a3787937fa}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Xiaowei},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{9158a41d23cb4e154e78366d59c05728}
+      \strng{fullhash}{77089c60a08eb43e856376e88849121a}
+      \strng{fullhashraw}{77089c60a08eb43e856376e88849121a}
+      \strng{bibnamehash}{77089c60a08eb43e856376e88849121a}
+      \strng{authorbibnamehash}{77089c60a08eb43e856376e88849121a}
+      \strng{authornamehash}{9158a41d23cb4e154e78366d59c05728}
+      \strng{authorfullhash}{77089c60a08eb43e856376e88849121a}
+      \strng{authorfullhashraw}{77089c60a08eb43e856376e88849121a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Kdd}
+      \field{number}{34}
+      \field{title}{A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise}
+      \field{volume}{96}
+      \field{year}{1996}
+      \field{dateera}{ce}
+      \field{pages}{226\bibrangedash 231}
+      \range{pages}{6}
+      \verb{file}
+      \verb C:\Users\maykel-kevin\Zotero\storage\CHIUS2AD\Ester et al. - A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise.pdf
+      \endverb
+    \endentry
+    \entry{ankerst1999optics}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=30218301c8db6744d898cf2fbef485e7}{%
+           family={Ankerst},
+           familyi={A\bibinitperiod},
+           given={Mihael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=346772f472393316fd22dd8a300d2e7d}{%
+           family={Breunig},
+           familyi={B\bibinitperiod},
+           given={Markus\bibnamedelima M},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=9559fe65ed2c0877cf14a66fe1f8e9b3}{%
+           family={Kriegel},
+           familyi={K\bibinitperiod},
+           given={Hans-Peter},
+           giveni={H\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=802157026f850823b2027c2100cb359a}{%
+           family={Sander},
+           familyi={S\bibinitperiod},
+           given={Jörg},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{353216c878e06e428094c446e94c76c7}
+      \strng{fullhash}{290606bde793f0e777a1762cbed5719f}
+      \strng{fullhashraw}{290606bde793f0e777a1762cbed5719f}
+      \strng{bibnamehash}{290606bde793f0e777a1762cbed5719f}
+      \strng{authorbibnamehash}{290606bde793f0e777a1762cbed5719f}
+      \strng{authornamehash}{353216c878e06e428094c446e94c76c7}
+      \strng{authorfullhash}{290606bde793f0e777a1762cbed5719f}
+      \strng{authorfullhashraw}{290606bde793f0e777a1762cbed5719f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 1999 {{ACM SIGMOD}} International Conference on Management of Data}
+      \field{title}{{{OPTICS}}: Ordering Points to Identify the Clustering Structure}
+      \field{year}{1999}
+      \field{dateera}{ce}
+      \field{pages}{49\bibrangedash 60}
+      \range{pages}{12}
+    \endentry
+    \entry{campello2013density}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=382d8e986b9afdbfedb661be5cf9ce33}{%
+           family={Campello},
+           familyi={C\bibinitperiod},
+           given={Ricardo\bibnamedelima JGB},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=8608b4a10cbfee7eb81b652407a3305a}{%
+           family={Moulavi},
+           familyi={M\bibinitperiod},
+           given={Davoud},
+           giveni={D\bibinitperiod}}}%
+        {{hash=802157026f850823b2027c2100cb359a}{%
+           family={Sander},
+           familyi={S\bibinitperiod},
+           given={Jörg},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{94fdd8ebcd18f5033949784c42c9c2ba}
+      \strng{fullhash}{0037b16bb5d27f7a8060956c93581015}
+      \strng{fullhashraw}{0037b16bb5d27f7a8060956c93581015}
+      \strng{bibnamehash}{0037b16bb5d27f7a8060956c93581015}
+      \strng{authorbibnamehash}{0037b16bb5d27f7a8060956c93581015}
+      \strng{authornamehash}{94fdd8ebcd18f5033949784c42c9c2ba}
+      \strng{authorfullhash}{0037b16bb5d27f7a8060956c93581015}
+      \strng{authorfullhashraw}{0037b16bb5d27f7a8060956c93581015}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Pacific-{{Asia}} Conference on Knowledge Discovery and Data Mining}
+      \field{title}{Density-Based Clustering Based on Hierarchical Density Estimates}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{pages}{160\bibrangedash 172}
+      \range{pages}{13}
+      \verb{file}
+      \verb C:\Users\maykel-kevin\Zotero\storage\BKS7ELI5\Campello et al. - 2013 - Density-based clustering based on hierarchical density estimates.pdf
+      \endverb
+    \endentry
+    \entry{hinneburg1998efficient}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=498e97a23d4417319e95a6af6af725b6}{%
+           family={Hinneburg},
+           familyi={H\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=afd6b4c7bfdbc6a8849818a152ed8006}{%
+           family={Keim},
+           familyi={K\bibinitperiod},
+           given={Daniel\bibnamedelima A},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{bf19fd0b7c6ecf8d83ed0db1a46610c6}
+      \strng{fullhash}{bf19fd0b7c6ecf8d83ed0db1a46610c6}
+      \strng{fullhashraw}{bf19fd0b7c6ecf8d83ed0db1a46610c6}
+      \strng{bibnamehash}{bf19fd0b7c6ecf8d83ed0db1a46610c6}
+      \strng{authorbibnamehash}{bf19fd0b7c6ecf8d83ed0db1a46610c6}
+      \strng{authornamehash}{bf19fd0b7c6ecf8d83ed0db1a46610c6}
+      \strng{authorfullhash}{bf19fd0b7c6ecf8d83ed0db1a46610c6}
+      \strng{authorfullhashraw}{bf19fd0b7c6ecf8d83ed0db1a46610c6}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 4th International Conference on Knowledge Discovery and Data Mining ({{KDD-98}})}
+      \field{title}{An Efficient Approach to Clustering in Large Multimedia Databases with Noise}
+      \field{volume}{98}
+      \field{year}{1998}
+      \field{dateera}{ce}
+      \field{pages}{58\bibrangedash 65}
+      \range{pages}{8}
+    \endentry
+    \entry{rodriguez2014clustering}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=9330cfe1b38ebce195ddf10a5b22338c}{%
+           family={Rodriguez},
+           familyi={R\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=263ee6a0690c44152deeedfc171f05a8}{%
+           family={Laio},
+           familyi={L\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science}%
+      }
+      \strng{namehash}{6237961adcae4a99327fa1ea74c9d9b3}
+      \strng{fullhash}{6237961adcae4a99327fa1ea74c9d9b3}
+      \strng{fullhashraw}{6237961adcae4a99327fa1ea74c9d9b3}
+      \strng{bibnamehash}{6237961adcae4a99327fa1ea74c9d9b3}
+      \strng{authorbibnamehash}{6237961adcae4a99327fa1ea74c9d9b3}
+      \strng{authornamehash}{6237961adcae4a99327fa1ea74c9d9b3}
+      \strng{authorfullhash}{6237961adcae4a99327fa1ea74c9d9b3}
+      \strng{authorfullhashraw}{6237961adcae4a99327fa1ea74c9d9b3}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{number}{6191}
+      \field{title}{Clustering by Fast Search and Find of Density Peaks}
+      \field{volume}{344}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{pages}{1492\bibrangedash 1496}
+      \range{pages}{5}
+    \endentry
+    \entry{prim1957shortest}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=61c0477fc96cd0a4c1f1b551dd5e274c}{%
+           family={Prim},
+           familyi={P\bibinitperiod},
+           given={Robert\bibnamedelima Clay},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{61c0477fc96cd0a4c1f1b551dd5e274c}
+      \strng{fullhash}{61c0477fc96cd0a4c1f1b551dd5e274c}
+      \strng{fullhashraw}{61c0477fc96cd0a4c1f1b551dd5e274c}
+      \strng{bibnamehash}{61c0477fc96cd0a4c1f1b551dd5e274c}
+      \strng{authorbibnamehash}{61c0477fc96cd0a4c1f1b551dd5e274c}
+      \strng{authornamehash}{61c0477fc96cd0a4c1f1b551dd5e274c}
+      \strng{authorfullhash}{61c0477fc96cd0a4c1f1b551dd5e274c}
+      \strng{authorfullhashraw}{61c0477fc96cd0a4c1f1b551dd5e274c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bell System Technical Journal}
+      \field{number}{6}
+      \field{title}{Shortest Connection Networks and Some Generalizations}
+      \field{volume}{36}
+      \field{year}{1957}
+      \field{dateera}{ce}
+      \field{pages}{1389\bibrangedash 1401}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1002/j.1538-7305.1957.tb01515.x
+      \endverb
+    \endentry
+    \entry{raffJSATJavaStatistical}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=db35e12d9d15263d499e410761247d51}{%
+           family={Raff},
+           familyi={R\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{db35e12d9d15263d499e410761247d51}
+      \strng{fullhash}{db35e12d9d15263d499e410761247d51}
+      \strng{fullhashraw}{db35e12d9d15263d499e410761247d51}
+      \strng{bibnamehash}{db35e12d9d15263d499e410761247d51}
+      \strng{authorbibnamehash}{db35e12d9d15263d499e410761247d51}
+      \strng{authornamehash}{db35e12d9d15263d499e410761247d51}
+      \strng{authorfullhash}{db35e12d9d15263d499e410761247d51}
+      \strng{authorfullhashraw}{db35e12d9d15263d499e410761247d51}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{{JSAT}}: {{Java Statistical Analysis Tool}}}
+      \verb{urlraw}
+      \verb https://github.com/EdwardRaff/JSAT
+      \endverb
+      \verb{url}
+      \verb https://github.com/EdwardRaff/JSAT
+      \endverb
+    \endentry
+    \entry{fredmanFibonacciHeapsUses1987}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=87928bfac08fafcf3e80defe20fa4b2f}{%
+           family={Fredman},
+           familyi={F\bibinitperiod},
+           given={Michael\bibnamedelima L.},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=09f1ee63063ed5ad11c3baa87f800eb7}{%
+           family={Tarjan},
+           familyi={T\bibinitperiod},
+           given={Robert\bibnamedelima Endre},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{e364d1c2114616a19ad441c1ca8fea9d}
+      \strng{fullhash}{e364d1c2114616a19ad441c1ca8fea9d}
+      \strng{fullhashraw}{e364d1c2114616a19ad441c1ca8fea9d}
+      \strng{bibnamehash}{e364d1c2114616a19ad441c1ca8fea9d}
+      \strng{authorbibnamehash}{e364d1c2114616a19ad441c1ca8fea9d}
+      \strng{authornamehash}{e364d1c2114616a19ad441c1ca8fea9d}
+      \strng{authorfullhash}{e364d1c2114616a19ad441c1ca8fea9d}
+      \strng{authorfullhashraw}{e364d1c2114616a19ad441c1ca8fea9d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the ACM}
+      \field{number}{3}
+      \field{title}{Fibonacci Heaps and Their Uses in Improved Network Optimization Algorithms}
+      \field{volume}{34}
+      \field{year}{1987}
+      \field{dateera}{ce}
+      \field{pages}{596\bibrangedash 615}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1145/28869.28874
+      \endverb
+    \endentry
+    \entry{cormenIntroductionAlgorithms2009}{book}{}{}
+      \name{author}{4}{}{%
+        {{hash=835b8c52757d98c15859b416316d9820}{%
+           family={Cormen},
+           familyi={C\bibinitperiod},
+           given={Thomas\bibnamedelima H.},
+           giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=a389dea91a76366c4b4af5f52a928a76}{%
+           family={Leiserson},
+           familyi={L\bibinitperiod},
+           given={Charles\bibnamedelima E.},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=3a964821f97ee17f8bb285bc61c52899}{%
+           family={Rivest},
+           familyi={R\bibinitperiod},
+           given={Ronald\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=bc78426660400760f77758aec45e71a8}{%
+           family={Stein},
+           familyi={S\bibinitperiod},
+           given={Clifford},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, MA}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{c251cdfd036d9474565c517e73c19c5d}
+      \strng{fullhash}{10f004e08c7c03d98be0da1231a869ce}
+      \strng{fullhashraw}{10f004e08c7c03d98be0da1231a869ce}
+      \strng{bibnamehash}{10f004e08c7c03d98be0da1231a869ce}
+      \strng{authorbibnamehash}{10f004e08c7c03d98be0da1231a869ce}
+      \strng{authornamehash}{c251cdfd036d9474565c517e73c19c5d}
+      \strng{authorfullhash}{10f004e08c7c03d98be0da1231a869ce}
+      \strng{authorfullhashraw}{10f004e08c7c03d98be0da1231a869ce}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3rd}
+      \field{isbn}{978-0-262-03384-8}
+      \field{title}{Introduction to Algorithms}
+      \field{year}{2009}
+      \field{dateera}{ce}
+    \endentry
+    \entry{gallerImprovedEquivalenceAlgorithm1964}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=ea64b1dbb47f4e3b3a073d261d516fde}{%
+           family={Galler},
+           familyi={G\bibinitperiod},
+           given={Bernard\bibnamedelima A.},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=9785b717133b2f558f2cbf756c97d2c4}{%
+           family={Fischer},
+           familyi={F\bibinitperiod},
+           given={Michael\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{abbcc6cd28960590acbfdfe0498809da}
+      \strng{fullhash}{abbcc6cd28960590acbfdfe0498809da}
+      \strng{fullhashraw}{abbcc6cd28960590acbfdfe0498809da}
+      \strng{bibnamehash}{abbcc6cd28960590acbfdfe0498809da}
+      \strng{authorbibnamehash}{abbcc6cd28960590acbfdfe0498809da}
+      \strng{authornamehash}{abbcc6cd28960590acbfdfe0498809da}
+      \strng{authorfullhash}{abbcc6cd28960590acbfdfe0498809da}
+      \strng{authorfullhashraw}{abbcc6cd28960590acbfdfe0498809da}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications of the ACM}
+      \field{number}{5}
+      \field{title}{An Improved Equivalence Algorithm}
+      \field{volume}{7}
+      \field{year}{1964}
+      \field{dateera}{ce}
+      \field{pages}{301\bibrangedash 303}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1145/364099.364331
+      \endverb
+    \endentry
+    \entry{tarjanWorstcaseAnalysisSet1984}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5db7b92ac36b92505a52cbe66bcce4d6}{%
+           family={Tarjan},
+           familyi={T\bibinitperiod},
+           given={Robert\bibnamedelima E.},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{useprefix=true,hash=85c66f2d841a584a103f4ae08683c2ea}{%
+           family={Leeuwen},
+           familyi={L\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+      }
+      \strng{namehash}{74aca7a3b27e1087d3a635e49c7ada65}
+      \strng{fullhash}{74aca7a3b27e1087d3a635e49c7ada65}
+      \strng{fullhashraw}{74aca7a3b27e1087d3a635e49c7ada65}
+      \strng{bibnamehash}{74aca7a3b27e1087d3a635e49c7ada65}
+      \strng{authorbibnamehash}{74aca7a3b27e1087d3a635e49c7ada65}
+      \strng{authornamehash}{74aca7a3b27e1087d3a635e49c7ada65}
+      \strng{authorfullhash}{74aca7a3b27e1087d3a635e49c7ada65}
+      \strng{authorfullhashraw}{74aca7a3b27e1087d3a635e49c7ada65}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the ACM}
+      \field{number}{2}
+      \field{title}{Worst-Case Analysis of Set Union Algorithms}
+      \field{volume}{31}
+      \field{year}{1984}
+      \field{dateera}{ce}
+      \field{pages}{245\bibrangedash 281}
+      \range{pages}{37}
+      \verb{doi}
+      \verb 10.1145/62.2160
+      \endverb
+    \endentry
+    \entry{abduaziz2025minimal}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=336010cc33ae1a88349e3fbc0021d609}{%
+           family={Abduaziz},
+           familyi={A\bibinitperiod},
+           given={Kayumov},
+           giveni={K\bibinitperiod}}}%
+        {{hash=81380c0813f35eeb96460af89fa94b0d}{%
+           family={Makhammadjonov},
+           familyi={M\bibinitperiod},
+           given={Shukurillo},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0e23fa18784a160abe5028a191f8f12d}{%
+           family={Shin},
+           familyi={S\bibinitperiod},
+           given={Ji\bibnamedelima Sun},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{05c2e584dde8074bdbbed4c2366d48e6}
+      \strng{fullhash}{c4967ab06b7a2f1ba299c2e617d55cf1}
+      \strng{fullhashraw}{c4967ab06b7a2f1ba299c2e617d55cf1}
+      \strng{bibnamehash}{c4967ab06b7a2f1ba299c2e617d55cf1}
+      \strng{authorbibnamehash}{c4967ab06b7a2f1ba299c2e617d55cf1}
+      \strng{authornamehash}{05c2e584dde8074bdbbed4c2366d48e6}
+      \strng{authorfullhash}{c4967ab06b7a2f1ba299c2e617d55cf1}
+      \strng{authorfullhashraw}{c4967ab06b7a2f1ba299c2e617d55cf1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE access : practical innovations, open solutions}
+      \field{shortjournal}{IEEE Access}
+      \field{title}{Minimal and Simplified Analysis of Hierarchical Density-Based Spatial Clustering}
+      \field{volume}{13}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{pages}{145191\bibrangedash 145199}
+      \range{pages}{9}
+      \verb{file}
+      \verb C:\Users\maykel-kevin\Zotero\storage\7FAPNDTM\Abduaziz et al. - 2025 - Minimal and simplified analysis of hierarchical density-based spatial clustering.pdf
+      \endverb
+    \endentry
+    \entry{aragonBHAVRPBibliotecaHeuristicas2025}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=08578767d8665a0b0bfc3cfd5824ed9a}{%
+           family={Aragón},
+           familyi={A\bibinitperiod},
+           given={Eric\bibnamedelima Ramos},
+           giveni={E\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=401c8dc72f4e11cc37d27630d44b315e}{%
+           family={Pérez},
+           familyi={P\bibinitperiod},
+           given={Isis\bibnamedelima Torres},
+           giveni={I\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=52353411736ff873c863b00dc2a11d93}{%
+           family={Suárez},
+           familyi={S\bibinitperiod},
+           given={Alejandro\bibnamedelima Rosete},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=97aed747db8de798e4e906976113eb70}{%
+           family={Morales},
+           familyi={M\bibinitperiod},
+           given={Ananda\bibnamedelimb de\bibnamedelimb la\bibnamedelimb Caridad\bibnamedelima Morales},
+           giveni={A\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim l\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{0cabc55f28abcec067e2d21afbb5d905}
+      \strng{fullhash}{a9d864e23eb6bdb70cd9a863628c4669}
+      \strng{fullhashraw}{a9d864e23eb6bdb70cd9a863628c4669}
+      \strng{bibnamehash}{a9d864e23eb6bdb70cd9a863628c4669}
+      \strng{authorbibnamehash}{a9d864e23eb6bdb70cd9a863628c4669}
+      \strng{authornamehash}{0cabc55f28abcec067e2d21afbb5d905}
+      \strng{authorfullhash}{a9d864e23eb6bdb70cd9a863628c4669}
+      \strng{authorfullhashraw}{a9d864e23eb6bdb70cd9a863628c4669}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Los problemas de optimización asociados a la planificación de rutas de vehículos son muy frecuentes en la vida moderna...}
+      \field{journaltitle}{Revista Cubana de Ingeniería (RCI)}
+      \field{title}{{{BHAVRP}}: {{Biblioteca}} de {{Heurísticas}} de {{Asignación}} Para El {{Problema}} de {{Planificación}} de {{Rutas}} de {{Vehículos}} Con {{Múltiples Depósitos}}}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{pages}{1\bibrangedash 13}
+      \range{pages}{13}
+      \keyw{algoritmos heurísticos,asignación de clientes a depósitos,Problema Planificación de Rutas de Vehículos con Múltiples Depósitos,software de código abierto}
+    \endentry
+    \entry{friedmanUseRanksAvoid1937}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=cf80d45dd9f72d370d69b3cd76de1821}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{cf80d45dd9f72d370d69b3cd76de1821}
+      \strng{fullhash}{cf80d45dd9f72d370d69b3cd76de1821}
+      \strng{fullhashraw}{cf80d45dd9f72d370d69b3cd76de1821}
+      \strng{bibnamehash}{cf80d45dd9f72d370d69b3cd76de1821}
+      \strng{authorbibnamehash}{cf80d45dd9f72d370d69b3cd76de1821}
+      \strng{authornamehash}{cf80d45dd9f72d370d69b3cd76de1821}
+      \strng{authorfullhash}{cf80d45dd9f72d370d69b3cd76de1821}
+      \strng{authorfullhashraw}{cf80d45dd9f72d370d69b3cd76de1821}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the American Statistical Association}
+      \field{number}{200}
+      \field{title}{The Use of Ranks to Avoid the Assumption of Normality Implicit in the Analysis of Variance}
+      \field{volume}{32}
+      \field{year}{1937}
+      \field{dateera}{ce}
+      \field{pages}{675\bibrangedash 701}
+      \range{pages}{27}
+    \endentry
+    \entry{bergmannImprovementsGeneralMultiple1988}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{hash=8a6b5b214281426ee2b09f3162893b39}{%
+           family={Bergmann},
+           familyi={B\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9eb8fd8fd0565ba3f5bdcb9ad099f3f2}{%
+           family={Hommel},
+           familyi={H\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{0b9a79f43619feee19472881c2b20fcb}
+      \strng{fullhash}{0b9a79f43619feee19472881c2b20fcb}
+      \strng{fullhashraw}{0b9a79f43619feee19472881c2b20fcb}
+      \strng{bibnamehash}{0b9a79f43619feee19472881c2b20fcb}
+      \strng{authorbibnamehash}{0b9a79f43619feee19472881c2b20fcb}
+      \strng{authornamehash}{0b9a79f43619feee19472881c2b20fcb}
+      \strng{authorfullhash}{0b9a79f43619feee19472881c2b20fcb}
+      \strng{authorfullhashraw}{0b9a79f43619feee19472881c2b20fcb}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Multiple {{Hypothesenprüfung}} — {{Multiple Hypotheses Testing}}}
+      \field{title}{Improvements of {{General Multiple Test Procedures}} for {{Redundant Systems}} of {{Hypotheses}}}
+      \field{year}{1988}
+      \field{dateera}{ce}
+      \field{pages}{100\bibrangedash 115}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1007/978-3-642-52307-6_8
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-642-52307-6_8
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-642-52307-6_8
+      \endverb
+    \endentry
+    \entry{holmSimpleSequentiallyRejective1979}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=23b6a8c4d3d9710bb3b84d15d65dc86e}{%
+           family={Holm},
+           familyi={H\bibinitperiod},
+           given={Sture},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{23b6a8c4d3d9710bb3b84d15d65dc86e}
+      \strng{fullhash}{23b6a8c4d3d9710bb3b84d15d65dc86e}
+      \strng{fullhashraw}{23b6a8c4d3d9710bb3b84d15d65dc86e}
+      \strng{bibnamehash}{23b6a8c4d3d9710bb3b84d15d65dc86e}
+      \strng{authorbibnamehash}{23b6a8c4d3d9710bb3b84d15d65dc86e}
+      \strng{authornamehash}{23b6a8c4d3d9710bb3b84d15d65dc86e}
+      \strng{authorfullhash}{23b6a8c4d3d9710bb3b84d15d65dc86e}
+      \strng{authorfullhashraw}{23b6a8c4d3d9710bb3b84d15d65dc86e}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{jstor}
+      \field{journaltitle}{Scandinavian Journal of Statistics}
+      \field{title}{A {{Simple Sequentially Rejective Multiple Test Procedure}}}
+      \field{volume}{6}
+      \field{year}{1979}
+      \field{dateera}{ce}
+      \field{pages}{65\bibrangedash 70}
+      \range{pages}{6}
+      \verb{eprint}
+      \verb 4615733
+      \endverb
+      \verb{urlraw}
+      \verb https://www.jstor.org/stable/4615733
+      \endverb
+      \verb{url}
+      \verb https://www.jstor.org/stable/4615733
+      \endverb
+    \endentry
+    \entry{shafferModifiedSequentiallyRejective1986}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=1161cc7aedefb208ed11f96ebc226470}{%
+           family={Shaffer},
+           familyi={S\bibinitperiod},
+           given={Juliet\bibnamedelima Popper},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{1161cc7aedefb208ed11f96ebc226470}
+      \strng{fullhash}{1161cc7aedefb208ed11f96ebc226470}
+      \strng{fullhashraw}{1161cc7aedefb208ed11f96ebc226470}
+      \strng{bibnamehash}{1161cc7aedefb208ed11f96ebc226470}
+      \strng{authorbibnamehash}{1161cc7aedefb208ed11f96ebc226470}
+      \strng{authornamehash}{1161cc7aedefb208ed11f96ebc226470}
+      \strng{authorfullhash}{1161cc7aedefb208ed11f96ebc226470}
+      \strng{authorfullhashraw}{1161cc7aedefb208ed11f96ebc226470}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the American Statistical Association}
+      \field{number}{395}
+      \field{title}{Modified {{Sequentially Rejective Multiple Test Procedures}}}
+      \field{volume}{81}
+      \field{year}{1986}
+      \field{dateera}{ce}
+      \field{pages}{826\bibrangedash 831}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1080/01621459.1986.10478341
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1080/01621459.1986.10478341
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1080/01621459.1986.10478341
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

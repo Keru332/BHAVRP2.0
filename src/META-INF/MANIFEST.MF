@@ -1,6 +1,14 @@
 Manifest-Version: 1.0
 Main-Class: tester.Mainp
-Class-Path: DISTANCE_MEASURE.jar gson-2.10.1.jar httpclient-4.5.13.jar h
- ttpcore-4.4.13.jar junit-4.13.2.jar MATRIX_CLASS.jar org.apache.commons
- .logging_1.1.1.v201101211721-4.8.0.jar OSRMLib.jar poi-3.6-20091214.jar
+Class-Path: java2uml-main.jar javassist.jar junit-4.13.2.jar poi-3.6-200
+ 91214.jar httpcore-4.4.13.jar MATRIX_CLASS.jar DISTANCE_MEASURE.jar org
+ .apache.commons.logging_1.1.1.v201101211721-4.8.0.jar OSRMLib.jar httpc
+ lient-4.5.13.jar gson-2.10.1.jar junit-jupiter-5.8.1.jar junit-jupiter-
+ api-5.8.1.jar opentest4j-1.2.0.jar junit-platform-commons-1.8.1.jar api
+ guardian-api-1.1.2.jar junit-jupiter-params-5.8.1.jar junit-jupiter-eng
+ ine-5.8.1.jar junit-platform-engine-1.8.1.jar graphhopper-core-7.0.jar 
+ mapbox-java-core-2.2.10.jar jackson-core-2.15.2.jar okhttp-5.0.0-alpha.
+ 11.jar mapbox-java-services-2.2.10.jar commons-lang3-3.13.0.jar mapbox-
+ java-geojson-2.2.10.jar slf4j-api-2.0.7.jar commons-codec-1.16.0.jar ht
+ tpclient-4.5.14.jar jackson-databind-2.15.2.jar slf4j-simple-2.0.7.jar
 

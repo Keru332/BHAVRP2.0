@@ -1,5 +1,4 @@
-%  Informe de Practica Profesional I - Implementacion de nuevos
-%  algoritmos de agrupamiento en BHAVRP
+%  Informe de Practica Profesional II
 %  Compilar con: pdflatex (dos veces para el indice)
 %==============================================================
 \documentclass[12pt,letterpaper,oneside]{report}
@@ -30,8 +29,6 @@
 \usepackage{graphicx}
 \usepackage{float}
 \graphicspath{{Figuras/}}
-% Las figuras del documento original deben exportarse del Word
-% (clic derecho -> Guardar como imagen) dentro de la carpeta Figuras/.
 
 %---------------------- Tablas ----------------------------------
 \usepackage{booktabs}
@@ -39,6 +36,8 @@
 \usepackage{multirow}
 \usepackage{colortbl}
 \usepackage{tabularx}
+
+
 
 %---------------------- Encabezados -----------------------------
 \usepackage{fancyhdr}
@@ -50,7 +49,7 @@
 %---------------------- Titulos de capitulos/secciones ----------
 \usepackage{titlesec}
 \titleformat{\chapter}[block]
-  {\normalfont\Large\bfseries}{Cap\'itulo \thechapter:}{0.6em}{}
+  {\normalfont\Large\bfseries}{Capítulo \thechapter:}{0.6em}{}
 \titlespacing*{\chapter}{0pt}{-20pt}{20pt}
 \titleformat{\section}{\normalfont\large\bfseries}{\thesection}{0.8em}{}
 \titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.8em}{}
@@ -71,7 +70,7 @@
       \includegraphics[width=#2]{#1}%
     }{%
       \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering
-        \textit{[Insertar aqu\'i la figura: \texttt{ \detokenize{Figuras/#1}}]}}}}%
+        \textit{[Insertar aquí la figura: \texttt{ \detokenize{Figuras/#1}}]}}}}%
     \caption{#3}\label{#4}
   \end{figure}%
 }
@@ -81,10 +80,19 @@
 %==============================================================
 %\usepackage{csquotes}
 \usepackage[backend=biber, style=ieee]{biblatex}
-\addbibresource{referencias.bib} % Nombre de tu archivo .bib exportado de Zotero
+\addbibresource{referencias.bib}
 %---------------------- Hipervinculos ---------------------------
 \usepackage[plainpages=false,pdfpagelabels ,hidelinks]{hyperref}
 
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+%\usepackage{microtype}
+\widowpenalty=10000
+\clubpenalty=10000
+%==============================================================
+\usepackage{pdflscape}
+\usepackage{rotating}
+%==============================================================
 \begin{document}
 \pagenumbering{roman}
 
@@ -94,9 +102,9 @@
 %==============================================================
 \begin{titlepage}
 \centering
-{\large \textbf{Universidad Tecnol\'ogica de La Habana}}\\[2pt]
-{\large \textbf{``Jos\'e Antonio Echeverr\'ia''}}\\[2pt]
-{\large \textbf{Facultad de Ingenier\'ia Inform\'atica}}\\[40pt]
+{\large \textbf{Universidad Tecnológica de La Habana}}\\[2pt]
+{\large \textbf{``José Antonio Echeverría''}}\\[2pt]
+{\large \textbf{Facultad de Ingeniería Informática}}\\[40pt]
 
 \IfFileExists{Figuras/isotipo.png}{%
   \includegraphics[width=3.2cm]{isotipo.png}\\[40pt]%
@@ -104,21 +112,21 @@
   \fbox{\parbox[c][3.2cm][c]{3.2cm}{\centering\textit{[Logo: Figuras/isotipo.png]}}}\\[40pt]%
 }
 
-{\Large \textbf{Informe de Pr\'actica Profesional II}}\\[30pt]
+{\Large \textbf{Informe de Práctica Profesional II}}\\[30pt]
 
-{\large \textbf{Implementaci\'on de nuevos algoritmos de agrupamiento en BHAVRP}}\\[45pt]
+{\large \textbf{Implementación de nuevo algoritmo de agrupamiento basado en densidad en la Biblioteca de Heurísticas de Asignación para Problemas de Planificación de Rutas de Vehículos con Múltiples Depósitos}}\\[45pt]
 
 \begin{flushleft}
 \hspace{2cm}{\large \textbf{Autor:}}\\[6pt]
-\hspace{2cm}{\large Maykel Kevin D\'iaz Men\'endez}\\[25pt]
+\hspace{2cm}{\large Maykel Kevin Díaz Menéndez}\\[25pt]
 \hspace{2cm}{\large \textbf{Tutores:}}\\[6pt]
-\hspace{2cm}{\large Ing.\ Eric Ramos Arag\'on}\\
+\hspace{2cm}{\large Ing.\ Eric Ramos Aragón}\\
 \hspace{2cm}{\large Ing.\ Ananda de la Caridad Morales Morales}
 \end{flushleft}
 
 \vfill
 {\large \textbf{La Habana, Cuba}}\\[6pt]
-{\large \textbf{Marzo 2026}}
+{\large \textbf{Septiembre 2026}}
 \end{titlepage}
 
 %==============================================================
@@ -126,20 +134,20 @@
 %==============================================================
 \chapter*{Resumen}
 
-El Problema de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos (MDVRP) constituye una variante compleja dentro de los problemas de optimizaci\'on combinatoria. En la pr\'actica, este problema suele resolverse dividi\'endolo en dos etapas: asignar los clientes a los dep\'ositos y construir las rutas desde cada dep\'osito. La Biblioteca de Heur\'isticas de Asignaci\'on para Problemas de Planificaci\'on de Rutas de Veh\'iculos con M\'ultiples Dep\'ositos (BHAVRP) es un componente de software dise\~nado para resolver esta primera fase de asignaci\'on. La biblioteca presenta una arquitectura modular que encapsula m\'etodos de agrupamiento clasificados en particionales y jer\'arquicos, incluye un sistema de tratamiento de excepciones y un conjunto de m\'etricas de evaluaci\'on internas. Actualmente, BHAVRP carece de algoritmos de agrupamiento basados en densidad y cuenta con un solo algoritmo de agrupamiento jer\'arquico. Se propone la incorporaci\'on de dos nuevos algoritmos de agrupamiento: DBSCAN como basado en densidad, y CURE como jer\'arquico. Ambos algoritmos de agrupamiento son adaptados para resolver la fase de asignaci\'on de clientes a dep\'ositos incorporando restricciones de capacidad de los dep\'ositos y mecanismos de asignaci\'on controlada. Por \'ultimo, se realiza un estudio experimental que permite garantizar el correcto funcionamiento de los m\'odulos implementados, as\'i como identificar qu\'e algoritmos generan asignaciones de mayor calidad. Para ello, se utilizan los criterios definidos por las m\'etricas de evaluaci\'on que ya tiene BHAVRP.
+El Problema de Planificación de Rutas de Vehículos con Múltiples Depósitos (MDVRP) constituye una variante compleja dentro de los problemas de optimización combinatoria. En la práctica, este problema suele resolverse dividiéndolo en dos etapas: asignar los clientes a los depósitos y construir las rutas desde cada depósito. La Biblioteca de Heurísticas de Asignación para Problemas de Planificación de Rutas de Vehículos con Múltiples Depósitos (BHAVRP) es un componente de software dise\~nado para resolver esta primera fase de asignación. La biblioteca presenta una arquitectura modular que encapsula algoritmos de agrupamiento clasificados en particionales, jerárquicos y basados en densidad, incluye un sistema de tratamiento de excepciones y un conjunto de métricas de evaluación internas. Actualmente, BHAVRP  cuenta con un solo algoritmo de agrupamiento basado en densidad. Se propone la incorporación de un nuevo algoritmo de agrupamiento basado en densidad HDBSCAN. Este algoritmo de agrupamiento es adaptado para resolver la fase de asignación de clientes a depósitos incorporando restricciones de capacidad de los depósitos y mecanismos de asignación controlada usando como base la implemetación de la biblioteca JSAT. Por último, se realiza un estudio experimental que permite garantizar el correcto funcionamiento de los módulos implementados, así como realizar un análisis de correlación entre las metricas internas y las rutas obtenidas por los clústeres. Para ello, se utilizan los criterios definidos por las métricas de evaluación que ya tiene BHAVRP y la Biblioteca de Heurísticas de Construcción para Problemas de Planificación de Rutas de Vehículos (BHCVRP).
 
 \vspace{12pt}
-\noindent\textbf{Palabras clave:} algoritmos de agrupamiento, BHAVRP, CURE, DBSCAN, MDVRP.
+\noindent\textbf{Palabras clave:} algoritmos de agrupamiento, BHAVRP, HDBSCAN, MDVRP.
 
 %==============================================================
 %                         ABSTRACT
 %==============================================================
 \chapter*{Abstract}
 
-The Multi-Depot Vehicle Routing Problem (MDVRP) is a complex variant within combinatorial optimization problems. In practice, this problem is often solved by dividing it into two stages: assigning customers to depots and building routes from each depot. The Assignment Heuristics Library for Multi-Depot Vehicle Routing Problems (BHAVRP) is a software component designed to solve this first assignment phase. The library features a modular architecture that encapsulates clustering methods classified into partitional and hierarchical, includes an exception handling system, and a set of internal evaluation metrics. Currently, BHAVRP lacks density-based clustering algorithms and has only one hierarchical clustering algorithm. The incorporation of two new clustering algorithms is proposed: DBSCAN as a density-based algorithm, and CURE as a hierarchical algorithm. Both clustering algorithms are adapted to solve the customer-to-depot assignment phase by incorporating depot capacity constraints and controlled assignment mechanisms. Finally, an experimental study is conducted to ensure the correct functioning of the implemented modules, as well as to identify which algorithms generate higher-quality assignments. For this purpose, the criteria defined by the evaluation metrics already present in BHAVRP are used.
+The Multi-Depot Vehicle Routing Problem (MDVRP) constitutes a complex variant within combinatorial optimization problems. In practice, this problem is often solved by dividing it into two stages: assigning customers to depots and building routes from each depot. The Assignment Heuristics Library for Multi-Depot Vehicle Routing Problems (BHAVRP) is a software component designed to solve this first assignment phase. The library features a modular architecture that encapsulates clustering algorithms classified into partitional, hierarchical, and density-based, includes an exception handling system, and a set of internal evaluation metrics. Currently, BHAVRP has only one density-based clustering algorithm. The incorporation of a new density-based clustering algorithm, HDBSCAN, is proposed. This clustering algorithm is adapted to solve the customer-to-depot assignment phase by incorporating depot capacity constraints and controlled assignment mechanisms, using the implementation from the JSAT library as a basis. Finally, an experimental study is conducted to ensure the correct functioning of the implemented modules, as well as to perform a correlation analysis between the internal metrics and the routes obtained by the clusters. For this purpose, the criteria defined by the evaluation metrics already present in BHAVRP and the Construction Heuristics Library for Vehicle Routing Problems (BHCVRP) are used.
 
 \vspace{12pt}
-\noindent\textbf{Keywords:} BHAVRP, CURE, clustering algorithms, DBSCAN, MDVRP.
+\noindent\textbf{Keywords:} BHAVRP, clustering algorithms, HDBSCAN, MDVRP.
 
 %==============================================================
 %                       INDICES
@@ -157,6 +165,6 @@ The Multi-Depot Vehicle Routing Problem (MDVRP) is a complex variant within comb
 \input{chapter2}
 \input{chapter3}
 
-\printbibliography[title={Referencias Bibliogr\'aficas}, heading=bibintoc]
+\printbibliography[title={Referencias Bibliográficas}, heading=bibintoc]
 
 \end{document}

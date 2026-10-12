@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="java2uml-main">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/java2uml-main/out/artifacts/java2uml_main_jar/java2uml-main.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/java2uml-main/src/javassist.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

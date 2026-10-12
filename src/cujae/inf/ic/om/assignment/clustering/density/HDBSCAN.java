@@ -17,6 +17,7 @@ import cujae.inf.ic.om.problem.input.Location;
 import cujae.inf.ic.om.problem.input.Problem;
 import cujae.inf.ic.om.problem.output.Cluster;
 import cujae.inf.ic.om.problem.output.Solution;
+import cujae.inf.ic.om.service.OSRMService;
 
 import java.util.*;
 
@@ -33,8 +34,6 @@ public class HDBSCAN extends AbstractDensity
      */
     private int m_pts;
     private int m_clSize;
-
-    public static DistanceType distance_type = DistanceType.Euclidean;
     private Solution solution = new Solution();
     private ArrayList<Cluster> list_clusters;
     private ArrayList<Depot> list_depots;
@@ -531,10 +530,16 @@ public class HDBSCAN extends AbstractDensity
         }catch (ClusterException e){
             throw new AssignmentException("Error al agregar en lista de no asignados.", e);
         }
-        System.out.println(solution);
         solution.get_clusters().clear();
+
         solution.get_clusters().addAll(list_clusters);
+
+        for (Cluster c : list_clusters){
+            if(c.get_items_of_cluster().isEmpty())
+                solution.get_clusters().remove(c);
+        }
         solution.get_unassigned_items().addAll(unnasigned_items);
+        OSRMService.clear_distance_cache();
         return solution;
     }
 

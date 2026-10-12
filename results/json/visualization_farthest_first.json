@@ -1,190 +1,904 @@
 {
   "heuristic": "Farthest_First",
-  "max_vehicles_capacity": 80.0,
-  "vehicles_per_depot": 4,
+  "max_vehicles_capacity": 175.0,
+  "vehicles_per_depot": 6,
   "total_depots": 4,
-  "total_customers": 50,
+  "total_customers": 288,
   "assigned_depots": 4,
   "depots_assigned": [
     {
-      "depot_id": "51",
-      "coordinate_x": 20.0,
-      "coordinate_y": 20.0,
-      "total_customers_assigned": 14,
+      "depot_id": "289",
+      "coordinate_x": -82.306978,
+      "coordinate_y": 23.150303,
+      "total_customers_assigned": 54,
       "customers_list": [
         {
-          "customer_id": "customer_id_17"
-        },
-        {
-          "customer_id": "customer_id_4"
-        },
-        {
-          "customer_id": "customer_id_44"
+          "customer_id": "customer_id_224"
         },
         {
           "customer_id": "customer_id_37"
         },
         {
-          "customer_id": "customer_id_42"
+          "customer_id": "customer_id_181"
         },
         {
-          "customer_id": "customer_id_19"
+          "customer_id": "customer_id_104"
+        },
+        {
+          "customer_id": "customer_id_160"
+        },
+        {
+          "customer_id": "customer_id_194"
+        },
+        {
+          "customer_id": "customer_id_182"
+        },
+        {
+          "customer_id": "customer_id_44"
+        },
+        {
+          "customer_id": "customer_id_218"
         },
         {
           "customer_id": "customer_id_47"
         },
         {
-          "customer_id": "customer_id_41"
+          "customer_id": "customer_id_259"
         },
         {
-          "customer_id": "customer_id_18"
+          "customer_id": "customer_id_64"
         },
         {
-          "customer_id": "customer_id_15"
+          "customer_id": "customer_id_230"
         },
         {
-          "customer_id": "customer_id_12"
+          "customer_id": "customer_id_242"
         },
         {
-          "customer_id": "customer_id_13"
+          "customer_id": "customer_id_256"
         },
         {
-          "customer_id": "customer_id_45"
+          "customer_id": "customer_id_80"
         },
         {
-          "customer_id": "customer_id_40"
-        }
-      ]
-    },
-    {
-      "depot_id": "52",
-      "coordinate_x": 30.0,
-      "coordinate_y": 40.0,
-      "total_customers_assigned": 12,
-      "customers_list": [
-        {
-          "customer_id": "customer_id_23"
+          "customer_id": "customer_id_257"
         },
         {
-          "customer_id": "customer_id_48"
+          "customer_id": "customer_id_79"
         },
         {
-          "customer_id": "customer_id_6"
+          "customer_id": "customer_id_185"
         },
         {
-          "customer_id": "customer_id_7"
+          "customer_id": "customer_id_82"
         },
         {
-          "customer_id": "customer_id_24"
+          "customer_id": "customer_id_172"
         },
         {
-          "customer_id": "customer_id_27"
+          "customer_id": "customer_id_58"
+        },
+        {
+          "customer_id": "customer_id_150"
+        },
+        {
+          "customer_id": "customer_id_246"
+        },
+        {
+          "customer_id": "customer_id_193"
         },
         {
           "customer_id": "customer_id_14"
         },
         {
-          "customer_id": "customer_id_8"
+          "customer_id": "customer_id_120"
         },
         {
-          "customer_id": "customer_id_26"
+          "customer_id": "customer_id_196"
         },
         {
-          "customer_id": "customer_id_43"
+          "customer_id": "customer_id_214"
         },
         {
-          "customer_id": "customer_id_46"
+          "customer_id": "customer_id_146"
         },
         {
-          "customer_id": "customer_id_25"
-        }
-      ]
-    },
-    {
-      "depot_id": "53",
-      "coordinate_x": 50.0,
-      "coordinate_y": 30.0,
-      "total_customers_assigned": 13,
-      "customers_list": [
-        {
-          "customer_id": "customer_id_9"
+          "customer_id": "customer_id_240"
         },
         {
-          "customer_id": "customer_id_49"
+          "customer_id": "customer_id_121"
         },
         {
-          "customer_id": "customer_id_30"
+          "customer_id": "customer_id_249"
         },
         {
-          "customer_id": "customer_id_50"
-        },
-        {
-          "customer_id": "customer_id_38"
-        },
-        {
-          "customer_id": "customer_id_10"
-        },
-        {
-          "customer_id": "customer_id_34"
+          "customer_id": "customer_id_40"
         },
         {
           "customer_id": "customer_id_16"
         },
         {
-          "customer_id": "customer_id_5"
+          "customer_id": "customer_id_8"
         },
         {
-          "customer_id": "customer_id_11"
+          "customer_id": "customer_id_265"
         },
         {
-          "customer_id": "customer_id_21"
+          "customer_id": "customer_id_12"
         },
         {
-          "customer_id": "customer_id_39"
+          "customer_id": "customer_id_173"
         },
         {
-          "customer_id": "customer_id_33"
-        }
-      ]
-    },
-    {
-      "depot_id": "54",
-      "coordinate_x": 60.0,
-      "coordinate_y": 50.0,
-      "total_customers_assigned": 11,
-      "customers_list": [
-        {
-          "customer_id": "customer_id_3"
+          "customer_id": "customer_id_155"
         },
         {
-          "customer_id": "customer_id_22"
+          "customer_id": "customer_id_156"
         },
         {
-          "customer_id": "customer_id_20"
+          "customer_id": "customer_id_108"
         },
         {
-          "customer_id": "customer_id_2"
+          "customer_id": "customer_id_175"
         },
         {
-          "customer_id": "customer_id_28"
+          "customer_id": "customer_id_223"
         },
         {
-          "customer_id": "customer_id_1"
-        },
-        {
-          "customer_id": "customer_id_29"
-        },
-        {
-          "customer_id": "customer_id_35"
-        },
-        {
-          "customer_id": "customer_id_31"
+          "customer_id": "customer_id_140"
         },
         {
           "customer_id": "customer_id_32"
         },
         {
+          "customer_id": "customer_id_202"
+        },
+        {
+          "customer_id": "customer_id_78"
+        },
+        {
+          "customer_id": "customer_id_17"
+        },
+        {
+          "customer_id": "customer_id_261"
+        },
+        {
+          "customer_id": "customer_id_96"
+        },
+        {
+          "customer_id": "customer_id_83"
+        },
+        {
+          "customer_id": "customer_id_229"
+        },
+        {
+          "customer_id": "customer_id_197"
+        }
+      ]
+    },
+    {
+      "depot_id": "290",
+      "coordinate_x": -82.415377,
+      "coordinate_y": 23.086954,
+      "total_customers_assigned": 63,
+      "customers_list": [
+        {
+          "customer_id": "customer_id_4"
+        },
+        {
+          "customer_id": "customer_id_279"
+        },
+        {
+          "customer_id": "customer_id_274"
+        },
+        {
+          "customer_id": "customer_id_49"
+        },
+        {
+          "customer_id": "customer_id_2"
+        },
+        {
+          "customer_id": "customer_id_35"
+        },
+        {
+          "customer_id": "customer_id_189"
+        },
+        {
+          "customer_id": "customer_id_122"
+        },
+        {
+          "customer_id": "customer_id_81"
+        },
+        {
+          "customer_id": "customer_id_10"
+        },
+        {
+          "customer_id": "customer_id_248"
+        },
+        {
+          "customer_id": "customer_id_255"
+        },
+        {
+          "customer_id": "customer_id_273"
+        },
+        {
+          "customer_id": "customer_id_39"
+        },
+        {
+          "customer_id": "customer_id_73"
+        },
+        {
+          "customer_id": "customer_id_284"
+        },
+        {
+          "customer_id": "customer_id_221"
+        },
+        {
+          "customer_id": "customer_id_88"
+        },
+        {
+          "customer_id": "customer_id_286"
+        },
+        {
+          "customer_id": "customer_id_206"
+        },
+        {
+          "customer_id": "customer_id_171"
+        },
+        {
+          "customer_id": "customer_id_166"
+        },
+        {
+          "customer_id": "customer_id_208"
+        },
+        {
+          "customer_id": "customer_id_169"
+        },
+        {
+          "customer_id": "customer_id_97"
+        },
+        {
+          "customer_id": "customer_id_227"
+        },
+        {
+          "customer_id": "customer_id_267"
+        },
+        {
+          "customer_id": "customer_id_158"
+        },
+        {
+          "customer_id": "customer_id_99"
+        },
+        {
+          "customer_id": "customer_id_275"
+        },
+        {
+          "customer_id": "customer_id_50"
+        },
+        {
+          "customer_id": "customer_id_62"
+        },
+        {
+          "customer_id": "customer_id_6"
+        },
+        {
+          "customer_id": "customer_id_66"
+        },
+        {
+          "customer_id": "customer_id_63"
+        },
+        {
+          "customer_id": "customer_id_243"
+        },
+        {
+          "customer_id": "customer_id_95"
+        },
+        {
+          "customer_id": "customer_id_226"
+        },
+        {
+          "customer_id": "customer_id_27"
+        },
+        {
+          "customer_id": "customer_id_93"
+        },
+        {
+          "customer_id": "customer_id_271"
+        },
+        {
+          "customer_id": "customer_id_210"
+        },
+        {
+          "customer_id": "customer_id_145"
+        },
+        {
+          "customer_id": "customer_id_252"
+        },
+        {
+          "customer_id": "customer_id_107"
+        },
+        {
+          "customer_id": "customer_id_125"
+        },
+        {
+          "customer_id": "customer_id_126"
+        },
+        {
+          "customer_id": "customer_id_138"
+        },
+        {
+          "customer_id": "customer_id_98"
+        },
+        {
+          "customer_id": "customer_id_215"
+        },
+        {
+          "customer_id": "customer_id_262"
+        },
+        {
+          "customer_id": "customer_id_201"
+        },
+        {
+          "customer_id": "customer_id_203"
+        },
+        {
+          "customer_id": "customer_id_153"
+        },
+        {
+          "customer_id": "customer_id_129"
+        },
+        {
+          "customer_id": "customer_id_177"
+        },
+        {
+          "customer_id": "customer_id_225"
+        },
+        {
+          "customer_id": "customer_id_85"
+        },
+        {
+          "customer_id": "customer_id_272"
+        },
+        {
+          "customer_id": "customer_id_124"
+        },
+        {
+          "customer_id": "customer_id_51"
+        },
+        {
+          "customer_id": "customer_id_204"
+        },
+        {
+          "customer_id": "customer_id_149"
+        }
+      ]
+    },
+    {
+      "depot_id": "291",
+      "coordinate_x": -82.375968,
+      "coordinate_y": 23.141567,
+      "total_customers_assigned": 89,
+      "customers_list": [
+        {
+          "customer_id": "customer_id_28"
+        },
+        {
+          "customer_id": "customer_id_109"
+        },
+        {
+          "customer_id": "customer_id_245"
+        },
+        {
+          "customer_id": "customer_id_105"
+        },
+        {
+          "customer_id": "customer_id_151"
+        },
+        {
+          "customer_id": "customer_id_74"
+        },
+        {
+          "customer_id": "customer_id_188"
+        },
+        {
+          "customer_id": "customer_id_207"
+        },
+        {
+          "customer_id": "customer_id_147"
+        },
+        {
+          "customer_id": "customer_id_164"
+        },
+        {
+          "customer_id": "customer_id_87"
+        },
+        {
+          "customer_id": "customer_id_33"
+        },
+        {
+          "customer_id": "customer_id_170"
+        },
+        {
+          "customer_id": "customer_id_253"
+        },
+        {
+          "customer_id": "customer_id_136"
+        },
+        {
+          "customer_id": "customer_id_60"
+        },
+        {
+          "customer_id": "customer_id_161"
+        },
+        {
+          "customer_id": "customer_id_127"
+        },
+        {
+          "customer_id": "customer_id_217"
+        },
+        {
+          "customer_id": "customer_id_71"
+        },
+        {
+          "customer_id": "customer_id_165"
+        },
+        {
+          "customer_id": "customer_id_144"
+        },
+        {
+          "customer_id": "customer_id_34"
+        },
+        {
+          "customer_id": "customer_id_283"
+        },
+        {
+          "customer_id": "customer_id_270"
+        },
+        {
+          "customer_id": "customer_id_52"
+        },
+        {
+          "customer_id": "customer_id_198"
+        },
+        {
+          "customer_id": "customer_id_281"
+        },
+        {
+          "customer_id": "customer_id_239"
+        },
+        {
+          "customer_id": "customer_id_285"
+        },
+        {
+          "customer_id": "customer_id_92"
+        },
+        {
+          "customer_id": "customer_id_142"
+        },
+        {
+          "customer_id": "customer_id_258"
+        },
+        {
+          "customer_id": "customer_id_232"
+        },
+        {
+          "customer_id": "customer_id_48"
+        },
+        {
+          "customer_id": "customer_id_84"
+        },
+        {
+          "customer_id": "customer_id_288"
+        },
+        {
+          "customer_id": "customer_id_260"
+        },
+        {
+          "customer_id": "customer_id_277"
+        },
+        {
+          "customer_id": "customer_id_241"
+        },
+        {
+          "customer_id": "customer_id_21"
+        },
+        {
+          "customer_id": "customer_id_180"
+        },
+        {
+          "customer_id": "customer_id_233"
+        },
+        {
+          "customer_id": "customer_id_154"
+        },
+        {
+          "customer_id": "customer_id_231"
+        },
+        {
+          "customer_id": "customer_id_216"
+        },
+        {
+          "customer_id": "customer_id_162"
+        },
+        {
+          "customer_id": "customer_id_209"
+        },
+        {
+          "customer_id": "customer_id_9"
+        },
+        {
+          "customer_id": "customer_id_287"
+        },
+        {
+          "customer_id": "customer_id_276"
+        },
+        {
+          "customer_id": "customer_id_195"
+        },
+        {
+          "customer_id": "customer_id_115"
+        },
+        {
+          "customer_id": "customer_id_133"
+        },
+        {
+          "customer_id": "customer_id_103"
+        },
+        {
+          "customer_id": "customer_id_132"
+        },
+        {
+          "customer_id": "customer_id_254"
+        },
+        {
+          "customer_id": "customer_id_212"
+        },
+        {
+          "customer_id": "customer_id_61"
+        },
+        {
+          "customer_id": "customer_id_167"
+        },
+        {
+          "customer_id": "customer_id_86"
+        },
+        {
+          "customer_id": "customer_id_176"
+        },
+        {
+          "customer_id": "customer_id_43"
+        },
+        {
+          "customer_id": "customer_id_244"
+        },
+        {
+          "customer_id": "customer_id_187"
+        },
+        {
+          "customer_id": "customer_id_251"
+        },
+        {
+          "customer_id": "customer_id_119"
+        },
+        {
+          "customer_id": "customer_id_264"
+        },
+        {
+          "customer_id": "customer_id_118"
+        },
+        {
+          "customer_id": "customer_id_11"
+        },
+        {
+          "customer_id": "customer_id_56"
+        },
+        {
+          "customer_id": "customer_id_46"
+        },
+        {
+          "customer_id": "customer_id_89"
+        },
+        {
+          "customer_id": "customer_id_90"
+        },
+        {
+          "customer_id": "customer_id_94"
+        },
+        {
+          "customer_id": "customer_id_117"
+        },
+        {
+          "customer_id": "customer_id_68"
+        },
+        {
+          "customer_id": "customer_id_75"
+        },
+        {
+          "customer_id": "customer_id_15"
+        },
+        {
+          "customer_id": "customer_id_192"
+        },
+        {
+          "customer_id": "customer_id_18"
+        },
+        {
+          "customer_id": "customer_id_148"
+        },
+        {
+          "customer_id": "customer_id_178"
+        },
+        {
+          "customer_id": "customer_id_220"
+        },
+        {
+          "customer_id": "customer_id_24"
+        },
+        {
+          "customer_id": "customer_id_110"
+        },
+        {
+          "customer_id": "customer_id_22"
+        },
+        {
+          "customer_id": "customer_id_186"
+        },
+        {
+          "customer_id": "customer_id_199"
+        }
+      ]
+    },
+    {
+      "depot_id": "292",
+      "coordinate_x": -82.383252,
+      "coordinate_y": 23.090523,
+      "total_customers_assigned": 82,
+      "customers_list": [
+        {
+          "customer_id": "customer_id_152"
+        },
+        {
+          "customer_id": "customer_id_38"
+        },
+        {
+          "customer_id": "customer_id_238"
+        },
+        {
+          "customer_id": "customer_id_70"
+        },
+        {
+          "customer_id": "customer_id_163"
+        },
+        {
+          "customer_id": "customer_id_112"
+        },
+        {
+          "customer_id": "customer_id_41"
+        },
+        {
+          "customer_id": "customer_id_42"
+        },
+        {
+          "customer_id": "customer_id_55"
+        },
+        {
+          "customer_id": "customer_id_200"
+        },
+        {
+          "customer_id": "customer_id_137"
+        },
+        {
+          "customer_id": "customer_id_139"
+        },
+        {
           "customer_id": "customer_id_36"
+        },
+        {
+          "customer_id": "customer_id_54"
+        },
+        {
+          "customer_id": "customer_id_183"
+        },
+        {
+          "customer_id": "customer_id_184"
+        },
+        {
+          "customer_id": "customer_id_1"
+        },
+        {
+          "customer_id": "customer_id_31"
+        },
+        {
+          "customer_id": "customer_id_234"
+        },
+        {
+          "customer_id": "customer_id_76"
+        },
+        {
+          "customer_id": "customer_id_101"
+        },
+        {
+          "customer_id": "customer_id_20"
+        },
+        {
+          "customer_id": "customer_id_114"
+        },
+        {
+          "customer_id": "customer_id_174"
+        },
+        {
+          "customer_id": "customer_id_141"
+        },
+        {
+          "customer_id": "customer_id_13"
+        },
+        {
+          "customer_id": "customer_id_3"
+        },
+        {
+          "customer_id": "customer_id_280"
+        },
+        {
+          "customer_id": "customer_id_269"
+        },
+        {
+          "customer_id": "customer_id_59"
+        },
+        {
+          "customer_id": "customer_id_190"
+        },
+        {
+          "customer_id": "customer_id_130"
+        },
+        {
+          "customer_id": "customer_id_143"
+        },
+        {
+          "customer_id": "customer_id_237"
+        },
+        {
+          "customer_id": "customer_id_235"
+        },
+        {
+          "customer_id": "customer_id_100"
+        },
+        {
+          "customer_id": "customer_id_53"
+        },
+        {
+          "customer_id": "customer_id_213"
+        },
+        {
+          "customer_id": "customer_id_278"
+        },
+        {
+          "customer_id": "customer_id_30"
+        },
+        {
+          "customer_id": "customer_id_266"
+        },
+        {
+          "customer_id": "customer_id_29"
+        },
+        {
+          "customer_id": "customer_id_123"
+        },
+        {
+          "customer_id": "customer_id_134"
+        },
+        {
+          "customer_id": "customer_id_45"
+        },
+        {
+          "customer_id": "customer_id_168"
+        },
+        {
+          "customer_id": "customer_id_5"
+        },
+        {
+          "customer_id": "customer_id_247"
+        },
+        {
+          "customer_id": "customer_id_106"
+        },
+        {
+          "customer_id": "customer_id_7"
+        },
+        {
+          "customer_id": "customer_id_111"
+        },
+        {
+          "customer_id": "customer_id_77"
+        },
+        {
+          "customer_id": "customer_id_69"
+        },
+        {
+          "customer_id": "customer_id_57"
+        },
+        {
+          "customer_id": "customer_id_219"
+        },
+        {
+          "customer_id": "customer_id_26"
+        },
+        {
+          "customer_id": "customer_id_65"
+        },
+        {
+          "customer_id": "customer_id_128"
+        },
+        {
+          "customer_id": "customer_id_19"
+        },
+        {
+          "customer_id": "customer_id_191"
+        },
+        {
+          "customer_id": "customer_id_131"
+        },
+        {
+          "customer_id": "customer_id_236"
+        },
+        {
+          "customer_id": "customer_id_113"
+        },
+        {
+          "customer_id": "customer_id_157"
+        },
+        {
+          "customer_id": "customer_id_23"
+        },
+        {
+          "customer_id": "customer_id_205"
+        },
+        {
+          "customer_id": "customer_id_211"
+        },
+        {
+          "customer_id": "customer_id_135"
+        },
+        {
+          "customer_id": "customer_id_25"
+        },
+        {
+          "customer_id": "customer_id_102"
+        },
+        {
+          "customer_id": "customer_id_263"
+        },
+        {
+          "customer_id": "customer_id_91"
+        },
+        {
+          "customer_id": "customer_id_268"
+        },
+        {
+          "customer_id": "customer_id_228"
+        },
+        {
+          "customer_id": "customer_id_72"
+        },
+        {
+          "customer_id": "customer_id_179"
+        },
+        {
+          "customer_id": "customer_id_282"
+        },
+        {
+          "customer_id": "customer_id_67"
+        },
+        {
+          "customer_id": "customer_id_222"
+        },
+        {
+          "customer_id": "customer_id_116"
+        },
+        {
+          "customer_id": "customer_id_250"
+        },
+        {
+          "customer_id": "customer_id_159"
         }
       ]
     }
@@ -192,253 +906,1443 @@
   "customers_list": [
     {
       "id": "customer_id_1",
-      "coordinate_x": 37.0,
-      "coordinate_y": 52.0
+      "coordinate_x": -82.376422,
+      "coordinate_y": 23.087474
     },
     {
       "id": "customer_id_2",
-      "coordinate_x": 49.0,
-      "coordinate_y": 49.0
+      "coordinate_x": -82.429776,
+      "coordinate_y": 23.006367
     },
     {
       "id": "customer_id_3",
-      "coordinate_x": 52.0,
-      "coordinate_y": 64.0
+      "coordinate_x": -82.414229,
+      "coordinate_y": 23.109834
     },
     {
       "id": "customer_id_4",
-      "coordinate_x": 20.0,
-      "coordinate_y": 26.0
+      "coordinate_x": -82.417647,
+      "coordinate_y": 23.024117
     },
     {
       "id": "customer_id_5",
-      "coordinate_x": 40.0,
-      "coordinate_y": 30.0
+      "coordinate_x": -82.389358,
+      "coordinate_y": 23.05847
     },
     {
       "id": "customer_id_6",
-      "coordinate_x": 21.0,
-      "coordinate_y": 47.0
+      "coordinate_x": -82.463803,
+      "coordinate_y": 23.051707
     },
     {
       "id": "customer_id_7",
-      "coordinate_x": 17.0,
-      "coordinate_y": 63.0
+      "coordinate_x": -82.399382,
+      "coordinate_y": 23.128427
     },
     {
       "id": "customer_id_8",
-      "coordinate_x": 31.0,
-      "coordinate_y": 62.0
+      "coordinate_x": -82.302487,
+      "coordinate_y": 23.161409
     },
     {
       "id": "customer_id_9",
-      "coordinate_x": 52.0,
-      "coordinate_y": 33.0
+      "coordinate_x": -82.370666,
+      "coordinate_y": 23.12811
     },
     {
       "id": "customer_id_10",
-      "coordinate_x": 51.0,
-      "coordinate_y": 21.0
+      "coordinate_x": -82.398842,
+      "coordinate_y": 23.009418
     },
     {
       "id": "customer_id_11",
-      "coordinate_x": 42.0,
-      "coordinate_y": 41.0
+      "coordinate_x": -82.390387,
+      "coordinate_y": 23.117907
     },
     {
       "id": "customer_id_12",
-      "coordinate_x": 31.0,
-      "coordinate_y": 32.0
+      "coordinate_x": -82.298778,
+      "coordinate_y": 23.16259
     },
     {
       "id": "customer_id_13",
-      "coordinate_x": 5.0,
-      "coordinate_y": 25.0
+      "coordinate_x": -82.379742,
+      "coordinate_y": 23.072297
     },
     {
       "id": "customer_id_14",
-      "coordinate_x": 12.0,
-      "coordinate_y": 42.0
+      "coordinate_x": -82.311313,
+      "coordinate_y": 23.146947
     },
     {
       "id": "customer_id_15",
-      "coordinate_x": 36.0,
-      "coordinate_y": 16.0
+      "coordinate_x": -82.350639,
+      "coordinate_y": 23.088327
     },
     {
       "id": "customer_id_16",
-      "coordinate_x": 52.0,
-      "coordinate_y": 41.0
+      "coordinate_x": -82.273043,
+      "coordinate_y": 23.056277
     },
     {
       "id": "customer_id_17",
-      "coordinate_x": 27.0,
-      "coordinate_y": 23.0
+      "coordinate_x": -82.247426,
+      "coordinate_y": 23.04566
     },
     {
       "id": "customer_id_18",
-      "coordinate_x": 17.0,
-      "coordinate_y": 33.0
+      "coordinate_x": -82.361194,
+      "coordinate_y": 23.134853
     },
     {
       "id": "customer_id_19",
-      "coordinate_x": 13.0,
-      "coordinate_y": 13.0
+      "coordinate_x": -82.42682,
+      "coordinate_y": 23.068907
     },
     {
       "id": "customer_id_20",
-      "coordinate_x": 57.0,
-      "coordinate_y": 58.0
+      "coordinate_x": -82.399682,
+      "coordinate_y": 23.115427
     },
     {
       "id": "customer_id_21",
-      "coordinate_x": 62.0,
-      "coordinate_y": 42.0
+      "coordinate_x": -82.384812,
+      "coordinate_y": 23.113055
     },
     {
       "id": "customer_id_22",
-      "coordinate_x": 42.0,
-      "coordinate_y": 57.0
+      "coordinate_x": -82.369005,
+      "coordinate_y": 23.137196
     },
     {
       "id": "customer_id_23",
-      "coordinate_x": 16.0,
-      "coordinate_y": 57.0
+      "coordinate_x": -82.360758,
+      "coordinate_y": 23.066801
     },
     {
       "id": "customer_id_24",
-      "coordinate_x": 8.0,
-      "coordinate_y": 52.0
+      "coordinate_x": -82.350188,
+      "coordinate_y": 23.087048
     },
     {
       "id": "customer_id_25",
-      "coordinate_x": 7.0,
-      "coordinate_y": 38.0
+      "coordinate_x": -82.434921,
+      "coordinate_y": 23.069086
     },
     {
       "id": "customer_id_26",
-      "coordinate_x": 27.0,
-      "coordinate_y": 68.0
+      "coordinate_x": -82.359976,
+      "coordinate_y": 23.076203
     },
     {
       "id": "customer_id_27",
-      "coordinate_x": 30.0,
-      "coordinate_y": 48.0
+      "coordinate_x": -82.476014,
+      "coordinate_y": 23.004405
     },
     {
       "id": "customer_id_28",
-      "coordinate_x": 43.0,
-      "coordinate_y": 67.0
+      "coordinate_x": -82.368624,
+      "coordinate_y": 23.110193
     },
     {
       "id": "customer_id_29",
-      "coordinate_x": 58.0,
-      "coordinate_y": 48.0
+      "coordinate_x": -82.401508,
+      "coordinate_y": 23.060804
     },
     {
       "id": "customer_id_30",
-      "coordinate_x": 58.0,
-      "coordinate_y": 27.0
+      "coordinate_x": -82.383125,
+      "coordinate_y": 23.063392
     },
     {
       "id": "customer_id_31",
-      "coordinate_x": 37.0,
-      "coordinate_y": 69.0
+      "coordinate_x": -82.377561,
+      "coordinate_y": 23.082321
     },
     {
       "id": "customer_id_32",
-      "coordinate_x": 38.0,
-      "coordinate_y": 46.0
+      "coordinate_x": -82.264032,
+      "coordinate_y": 23.042012
     },
     {
       "id": "customer_id_33",
-      "coordinate_x": 46.0,
-      "coordinate_y": 10.0
+      "coordinate_x": -82.370739,
+      "coordinate_y": 23.100396
     },
     {
       "id": "customer_id_34",
-      "coordinate_x": 61.0,
-      "coordinate_y": 33.0
+      "coordinate_x": -82.37302,
+      "coordinate_y": 23.119784
     },
     {
       "id": "customer_id_35",
-      "coordinate_x": 62.0,
-      "coordinate_y": 63.0
+      "coordinate_x": -82.422226,
+      "coordinate_y": 23.005016
     },
     {
       "id": "customer_id_36",
-      "coordinate_x": 63.0,
-      "coordinate_y": 69.0
+      "coordinate_x": -82.383895,
+      "coordinate_y": 23.103206
     },
     {
       "id": "customer_id_37",
-      "coordinate_x": 32.0,
-      "coordinate_y": 22.0
+      "coordinate_x": -82.281409,
+      "coordinate_y": 23.1211
     },
     {
       "id": "customer_id_38",
-      "coordinate_x": 45.0,
-      "coordinate_y": 35.0
+      "coordinate_x": -82.387946,
+      "coordinate_y": 23.094576
     },
     {
       "id": "customer_id_39",
-      "coordinate_x": 59.0,
-      "coordinate_y": 15.0
+      "coordinate_x": -82.397085,
+      "coordinate_y": 23.005601
     },
     {
       "id": "customer_id_40",
-      "coordinate_x": 5.0,
-      "coordinate_y": 6.0
+      "coordinate_x": -82.341205,
+      "coordinate_y": 23.084656
     },
     {
       "id": "customer_id_41",
-      "coordinate_x": 10.0,
-      "coordinate_y": 17.0
+      "coordinate_x": -82.38522,
+      "coordinate_y": 23.099796
     },
     {
       "id": "customer_id_42",
-      "coordinate_x": 21.0,
-      "coordinate_y": 10.0
+      "coordinate_x": -82.38284,
+      "coordinate_y": 23.093174
     },
     {
       "id": "customer_id_43",
-      "coordinate_x": 5.0,
-      "coordinate_y": 64.0
+      "coordinate_x": -82.363486,
+      "coordinate_y": 23.085683
     },
     {
       "id": "customer_id_44",
-      "coordinate_x": 30.0,
-      "coordinate_y": 15.0
+      "coordinate_x": -82.316057,
+      "coordinate_y": 23.11695
     },
     {
       "id": "customer_id_45",
-      "coordinate_x": 39.0,
-      "coordinate_y": 10.0
+      "coordinate_x": -82.422277,
+      "coordinate_y": 23.114275
     },
     {
       "id": "customer_id_46",
-      "coordinate_x": 32.0,
-      "coordinate_y": 39.0
+      "coordinate_x": -82.390607,
+      "coordinate_y": 23.119228
     },
     {
       "id": "customer_id_47",
-      "coordinate_x": 25.0,
-      "coordinate_y": 32.0
+      "coordinate_x": -82.306729,
+      "coordinate_y": 23.134403
     },
     {
       "id": "customer_id_48",
-      "coordinate_x": 25.0,
-      "coordinate_y": 55.0
+      "coordinate_x": -82.369946,
+      "coordinate_y": 23.091917
     },
     {
       "id": "customer_id_49",
-      "coordinate_x": 48.0,
-      "coordinate_y": 28.0
+      "coordinate_x": -82.411566,
+      "coordinate_y": 23.021176
     },
     {
       "id": "customer_id_50",
-      "coordinate_x": 56.0,
-      "coordinate_y": 37.0
+      "coordinate_x": -82.469821,
+      "coordinate_y": 23.032043
+    },
+    {
+      "id": "customer_id_51",
+      "coordinate_x": -82.332845,
+      "coordinate_y": 23.020798
+    },
+    {
+      "id": "customer_id_52",
+      "coordinate_x": -82.36108,
+      "coordinate_y": 23.096727
+    },
+    {
+      "id": "customer_id_53",
+      "coordinate_x": -82.405594,
+      "coordinate_y": 23.12212
+    },
+    {
+      "id": "customer_id_54",
+      "coordinate_x": -82.403135,
+      "coordinate_y": 23.10688
+    },
+    {
+      "id": "customer_id_55",
+      "coordinate_x": -82.382617,
+      "coordinate_y": 23.092619
+    },
+    {
+      "id": "customer_id_56",
+      "coordinate_x": -82.346556,
+      "coordinate_y": 23.094446
+    },
+    {
+      "id": "customer_id_57",
+      "coordinate_x": -82.393133,
+      "coordinate_y": 23.130033
+    },
+    {
+      "id": "customer_id_58",
+      "coordinate_x": -82.334088,
+      "coordinate_y": 23.094349
+    },
+    {
+      "id": "customer_id_59",
+      "coordinate_x": -82.420466,
+      "coordinate_y": 23.103559
+    },
+    {
+      "id": "customer_id_60",
+      "coordinate_x": -82.368602,
+      "coordinate_y": 23.098077
+    },
+    {
+      "id": "customer_id_61",
+      "coordinate_x": -82.372544,
+      "coordinate_y": 23.087244
+    },
+    {
+      "id": "customer_id_62",
+      "coordinate_x": -82.462081,
+      "coordinate_y": 23.052635
+    },
+    {
+      "id": "customer_id_63",
+      "coordinate_x": -82.379815,
+      "coordinate_y": 22.992691
+    },
+    {
+      "id": "customer_id_64",
+      "coordinate_x": -82.323914,
+      "coordinate_y": 23.123401
+    },
+    {
+      "id": "customer_id_65",
+      "coordinate_x": -82.427526,
+      "coordinate_y": 23.071542
+    },
+    {
+      "id": "customer_id_66",
+      "coordinate_x": -82.38507,
+      "coordinate_y": 22.985938
+    },
+    {
+      "id": "customer_id_67",
+      "coordinate_x": -82.349995,
+      "coordinate_y": 23.070821
+    },
+    {
+      "id": "customer_id_68",
+      "coordinate_x": -82.349568,
+      "coordinate_y": 23.089937
+    },
+    {
+      "id": "customer_id_69",
+      "coordinate_x": -82.400854,
+      "coordinate_y": 23.129369
+    },
+    {
+      "id": "customer_id_70",
+      "coordinate_x": -82.387992,
+      "coordinate_y": 23.101283
+    },
+    {
+      "id": "customer_id_71",
+      "coordinate_x": -82.375317,
+      "coordinate_y": 23.0994
+    },
+    {
+      "id": "customer_id_72",
+      "coordinate_x": -82.353704,
+      "coordinate_y": 23.066088
+    },
+    {
+      "id": "customer_id_73",
+      "coordinate_x": -82.455644,
+      "coordinate_y": 23.020666
+    },
+    {
+      "id": "customer_id_74",
+      "coordinate_x": -82.366075,
+      "coordinate_y": 23.102649
+    },
+    {
+      "id": "customer_id_75",
+      "coordinate_x": -82.345662,
+      "coordinate_y": 23.093867
+    },
+    {
+      "id": "customer_id_76",
+      "coordinate_x": -82.417042,
+      "coordinate_y": 23.088213
+    },
+    {
+      "id": "customer_id_77",
+      "coordinate_x": -82.425324,
+      "coordinate_y": 23.071653
+    },
+    {
+      "id": "customer_id_78",
+      "coordinate_x": -82.216531,
+      "coordinate_y": 23.108608
+    },
+    {
+      "id": "customer_id_79",
+      "coordinate_x": -82.328683,
+      "coordinate_y": 23.093722
+    },
+    {
+      "id": "customer_id_80",
+      "coordinate_x": -82.328474,
+      "coordinate_y": 23.095667
+    },
+    {
+      "id": "customer_id_81",
+      "coordinate_x": -82.403062,
+      "coordinate_y": 23.037619
+    },
+    {
+      "id": "customer_id_82",
+      "coordinate_x": -82.330193,
+      "coordinate_y": 23.095509
+    },
+    {
+      "id": "customer_id_83",
+      "coordinate_x": -82.183389,
+      "coordinate_y": 23.138475
+    },
+    {
+      "id": "customer_id_84",
+      "coordinate_x": -82.372234,
+      "coordinate_y": 23.092337
+    },
+    {
+      "id": "customer_id_85",
+      "coordinate_x": -82.460622,
+      "coordinate_y": 23.084139
+    },
+    {
+      "id": "customer_id_86",
+      "coordinate_x": -82.345629,
+      "coordinate_y": 23.104775
+    },
+    {
+      "id": "customer_id_87",
+      "coordinate_x": -82.372473,
+      "coordinate_y": 23.102135
+    },
+    {
+      "id": "customer_id_88",
+      "coordinate_x": -82.39213,
+      "coordinate_y": 23.005678
+    },
+    {
+      "id": "customer_id_89",
+      "coordinate_x": -82.366991,
+      "coordinate_y": 23.083097
+    },
+    {
+      "id": "customer_id_90",
+      "coordinate_x": -82.370156,
+      "coordinate_y": 23.133897
+    },
+    {
+      "id": "customer_id_91",
+      "coordinate_x": -82.352944,
+      "coordinate_y": 23.070324
+    },
+    {
+      "id": "customer_id_92",
+      "coordinate_x": -82.382119,
+      "coordinate_y": 23.10312
+    },
+    {
+      "id": "customer_id_93",
+      "coordinate_x": -82.454864,
+      "coordinate_y": 23.066053
+    },
+    {
+      "id": "customer_id_94",
+      "coordinate_x": -82.37345,
+      "coordinate_y": 23.133513
+    },
+    {
+      "id": "customer_id_95",
+      "coordinate_x": -82.466458,
+      "coordinate_y": 23.05226
+    },
+    {
+      "id": "customer_id_96",
+      "coordinate_x": -82.320718,
+      "coordinate_y": 23.01956
+    },
+    {
+      "id": "customer_id_97",
+      "coordinate_x": -82.44734,
+      "coordinate_y": 23.054257
+    },
+    {
+      "id": "customer_id_98",
+      "coordinate_x": -82.466647,
+      "coordinate_y": 23.062753
+    },
+    {
+      "id": "customer_id_99",
+      "coordinate_x": -82.389206,
+      "coordinate_y": 22.990845
+    },
+    {
+      "id": "customer_id_100",
+      "coordinate_x": -82.414553,
+      "coordinate_y": 23.1163
+    },
+    {
+      "id": "customer_id_101",
+      "coordinate_x": -82.391539,
+      "coordinate_y": 23.115348
+    },
+    {
+      "id": "customer_id_102",
+      "coordinate_x": -82.393083,
+      "coordinate_y": 23.140098
+    },
+    {
+      "id": "customer_id_103",
+      "coordinate_x": -82.348525,
+      "coordinate_y": 23.099778
+    },
+    {
+      "id": "customer_id_104",
+      "coordinate_x": -82.306834,
+      "coordinate_y": 23.095421
+    },
+    {
+      "id": "customer_id_105",
+      "coordinate_x": -82.364781,
+      "coordinate_y": 23.10509
+    },
+    {
+      "id": "customer_id_106",
+      "coordinate_x": -82.399941,
+      "coordinate_y": 23.058119
+    },
+    {
+      "id": "customer_id_107",
+      "coordinate_x": -82.47796,
+      "coordinate_y": 23.040097
+    },
+    {
+      "id": "customer_id_108",
+      "coordinate_x": -82.238961,
+      "coordinate_y": 23.130413
+    },
+    {
+      "id": "customer_id_109",
+      "coordinate_x": -82.368879,
+      "coordinate_y": 23.110984
+    },
+    {
+      "id": "customer_id_110",
+      "coordinate_x": -82.364234,
+      "coordinate_y": 23.136818
+    },
+    {
+      "id": "customer_id_111",
+      "coordinate_x": -82.400274,
+      "coordinate_y": 23.128611
+    },
+    {
+      "id": "customer_id_112",
+      "coordinate_x": -82.38393,
+      "coordinate_y": 23.088646
+    },
+    {
+      "id": "customer_id_113",
+      "coordinate_x": -82.430474,
+      "coordinate_y": 23.069272
+    },
+    {
+      "id": "customer_id_114",
+      "coordinate_x": -82.419212,
+      "coordinate_y": 23.088103
+    },
+    {
+      "id": "customer_id_115",
+      "coordinate_x": -82.370597,
+      "coordinate_y": 23.088313
+    },
+    {
+      "id": "customer_id_116",
+      "coordinate_x": -82.351925,
+      "coordinate_y": 23.058001
+    },
+    {
+      "id": "customer_id_117",
+      "coordinate_x": -82.36741,
+      "coordinate_y": 23.082742
+    },
+    {
+      "id": "customer_id_118",
+      "coordinate_x": -82.380464,
+      "coordinate_y": 23.1295
+    },
+    {
+      "id": "customer_id_119",
+      "coordinate_x": -82.369392,
+      "coordinate_y": 23.132816
+    },
+    {
+      "id": "customer_id_120",
+      "coordinate_x": -82.335938,
+      "coordinate_y": 23.092445
+    },
+    {
+      "id": "customer_id_121",
+      "coordinate_x": -82.239605,
+      "coordinate_y": 23.103906
+    },
+    {
+      "id": "customer_id_122",
+      "coordinate_x": -82.41113,
+      "coordinate_y": 23.008738
+    },
+    {
+      "id": "customer_id_123",
+      "coordinate_x": -82.422977,
+      "coordinate_y": 23.111077
+    },
+    {
+      "id": "customer_id_124",
+      "coordinate_x": -82.46325,
+      "coordinate_y": 23.089877
+    },
+    {
+      "id": "customer_id_125",
+      "coordinate_x": -82.367287,
+      "coordinate_y": 23.011048
+    },
+    {
+      "id": "customer_id_126",
+      "coordinate_x": -82.382568,
+      "coordinate_y": 22.980013
+    },
+    {
+      "id": "customer_id_127",
+      "coordinate_x": -82.370753,
+      "coordinate_y": 23.119898
+    },
+    {
+      "id": "customer_id_128",
+      "coordinate_x": -82.387667,
+      "coordinate_y": 23.054685
+    },
+    {
+      "id": "customer_id_129",
+      "coordinate_x": -82.385592,
+      "coordinate_y": 22.967142
+    },
+    {
+      "id": "customer_id_130",
+      "coordinate_x": -82.41551,
+      "coordinate_y": 23.113273
+    },
+    {
+      "id": "customer_id_131",
+      "coordinate_x": -82.373459,
+      "coordinate_y": 23.058015
+    },
+    {
+      "id": "customer_id_132",
+      "coordinate_x": -82.351484,
+      "coordinate_y": 23.09396
+    },
+    {
+      "id": "customer_id_133",
+      "coordinate_x": -82.38068,
+      "coordinate_y": 23.124426
+    },
+    {
+      "id": "customer_id_134",
+      "coordinate_x": -82.36634,
+      "coordinate_y": 23.073789
+    },
+    {
+      "id": "customer_id_135",
+      "coordinate_x": -82.355228,
+      "coordinate_y": 23.069633
+    },
+    {
+      "id": "customer_id_136",
+      "coordinate_x": -82.367194,
+      "coordinate_y": 23.098703
+    },
+    {
+      "id": "customer_id_137",
+      "coordinate_x": -82.383374,
+      "coordinate_y": 23.099006
+    },
+    {
+      "id": "customer_id_138",
+      "coordinate_x": -82.470964,
+      "coordinate_y": 22.98374
+    },
+    {
+      "id": "customer_id_139",
+      "coordinate_x": -82.40451,
+      "coordinate_y": 23.102825
+    },
+    {
+      "id": "customer_id_140",
+      "coordinate_x": -82.265088,
+      "coordinate_y": 23.046218
+    },
+    {
+      "id": "customer_id_141",
+      "coordinate_x": -82.381786,
+      "coordinate_y": 23.071055
+    },
+    {
+      "id": "customer_id_142",
+      "coordinate_x": -82.373179,
+      "coordinate_y": 23.093413
+    },
+    {
+      "id": "customer_id_143",
+      "coordinate_x": -82.421464,
+      "coordinate_y": 23.079147
+    },
+    {
+      "id": "customer_id_144",
+      "coordinate_x": -82.364972,
+      "coordinate_y": 23.096526
+    },
+    {
+      "id": "customer_id_145",
+      "coordinate_x": -82.477731,
+      "coordinate_y": 23.040103
+    },
+    {
+      "id": "customer_id_146",
+      "coordinate_x": -82.301442,
+      "coordinate_y": 23.158037
+    },
+    {
+      "id": "customer_id_147",
+      "coordinate_x": -82.366176,
+      "coordinate_y": 23.100891
+    },
+    {
+      "id": "customer_id_148",
+      "coordinate_x": -82.376026,
+      "coordinate_y": 23.134344
+    },
+    {
+      "id": "customer_id_149",
+      "coordinate_x": -82.520188,
+      "coordinate_y": 23.071845
+    },
+    {
+      "id": "customer_id_150",
+      "coordinate_x": -82.310313,
+      "coordinate_y": 23.146582
+    },
+    {
+      "id": "customer_id_151",
+      "coordinate_x": -82.361926,
+      "coordinate_y": 23.106362
+    },
+    {
+      "id": "customer_id_152",
+      "coordinate_x": -82.389425,
+      "coordinate_y": 23.095082
+    },
+    {
+      "id": "customer_id_153",
+      "coordinate_x": -82.380423,
+      "coordinate_y": 22.972849
+    },
+    {
+      "id": "customer_id_154",
+      "coordinate_x": -82.378973,
+      "coordinate_y": 23.123082
+    },
+    {
+      "id": "customer_id_155",
+      "coordinate_x": -82.305359,
+      "coordinate_y": 23.163128
+    },
+    {
+      "id": "customer_id_156",
+      "coordinate_x": -82.271619,
+      "coordinate_y": 23.052364
+    },
+    {
+      "id": "customer_id_157",
+      "coordinate_x": -82.387773,
+      "coordinate_y": 23.135081
+    },
+    {
+      "id": "customer_id_158",
+      "coordinate_x": -82.380424,
+      "coordinate_y": 23.028976
+    },
+    {
+      "id": "customer_id_159",
+      "coordinate_x": -82.465356,
+      "coordinate_y": 23.080384
+    },
+    {
+      "id": "customer_id_160",
+      "coordinate_x": -82.309489,
+      "coordinate_y": 23.120701
+    },
+    {
+      "id": "customer_id_161",
+      "coordinate_x": -82.378002,
+      "coordinate_y": 23.103852
+    },
+    {
+      "id": "customer_id_162",
+      "coordinate_x": -82.352019,
+      "coordinate_y": 23.096954
+    },
+    {
+      "id": "customer_id_163",
+      "coordinate_x": -82.385644,
+      "coordinate_y": 23.099931
+    },
+    {
+      "id": "customer_id_164",
+      "coordinate_x": -82.366283,
+      "coordinate_y": 23.100807
+    },
+    {
+      "id": "customer_id_165",
+      "coordinate_x": -82.362224,
+      "coordinate_y": 23.097718
+    },
+    {
+      "id": "customer_id_166",
+      "coordinate_x": -82.394079,
+      "coordinate_y": 22.996053
+    },
+    {
+      "id": "customer_id_167",
+      "coordinate_x": -82.363083,
+      "coordinate_y": 23.130272
+    },
+    {
+      "id": "customer_id_168",
+      "coordinate_x": -82.398373,
+      "coordinate_y": 23.127407
+    },
+    {
+      "id": "customer_id_169",
+      "coordinate_x": -82.394704,
+      "coordinate_y": 22.993962
+    },
+    {
+      "id": "customer_id_170",
+      "coordinate_x": -82.366941,
+      "coordinate_y": 23.099783
+    },
+    {
+      "id": "customer_id_171",
+      "coordinate_x": -82.458341,
+      "coordinate_y": 23.03509
+    },
+    {
+      "id": "customer_id_172",
+      "coordinate_x": -82.320535,
+      "coordinate_y": 23.07676
+    },
+    {
+      "id": "customer_id_173",
+      "coordinate_x": -82.282214,
+      "coordinate_y": 23.163144
+    },
+    {
+      "id": "customer_id_174",
+      "coordinate_x": -82.371874,
+      "coordinate_y": 23.082773
+    },
+    {
+      "id": "customer_id_175",
+      "coordinate_x": -82.272728,
+      "coordinate_y": 23.050046
+    },
+    {
+      "id": "customer_id_176",
+      "coordinate_x": -82.3789,
+      "coordinate_y": 23.128116
+    },
+    {
+      "id": "customer_id_177",
+      "coordinate_x": -82.404489,
+      "coordinate_y": 22.956543
+    },
+    {
+      "id": "customer_id_178",
+      "coordinate_x": -82.356484,
+      "coordinate_y": 23.08356
+    },
+    {
+      "id": "customer_id_179",
+      "coordinate_x": -82.388551,
+      "coordinate_y": 23.142323
+    },
+    {
+      "id": "customer_id_180",
+      "coordinate_x": -82.35814,
+      "coordinate_y": 23.093018
+    },
+    {
+      "id": "customer_id_181",
+      "coordinate_x": -82.308659,
+      "coordinate_y": 23.098312
+    },
+    {
+      "id": "customer_id_182",
+      "coordinate_x": -82.268965,
+      "coordinate_y": 23.107446
+    },
+    {
+      "id": "customer_id_183",
+      "coordinate_x": -82.410027,
+      "coordinate_y": 23.101171
+    },
+    {
+      "id": "customer_id_184",
+      "coordinate_x": -82.376864,
+      "coordinate_y": 23.092208
+    },
+    {
+      "id": "customer_id_185",
+      "coordinate_x": -82.318139,
+      "coordinate_y": 23.077945
+    },
+    {
+      "id": "customer_id_186",
+      "coordinate_x": -82.353197,
+      "coordinate_y": 23.081391
+    },
+    {
+      "id": "customer_id_187",
+      "coordinate_x": -82.348125,
+      "coordinate_y": 23.094132
+    },
+    {
+      "id": "customer_id_188",
+      "coordinate_x": -82.37154,
+      "coordinate_y": 23.102334
+    },
+    {
+      "id": "customer_id_189",
+      "coordinate_x": -82.422823,
+      "coordinate_y": 23.003862
+    },
+    {
+      "id": "customer_id_190",
+      "coordinate_x": -82.422239,
+      "coordinate_y": 23.099011
+    },
+    {
+      "id": "customer_id_191",
+      "coordinate_x": -82.392298,
+      "coordinate_y": 23.133199
+    },
+    {
+      "id": "customer_id_192",
+      "coordinate_x": -82.391149,
+      "coordinate_y": 23.120344
+    },
+    {
+      "id": "customer_id_193",
+      "coordinate_x": -82.324711,
+      "coordinate_y": 23.077219
+    },
+    {
+      "id": "customer_id_194",
+      "coordinate_x": -82.297106,
+      "coordinate_y": 23.129439
+    },
+    {
+      "id": "customer_id_195",
+      "coordinate_x": -82.371328,
+      "coordinate_y": 23.088553
+    },
+    {
+      "id": "customer_id_196",
+      "coordinate_x": -82.335832,
+      "coordinate_y": 23.129034
+    },
+    {
+      "id": "customer_id_197",
+      "coordinate_x": -82.144449,
+      "coordinate_y": 23.157735
+    },
+    {
+      "id": "customer_id_198",
+      "coordinate_x": -82.354707,
+      "coordinate_y": 23.104217
+    },
+    {
+      "id": "customer_id_199",
+      "coordinate_x": -82.392558,
+      "coordinate_y": 23.143327
+    },
+    {
+      "id": "customer_id_200",
+      "coordinate_x": -82.382554,
+      "coordinate_y": 23.088802
+    },
+    {
+      "id": "customer_id_201",
+      "coordinate_x": -82.472074,
+      "coordinate_y": 22.983451
+    },
+    {
+      "id": "customer_id_202",
+      "coordinate_x": -82.359771,
+      "coordinate_y": 23.142084
+    },
+    {
+      "id": "customer_id_203",
+      "coordinate_x": -82.383876,
+      "coordinate_y": 22.972054
+    },
+    {
+      "id": "customer_id_204",
+      "coordinate_x": -82.51904,
+      "coordinate_y": 23.067314
+    },
+    {
+      "id": "customer_id_205",
+      "coordinate_x": -82.400288,
+      "coordinate_y": 23.135885
+    },
+    {
+      "id": "customer_id_206",
+      "coordinate_x": -82.389533,
+      "coordinate_y": 23.030796
+    },
+    {
+      "id": "customer_id_207",
+      "coordinate_x": -82.35993,
+      "coordinate_y": 23.109287
+    },
+    {
+      "id": "customer_id_208",
+      "coordinate_x": -82.401509,
+      "coordinate_y": 23.052231
+    },
+    {
+      "id": "customer_id_209",
+      "coordinate_x": -82.370821,
+      "coordinate_y": 23.128022
+    },
+    {
+      "id": "customer_id_210",
+      "coordinate_x": -82.469533,
+      "coordinate_y": 23.053264
+    },
+    {
+      "id": "customer_id_211",
+      "coordinate_x": -82.375849,
+      "coordinate_y": 23.053455
+    },
+    {
+      "id": "customer_id_212",
+      "coordinate_x": -82.365619,
+      "coordinate_y": 23.086773
+    },
+    {
+      "id": "customer_id_213",
+      "coordinate_x": -82.397646,
+      "coordinate_y": 23.061552
+    },
+    {
+      "id": "customer_id_214",
+      "coordinate_x": -82.274899,
+      "coordinate_y": 23.154358
+    },
+    {
+      "id": "customer_id_215",
+      "coordinate_x": -82.470621,
+      "coordinate_y": 23.05921
+    },
+    {
+      "id": "customer_id_216",
+      "coordinate_x": -82.365248,
+      "coordinate_y": 23.127746
+    },
+    {
+      "id": "customer_id_217",
+      "coordinate_x": -82.37743,
+      "coordinate_y": 23.11499
+    },
+    {
+      "id": "customer_id_218",
+      "coordinate_x": -82.303741,
+      "coordinate_y": 23.081043
+    },
+    {
+      "id": "customer_id_219",
+      "coordinate_x": -82.392048,
+      "coordinate_y": 23.131347
+    },
+    {
+      "id": "customer_id_220",
+      "coordinate_x": -82.371543,
+      "coordinate_y": 23.135633
+    },
+    {
+      "id": "customer_id_221",
+      "coordinate_x": -82.420224,
+      "coordinate_y": 23.053783
+    },
+    {
+      "id": "customer_id_222",
+      "coordinate_x": -82.373557,
+      "coordinate_y": 23.139084
+    },
+    {
+      "id": "customer_id_223",
+      "coordinate_x": -82.284143,
+      "coordinate_y": 23.167576
+    },
+    {
+      "id": "customer_id_224",
+      "coordinate_x": -82.291896,
+      "coordinate_y": 23.124001
+    },
+    {
+      "id": "customer_id_225",
+      "coordinate_x": -82.382686,
+      "coordinate_y": 22.965114
+    },
+    {
+      "id": "customer_id_226",
+      "coordinate_x": -82.466322,
+      "coordinate_y": 23.053601
+    },
+    {
+      "id": "customer_id_227",
+      "coordinate_x": -82.395219,
+      "coordinate_y": 22.990486
+    },
+    {
+      "id": "customer_id_228",
+      "coordinate_x": -82.399909,
+      "coordinate_y": 23.141401
+    },
+    {
+      "id": "customer_id_229",
+      "coordinate_x": -82.152425,
+      "coordinate_y": 23.164696
+    },
+    {
+      "id": "customer_id_230",
+      "coordinate_x": -82.328341,
+      "coordinate_y": 23.105302
+    },
+    {
+      "id": "customer_id_231",
+      "coordinate_x": -82.356338,
+      "coordinate_y": 23.093164
+    },
+    {
+      "id": "customer_id_232",
+      "coordinate_x": -82.367227,
+      "coordinate_y": 23.091966
+    },
+    {
+      "id": "customer_id_233",
+      "coordinate_x": -82.384329,
+      "coordinate_y": 23.115769
+    },
+    {
+      "id": "customer_id_234",
+      "coordinate_x": -82.393388,
+      "coordinate_y": 23.11371
+    },
+    {
+      "id": "customer_id_235",
+      "coordinate_x": -82.42261,
+      "coordinate_y": 23.079998
+    },
+    {
+      "id": "customer_id_236",
+      "coordinate_x": -82.355108,
+      "coordinate_y": 23.080427
+    },
+    {
+      "id": "customer_id_237",
+      "coordinate_x": -82.41163,
+      "coordinate_y": 23.0678
+    },
+    {
+      "id": "customer_id_238",
+      "coordinate_x": -82.388358,
+      "coordinate_y": 23.085185
+    },
+    {
+      "id": "customer_id_239",
+      "coordinate_x": -82.353645,
+      "coordinate_y": 23.107855
+    },
+    {
+      "id": "customer_id_240",
+      "coordinate_x": -82.239694,
+      "coordinate_y": 23.105796
+    },
+    {
+      "id": "customer_id_241",
+      "coordinate_x": -82.38148,
+      "coordinate_y": 23.119661
+    },
+    {
+      "id": "customer_id_242",
+      "coordinate_x": -82.329548,
+      "coordinate_y": 23.104587
+    },
+    {
+      "id": "customer_id_243",
+      "coordinate_x": -82.382311,
+      "coordinate_y": 22.988873
+    },
+    {
+      "id": "customer_id_244",
+      "coordinate_x": -82.372476,
+      "coordinate_y": 23.13198
+    },
+    {
+      "id": "customer_id_245",
+      "coordinate_x": -82.366931,
+      "coordinate_y": 23.112202
+    },
+    {
+      "id": "customer_id_246",
+      "coordinate_x": -82.332551,
+      "coordinate_y": 23.124141
+    },
+    {
+      "id": "customer_id_247",
+      "coordinate_x": -82.363761,
+      "coordinate_y": 23.077246
+    },
+    {
+      "id": "customer_id_248",
+      "coordinate_x": -82.398842,
+      "coordinate_y": 23.009418
+    },
+    {
+      "id": "customer_id_249",
+      "coordinate_x": -82.339896,
+      "coordinate_y": 23.0826
+    },
+    {
+      "id": "customer_id_250",
+      "coordinate_x": -82.447299,
+      "coordinate_y": 23.072546
+    },
+    {
+      "id": "customer_id_251",
+      "coordinate_x": -82.348527,
+      "coordinate_y": 23.09348
+    },
+    {
+      "id": "customer_id_252",
+      "coordinate_x": -82.469411,
+      "coordinate_y": 23.055357
+    },
+    {
+      "id": "customer_id_253",
+      "coordinate_x": -82.36759,
+      "coordinate_y": 23.118108
+    },
+    {
+      "id": "customer_id_254",
+      "coordinate_x": -82.365048,
+      "coordinate_y": 23.130169
+    },
+    {
+      "id": "customer_id_255",
+      "coordinate_x": -82.399038,
+      "coordinate_y": 23.008697
+    },
+    {
+      "id": "customer_id_256",
+      "coordinate_x": -82.330158,
+      "coordinate_y": 23.105512
+    },
+    {
+      "id": "customer_id_257",
+      "coordinate_x": -82.323175,
+      "coordinate_y": 23.129468
+    },
+    {
+      "id": "customer_id_258",
+      "coordinate_x": -82.351554,
+      "coordinate_y": 23.10486
+    },
+    {
+      "id": "customer_id_259",
+      "coordinate_x": -82.312736,
+      "coordinate_y": 23.080239
+    },
+    {
+      "id": "customer_id_260",
+      "coordinate_x": -82.37153,
+      "coordinate_y": 23.091629
+    },
+    {
+      "id": "customer_id_261",
+      "coordinate_x": -82.258061,
+      "coordinate_y": 23.033778
+    },
+    {
+      "id": "customer_id_262",
+      "coordinate_x": -82.472107,
+      "coordinate_y": 22.983592
+    },
+    {
+      "id": "customer_id_263",
+      "coordinate_x": -82.37842,
+      "coordinate_y": 23.048472
+    },
+    {
+      "id": "customer_id_264",
+      "coordinate_x": -82.36453,
+      "coordinate_y": 23.132886
+    },
+    {
+      "id": "customer_id_265",
+      "coordinate_x": -82.274031,
+      "coordinate_y": 23.054593
+    },
+    {
+      "id": "customer_id_266",
+      "coordinate_x": -82.424961,
+      "coordinate_y": 23.080599
+    },
+    {
+      "id": "customer_id_267",
+      "coordinate_x": -82.384975,
+      "coordinate_y": 23.000187
+    },
+    {
+      "id": "customer_id_268",
+      "coordinate_x": -82.363114,
+      "coordinate_y": 23.056689
+    },
+    {
+      "id": "customer_id_269",
+      "coordinate_x": -82.417804,
+      "coordinate_y": 23.106499
+    },
+    {
+      "id": "customer_id_270",
+      "coordinate_x": -82.365998,
+      "coordinate_y": 23.095697
+    },
+    {
+      "id": "customer_id_271",
+      "coordinate_x": -82.377998,
+      "coordinate_y": 22.989532
+    },
+    {
+      "id": "customer_id_272",
+      "coordinate_x": -82.463969,
+      "coordinate_y": 23.085604
+    },
+    {
+      "id": "customer_id_273",
+      "coordinate_x": -82.395428,
+      "coordinate_y": 23.016854
+    },
+    {
+      "id": "customer_id_274",
+      "coordinate_x": -82.414831,
+      "coordinate_y": 23.023063
+    },
+    {
+      "id": "customer_id_275",
+      "coordinate_x": -82.382578,
+      "coordinate_y": 22.999254
+    },
+    {
+      "id": "customer_id_276",
+      "coordinate_x": -82.371424,
+      "coordinate_y": 23.128424
+    },
+    {
+      "id": "customer_id_277",
+      "coordinate_x": -82.366208,
+      "coordinate_y": 23.126162
+    },
+    {
+      "id": "customer_id_278",
+      "coordinate_x": -82.425613,
+      "coordinate_y": 23.084587
+    },
+    {
+      "id": "customer_id_279",
+      "coordinate_x": -82.416379,
+      "coordinate_y": 23.024536
+    },
+    {
+      "id": "customer_id_280",
+      "coordinate_x": -82.420555,
+      "coordinate_y": 23.089577
+    },
+    {
+      "id": "customer_id_281",
+      "coordinate_x": -82.358494,
+      "coordinate_y": 23.098355
+    },
+    {
+      "id": "customer_id_282",
+      "coordinate_x": -82.388528,
+      "coordinate_y": 23.142355
+    },
+    {
+      "id": "customer_id_283",
+      "coordinate_x": -82.37302,
+      "coordinate_y": 23.119784
+    },
+    {
+      "id": "customer_id_284",
+      "coordinate_x": -82.395973,
+      "coordinate_y": 23.00479
+    },
+    {
+      "id": "customer_id_285",
+      "coordinate_x": -82.381314,
+      "coordinate_y": 23.114637
+    },
+    {
+      "id": "customer_id_286",
+      "coordinate_x": -82.418221,
+      "coordinate_y": 23.056051
+    },
+    {
+      "id": "customer_id_287",
+      "coordinate_x": -82.38729,
+      "coordinate_y": 23.112608
+    },
+    {
+      "id": "customer_id_288",
+      "coordinate_x": -82.371921,
+      "coordinate_y": 23.124904
     }
   ]
 }

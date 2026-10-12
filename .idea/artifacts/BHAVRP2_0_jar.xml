@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="BHAVRP2.0:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BHAVRP2_0_jar</output-path>
+    <root id="root">
+      <element id="archive" name="BHAVRP2.0-main.jar">
+        <element id="module-output" name="BHAVRP2.0-main" />
+      </element>
+      <element id="library" level="project" name="java2uml-main" />
+      <element id="library" level="project" name="lib" />
+      <element id="library" level="module" name="JUnit5.8.1" module-name="BHAVRP2.0-main" />
+      <element id="library" level="project" name="not_used" />
+    </root>
+  </artifact>
+</component>

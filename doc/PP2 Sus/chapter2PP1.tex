@@ -133,7 +133,7 @@ La incorporaci\'on de los nuevos algoritmos de agrupamiento a la biblioteca BHAV
 \toprule
 \textbf{Clase} & \textbf{Descripci\'on} \\
 \midrule
-\textbf{AbstractDensity} & Clase abstracta que concentra operaciones comunes para algoritmos basados en densidad, como el c\'alculo de distancias, la b\'usqueda de vecinos dentro de un radio $\varepsilon$ y la asignaci\'on de clientes a cl\'usteres. \\
+\textbf{AbstractDensity} & Implementa el algoritmo HDBSCAN adaptado al MDVRP. Orquesta el cálculo de distancias núcleo, la construcción del MST mediante el algoritmo de Prim, la generación del dendrograma, la extracción de clústeres por estabilidad y la asignación de estos a los depósitos respetando las capacidades. \\
 \textbf{DBSCAN} & Implementaci\'on del algoritmo DBSCAN adaptado al MDVRP. Realiza la expansi\'on de cl\'usteres desde los dep\'ositos considerando densidad de clientes, l\'imites de capacidad y posterior reasignaci\'on de clientes no asignados. \\
 \textbf{CURE} & Implementaci\'on del algoritmo jer\'arquico CURE adaptado al MDVRP. Ejecuta la asignaci\'on de clientes a dep\'ositos mediante la fusi\'on progresiva de cl\'usteres basada en la distancia entre puntos representativos. \\
 \textbf{CureCluster} & Estructura utilizada por CURE para representar un cl\'uster durante el proceso de agrupamiento. Mantiene los clientes del cl\'uster, su demanda acumulada, el centroide y los puntos representativos utilizados para calcular distancias entre cl\'usteres. \\
